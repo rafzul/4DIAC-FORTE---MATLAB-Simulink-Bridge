@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.fordiac.ide.model.ui:UISystemConfiguration xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:libraryElement="org.fordiac.ide.model.libraryElement" xmlns:org.fordiac.ide.model.ui="org.fordiac.ide.model.ui">
+  <children xsi:type="org.fordiac.ide.model.ui:DeviceView" deviceElement="//@systemConfigNetwork/@devices.0" inConnections="//@connections.0">
+    <position x="663" y="210"/>
+    <backgroundColor red="225" green="125" blue="117"/>
+    <interfaceElements iInterfaceElement="//@systemConfigNetwork/@devices.0/@varDeclarations.0"/>
+    <resourceContainerView showContent="true">
+      <resources resourceElement="//@systemConfigNetwork/@devices.0/@resource.0">
+        <uIResourceDiagram resourceElement="//@systemConfigNetwork/@devices.0/@resource.0" activeNetwork="//@children.0/@resourceContainerView/@resources.0/@uIResourceDiagram/@fbNetworks.0">
+          <children xsi:type="org.fordiac.ide.model.ui:FBView" fb="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork/@fBs.0">
+            <position x="744" y="672"/>
+            <backgroundColor red="192" green="192" blue="192"/>
+            <interfaceElements iInterfaceElement="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork/@fBs.0/@interface/@eventOutputs.0" fbNetwork="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork"/>
+            <interfaceElements iInterfaceElement="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork/@fBs.0/@interface/@eventOutputs.1" fbNetwork="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork"/>
+            <interfaceElements iInterfaceElement="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork/@fBs.0/@interface/@eventOutputs.2" fbNetwork="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork"/>
+          </children>
+          <fbNetworks>
+            <uiFBNetwork href="plantwide.xml#/"/>
+          </fbNetworks>
+          <fbNetworks>
+            <uiFBNetwork href="App1_ProdQualityandConstraints.xml#/"/>
+          </fbNetworks>
+          <fbNetworks>
+            <uiFBNetwork href="App2_ControlInventories.xml#/"/>
+          </fbNetworks>
+          <fbNetworks>
+            <uiFBNetwork href="App3_ComponentBalances.xml#/"/>
+          </fbNetworks>
+          <mappingEditorSize width="-1" height="250"/>
+        </uIResourceDiagram>
+      </resources>
+    </resourceContainerView>
+  </children>
+  <children xsi:type="org.fordiac.ide.model.ui:SegmentView" segment="//@systemConfigNetwork/@segments.0" outConnections="//@connections.0">
+    <position x="914" y="530"/>
+    <backgroundColor red="66" green="95" blue="200"/>
+    <size width="300" height="-1"/>
+  </children>
+  <connections xsi:type="org.fordiac.ide.model.ui:LinkView" source="//@children.1" link="//@systemConfigNetwork/@links.0" destination="//@children.0"/>
+  <systemConfigNetwork>
+    <devices name="FORTE_PC" identifier="true" profile="HOLOBLOC" inConnections="//@systemConfigNetwork/@links.0" typePath="Devices\FORTE_PC.dev">
+      <resource name="EMB_RES" identifier="true" type="Resources\EMB_RES.res">
+        <fBNetwork>
+          <fBs xsi:type="libraryElement:ResourceTypeFB" name="START" identifier="true" id="_dPafkNJwEei7ptllCq3TOw" resourceTypeFB="true" fbtPath="events\E_RESTART.fbt">
+            <interface>
+              <eventOutputs name="COLD" comment="Cold Restart"/>
+              <eventOutputs name="WARM" comment="Warm Restart"/>
+              <eventOutputs name="STOP" comment="Resource is Stopping"/>
+            </interface>
+            <position x="744" y="672"/>
+          </fBs>
+        </fBNetwork>
+      </resource>
+      <varDeclarations name="MGR_ID" comment="Device manager socket ID" isInput="true" arraySize="-1" typeName="WSTRING">
+        <value value="&quot;localhost:61499&quot;"/>
+        <varInitialization initialValue="&quot;localhost:61499&quot;"/>
+      </varDeclarations>
+    </devices>
+    <segments name="Ethernet" outConnections="//@systemConfigNetwork/@links.0" typePath="Segments\Ethernet.seg">
+      <varDeclarations name="Param" comment="Param" isInput="true" arraySize="-1" typeName="WSTRING"/>
+    </segments>
+    <links segment="//@systemConfigNetwork/@segments.0" device="//@systemConfigNetwork/@devices.0"/>
+  </systemConfigNetwork>
+</org.fordiac.ide.model.ui:UISystemConfiguration>

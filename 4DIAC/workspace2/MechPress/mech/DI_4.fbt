@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE FBType SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<FBType Comment="Function block for a four bit digital input module" Name="DI_4">
+  <Identification Standard="61499-2"/>
+  <VersionInfo Author="4DIAC-IDE" Date="2014-01-12" Organization="4DIAC-Consortium" Version="0.0"/>
+  <InterfaceList>
+    <EventInputs>
+      <Event Comment="Initialization Request" Name="INIT" Type="Event">
+        <With Var="QI"/>
+        <With Var="ID"/>
+      </Event>
+      <Event Comment="Request  update of the input values" Name="REQ" Type="Event">
+        <With Var="QI"/>
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Comment="Initialization Confirm" Name="INITO" Type="Event">
+        <With Var="QO"/>
+      </Event>
+      <Event Comment="Input values updated" Name="CNF" Type="Event">
+        <With Var="QO"/>
+        <With Var="IN_1"/>
+        <With Var="IN_2"/>
+        <With Var="IN_3"/>
+        <With Var="IN_4"/>
+      </Event>
+      <Event Comment="Indication on input value changes" Name="IND" Type="Event">
+        <With Var="QO"/>
+        <With Var="IN_1"/>
+        <With Var="IN_2"/>
+        <With Var="IN_3"/>
+        <With Var="IN_4"/>
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Comment="Input event qualifier" Name="QI" Type="BOOL"/>
+      <VarDeclaration Comment="Identifier for the input module" Name="ID" Type="WSTRING"/>
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Comment="Output event qualifier" Name="QO" Type="BOOL"/>
+      <VarDeclaration Name="IN_1" Type="BOOL"/>
+      <VarDeclaration Name="IN_2" Type="BOOL"/>
+      <VarDeclaration Name="IN_3" Type="BOOL"/>
+      <VarDeclaration Name="IN_4" Type="BOOL"/>
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB Name="SUBSCRIBE_4" Type="SUBSCRIBE_4" x="570.0" y="190.0"/>
+    <DataConnections>
+      <Connection Comment="" Destination="SUBSCRIBE_4.QI" Source="QI" dx1="180.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="SUBSCRIBE_4.ID" Source="ID" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="QO" Source="SUBSCRIBE_4.QO" dx1="275.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="IN_1" Source="SUBSCRIBE_4.RD_1" dx1="360.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="IN_2" Source="SUBSCRIBE_4.RD_2" dx1="460.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="IN_3" Source="SUBSCRIBE_4.RD_3" dx1="550.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="IN_4" Source="SUBSCRIBE_4.RD_4" dx1="650.0" dx2="0.0" dy="0.0"/>
+    </DataConnections>
+    <EventConnections>
+      <Connection Comment="" Destination="CNF" Source="REQ" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="SUBSCRIBE_4.INIT" Source="INIT" dx1="290.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="INITO" Source="SUBSCRIBE_4.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="IND" Source="SUBSCRIBE_4.IND" dx1="175.0" dx2="0.0" dy="0.0"/>
+    </EventConnections>
+  </FBNetwork>
+</FBType>

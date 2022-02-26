@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE FBType SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<FBType Comment="Composite Function Block Type" Name="ControlModule">
+  <Identification Standard="61499-2"/>
+  <VersionInfo Author="4DIAC-IDE" Date="2011-12-28" Organization="4DIAC-Consortium" Version="0.0"/>
+  <InterfaceList>
+    <EventInputs>
+      <Event Comment="Normal Execution Request" Name="REQ" Type="Event">
+        <With Var="FillLevel"/>
+        <With Var="SteamFlow"/>
+        <With Var="Feedwater"/>
+        <With Var="SetpointAuto"/>
+        <With Var="SetpointPoti"/>
+        <With Var="bUsePoti"/>
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Comment="Execution Confirmation" Name="CNF" Type="Event">
+        <With Var="ControlValve"/>
+        <With Var="iErrFC"/>
+        <With Var="iErrLC"/>
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Comment="Input event qualifier" Name="FillLevel" Type="LREAL"/>
+      <VarDeclaration Name="SteamFlow" Type="LREAL"/>
+      <VarDeclaration Name="Feedwater" Type="LREAL"/>
+      <VarDeclaration Name="SetpointAuto" Type="LREAL"/>
+      <VarDeclaration Name="SetpointPoti" Type="INT"/>
+      <VarDeclaration Name="bUsePoti" Type="BOOL"/>
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Comment="Output event qualifier" Name="ControlValve" Type="LREAL"/>
+      <VarDeclaration Name="iErrFC" Type="UINT"/>
+      <VarDeclaration Name="iErrLC" Type="UINT"/>
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB Name="FlowController" Type="FlowController" x="3420.0" y="190.0"/>
+    <FB Name="LevelController" Type="LevelController" x="1160.0" y="145.0"/>
+    <FB Name="ControlComputation" Type="ControlComputation" x="2280.0" y="190.0"/>
+    <DataConnections>
+      <Connection Comment="" Destination="LevelController.Measurement" Source="FillLevel" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="LevelController.SetpointExt" Source="SetpointAuto" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="LevelController.SetpointPoti" Source="SetpointPoti" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="LevelController.bUsePoti" Source="bUsePoti" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="ControlValve" Source="FlowController.ControlOut" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="iErrFC" Source="FlowController.iErr" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="iErrLC" Source="LevelController.iErr" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="ControlComputation.Input1" Source="LevelController.ControlOut" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="FlowController.Setpoint" Source="ControlComputation.ControlOut" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="ControlComputation.Input2" Source="Feedwater" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="ControlComputation.Input3" Source="SteamFlow" dx1="0.0" dx2="0.0" dy="0.0"/>
+    </DataConnections>
+    <EventConnections>
+      <Connection Comment="" Destination="LevelController.REQ" Source="REQ" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="CNF" Source="FlowController.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="ControlComputation.REQ" Source="LevelController.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="FlowController.REQ" Source="ControlComputation.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+    </EventConnections>
+  </FBNetwork>
+</FBType>

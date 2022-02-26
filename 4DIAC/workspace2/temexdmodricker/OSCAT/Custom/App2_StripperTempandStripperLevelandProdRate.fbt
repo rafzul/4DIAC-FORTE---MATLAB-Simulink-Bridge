@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE FBType SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<FBType Comment="Composite Function Block Type" Name="App2_StripperTempandStripperLevelandProdRate">
+  <Identification Standard="61499-2"/>
+  <VersionInfo Author="4DIAC-IDE" Date="2018-11-06" Organization="4DIAC-Consortium" Version="0.0"/>
+  <InterfaceList>
+    <EventInputs>
+      <Event Comment="Initialization Request" Name="INITO" Type="Event"/>
+      <Event Comment="Normal Execution Request" Name="IND" Type="Event">
+        <With Var="XMEAS18"/>
+        <With Var="XMEAS18SETP"/>
+        <With Var="XMEAS15"/>
+        <With Var="XMEAS15SETP"/>
+        <With Var="KP_StripTemp"/>
+        <With Var="KP_StripLevel"/>
+        <With Var="ProductionRate"/>
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Comment="Initialization Confirm" Name="INITO2" Type="Event"/>
+      <Event Comment="Execution Confirmation" Name="CNF" Type="Event">
+        <With Var="XMV9"/>
+        <With Var="XMV7"/>
+        <With Var="XMV8"/>
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="XMEAS18" Type="REAL"/>
+      <VarDeclaration Name="XMEAS18SETP" Type="REAL"/>
+      <VarDeclaration Name="KP_StripTemp" Type="REAL"/>
+      <VarDeclaration Name="XMEAS15" Type="REAL"/>
+      <VarDeclaration Name="XMEAS15SETP" Type="REAL"/>
+      <VarDeclaration Name="KP_StripLevel" Type="REAL"/>
+      <VarDeclaration Name="ProductionRate" Type="REAL"/>
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="XMV9" Type="REAL"/>
+      <VarDeclaration Name="XMV7" Type="REAL"/>
+      <VarDeclaration Name="XMV8" Type="REAL"/>
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB Name="IND2" Type="E_SPLIT" x="1200.0" y="840.0"/>
+    <FB Name="StripperTemp" Type="FB_CTRL_PI" x="2280.0" y="0.0">
+      <Parameter Name="KI" Value="0"/>
+    </FB>
+    <FB Name="StripperLevel" Type="FB_CTRL_PI" x="2280.0" y="1800.0">
+      <Parameter Name="KI" Value="0"/>
+    </FB>
+    <FB Name="CNF2" Type="E_MERGE" x="3120.0" y="720.0"/>
+    <FB Name="INIT2" Type="E_SPLIT" x="1200.0" y="0.0"/>
+    <FB Name="INITO2" Type="E_MERGE" x="3120.0" y="0.0"/>
+    <DataConnections>
+      <Connection Destination="XMV9" Source="StripperTemp.Y" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="XMV7" Source="StripperLevel.Y" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="StripperTemp.ACTUAL" Source="XMEAS18" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="StripperTemp.SET_POINT" Source="XMEAS18SETP" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="StripperLevel.ACTUAL" Source="XMEAS15" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="StripperLevel.SET_POINT" Source="XMEAS15SETP" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="StripperTemp.KP" Source="KP_StripTemp" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="StripperLevel.KP" Source="KP_StripLevel" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="XMV8" Source="ProductionRate" dx1="0.0" dx2="0.0" dy="0.0"/>
+    </DataConnections>
+    <EventConnections>
+      <Connection Destination="StripperTemp.REQ" Source="IND2.EO1" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="StripperLevel.REQ" Source="IND2.EO2" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="CNF2.EI1" Source="StripperTemp.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="CNF2.EI2" Source="StripperLevel.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="CNF" Source="CNF2.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="IND2.EI" Source="IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="INIT2.EI" Source="INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="StripperTemp.INIT" Source="INIT2.EO1" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="StripperLevel.INIT" Source="INIT2.EO2" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="INITO2.EI1" Source="StripperTemp.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="INITO2.EI2" Source="StripperLevel.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="INITO2" Source="INITO2.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+    </EventConnections>
+  </FBNetwork>
+</FBType>

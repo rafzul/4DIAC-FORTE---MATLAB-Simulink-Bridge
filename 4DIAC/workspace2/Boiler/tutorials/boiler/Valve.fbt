@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE FBType SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<FBType Comment="Composite Function Block Type" Name="Valve">
+  <Identification Standard="61499-2"/>
+  <VersionInfo Author="4DIAC-IDE" Date="2011-12-21" Organization="4DIAC-Consortium" Version="0.0"/>
+  <InterfaceList>
+    <EventInputs>
+      <Event Comment="Normal Execution Request" Name="REQ" Type="Event">
+        <With Var="enMode"/>
+        <With Var="rValveState"/>
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Comment="Execution Confirmation" Name="CNF" Type="Event">
+        <With Var="iOutputMotor"/>
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Comment="Input event qualifier" Name="enMode" Type="BOOL"/>
+      <VarDeclaration Name="rValveState" Type="LREAL"/>
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Comment="Output event qualifier" Name="iOutputMotor" Type="INT"/>
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB Name="Motor" Type="Motor" x="2930.0" y="490.0"/>
+    <DataConnections>
+      <Connection Comment="" Destination="Motor.rValveState" Source="rValveState" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="Motor.enMode" Source="enMode" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="iOutputMotor" Source="Motor.iOutputMotor" dx1="0.0" dx2="0.0" dy="0.0"/>
+    </DataConnections>
+    <EventConnections>
+      <Connection Comment="" Destination="Motor.REQ" Source="REQ" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="CNF" Source="Motor.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+    </EventConnections>
+  </FBNetwork>
+</FBType>

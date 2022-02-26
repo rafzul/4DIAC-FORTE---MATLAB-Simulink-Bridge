@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;temexdmod/OSCAT/Custom/Feedforward2.fbt&apos; to &apos;FeedforwardREAL.fbt&apos;" description="Rename resource &apos;Feedforward2.fbt&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="OSCAT/Custom/Feedforward2.fbt" name="FeedforwardREAL.fbt" stamp="1539184180835" updateReferences="true"/>
+</session>

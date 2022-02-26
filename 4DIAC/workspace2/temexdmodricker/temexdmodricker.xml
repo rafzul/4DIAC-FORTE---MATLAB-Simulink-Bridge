@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<libraryElement:AutomationSystem xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:libraryElement="org.fordiac.ide.model.libraryElement" name="temexdmodricker" id="_YQxDkNLZEei-dNthJ7CQQA">
+  <versionInfo author="Author" organization="4DIAC-Consortium" version="1.0"/>
+  <application comment="" name="Loop5">
+    <fBNetwork href="Loop5.xml#//@fbNetwork"/>
+  </application>
+  <application comment="" name="Loop8">
+    <fBNetwork href="Loop8.xml#//@fbNetwork"/>
+  </application>
+  <application comment="" name="Loop4">
+    <fBNetwork href="Loop4.xml#//@fbNetwork"/>
+  </application>
+  <application comment="" name="Loop45">
+    <fBNetwork href="Loop45.xml#//@fbNetwork"/>
+  </application>
+  <systemConfiguration>
+    <systemConfigurationNetwork href="SysConf.xml#//@systemConfigNetwork"/>
+  </systemConfiguration>
+</libraryElement:AutomationSystem>

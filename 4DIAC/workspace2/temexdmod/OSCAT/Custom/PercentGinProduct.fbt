@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE FBType SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<FBType Comment="Composite Function Block Type" Name="PercentGinProduct">
+  <Identification Standard="61499-2"/>
+  <VersionInfo Author="4DIAC-IDE" Date="2018-10-14" Organization="4DIAC-Consortium" Version="0.0"/>
+  <InterfaceList>
+    <EventInputs>
+      <Event Comment="Initialization Request" Name="INIT" Type="Event">
+        <With Var="INITCOND_Eadj"/>
+        <With Var="INITCOND_XMV1"/>
+        <With Var="INITCOND_XMV2"/>
+        <With Var="Fp"/>
+      </Event>
+      <Event Comment="Normal Execution Request" Name="REQ" Type="Event">
+        <With Var="ACT_PercentGinProduct_Xmeas40"/>
+        <With Var="SET_POINT_PercentGinProduct_Xmeas40"/>
+        <With Var="OFFSET_PercntGinProduct"/>
+        <With Var="MAN_IN_PercntGinProduct"/>
+        <With Var="MANUAL_PercntGinProduct"/>
+        <With Var="KP_PercentGinProduct"/>
+        <With Var="KI_PercentGinProduct"/>
+        <With Var="LIM_L_PercentGinProduct"/>
+        <With Var="LIM_H_PercentGinProduct"/>
+        <With Var="ACT_DFeedRate_Xmeas2"/>
+        <With Var="OFFSET_DFeedRate"/>
+        <With Var="MAN_IN_DFeedRate"/>
+        <With Var="MANUAL_DFeedRate"/>
+        <With Var="KP_DFeedRate"/>
+        <With Var="KI_DFeedRate"/>
+        <With Var="LIM_L_DFeedRate"/>
+        <With Var="LIM_H_DFeedRate"/>
+        <With Var="ACT_E_FeedRate_Xmeas3"/>
+        <With Var="OFFSET_EFeedRate"/>
+        <With Var="MAN_IN_EFeedRate"/>
+        <With Var="MANUAL_EFeedRate"/>
+        <With Var="KP_EFeedRate"/>
+        <With Var="KI_EFeedRate"/>
+        <With Var="LIM_L_EFeedRate"/>
+        <With Var="LIM_H_FeedRate"/>
+        <With Var="Fp"/>
+      </Event>
+      <Event Name="RST" Type="Event"/>
+    </EventInputs>
+    <EventOutputs>
+      <Event Comment="Initialization Confirm" Name="INITO" Type="Event"/>
+      <Event Comment="Execution Confirmation" Name="CNF" Type="Event">
+        <With Var="XMV1"/>
+        <With Var="XMV2"/>
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="INITCOND_Eadj" Type="REAL"/>
+      <VarDeclaration Name="ACT_PercentGinProduct_Xmeas40" Type="REAL"/>
+      <VarDeclaration Name="SET_POINT_PercentGinProduct_Xmeas40" Type="REAL"/>
+      <VarDeclaration Name="OFFSET_PercntGinProduct" Type="REAL"/>
+      <VarDeclaration Name="MAN_IN_PercntGinProduct" Type="REAL"/>
+      <VarDeclaration Name="MANUAL_PercntGinProduct" Type="BOOL"/>
+      <VarDeclaration Name="KP_PercentGinProduct" Type="REAL"/>
+      <VarDeclaration Name="KI_PercentGinProduct" Type="REAL"/>
+      <VarDeclaration Name="LIM_L_PercentGinProduct" Type="REAL"/>
+      <VarDeclaration Name="LIM_H_PercentGinProduct" Type="REAL"/>
+      <VarDeclaration Name="Fp" Type="REAL"/>
+      <VarDeclaration Name="INITCOND_XMV1" Type="REAL"/>
+      <VarDeclaration Name="ACT_DFeedRate_Xmeas2" Type="REAL"/>
+      <VarDeclaration Name="OFFSET_DFeedRate" Type="REAL"/>
+      <VarDeclaration Name="MAN_IN_DFeedRate" Type="REAL"/>
+      <VarDeclaration Name="MANUAL_DFeedRate" Type="BOOL"/>
+      <VarDeclaration Name="KP_DFeedRate" Type="REAL"/>
+      <VarDeclaration Name="KI_DFeedRate" Type="REAL"/>
+      <VarDeclaration Name="LIM_L_DFeedRate" Type="REAL"/>
+      <VarDeclaration Name="LIM_H_DFeedRate" Type="REAL"/>
+      <VarDeclaration Name="INITCOND_XMV2" Type="REAL"/>
+      <VarDeclaration Name="ACT_E_FeedRate_Xmeas3" Type="REAL"/>
+      <VarDeclaration Name="OFFSET_EFeedRate" Type="REAL"/>
+      <VarDeclaration Name="MAN_IN_EFeedRate" Type="REAL"/>
+      <VarDeclaration Name="MANUAL_EFeedRate" Type="BOOL"/>
+      <VarDeclaration Name="KP_EFeedRate" Type="REAL"/>
+      <VarDeclaration Name="KI_EFeedRate" Type="REAL"/>
+      <VarDeclaration Name="LIM_L_EFeedRate" Type="REAL"/>
+      <VarDeclaration Name="LIM_H_FeedRate" Type="REAL"/>
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="XMV1" Type="REAL"/>
+      <VarDeclaration Name="XMV2" Type="REAL"/>
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB Name="GinProduct" Type="FB_CTRL_PI" x="1560.0" y="120.0"/>
+    <FB Name="EadjINIT" Type="Init_ConditionREALtype" x="1920.0" y="1800.0"/>
+    <FB Name="FeedforwardREAL" Type="FeedforwardREAL" x="3360.0" y="1800.0"/>
+    <FB Name="DFeedRateSetpoint" Type="F_MUL" x="4560.0" y="720.0"/>
+    <FB Name="EFeedRateSetpoint" Type="F_MUL" x="4440.0" y="3240.0"/>
+    <FB Name="DFeedRate" Type="FB_CTRL_PI" x="5400.0" y="0.0"/>
+    <FB Name="EFeedRate" Type="FB_CTRL_PI" x="5400.0" y="3000.0"/>
+    <FB Name="xmv1" Type="Init_ConditionREALtype" x="6240.0" y="0.0"/>
+    <FB Name="xmv2" Type="Init_ConditionREALtype" x="6360.0" y="3000.0"/>
+    <DataConnections>
+      <Connection Destination="EadjINIT.InitialCondition" Source="INITCOND_Eadj" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="EadjINIT.SubsequentInput" Source="GinProduct.Y" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="GinProduct.ACTUAL" Source="ACT_PercentGinProduct_Xmeas40" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="GinProduct.SET_POINT" Source="SET_POINT_PercentGinProduct_Xmeas40" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="GinProduct.OFFSET" Source="OFFSET_PercntGinProduct" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="GinProduct.MAN_IN" Source="MAN_IN_PercntGinProduct" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="GinProduct.MANUAL" Source="MANUAL_PercntGinProduct" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="GinProduct.KP" Source="KP_PercentGinProduct" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="GinProduct.KI" Source="KI_PercentGinProduct" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="GinProduct.LIM_L" Source="LIM_L_PercentGinProduct" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="GinProduct.LIM_H" Source="LIM_H_PercentGinProduct" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="FeedforwardREAL.Eadj" Source="EadjINIT.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="FeedforwardREAL.PctGsp" Source="SET_POINT_PercentGinProduct_Xmeas40" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="FeedforwardREAL.Fp" Source="Fp" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="DFeedRateSetpoint.IN1" Source="FeedforwardREAL.r2" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="DFeedRate.SET_POINT" Source="DFeedRateSetpoint.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="xmv1.SubsequentInput" Source="DFeedRate.Y" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="XMV1" Source="xmv1.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="XMV2" Source="xmv2.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="xmv2.SubsequentInput" Source="EFeedRate.Y" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="DFeedRate.ACTUAL" Source="ACT_DFeedRate_Xmeas2" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="xmv1.InitialCondition" Source="INITCOND_XMV1" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="DFeedRate.OFFSET" Source="OFFSET_DFeedRate" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="EFeedRateSetpoint.IN1" Source="FeedforwardREAL.r3" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="EFeedRateSetpoint.IN2" Source="Fp" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="DFeedRateSetpoint.IN2" Source="Fp" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="DFeedRate.MAN_IN" Source="MAN_IN_DFeedRate" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="DFeedRate.MANUAL" Source="MANUAL_DFeedRate" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="DFeedRate.KP" Source="KP_DFeedRate" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="DFeedRate.KI" Source="KI_DFeedRate" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="DFeedRate.LIM_L" Source="LIM_L_DFeedRate" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="DFeedRate.LIM_H" Source="LIM_H_DFeedRate" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="xmv2.InitialCondition" Source="INITCOND_XMV2" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="EFeedRate.ACTUAL" Source="ACT_E_FeedRate_Xmeas3" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="EFeedRate.SET_POINT" Source="EFeedRateSetpoint.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="EFeedRate.OFFSET" Source="OFFSET_EFeedRate" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="EFeedRate.MAN_IN" Source="MAN_IN_EFeedRate" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="EFeedRate.MANUAL" Source="MANUAL_EFeedRate" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="EFeedRate.KP" Source="KP_EFeedRate" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="EFeedRate.KI" Source="KI_EFeedRate" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="EFeedRate.LIM_L" Source="LIM_L_EFeedRate" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="EFeedRate.LIM_H" Source="LIM_H_FeedRate" dx1="0.0" dx2="0.0" dy="0.0"/>
+    </DataConnections>
+    <EventConnections>
+      <Connection Destination="GinProduct.INIT" Source="INIT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="EadjINIT.InitEvent" Source="GinProduct.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="GinProduct.REQ" Source="REQ" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="EadjINIT.SubsequentEvent" Source="GinProduct.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="DFeedRate.INIT" Source="GinProduct.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="xmv1.InitEvent" Source="DFeedRate.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="EFeedRate.INIT" Source="DFeedRate.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="xmv2.InitEvent" Source="EFeedRate.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="GinProduct.RST" Source="RST" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="DFeedRate.RST" Source="RST" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="EFeedRate.RST" Source="RST" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="FeedforwardREAL.RECEadj" Source="EadjINIT.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="FeedforwardREAL.REQPctGsp" Source="REQ" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="DFeedRateSetpoint.REQ" Source="FeedforwardREAL.CNFr2" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="DFeedRate.REQ" Source="DFeedRateSetpoint.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="DFeedRate.REQ" Source="REQ" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="xmv1.SubsequentEvent" Source="DFeedRate.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="CNF" Source="xmv1.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="CNF" Source="xmv2.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="INITO" Source="EFeedRate.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="EFeedRateSetpoint.REQ" Source="FeedforwardREAL.CNFr3" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="xmv2.SubsequentEvent" Source="EFeedRate.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="EFeedRate.REQ" Source="EFeedRateSetpoint.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="EFeedRate.REQ" Source="REQ" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="FeedforwardREAL.RECFp" Source="REQ" dx1="0.0" dx2="0.0" dy="0.0"/>
+    </EventConnections>
+  </FBNetwork>
+</FBType>

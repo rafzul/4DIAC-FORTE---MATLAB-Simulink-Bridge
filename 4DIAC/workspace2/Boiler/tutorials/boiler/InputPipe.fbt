@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE FBType SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<FBType Comment="Composite Function Block Type" Name="InputPipe">
+  <Identification Standard="61499-2"/>
+  <VersionInfo Author="4DIAC-IDE" Date="2011-12-23" Organization="4DIAC-Consortium" Version="0.0"/>
+  <InterfaceList>
+    <EventInputs>
+      <Event Comment="Normal Execution Request" Name="REQ" Type="Event">
+        <With Var="SetValve"/>
+        <With Var="enValveMotor"/>
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Comment="Execution Confirmation" Name="CNF" Type="Event">
+        <With Var="Feedwater"/>
+        <With Var="iOutputMotor"/>
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Comment="Input event qualifier" Name="SetValve" Type="LREAL"/>
+      <VarDeclaration Name="enValveMotor" Type="BOOL"/>
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Comment="Output event qualifier" Name="Feedwater" Type="LREAL"/>
+      <VarDeclaration Name="iOutputMotor" Type="INT"/>
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB Name="DRAND" Type="DRAND" x="570.0" y="1330.0">
+      <Parameter Name="Seed" Value="1"/>
+    </FB>
+    <FB Name="Valve" Type="Valve" x="3515.0" y="0.0"/>
+    <FB Name="FeedwaterRate" Type="FeedwaterRate" x="5415.0" y="1330.0"/>
+    <FB Name="Disturbance_Input" Type="Disturbance_Input" x="1235.0" y="1520.0"/>
+    <FB Name="F_MUL" Type="F_MUL" x="3515.0" y="1425.0"/>
+    <FB Name="F_ADD" Type="F_ADD" x="2185.0" y="1520.0">
+      <Parameter Name="IN2" Value="LREAL#1"/>
+    </FB>
+    <FB Name="LREAL2LREAL" Type="LREAL2LREAL" x="2755.0" y="1520.0"/>
+    <DataConnections>
+      <Connection Comment="" Destination="Valve.rValveState" Source="SetValve" dx1="1315.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="Valve.enMode" Source="enValveMotor" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="Feedwater" Source="FeedwaterRate.Measurement" dx1="525.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="iOutputMotor" Source="Valve.iOutputMotor" dx1="265.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="Disturbance_Input.rRnd" Source="DRAND.Num" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_ADD.IN1" Source="Disturbance_Input.rRndOffset" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="LREAL2LREAL.IN" Source="F_ADD.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_MUL.IN2" Source="LREAL2LREAL.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="FeedwaterRate.DataItem" Source="F_MUL.OUT" dx1="400.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_MUL.IN1" Source="SetValve" dx1="2870.0" dx2="0.0" dy="0.0"/>
+    </DataConnections>
+    <EventConnections>
+      <Connection Comment="" Destination="Valve.REQ" Source="REQ" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="DRAND.REQ" Source="Valve.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="CNF" Source="FeedwaterRate.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="Disturbance_Input.REQ" Source="DRAND.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_ADD.REQ" Source="Disturbance_Input.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="LREAL2LREAL.REQ" Source="F_ADD.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_MUL.REQ" Source="LREAL2LREAL.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="FeedwaterRate.REQ" Source="F_MUL.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+    </EventConnections>
+  </FBNetwork>
+</FBType>

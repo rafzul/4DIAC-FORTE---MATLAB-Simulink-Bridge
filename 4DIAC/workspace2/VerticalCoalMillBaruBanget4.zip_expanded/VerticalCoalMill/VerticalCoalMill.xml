@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<libraryElement:AutomationSystem xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:libraryElement="org.fordiac.ide.model.libraryElement" name="VerticalCoalMill" id="_vbqgMBDPEemA7qc-xjw6bg">
+  <versionInfo author="Author" organization="4DIAC-Consortium" version="1.0"/>
+  <application comment="" name="Process">
+    <fBNetwork href="Process.xml#//@fbNetwork"/>
+  </application>
+  <application comment="" name="InputOutput">
+    <fBNetwork href="InputOutput.xml#//@fbNetwork"/>
+  </application>
+  <systemConfiguration>
+    <systemConfigurationNetwork href="SysConf.xml#//@systemConfigNetwork"/>
+  </systemConfiguration>
+</libraryElement:AutomationSystem>

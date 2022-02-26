@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+		<item value="D:\Apps\4DIAC-IDE_1.8.4_win32.x86_64\workspace2\VerticalCoalMillBaruBanget4.zip_expanded\VerticalCoalMill"/>
+		<item value="D:\Apps\4DIAC-IDE_1.8.4_win32.x86_64\workspace2\VerticalCoalMill.zip_expanded\VerticalCoalMillBaruBanget4.zip"/>
+		<item value="D:\Apps\4DIAC-IDE_1.8.4_win32.x86_64\workspace2\VerticalCoalMillBaruBanget5.zip_expanded\VerticalCoalMill"/>
+		<item value="D:\Apps\4DIAC-IDE_1.8.4_win32.x86_64\workspace2\VerticalCoalMill.zip_expanded\VerticalCoalMillBaruBanget5.zip"/>
+		<item value="D:\Apps\4DIAC-IDE_1.8.4_win32.x86_64\workspace2\VerticalCoalMill.zip_expanded\VerticalCoalMill"/>
+		<item value="D:\Apps\4DIAC-IDE_1.8.4_win32.x86_64\workspace2\VerticalCoalMill_final3.zip_expanded\VerticalCoalMill_final3"/>
+		<item value="D:\Apps\4DIAC-IDE_1.8.4_win32.x86_64\workspace2\VerticalCoalMill_final3.zip"/>
+		<item value="D:\Apps\4DIAC-IDE_1.8.4_win32.x86_64\workspace2\VerticalCoalMill_final3.zip_expanded.zip_expanded.zip"/>
+		<item value="D:\Apps\4DIAC-IDE_1.8.4_win32.x86_64\workspace2\VerticalCoalMill\VerticalCoalMill"/>
+		<item value="D:\Apps\4DIAC-IDE_1.8.4_win32.x86_64\workspace2\VerticalCoalMill.zip"/>
+		<item value="D:\Apps\4DIAC-IDE_1.8.4_win32.x86_64\workspace2\5.zip"/>
+		<item value="D:\Apps\4diac_eclipsescada_flcdemo_20150420\4diac_tankdemo_iec61499_app.zip"/>
+	</list>
+	<section name="ExternalProjectImportWizard">
+		<item value="true" key="WizardProjectsImportPage.STORE_NESTED_PROJECTS"/>
+		<item value="true" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
+		<item value="true" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
+		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value=""/>
+			<item value="D:\Apps\4diac_eclipsescada_flcdemo_20150420\TankControlDemo"/>
+			<item value="D:\Apps\4DIAC-IDE_1.8.4_win32.x86_64\workspace2\TankControlDemo"/>
+			<item value="C:\Temp\4DIAC-IDE_1.8RC1_win32.x86\workspace"/>
+			<item value="C:\Temp\4DIAC-IDE_1.8M1_win32.x86\workspace"/>
+		</list>
+		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value="D:\Apps\4DIAC-IDE_1.8.4_win32.x86_64\workspace2\5.zip"/>
+			<item value="D:\Apps\4DIAC-IDE_1.8.4_win32.x86_64\workspace2\VerticalCoalMill.zip"/>
+			<item value="D:\Apps\4diac_eclipsescada_flcdemo_20150420\4diac_tankdemo_iec61499_app.zip"/>
+			<item value=""/>
+		</list>
+	</section>
+	<section name="NewWizardAction">
+	</section>
+</section>

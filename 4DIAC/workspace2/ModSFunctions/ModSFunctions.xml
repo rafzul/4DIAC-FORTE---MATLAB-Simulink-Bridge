@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<libraryElement:AutomationSystem xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:libraryElement="org.fordiac.ide.model.libraryElement" name="ModSFunctions" id="_MgJgsHk-Eei13704TsMNpA">
+  <versionInfo author="Author" organization="4DIAC-Consortium" version="1.0"/>
+  <application comment="" name="Constants">
+    <fBNetwork href="Constants.xml#//@fbNetwork"/>
+  </application>
+  <application comment="" name="aa">
+    <fBNetwork href="aa.xml#//@fbNetwork"/>
+  </application>
+  <application comment="" name="testfunctionblockbaru">
+    <fBNetwork href="testfunctionblockbaru.xml#//@fbNetwork"/>
+  </application>
+  <application comment="" name="ConstantsClient">
+    <fBNetwork href="ConstantsClient.xml#//@fbNetwork"/>
+  </application>
+  <systemConfiguration>
+    <systemConfigurationNetwork href="SysConf.xml#//@systemConfigNetwork"/>
+  </systemConfiguration>
+</libraryElement:AutomationSystem>

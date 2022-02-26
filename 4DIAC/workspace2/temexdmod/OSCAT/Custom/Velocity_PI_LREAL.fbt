@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE FBType SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<FBType Comment="Composite Function Block Type" Name="Velocity_PI_LREAL">
+  <Identification Standard="61499-2"/>
+  <VersionInfo Author="4DIAC-IDE" Date="2018-07-28" Organization="4DIAC-Consortium" Version="0.0"/>
+  <InterfaceList>
+    <EventInputs>
+      <Event Comment="Initialization Request" Name="INIT" Type="Event">
+        <With Var="SAMPLETIME_ECYCLE"/>
+        <With Var="SETPOINT"/>
+      </Event>
+      <Event Comment="Normal Execution Request. disambung Event Cycle juga ya" Name="REQ" Type="Event">
+        <With Var="SAMPLETIME_ECYCLE"/>
+        <With Var="ACTUAL"/>
+        <With Var="SETPOINT"/>
+        <With Var="NOISE"/>
+        <With Var="KP"/>
+        <With Var="Ti"/>
+      </Event>
+      <Event Name="RESET" Type="Event"/>
+    </EventInputs>
+    <EventOutputs>
+      <Event Comment="Initialization Confirm" Name="INITO" Type="Event"/>
+      <Event Comment="Execution Confirmation" Name="CNF" Type="Event">
+        <With Var="DELTAOUTPUT"/>
+        <With Var="INPUTDIFF"/>
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="ACTUAL" Type="LREAL"/>
+      <VarDeclaration Name="SETPOINT" Type="LREAL"/>
+      <VarDeclaration Name="NOISE" Type="LREAL"/>
+      <VarDeclaration Name="KP" Type="LREAL"/>
+      <VarDeclaration Name="Ti" Type="LREAL"/>
+      <VarDeclaration Name="SAMPLETIME_ECYCLE" Type="TIME"/>
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="DELTAOUTPUT" Type="LREAL"/>
+      <VarDeclaration Name="INPUTDIFF" Type="LREAL"/>
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB Name="F_CTRL_IN" Type="F_CTRL_IN" x="2400.0" y="240.0"/>
+    <FB Name="F_SUB" Type="F_SUB" x="8040.0" y="2040.0"/>
+    <FB Name="F_MUL" Type="F_MUL" x="9720.0" y="1200.0"/>
+    <FB Name="F_ADD" Type="F_ADD" x="7080.0" y="120.0"/>
+    <FB Name="F_MUL_1" Type="F_MUL" x="5520.0" y="-600.0"/>
+    <FB Name="F_DIV" Type="F_DIV" x="4680.0" y="720.0"/>
+    <FB Name="REAL2REAL_5" Type="REAL2REAL" x="8880.0" y="720.0"/>
+    <FB Name="SETPOINT" Type="F_LREAL_TO_REAL" x="1440.0" y="0.0"/>
+    <FB Name="ACTUAL" Type="F_LREAL_TO_REAL" x="1440.0" y="720.0"/>
+    <FB Name="NOISE" Type="F_LREAL_TO_REAL" x="1440.0" y="1440.0"/>
+    <FB Name="LREAL2LREAL" Type="LREAL2LREAL" x="2400.0" y="1200.0"/>
+    <FB Name="LREAL2LREAL_1" Type="LREAL2LREAL" x="2280.0" y="1920.0"/>
+    <FB Name="F_TIME_TO_LREAL" Type="F_TIME_TO_LREAL" x="3480.0" y="-720.0"/>
+    <FB Name="LREAL2LREAL_2" Type="LREAL2LREAL" x="4800.0" y="3120.0"/>
+    <FB Name="Delay_With_InitCondition" Type="Delay_With_InitCondition" x="3480.0" y="2400.0">
+      <Parameter Name="InitialCondition" Value="0"/>
+    </FB>
+    <FB Name="F_REAL_TO_LREAL" Type="F_REAL_TO_LREAL" x="3840.0" y="1560.0"/>
+    <FB Name="LREAL2LREAL_3" Type="LREAL2LREAL" x="5280.0" y="960.0"/>
+    <FB Name="LREAL2LREAL_4" Type="LREAL2LREAL" x="6240.0" y="-600.0"/>
+    <FB Name="F_REAL_TO_LREAL_2" Type="F_REAL_TO_LREAL" x="3600.0" y="120.0"/>
+    <FB Name="LREAL2LREAL_5" Type="LREAL2LREAL" x="7800.0" y="240.0"/>
+    <FB Name="REAL2REAL" Type="REAL2REAL" x="8880.0" y="120.0"/>
+    <DataConnections>
+      <Connection Destination="F_CTRL_IN.SET_POINT" Source="SETPOINT.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="SETPOINT.IN" Source="SETPOINT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="ACTUAL.IN" Source="ACTUAL" dx1="265.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_CTRL_IN.ACTUAL" Source="ACTUAL.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_CTRL_IN.NOISE" Source="NOISE.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="NOISE.IN" Source="NOISE" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_DIV.IN2" Source="LREAL2LREAL.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="LREAL2LREAL.IN" Source="Ti" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="LREAL2LREAL_1.IN" Source="KP" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_MUL.IN2" Source="LREAL2LREAL_1.OUT" dx1="445.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_TIME_TO_LREAL.IN" Source="SAMPLETIME_ECYCLE" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_DIV.IN1" Source="F_TIME_TO_LREAL.OUT" dx1="855.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="LREAL2LREAL_2.IN" Source="Delay_With_InitCondition.LREAL1" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_SUB.IN2" Source="LREAL2LREAL_2.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="Delay_With_InitCondition.DelayedInput" Source="F_REAL_TO_LREAL.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_REAL_TO_LREAL.IN" Source="F_CTRL_IN.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="Delay_With_InitCondition.DelayTime" Source="SAMPLETIME_ECYCLE" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="LREAL2LREAL_3.IN" Source="F_DIV.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_MUL_1.IN2" Source="LREAL2LREAL_3.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="LREAL2LREAL_4.IN" Source="F_MUL_1.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_ADD.IN2" Source="LREAL2LREAL_4.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_ADD.IN1" Source="F_REAL_TO_LREAL_2.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_REAL_TO_LREAL_2.IN" Source="F_CTRL_IN.OUT" dx1="360.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_SUB.IN1" Source="LREAL2LREAL_5.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="LREAL2LREAL_5.IN" Source="F_ADD.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="REAL2REAL.IN" Source="F_SUB.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_MUL.IN1" Source="REAL2REAL.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="DELTAOUTPUT" Source="F_MUL.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_MUL_1.IN1" Source="F_REAL_TO_LREAL_2.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="INPUTDIFF" Source="F_REAL_TO_LREAL_2.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+    </DataConnections>
+    <EventConnections>
+      <Connection Destination="CNF" Source="F_MUL.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="SETPOINT.REQ" Source="REQ" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_CTRL_IN.REQ" Source="SETPOINT.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="ACTUAL.REQ" Source="REQ" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_CTRL_IN.REQ" Source="ACTUAL.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="NOISE.REQ" Source="REQ" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_CTRL_IN.REQ" Source="NOISE.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_DIV.REQ" Source="LREAL2LREAL.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="LREAL2LREAL.REQ" Source="REQ" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_MUL.REQ" Source="LREAL2LREAL_1.CNF" dx1="380.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="LREAL2LREAL_1.REQ" Source="REQ" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_DIV.REQ" Source="F_TIME_TO_LREAL.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_TIME_TO_LREAL.REQ" Source="REQ" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_SUB.REQ" Source="LREAL2LREAL_2.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="LREAL2LREAL_2.REQ" Source="Delay_With_InitCondition.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="Delay_With_InitCondition.Start_and_REQ" Source="F_REAL_TO_LREAL.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_REAL_TO_LREAL.REQ" Source="F_CTRL_IN.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="Delay_With_InitCondition.INIT" Source="INIT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="INITO" Source="INIT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_MUL_1.REQ" Source="LREAL2LREAL_3.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="LREAL2LREAL_3.REQ" Source="F_DIV.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="LREAL2LREAL_4.REQ" Source="F_MUL_1.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_ADD.REQ" Source="LREAL2LREAL_4.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_ADD.REQ" Source="F_REAL_TO_LREAL_2.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_REAL_TO_LREAL_2.REQ" Source="F_CTRL_IN.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="LREAL2LREAL_5.REQ" Source="F_ADD.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_SUB.REQ" Source="LREAL2LREAL_5.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="REAL2REAL.REQ" Source="F_SUB.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_MUL.REQ" Source="REAL2REAL.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_MUL_1.REQ" Source="F_REAL_TO_LREAL_2.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+    </EventConnections>
+  </FBNetwork>
+</FBType>

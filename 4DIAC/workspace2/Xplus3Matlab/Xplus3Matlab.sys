@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE System SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<System Name="Xplus3Matlab">
+  <VersionInfo Author="Author" Organization="4DIAC-Consortium" Version="1.0"/>
+  <Application Name="Xplus3MatlabApp">
+    <SubAppNetwork>
+      <FB Name="OUT_ANY" Type="OUT_ANY" x="3235.0" y="195.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="W" Value="20"/>
+        <Parameter Name="TYPE" Value="INT"/>
+        <Parameter Name="IVAL" Value="0"/>
+      </FB>
+      <FB Name="INT2INT_0" Type="INT2INT" x="1035.0" y="435.0"/>
+      <FB Name="IN_ANY" Type="IN_ANY" x="415.0" y="175.0">
+        <Parameter Name="QI" Value="BOOL#1"/>
+        <Parameter Name="W" Value="20"/>
+        <Parameter Name="TYPE" Value="INT"/>
+        <Parameter Name="IVAL" Value="0"/>
+      </FB>
+      <FB Name="INT2INT_1" Type="INT2INT" x="2615.0" y="420.0"/>
+      <EventConnections>
+        <Connection Destination="OUT_ANY.REQ" Source="INT2INT_1.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="INT2INT_0.REQ" Source="IN_ANY.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+      </EventConnections>
+      <DataConnections>
+        <Connection Destination="OUT_ANY.IN" Source="INT2INT_1.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="INT2INT_0.IN" Source="IN_ANY.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      </DataConnections>
+    </SubAppNetwork>
+  </Application>
+  <Device Name="FBRT_WINDOW" Type="FBRT_WINDOW" x="480.0" y="1800.0">
+    <Attribute Name="Color" Value="219,73,103"/>
+    <Attribute Name="Profile" Value="HOLOBLOC"/>
+    <Parameter Name="MGR_ID" Value="&quot;localhost:61499&quot;"/>
+    <Resource Name="PANEL_RESOURCE" Type="PANEL_RESOURCE"/>
+  </Device>
+  <Device Name="FORTE_PC" Type="FORTE_PC" x="2880.0" y="1920.0">
+    <Attribute Name="Color" Value="75,154,235"/>
+    <Attribute Name="Profile" Value="HOLOBLOC"/>
+    <Parameter Name="MGR_ID" Value="&quot;localhost:61499&quot;"/>
+    <Resource Name="EMB_RES" Type="EMB_RES"/>
+  </Device>
+  <Segment Name="Ethernet" Type="Ethernet" dx1="1500.0" x="1680.0" y="1080.0"/>
+</System>

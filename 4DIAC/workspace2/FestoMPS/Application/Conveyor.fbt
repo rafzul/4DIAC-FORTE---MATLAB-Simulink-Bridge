@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE FBType SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<FBType Comment="Basic Function Block Type" Name="Conveyor">
+  <Identification Standard="61499-2"/>
+  <VersionInfo Author="4DIAC-IDE" Date="2015-03-25" Organization="4DIAC-Consortium" Version="0.0"/>
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="ReleaseWP" Type="Event"/>
+      <Event Name="WPatSeparator" Type="Event"/>
+      <Event Name="WPatAssembly" Type="Event"/>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="AssemblePosition" Type="Event"/>
+      <Event Comment="" Name="ReadyForAssembly" Type="Event"/>
+      <Event Name="ReleaseWPfromAssembly" Type="Event"/>
+      <Event Name="ConveyorEmpty" Type="Event"/>
+    </EventOutputs>
+    <InputVars/>
+    <OutputVars/>
+    <Sockets>
+      <AdapterDeclaration Name="Parts" Type="APartCount"/>
+    </Sockets>
+  </InterfaceList>
+  <BasicFB>
+    <ECC>
+      <ECState Comment="Initial State" Name="START" x="1995.0" y="855.0"/>
+      <ECState Name="MoveWPToAsmbly" x="2850.0" y="665.0">
+        <ECAction Output="AssemblePosition"/>
+      </ECState>
+      <ECState Name="ReleaseWPTransportNext" x="2375.0" y="1520.0">
+        <ECAction Output="ReleaseWPfromAssembly"/>
+      </ECState>
+      <ECState Name="WPatAsmbly" x="3515.0" y="1140.0">
+        <ECAction Output="ReadyForAssembly"/>
+      </ECState>
+      <ECState Name="StopEmptyConveyor" x="285.0" y="950.0">
+        <ECAction Output="ConveyorEmpty"/>
+      </ECState>
+      <ECTransition Comment="" Condition="ReleaseWP" Destination="ReleaseWPTransportNext" Source="WPatAsmbly" x="3265.0" y="1415.0"/>
+      <ECTransition Comment="" Condition="1" Destination="START" Source="StopEmptyConveyor" x="1285.0" y="750.0"/>
+      <ECTransition Comment="" Condition="Parts.UpdatePartNumber&amp;(Parts.PartNumber &lt;= 0)" Destination="StopEmptyConveyor" Source="START" x="1480.0" y="1210.0"/>
+      <ECTransition Comment="" Condition="Parts.UpdatePartNumber&amp;(Parts.PartNumber &gt; 0)" Destination="MoveWPToAsmbly" Source="START" x="2285.0" y="440.0"/>
+      <ECTransition Comment="" Condition="(Parts.PartNumber &gt;1)" Destination="MoveWPToAsmbly" Source="ReleaseWPTransportNext" x="2715.0" y="1175.0"/>
+      <ECTransition Comment="" Condition="1" Destination="START" Source="ReleaseWPTransportNext" x="2195.0" y="1320.0"/>
+      <ECTransition Comment="" Condition="WPatAssembly" Destination="WPatAsmbly" Source="MoveWPToAsmbly" x="3560.0" y="965.0"/>
+    </ECC>
+  </BasicFB>
+  <Service Comment="Basic Function Block Type" LeftInterface="conveyor_interface" RightInterface="conveyor_implementation">
+    <ServiceSequence Name="stop_empty_conveyor">
+      <ServiceTransaction>
+        <InputPrimitive Event="Parts.UpdatePartNumber" Interface="conveyor_interface" Parameters="Parts.PartNumber &lt;= 0"/>
+        <OutputPrimitive Event="ConveyorEmpty" Interface="conveyor_interface"/>
+      </ServiceTransaction>
+    </ServiceSequence>
+    <ServiceSequence Name="start_conveyor_0">
+      <ServiceTransaction>
+        <InputPrimitive Event="Parts.UpdatePartNumber" Interface="conveyor_interface" Parameters="Parts.PartNumber &gt; 0"/>
+        <OutputPrimitive Event="AssemblePosition" Interface="conveyor_interface"/>
+      </ServiceTransaction>
+      <ServiceTransaction>
+        <InputPrimitive Event="WPatAssembly" Interface="conveyor_interface"/>
+        <OutputPrimitive Event="ReadyForAssembly" Interface="conveyor_interface"/>
+      </ServiceTransaction>
+      <ServiceTransaction>
+        <InputPrimitive Event="ReleaseWP" Interface="conveyor_interface"/>
+        <OutputPrimitive Event="ReleaseWPfromAssembly" Interface="conveyor_interface" Parameters=""/>
+      </ServiceTransaction>
+    </ServiceSequence>
+    <ServiceSequence Name="start_conveyor_1">
+      <ServiceTransaction>
+        <InputPrimitive Event="Parts.UpdatePartNumber" Interface="conveyor_interface" Parameters="Parts.PartNumber &gt; 1"/>
+        <OutputPrimitive Event="AssemblePosition" Interface="conveyor_interface"/>
+      </ServiceTransaction>
+      <ServiceTransaction>
+        <InputPrimitive Event="WPatAssembly" Interface="conveyor_interface"/>
+        <OutputPrimitive Event="ReadyForAssembly" Interface="conveyor_interface"/>
+      </ServiceTransaction>
+      <ServiceTransaction>
+        <InputPrimitive Event="ReleaseWP" Interface="conveyor_interface"/>
+        <OutputPrimitive Event="ReleaseWPfromAssembly" Interface="conveyor_interface"/>
+      </ServiceTransaction>
+    </ServiceSequence>
+  </Service>
+</FBType>

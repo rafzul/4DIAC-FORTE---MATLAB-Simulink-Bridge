@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE FBType SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<FBType Comment="Basic Function Block Type" Name="PartCount">
+  <Identification Standard="61499-2"/>
+  <VersionInfo Author="4DIAC-IDE" Date="2015-05-12" Organization="4DIAC-Consortium" Version="0.0"/>
+  <InterfaceList>
+    <EventInputs>
+      <Event Comment="Confirms incoming part" Name="PartIncoming" Type="Event">
+        <With Var="PartIn"/>
+      </Event>
+      <Event Comment="Confirms outgoing part" Name="PartOutgoing" Type="Event">
+        <With Var="PartOut"/>
+      </Event>
+    </EventInputs>
+    <EventOutputs/>
+    <InputVars>
+      <VarDeclaration Comment="Sensor value for incoming parts" Name="PartIn" Type="BOOL"/>
+      <VarDeclaration Comment="Sensor value for outgoing parts" Name="PartOut" Type="BOOL"/>
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="PartsOnBelt" Type="INT"/>
+      <VarDeclaration Name="PartCounter" Type="LINT"/>
+    </OutputVars>
+    <Plugs>
+      <AdapterDeclaration Name="NumberOfParts" Type="APartCount"/>
+    </Plugs>
+  </InterfaceList>
+  <BasicFB>
+    <InternalVars>
+      <VarDeclaration Comment="Internal Variable" Name="lastIncrement" Type="TIME"/>
+      <VarDeclaration Comment="Internal Variable" Name="lastDecrement" Type="TIME"/>
+    </InternalVars>
+    <ECC>
+      <ECState Comment="Initial State" Name="START" x="380.0" y="1045.0"/>
+      <ECState Comment="Initialization" Name="Increment" x="1140.0" y="665.0">
+        <ECAction Algorithm="incrementPartCount" Output="NumberOfParts.UpdatePartNumber"/>
+      </ECState>
+      <ECState Comment="Normal execution" Name="Decrement" x="1235.0" y="1520.0">
+        <ECAction Algorithm="decrementPartCount" Output="NumberOfParts.UpdatePartNumber"/>
+      </ECState>
+      <ECTransition Comment="" Condition="PartIncoming&amp;PartIn" Destination="Increment" Source="START" x="680.0" y="710.0"/>
+      <ECTransition Comment="" Condition="1" Destination="START" Source="Increment" x="970.0" y="1005.0"/>
+      <ECTransition Comment="" Condition="PartOutgoing&amp;(NOT PartOut)" Destination="Decrement" Source="START" x="1135.0" y="1310.0"/>
+      <ECTransition Comment="" Condition="1" Destination="START" Source="Decrement" x="685.0" y="1580.0"/>
+    </ECC>
+    <Algorithm Comment="increment number of parts on the belt" Name="incrementPartCount">
+      <ST Text="IF TIME() - lastIncrement &gt; T#100ms THEN&#10;  NumberOfParts.PartNumber := NumberOfParts.PartNumber + 1;&#10;  PartCounter := PartCounter + 1;&#10;END_IF;&#10;PartsOnBelt := NumberOfParts.PartNumber;&#10;lastIncrement := TIME();"/>
+    </Algorithm>
+    <Algorithm Comment="decrement number of parts on the belt" Name="decrementPartCount">
+      <ST Text="IF TIME() - lastDecrement  &gt; T#100ms THEN&#10;  NumberOfParts.PartNumber := NumberOfParts.PartNumber - 1;&#10;END_IF;&#10;PartsOnBelt := NumberOfParts.PartNumber;&#10;lastIncrement := TIME();"/>
+    </Algorithm>
+  </BasicFB>
+  <Service Comment="Basic Function Block Type" LeftInterface="partCount_interface" RightInterface="partCount_implementation">
+    <ServiceSequence Name="Increment">
+      <ServiceTransaction>
+        <InputPrimitive Event="PartIncoming" Interface="partCount_interface" Parameters="PartIn = true"/>
+        <OutputPrimitive Event="NumberOfParts.UpdatePartNumber" Interface="partCount_interface" Parameters="PartsOnBelt = NumberOfParts.PartNumber; NumberOfParts.PartNumber&gt;=; PartCounter&gt;"/>
+      </ServiceTransaction>
+    </ServiceSequence>
+    <ServiceSequence Name="Decrement">
+      <ServiceTransaction>
+        <InputPrimitive Event="PartOutgoing" Interface="partCount_interface" Parameters="PartOut = false"/>
+        <OutputPrimitive Event="NumberOfParts.UpdatePartNumber" Interface="partCount_interface" Parameters="PartsOnBelt = NumberOfParts.PartNumber; NumberOfParts.PartNumber&lt;=; PartCounter&gt;="/>
+      </ServiceTransaction>
+    </ServiceSequence>
+  </Service>
+</FBType>

@@ -1,0 +1,1284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.fordiac.ide.model.ui:UIFBNetwork xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.fordiac.ide.model.ui="org.fordiac.ide.model.ui">
+  <children xsi:type="org.fordiac.ide.model.ui:FBView" fb="//@fbNetwork/@fBs.0">
+    <position x="936" y="240"/>
+    <backgroundColor red="192" green="192" blue="192"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.0/@interface/@eventInputs.0" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.0/@interface/@eventInputs.1" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.0/@interface/@eventOutputs.0" outConnections="//@connections.11" fbNetwork="//@fbNetwork"/>
+  </children>
+  <children xsi:type="org.fordiac.ide.model.ui:FBView" fb="//@fbNetwork/@fBs.1">
+    <position x="384" y="168"/>
+    <backgroundColor red="192" green="192" blue="192"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.1/@interface/@eventInputs.0" inConnections="//@connections.11" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.1/@interface/@eventInputs.1" inConnections="//@connections.0 //@connections.9" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.1/@interface/@inputVars.0" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.1/@interface/@inputVars.1" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.1/@interface/@inputVars.2" inConnections="//@connections.5" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.1/@interface/@inputVars.3" inConnections="//@connections.6" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.1/@interface/@eventOutputs.0" outConnections="//@connections.2" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.1/@interface/@eventOutputs.1" outConnections="//@connections.1" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.1/@interface/@outputVars.0" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.1/@interface/@outputVars.1" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.1/@interface/@outputVars.2" outConnections="//@connections.3" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.1/@interface/@outputVars.3" outConnections="//@connections.4" fbNetwork="//@fbNetwork"/>
+  </children>
+  <children xsi:type="org.fordiac.ide.model.ui:FBView" fb="//@fbNetwork/@fBs.2">
+    <position x="48" y="240"/>
+    <backgroundColor red="192" green="192" blue="192"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.2/@interface/@eventInputs.0" inConnections="//@connections.10" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.2/@interface/@inputVars.0" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.2/@interface/@eventOutputs.0" outConnections="//@connections.8" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.2/@interface/@outputVars.0" outConnections="//@connections.7" fbNetwork="//@fbNetwork"/>
+  </children>
+  <children xsi:type="org.fordiac.ide.model.ui:FBView" fb="//@fbNetwork/@fBs.3">
+    <position x="188" y="236"/>
+    <backgroundColor red="192" green="192" blue="192"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.3/@interface/@eventInputs.0" inConnections="//@connections.8" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.3/@interface/@eventInputs.1" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.3/@interface/@inputVars.0" inConnections="//@connections.7" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.3/@interface/@eventOutputs.0" outConnections="//@connections.9" fbNetwork="//@fbNetwork"/>
+  </children>
+  <children xsi:type="org.fordiac.ide.model.ui:FBView" fb="//@fbNetwork/@fBs.4">
+    <position x="576" y="192"/>
+    <backgroundColor red="192" green="192" blue="192"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.4/@interface/@eventInputs.0" inConnections="//@connections.2" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.4/@interface/@eventInputs.1" inConnections="//@connections.1" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.4/@interface/@inputVars.0" inConnections="//@connections.3" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.4/@interface/@inputVars.1" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.4/@interface/@inputVars.2" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.4/@interface/@inputVars.3" inConnections="//@connections.4" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.4/@interface/@inputVars.4" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.4/@interface/@inputVars.5" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.4/@interface/@eventOutputs.0" outConnections="//@connections.0" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.4/@interface/@eventOutputs.1" outConnections="//@connections.10" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.4/@interface/@outputVars.0" outConnections="//@connections.5" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.4/@interface/@outputVars.1" outConnections="//@connections.6" fbNetwork="//@fbNetwork"/>
+  </children>
+  <children xsi:type="org.fordiac.ide.model.ui:FBView" fb="//@fbNetwork/@fBs.5">
+    <position x="1392" y="168"/>
+    <backgroundColor red="192" green="192" blue="192"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.5/@interface/@eventInputs.0" inConnections="//@connections.22" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.5/@interface/@inputVars.0" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.5/@interface/@eventOutputs.0" outConnections="//@connections.12" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.5/@interface/@outputVars.0" outConnections="//@connections.23" fbNetwork="//@fbNetwork"/>
+  </children>
+  <children xsi:type="org.fordiac.ide.model.ui:FBView" fb="//@fbNetwork/@fBs.6">
+    <position x="1560" y="168"/>
+    <backgroundColor red="192" green="192" blue="192"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.6/@interface/@eventInputs.0" inConnections="//@connections.12" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.6/@interface/@eventInputs.1" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.6/@interface/@inputVars.0" inConnections="//@connections.23" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.6/@interface/@eventOutputs.0" outConnections="//@connections.13" fbNetwork="//@fbNetwork"/>
+  </children>
+  <children xsi:type="org.fordiac.ide.model.ui:FBView" fb="//@fbNetwork/@fBs.7">
+    <position x="1728" y="168"/>
+    <backgroundColor red="192" green="192" blue="192"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.7/@interface/@eventInputs.0" inConnections="//@connections.14" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.7/@interface/@eventInputs.1" inConnections="//@connections.13 //@connections.21" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.7/@interface/@inputVars.0" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.7/@interface/@inputVars.1" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.7/@interface/@inputVars.2" inConnections="//@connections.17" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.7/@interface/@inputVars.3" inConnections="//@connections.18" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.7/@interface/@eventOutputs.0" outConnections="//@connections.20" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.7/@interface/@eventOutputs.1" outConnections="//@connections.19" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.7/@interface/@outputVars.0" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.7/@interface/@outputVars.1" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.7/@interface/@outputVars.2" outConnections="//@connections.15" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.7/@interface/@outputVars.3" outConnections="//@connections.16" fbNetwork="//@fbNetwork"/>
+  </children>
+  <children xsi:type="org.fordiac.ide.model.ui:FBView" fb="//@fbNetwork/@fBs.8">
+    <position x="1584" y="384"/>
+    <backgroundColor red="192" green="192" blue="192"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.8/@interface/@eventInputs.0" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.8/@interface/@eventInputs.1" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.8/@interface/@eventOutputs.0" outConnections="//@connections.14" fbNetwork="//@fbNetwork"/>
+  </children>
+  <children xsi:type="org.fordiac.ide.model.ui:FBView" fb="//@fbNetwork/@fBs.9">
+    <position x="1896" y="120"/>
+    <backgroundColor red="192" green="192" blue="192"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.9/@interface/@eventInputs.0" inConnections="//@connections.20" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.9/@interface/@eventInputs.1" inConnections="//@connections.19" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.9/@interface/@inputVars.0" inConnections="//@connections.15" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.9/@interface/@inputVars.1" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.9/@interface/@inputVars.2" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.9/@interface/@inputVars.3" inConnections="//@connections.16" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.9/@interface/@inputVars.4" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.9/@interface/@inputVars.5" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.9/@interface/@eventOutputs.0" outConnections="//@connections.21" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.9/@interface/@eventOutputs.1" outConnections="//@connections.22" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.9/@interface/@outputVars.0" outConnections="//@connections.17" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.9/@interface/@outputVars.1" outConnections="//@connections.18" fbNetwork="//@fbNetwork"/>
+  </children>
+  <children xsi:type="org.fordiac.ide.model.ui:FBView" fb="//@fbNetwork/@fBs.10">
+    <position x="528" y="720"/>
+    <backgroundColor red="192" green="192" blue="192"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.10/@interface/@eventInputs.0" inConnections="//@connections.27" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.10/@interface/@eventInputs.1" inConnections="//@connections.28" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.10/@interface/@inputVars.0" inConnections="//@connections.31" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.10/@interface/@inputVars.1" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.10/@interface/@inputVars.2" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.10/@interface/@inputVars.3" inConnections="//@connections.32" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.10/@interface/@inputVars.4" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.10/@interface/@inputVars.5" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.10/@interface/@eventOutputs.0" outConnections="//@connections.29" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.10/@interface/@eventOutputs.1" outConnections="//@connections.30" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.10/@interface/@outputVars.0" outConnections="//@connections.33" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.10/@interface/@outputVars.1" outConnections="//@connections.34" fbNetwork="//@fbNetwork"/>
+  </children>
+  <children xsi:type="org.fordiac.ide.model.ui:FBView" fb="//@fbNetwork/@fBs.11">
+    <position x="336" y="696"/>
+    <backgroundColor red="192" green="192" blue="192"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.11/@interface/@eventInputs.0" inConnections="//@connections.35" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.11/@interface/@eventInputs.1" inConnections="//@connections.26 //@connections.29" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.11/@interface/@inputVars.0" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.11/@interface/@inputVars.1" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.11/@interface/@inputVars.2" inConnections="//@connections.33" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.11/@interface/@inputVars.3" inConnections="//@connections.34" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.11/@interface/@eventOutputs.0" outConnections="//@connections.27" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.11/@interface/@eventOutputs.1" outConnections="//@connections.28" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.11/@interface/@outputVars.0" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.11/@interface/@outputVars.1" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.11/@interface/@outputVars.2" outConnections="//@connections.31" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.11/@interface/@outputVars.3" outConnections="//@connections.32" fbNetwork="//@fbNetwork"/>
+  </children>
+  <children xsi:type="org.fordiac.ide.model.ui:FBView" fb="//@fbNetwork/@fBs.12">
+    <position x="120" y="696"/>
+    <backgroundColor red="192" green="192" blue="192"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.12/@interface/@eventInputs.0" inConnections="//@connections.24" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.12/@interface/@eventInputs.1" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.12/@interface/@inputVars.0" inConnections="//@connections.25" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.12/@interface/@eventOutputs.0" outConnections="//@connections.26" fbNetwork="//@fbNetwork"/>
+  </children>
+  <children xsi:type="org.fordiac.ide.model.ui:FBView" fb="//@fbNetwork/@fBs.13">
+    <position x="-96" y="696"/>
+    <backgroundColor red="192" green="192" blue="192"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.13/@interface/@eventInputs.0" inConnections="//@connections.30" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.13/@interface/@inputVars.0" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.13/@interface/@eventOutputs.0" outConnections="//@connections.24" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.13/@interface/@outputVars.0" outConnections="//@connections.25" fbNetwork="//@fbNetwork"/>
+  </children>
+  <children xsi:type="org.fordiac.ide.model.ui:FBView" fb="//@fbNetwork/@fBs.14">
+    <position x="936" y="912"/>
+    <backgroundColor red="192" green="192" blue="192"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.14/@interface/@eventInputs.0" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.14/@interface/@eventInputs.1" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.14/@interface/@eventOutputs.0" outConnections="//@connections.35" fbNetwork="//@fbNetwork"/>
+  </children>
+  <children xsi:type="org.fordiac.ide.model.ui:FBView" fb="//@fbNetwork/@fBs.15">
+    <position x="2040" y="624"/>
+    <backgroundColor red="192" green="192" blue="192"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.15/@interface/@eventInputs.0" inConnections="//@connections.39" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.15/@interface/@eventInputs.1" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.15/@interface/@inputVars.0" inConnections="//@connections.43" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.15/@interface/@inputVars.1" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.15/@interface/@inputVars.2" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.15/@interface/@inputVars.3" inConnections="//@connections.44" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.15/@interface/@inputVars.4" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.15/@interface/@eventOutputs.0" outConnections="//@connections.40" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.15/@interface/@eventOutputs.1" outConnections="//@connections.41" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.15/@interface/@outputVars.0" outConnections="//@connections.45" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.15/@interface/@outputVars.1" outConnections="//@connections.46" fbNetwork="//@fbNetwork"/>
+  </children>
+  <children xsi:type="org.fordiac.ide.model.ui:FBView" fb="//@fbNetwork/@fBs.16">
+    <position x="1464" y="648"/>
+    <backgroundColor red="192" green="192" blue="192"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.16/@interface/@eventInputs.0" inConnections="//@connections.41" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.16/@interface/@inputVars.0" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.16/@interface/@eventOutputs.0" outConnections="//@connections.36" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.16/@interface/@outputVars.0" outConnections="//@connections.37" fbNetwork="//@fbNetwork"/>
+  </children>
+  <children xsi:type="org.fordiac.ide.model.ui:FBView" fb="//@fbNetwork/@fBs.17">
+    <position x="1632" y="648"/>
+    <backgroundColor red="192" green="192" blue="192"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.17/@interface/@eventInputs.0" inConnections="//@connections.36" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.17/@interface/@eventInputs.1" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.17/@interface/@inputVars.0" inConnections="//@connections.37" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.17/@interface/@eventOutputs.0" outConnections="//@connections.38" fbNetwork="//@fbNetwork"/>
+  </children>
+  <children xsi:type="org.fordiac.ide.model.ui:FBView" fb="//@fbNetwork/@fBs.18">
+    <position x="1848" y="648"/>
+    <backgroundColor red="192" green="192" blue="192"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.18/@interface/@eventInputs.0" inConnections="//@connections.42" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.18/@interface/@eventInputs.1" inConnections="//@connections.38 //@connections.40" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.18/@interface/@inputVars.0" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.18/@interface/@inputVars.1" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.18/@interface/@inputVars.2" inConnections="//@connections.45" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.18/@interface/@inputVars.3" inConnections="//@connections.46" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.18/@interface/@eventOutputs.0" outConnections="//@connections.39" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.18/@interface/@eventOutputs.1" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.18/@interface/@outputVars.0" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.18/@interface/@outputVars.1" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.18/@interface/@outputVars.2" outConnections="//@connections.43" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.18/@interface/@outputVars.3" outConnections="//@connections.44" fbNetwork="//@fbNetwork"/>
+  </children>
+  <children xsi:type="org.fordiac.ide.model.ui:FBView" fb="//@fbNetwork/@fBs.19">
+    <position x="1632" y="864"/>
+    <backgroundColor red="192" green="192" blue="192"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.19/@interface/@eventInputs.0" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.19/@interface/@eventInputs.1" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.19/@interface/@eventOutputs.0" outConnections="//@connections.42" fbNetwork="//@fbNetwork"/>
+  </children>
+  <children xsi:type="org.fordiac.ide.model.ui:FBView" fb="//@fbNetwork/@fBs.20">
+    <position x="624" y="1200"/>
+    <backgroundColor red="192" green="192" blue="192"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.20/@interface/@eventInputs.0" inConnections="//@connections.47" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.20/@interface/@eventInputs.1" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.20/@interface/@inputVars.0" inConnections="//@connections.53" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.20/@interface/@inputVars.1" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.20/@interface/@inputVars.2" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.20/@interface/@inputVars.3" inConnections="//@connections.54" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.20/@interface/@inputVars.4" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.20/@interface/@inputVars.5" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.20/@interface/@eventOutputs.0" outConnections="//@connections.48" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.20/@interface/@eventOutputs.1" outConnections="//@connections.49" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.20/@interface/@outputVars.0" outConnections="//@connections.55" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.20/@interface/@outputVars.1" outConnections="//@connections.56" fbNetwork="//@fbNetwork"/>
+  </children>
+  <children xsi:type="org.fordiac.ide.model.ui:FBView" fb="//@fbNetwork/@fBs.21">
+    <position x="168" y="1128"/>
+    <backgroundColor red="192" green="192" blue="192"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.21/@interface/@eventInputs.0" inConnections="//@connections.50" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.21/@interface/@eventInputs.1" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.21/@interface/@inputVars.0" inConnections="//@connections.51" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.21/@interface/@eventOutputs.0" outConnections="//@connections.52" fbNetwork="//@fbNetwork"/>
+  </children>
+  <children xsi:type="org.fordiac.ide.model.ui:FBView" fb="//@fbNetwork/@fBs.22">
+    <position x="432" y="1128"/>
+    <backgroundColor red="192" green="192" blue="192"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.22/@interface/@eventInputs.0" inConnections="//@connections.57" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.22/@interface/@eventInputs.1" inConnections="//@connections.48 //@connections.52" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.22/@interface/@inputVars.0" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.22/@interface/@inputVars.1" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.22/@interface/@inputVars.2" inConnections="//@connections.55" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.22/@interface/@inputVars.3" inConnections="//@connections.56" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.22/@interface/@eventOutputs.0" outConnections="//@connections.47" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.22/@interface/@eventOutputs.1" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.22/@interface/@outputVars.0" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.22/@interface/@outputVars.1" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.22/@interface/@outputVars.2" outConnections="//@connections.53" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.22/@interface/@outputVars.3" outConnections="//@connections.54" fbNetwork="//@fbNetwork"/>
+  </children>
+  <children xsi:type="org.fordiac.ide.model.ui:FBView" fb="//@fbNetwork/@fBs.23">
+    <position x="-72" y="1104"/>
+    <backgroundColor red="192" green="192" blue="192"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.23/@interface/@eventInputs.0" inConnections="//@connections.49" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.23/@interface/@inputVars.0" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.23/@interface/@eventOutputs.0" outConnections="//@connections.50" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.23/@interface/@outputVars.0" outConnections="//@connections.51" fbNetwork="//@fbNetwork"/>
+  </children>
+  <children xsi:type="org.fordiac.ide.model.ui:FBView" fb="//@fbNetwork/@fBs.24">
+    <position x="888" y="1176"/>
+    <backgroundColor red="192" green="192" blue="192"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.24/@interface/@eventInputs.0" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.24/@interface/@eventInputs.1" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.24/@interface/@eventOutputs.0" outConnections="//@connections.57" fbNetwork="//@fbNetwork"/>
+  </children>
+  <children xsi:type="org.fordiac.ide.model.ui:FBView" fb="//@fbNetwork/@fBs.25">
+    <position x="1356" y="801"/>
+    <backgroundColor red="192" green="192" blue="192"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.25/@interface/@eventInputs.0" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.25/@interface/@eventInputs.1" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.25/@interface/@inputVars.0" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.25/@interface/@inputVars.1" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.25/@interface/@inputVars.2" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.25/@interface/@inputVars.3" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.25/@interface/@eventOutputs.0" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.25/@interface/@eventOutputs.1" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.25/@interface/@outputVars.0" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.25/@interface/@outputVars.1" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.25/@interface/@outputVars.2" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.25/@interface/@outputVars.3" fbNetwork="//@fbNetwork"/>
+  </children>
+  <children xsi:type="org.fordiac.ide.model.ui:FBView" fb="//@fbNetwork/@fBs.26">
+    <position x="1368" y="1056"/>
+    <backgroundColor red="192" green="192" blue="192"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.26/@interface/@eventInputs.0" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.26/@interface/@eventInputs.1" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.26/@interface/@inputVars.0" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.26/@interface/@inputVars.1" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.26/@interface/@inputVars.2" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.26/@interface/@inputVars.3" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.26/@interface/@eventOutputs.0" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.26/@interface/@eventOutputs.1" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.26/@interface/@outputVars.0" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.26/@interface/@outputVars.1" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.26/@interface/@outputVars.2" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.26/@interface/@outputVars.3" fbNetwork="//@fbNetwork"/>
+  </children>
+  <children xsi:type="org.fordiac.ide.model.ui:FBView" fb="//@fbNetwork/@fBs.27">
+    <position x="1368" y="1296"/>
+    <backgroundColor red="192" green="192" blue="192"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.27/@interface/@eventInputs.0" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.27/@interface/@eventInputs.1" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.27/@interface/@inputVars.0" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.27/@interface/@inputVars.1" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.27/@interface/@inputVars.2" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.27/@interface/@inputVars.3" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.27/@interface/@eventOutputs.0" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.27/@interface/@eventOutputs.1" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.27/@interface/@outputVars.0" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.27/@interface/@outputVars.1" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.27/@interface/@outputVars.2" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.27/@interface/@outputVars.3" fbNetwork="//@fbNetwork"/>
+  </children>
+  <children xsi:type="org.fordiac.ide.model.ui:FBView" fb="//@fbNetwork/@fBs.28">
+    <position x="1680" y="1032"/>
+    <backgroundColor red="192" green="192" blue="192"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.28/@interface/@eventInputs.0" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.28/@interface/@eventInputs.1" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.28/@interface/@inputVars.0" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.28/@interface/@inputVars.1" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.28/@interface/@inputVars.2" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.28/@interface/@inputVars.3" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.28/@interface/@eventOutputs.0" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.28/@interface/@eventOutputs.1" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.28/@interface/@outputVars.0" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.28/@interface/@outputVars.1" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.28/@interface/@outputVars.2" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.28/@interface/@outputVars.3" fbNetwork="//@fbNetwork"/>
+  </children>
+  <children xsi:type="org.fordiac.ide.model.ui:FBView" fb="//@fbNetwork/@fBs.29">
+    <position x="1656" y="1296"/>
+    <backgroundColor red="192" green="192" blue="192"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.29/@interface/@eventInputs.0" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.29/@interface/@eventInputs.1" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.29/@interface/@inputVars.0" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.29/@interface/@inputVars.1" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.29/@interface/@inputVars.2" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.29/@interface/@inputVars.3" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.29/@interface/@eventOutputs.0" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.29/@interface/@eventOutputs.1" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.29/@interface/@outputVars.0" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.29/@interface/@outputVars.1" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.29/@interface/@outputVars.2" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.29/@interface/@outputVars.3" fbNetwork="//@fbNetwork"/>
+  </children>
+  <children xsi:type="org.fordiac.ide.model.ui:FBView" fb="//@fbNetwork/@fBs.30">
+    <position x="1896" y="1080"/>
+    <backgroundColor red="192" green="192" blue="192"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.30/@interface/@eventInputs.0" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.30/@interface/@eventInputs.1" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.30/@interface/@inputVars.0" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.30/@interface/@inputVars.1" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.30/@interface/@inputVars.2" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.30/@interface/@eventOutputs.0" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.30/@interface/@eventOutputs.1" fbNetwork="//@fbNetwork"/>
+    <interfaceElements iInterfaceElement="//@fbNetwork/@fBs.30/@interface/@outputVars.0" fbNetwork="//@fbNetwork"/>
+  </children>
+  <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@fbNetwork/@eventConnections.2" source="//@children.4/@interfaceElements.8" destination="//@children.1/@interfaceElements.1"/>
+  <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@fbNetwork/@eventConnections.4" source="//@children.1/@interfaceElements.7" destination="//@children.4/@interfaceElements.1"/>
+  <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@fbNetwork/@eventConnections.3" source="//@children.1/@interfaceElements.6" destination="//@children.4/@interfaceElements.0"/>
+  <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@fbNetwork/@dataConnections.2" source="//@children.1/@interfaceElements.10" destination="//@children.4/@interfaceElements.2"/>
+  <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@fbNetwork/@dataConnections.3" source="//@children.1/@interfaceElements.11" destination="//@children.4/@interfaceElements.5"/>
+  <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@fbNetwork/@dataConnections.0" source="//@children.4/@interfaceElements.10" destination="//@children.1/@interfaceElements.4"/>
+  <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@fbNetwork/@dataConnections.1" source="//@children.4/@interfaceElements.11" destination="//@children.1/@interfaceElements.5"/>
+  <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@fbNetwork/@dataConnections.4" source="//@children.2/@interfaceElements.3" destination="//@children.3/@interfaceElements.2"/>
+  <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@fbNetwork/@eventConnections.6" source="//@children.2/@interfaceElements.2" destination="//@children.3/@interfaceElements.0"/>
+  <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@fbNetwork/@eventConnections.1" source="//@children.3/@interfaceElements.3" destination="//@children.1/@interfaceElements.1"/>
+  <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@fbNetwork/@eventConnections.5" source="//@children.4/@interfaceElements.9" destination="//@children.2/@interfaceElements.0"/>
+  <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@fbNetwork/@eventConnections.0" source="//@children.0/@interfaceElements.2" destination="//@children.1/@interfaceElements.0"/>
+  <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@fbNetwork/@eventConnections.8" source="//@children.5/@interfaceElements.2" destination="//@children.6/@interfaceElements.0"/>
+  <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@fbNetwork/@eventConnections.9" source="//@children.6/@interfaceElements.3" destination="//@children.7/@interfaceElements.1"/>
+  <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@fbNetwork/@eventConnections.10" source="//@children.8/@interfaceElements.2" destination="//@children.7/@interfaceElements.0"/>
+  <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@fbNetwork/@dataConnections.8" source="//@children.7/@interfaceElements.10" destination="//@children.9/@interfaceElements.2"/>
+  <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@fbNetwork/@dataConnections.9" source="//@children.7/@interfaceElements.11" destination="//@children.9/@interfaceElements.5"/>
+  <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@fbNetwork/@dataConnections.6" source="//@children.9/@interfaceElements.10" destination="//@children.7/@interfaceElements.4"/>
+  <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@fbNetwork/@dataConnections.7" source="//@children.9/@interfaceElements.11" destination="//@children.7/@interfaceElements.5"/>
+  <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@fbNetwork/@eventConnections.13" source="//@children.7/@interfaceElements.7" destination="//@children.9/@interfaceElements.1"/>
+  <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@fbNetwork/@eventConnections.12" source="//@children.7/@interfaceElements.6" destination="//@children.9/@interfaceElements.0"/>
+  <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@fbNetwork/@eventConnections.11" source="//@children.9/@interfaceElements.8" destination="//@children.7/@interfaceElements.1"/>
+  <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@fbNetwork/@eventConnections.7" source="//@children.9/@interfaceElements.9" destination="//@children.5/@interfaceElements.0"/>
+  <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@fbNetwork/@dataConnections.5" source="//@children.5/@interfaceElements.3" destination="//@children.6/@interfaceElements.2"/>
+  <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@fbNetwork/@eventConnections.20" source="//@children.13/@interfaceElements.2" destination="//@children.12/@interfaceElements.0"/>
+  <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@fbNetwork/@dataConnections.14" source="//@children.13/@interfaceElements.3" destination="//@children.12/@interfaceElements.2"/>
+  <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@fbNetwork/@eventConnections.19" source="//@children.12/@interfaceElements.3" destination="//@children.11/@interfaceElements.1"/>
+  <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@fbNetwork/@eventConnections.14" source="//@children.11/@interfaceElements.6" destination="//@children.10/@interfaceElements.0"/>
+  <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@fbNetwork/@eventConnections.15" source="//@children.11/@interfaceElements.7" destination="//@children.10/@interfaceElements.1"/>
+  <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@fbNetwork/@eventConnections.16" source="//@children.10/@interfaceElements.8" destination="//@children.11/@interfaceElements.1"/>
+  <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@fbNetwork/@eventConnections.17" source="//@children.10/@interfaceElements.9" destination="//@children.13/@interfaceElements.0"/>
+  <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@fbNetwork/@dataConnections.10" source="//@children.11/@interfaceElements.10" destination="//@children.10/@interfaceElements.2"/>
+  <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@fbNetwork/@dataConnections.11" source="//@children.11/@interfaceElements.11" destination="//@children.10/@interfaceElements.5"/>
+  <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@fbNetwork/@dataConnections.12" source="//@children.10/@interfaceElements.10" destination="//@children.11/@interfaceElements.4"/>
+  <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@fbNetwork/@dataConnections.13" source="//@children.10/@interfaceElements.11" destination="//@children.11/@interfaceElements.5"/>
+  <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@fbNetwork/@eventConnections.18" source="//@children.14/@interfaceElements.2" destination="//@children.11/@interfaceElements.0"/>
+  <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@fbNetwork/@eventConnections.24" source="//@children.16/@interfaceElements.2" destination="//@children.17/@interfaceElements.0"/>
+  <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@fbNetwork/@dataConnections.19" source="//@children.16/@interfaceElements.3" destination="//@children.17/@interfaceElements.2"/>
+  <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@fbNetwork/@eventConnections.25" source="//@children.17/@interfaceElements.3" destination="//@children.18/@interfaceElements.1"/>
+  <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@fbNetwork/@eventConnections.21" source="//@children.18/@interfaceElements.6" destination="//@children.15/@interfaceElements.0"/>
+  <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@fbNetwork/@eventConnections.22" source="//@children.15/@interfaceElements.7" destination="//@children.18/@interfaceElements.1"/>
+  <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@fbNetwork/@eventConnections.23" source="//@children.15/@interfaceElements.8" destination="//@children.16/@interfaceElements.0"/>
+  <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@fbNetwork/@eventConnections.26" source="//@children.19/@interfaceElements.2" destination="//@children.18/@interfaceElements.0"/>
+  <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@fbNetwork/@dataConnections.15" source="//@children.18/@interfaceElements.10" destination="//@children.15/@interfaceElements.2"/>
+  <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@fbNetwork/@dataConnections.16" source="//@children.18/@interfaceElements.11" destination="//@children.15/@interfaceElements.5"/>
+  <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@fbNetwork/@dataConnections.17" source="//@children.15/@interfaceElements.9" destination="//@children.18/@interfaceElements.4"/>
+  <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@fbNetwork/@dataConnections.18" source="//@children.15/@interfaceElements.10" destination="//@children.18/@interfaceElements.5"/>
+  <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@fbNetwork/@eventConnections.27" source="//@children.22/@interfaceElements.6" destination="//@children.20/@interfaceElements.0"/>
+  <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@fbNetwork/@eventConnections.28" source="//@children.20/@interfaceElements.8" destination="//@children.22/@interfaceElements.1"/>
+  <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@fbNetwork/@eventConnections.29" source="//@children.20/@interfaceElements.9" destination="//@children.23/@interfaceElements.0"/>
+  <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@fbNetwork/@eventConnections.30" source="//@children.23/@interfaceElements.2" destination="//@children.21/@interfaceElements.0"/>
+  <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@fbNetwork/@dataConnections.24" source="//@children.23/@interfaceElements.3" destination="//@children.21/@interfaceElements.2"/>
+  <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@fbNetwork/@eventConnections.31" source="//@children.21/@interfaceElements.3" destination="//@children.22/@interfaceElements.1"/>
+  <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@fbNetwork/@dataConnections.20" source="//@children.22/@interfaceElements.10" destination="//@children.20/@interfaceElements.2"/>
+  <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@fbNetwork/@dataConnections.21" source="//@children.22/@interfaceElements.11" destination="//@children.20/@interfaceElements.5"/>
+  <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@fbNetwork/@dataConnections.22" source="//@children.20/@interfaceElements.10" destination="//@children.22/@interfaceElements.4"/>
+  <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@fbNetwork/@dataConnections.23" source="//@children.20/@interfaceElements.11" destination="//@children.22/@interfaceElements.5"/>
+  <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@fbNetwork/@eventConnections.32" source="//@children.24/@interfaceElements.2" destination="//@children.22/@interfaceElements.0"/>
+  <fbNetwork>
+    <fBs name="E_MERGE1" identifier="true" id="_Vl4cYOFYEeiMgZzesyZImg" fbtPath="events\E_MERGE.fbt">
+      <interface>
+        <eventInputs name="EI1" comment="First input event" isInput="true"/>
+        <eventInputs name="EI2" comment="Second input event" isInput="true"/>
+        <eventOutputs name="EO" comment="Output Event" outputConnections="//@fbNetwork/@eventConnections.0"/>
+      </interface>
+      <position x="936" y="240"/>
+    </fBs>
+    <fBs name="SERVER_2" identifier="true" id="_Vl5qgOFYEeiMgZzesyZImg" fbtPath="net\SERVER_2.fbt">
+      <interface>
+        <eventInputs name="INIT" comment="Service Initialization" isInput="true" inputConnections="//@fbNetwork/@eventConnections.0">
+          <with variables="//@fbNetwork/@fBs.1/@interface/@inputVars.0"/>
+          <with variables="//@fbNetwork/@fBs.1/@interface/@inputVars.1"/>
+        </eventInputs>
+        <eventInputs name="RSP" comment="Service Response" isInput="true" inputConnections="//@fbNetwork/@eventConnections.2 //@fbNetwork/@eventConnections.1">
+          <with variables="//@fbNetwork/@fBs.1/@interface/@inputVars.0"/>
+          <with variables="//@fbNetwork/@fBs.1/@interface/@inputVars.2"/>
+          <with variables="//@fbNetwork/@fBs.1/@interface/@inputVars.3"/>
+        </eventInputs>
+        <eventOutputs name="INITO" comment="Initialization Confirm" outputConnections="//@fbNetwork/@eventConnections.3">
+          <with variables="//@fbNetwork/@fBs.1/@interface/@outputVars.0"/>
+          <with variables="//@fbNetwork/@fBs.1/@interface/@outputVars.1"/>
+        </eventOutputs>
+        <eventOutputs name="IND" comment="Service Indication" outputConnections="//@fbNetwork/@eventConnections.4">
+          <with variables="//@fbNetwork/@fBs.1/@interface/@outputVars.0"/>
+          <with variables="//@fbNetwork/@fBs.1/@interface/@outputVars.1"/>
+          <with variables="//@fbNetwork/@fBs.1/@interface/@outputVars.2"/>
+          <with variables="//@fbNetwork/@fBs.1/@interface/@outputVars.3"/>
+        </eventOutputs>
+        <inputVars name="QI" comment="Event Input Qualifier" isInput="true" arraySize="-1" typeName="BOOL" withs="//@fbNetwork/@fBs.1/@interface/@eventInputs.0/@with.0 //@fbNetwork/@fBs.1/@interface/@eventInputs.1/@with.0">
+          <value value="TRUE"/>
+        </inputVars>
+        <inputVars name="ID" comment="Connection Identifier" isInput="true" arraySize="-1" typeName="WSTRING" withs="//@fbNetwork/@fBs.1/@interface/@eventInputs.0/@with.1">
+          <value value="localhost:61000"/>
+        </inputVars>
+        <inputVars name="SD_1" comment="Data to Send" isInput="true" arraySize="-1" inputConnections="//@fbNetwork/@dataConnections.0" typeName="ANY" withs="//@fbNetwork/@fBs.1/@interface/@eventInputs.1/@with.1">
+          <value/>
+        </inputVars>
+        <inputVars name="SD_2" comment="Data to Send" isInput="true" arraySize="-1" inputConnections="//@fbNetwork/@dataConnections.1" typeName="ANY" withs="//@fbNetwork/@fBs.1/@interface/@eventInputs.1/@with.2">
+          <value/>
+        </inputVars>
+        <outputVars name="QO" comment="Event Output Qualifier" arraySize="-1" typeName="BOOL" withs="//@fbNetwork/@fBs.1/@interface/@eventOutputs.0/@with.0 //@fbNetwork/@fBs.1/@interface/@eventOutputs.1/@with.0"/>
+        <outputVars name="STATUS" comment="Service Status" arraySize="-1" typeName="WSTRING" withs="//@fbNetwork/@fBs.1/@interface/@eventOutputs.0/@with.1 //@fbNetwork/@fBs.1/@interface/@eventOutputs.1/@with.1"/>
+        <outputVars name="RD_1" comment="Received Data" arraySize="-1" outputConnections="//@fbNetwork/@dataConnections.2" typeName="ANY" withs="//@fbNetwork/@fBs.1/@interface/@eventOutputs.1/@with.2"/>
+        <outputVars name="RD_2" comment="Received Data" arraySize="-1" outputConnections="//@fbNetwork/@dataConnections.3" typeName="ANY" withs="//@fbNetwork/@fBs.1/@interface/@eventOutputs.1/@with.3"/>
+      </interface>
+      <position x="384" y="168"/>
+    </fBs>
+    <fBs name="TIME2TIME" identifier="true" id="_Vl6RkOFYEeiMgZzesyZImg" fbtPath="convert\TIME2TIME.fbt">
+      <interface>
+        <eventInputs name="REQ" comment="Normal Execution Request" isInput="true" inputConnections="//@fbNetwork/@eventConnections.5">
+          <with variables="//@fbNetwork/@fBs.2/@interface/@inputVars.0"/>
+        </eventInputs>
+        <eventOutputs name="CNF" comment="Execution Confirmation" outputConnections="//@fbNetwork/@eventConnections.6">
+          <with variables="//@fbNetwork/@fBs.2/@interface/@outputVars.0"/>
+        </eventOutputs>
+        <inputVars name="IN" comment="Input event qualifier" isInput="true" arraySize="-1" typeName="TIME" withs="//@fbNetwork/@fBs.2/@interface/@eventInputs.0/@with.0">
+          <value value="T#75ms"/>
+        </inputVars>
+        <outputVars name="OUT" comment="Output event qualifier" arraySize="-1" outputConnections="//@fbNetwork/@dataConnections.4" typeName="TIME" withs="//@fbNetwork/@fBs.2/@interface/@eventOutputs.0/@with.0"/>
+      </interface>
+      <position x="48" y="240"/>
+    </fBs>
+    <fBs name="E_CYCLE" identifier="true" id="_Vl7fsOFYEeiMgZzesyZImg" fbtPath="events\E_CYCLE.fbt">
+      <interface>
+        <eventInputs name="START" isInput="true" inputConnections="//@fbNetwork/@eventConnections.6">
+          <with variables="//@fbNetwork/@fBs.3/@interface/@inputVars.0"/>
+        </eventInputs>
+        <eventInputs name="STOP" isInput="true"/>
+        <eventOutputs name="EO" comment="Periodic event at period DT,starting at DT after START" outputConnections="//@fbNetwork/@eventConnections.1"/>
+        <inputVars name="DT" comment="Period between events" isInput="true" arraySize="-1" inputConnections="//@fbNetwork/@dataConnections.4" typeName="TIME" withs="//@fbNetwork/@fBs.3/@interface/@eventInputs.0/@with.0">
+          <value/>
+        </inputVars>
+      </interface>
+      <position x="188" y="236"/>
+    </fBs>
+    <fBs name="App1_ProdRateandPressure" identifier="true" id="_X9xg0OFYEeiMgZzesyZImg" fbtPath="OSCAT\Custom\App1_ReactorPressureandReactorTemp.fbt">
+      <interface>
+        <eventInputs name="INITO" comment="Initialization Request" isInput="true" inputConnections="//@fbNetwork/@eventConnections.3"/>
+        <eventInputs name="IND" comment="Normal Execution Request" isInput="true" inputConnections="//@fbNetwork/@eventConnections.4">
+          <with variables="//@fbNetwork/@fBs.4/@interface/@inputVars.0"/>
+          <with variables="//@fbNetwork/@fBs.4/@interface/@inputVars.1"/>
+          <with variables="//@fbNetwork/@fBs.4/@interface/@inputVars.3"/>
+          <with variables="//@fbNetwork/@fBs.4/@interface/@inputVars.4"/>
+          <with variables="//@fbNetwork/@fBs.4/@interface/@inputVars.2"/>
+          <with variables="//@fbNetwork/@fBs.4/@interface/@inputVars.5"/>
+        </eventInputs>
+        <eventOutputs name="INITO1" comment="Initialization Confirm" outputConnections="//@fbNetwork/@eventConnections.2"/>
+        <eventOutputs name="CNF" comment="Execution Confirmation" outputConnections="//@fbNetwork/@eventConnections.5">
+          <with variables="//@fbNetwork/@fBs.4/@interface/@outputVars.0"/>
+          <with variables="//@fbNetwork/@fBs.4/@interface/@outputVars.1"/>
+        </eventOutputs>
+        <inputVars name="XMEAS17" isInput="true" arraySize="-1" inputConnections="//@fbNetwork/@dataConnections.2" typeName="REAL" withs="//@fbNetwork/@fBs.4/@interface/@eventInputs.1/@with.0">
+          <value/>
+        </inputVars>
+        <inputVars name="XMEAS17SETP" isInput="true" arraySize="-1" typeName="REAL" withs="//@fbNetwork/@fBs.4/@interface/@eventInputs.1/@with.1">
+          <value value="22.89"/>
+        </inputVars>
+        <inputVars name="KP_ProdRate" isInput="true" arraySize="-1" typeName="REAL" withs="//@fbNetwork/@fBs.4/@interface/@eventInputs.1/@with.4">
+          <value value="13.813"/>
+        </inputVars>
+        <inputVars name="XMEAS7" isInput="true" arraySize="-1" inputConnections="//@fbNetwork/@dataConnections.3" typeName="REAL" withs="//@fbNetwork/@fBs.4/@interface/@eventInputs.1/@with.2">
+          <value/>
+        </inputVars>
+        <inputVars name="XMEAS7SETP" isInput="true" arraySize="-1" typeName="REAL" withs="//@fbNetwork/@fBs.4/@interface/@eventInputs.1/@with.3">
+          <value value="2800"/>
+        </inputVars>
+        <inputVars name="KP_Pressure" isInput="true" arraySize="-1" typeName="REAL" withs="//@fbNetwork/@fBs.4/@interface/@eventInputs.1/@with.5">
+          <value value="100"/>
+        </inputVars>
+        <outputVars name="XMV8" arraySize="-1" outputConnections="//@fbNetwork/@dataConnections.0" typeName="REAL" withs="//@fbNetwork/@fBs.4/@interface/@eventOutputs.1/@with.0"/>
+        <outputVars name="XMV4" arraySize="-1" outputConnections="//@fbNetwork/@dataConnections.1" typeName="REAL" withs="//@fbNetwork/@fBs.4/@interface/@eventOutputs.1/@with.1"/>
+      </interface>
+      <position x="600" y="120"/>
+    </fBs>
+    <fBs name="TIME2TIME_0" identifier="true" id="_s5AkoOFYEeiMgZzesyZImg" fbtPath="convert\TIME2TIME.fbt">
+      <interface>
+        <eventInputs name="REQ" comment="Normal Execution Request" isInput="true" inputConnections="//@fbNetwork/@eventConnections.7">
+          <with variables="//@fbNetwork/@fBs.5/@interface/@inputVars.0"/>
+        </eventInputs>
+        <eventOutputs name="CNF" comment="Execution Confirmation" outputConnections="//@fbNetwork/@eventConnections.8">
+          <with variables="//@fbNetwork/@fBs.5/@interface/@outputVars.0"/>
+        </eventOutputs>
+        <inputVars name="IN" comment="Input event qualifier" isInput="true" arraySize="-1" typeName="TIME" withs="//@fbNetwork/@fBs.5/@interface/@eventInputs.0/@with.0">
+          <value value="T#75ms"/>
+        </inputVars>
+        <outputVars name="OUT" comment="Output event qualifier" arraySize="-1" outputConnections="//@fbNetwork/@dataConnections.5" typeName="TIME" withs="//@fbNetwork/@fBs.5/@interface/@eventOutputs.0/@with.0"/>
+      </interface>
+      <position x="1224" y="168"/>
+    </fBs>
+    <fBs name="E_CYCLE_0" identifier="true" id="_s5BLsOFYEeiMgZzesyZImg" fbtPath="events\E_CYCLE.fbt">
+      <interface>
+        <eventInputs name="START" isInput="true" inputConnections="//@fbNetwork/@eventConnections.8">
+          <with variables="//@fbNetwork/@fBs.6/@interface/@inputVars.0"/>
+        </eventInputs>
+        <eventInputs name="STOP" isInput="true"/>
+        <eventOutputs name="EO" comment="Periodic event at period DT,starting at DT after START" outputConnections="//@fbNetwork/@eventConnections.9"/>
+        <inputVars name="DT" comment="Period between events" isInput="true" arraySize="-1" inputConnections="//@fbNetwork/@dataConnections.5" typeName="TIME" withs="//@fbNetwork/@fBs.6/@interface/@eventInputs.0/@with.0">
+          <value/>
+        </inputVars>
+      </interface>
+      <position x="1392" y="144"/>
+    </fBs>
+    <fBs name="SERVER_2_0" identifier="true" id="_s5BywOFYEeiMgZzesyZImg" fbtPath="net\SERVER_2.fbt">
+      <interface>
+        <eventInputs name="INIT" comment="Service Initialization" isInput="true" inputConnections="//@fbNetwork/@eventConnections.10">
+          <with variables="//@fbNetwork/@fBs.7/@interface/@inputVars.0"/>
+          <with variables="//@fbNetwork/@fBs.7/@interface/@inputVars.1"/>
+        </eventInputs>
+        <eventInputs name="RSP" comment="Service Response" isInput="true" inputConnections="//@fbNetwork/@eventConnections.9 //@fbNetwork/@eventConnections.11">
+          <with variables="//@fbNetwork/@fBs.7/@interface/@inputVars.0"/>
+          <with variables="//@fbNetwork/@fBs.7/@interface/@inputVars.2"/>
+          <with variables="//@fbNetwork/@fBs.7/@interface/@inputVars.3"/>
+        </eventInputs>
+        <eventOutputs name="INITO" comment="Initialization Confirm" outputConnections="//@fbNetwork/@eventConnections.12">
+          <with variables="//@fbNetwork/@fBs.7/@interface/@outputVars.0"/>
+          <with variables="//@fbNetwork/@fBs.7/@interface/@outputVars.1"/>
+        </eventOutputs>
+        <eventOutputs name="IND" comment="Service Indication" outputConnections="//@fbNetwork/@eventConnections.13">
+          <with variables="//@fbNetwork/@fBs.7/@interface/@outputVars.0"/>
+          <with variables="//@fbNetwork/@fBs.7/@interface/@outputVars.1"/>
+          <with variables="//@fbNetwork/@fBs.7/@interface/@outputVars.2"/>
+          <with variables="//@fbNetwork/@fBs.7/@interface/@outputVars.3"/>
+        </eventOutputs>
+        <inputVars name="QI" comment="Event Input Qualifier" isInput="true" arraySize="-1" typeName="BOOL" withs="//@fbNetwork/@fBs.7/@interface/@eventInputs.0/@with.0 //@fbNetwork/@fBs.7/@interface/@eventInputs.1/@with.0">
+          <value value="TRUE"/>
+        </inputVars>
+        <inputVars name="ID" comment="Connection Identifier" isInput="true" arraySize="-1" typeName="WSTRING" withs="//@fbNetwork/@fBs.7/@interface/@eventInputs.0/@with.1">
+          <value value="localhost:61001"/>
+        </inputVars>
+        <inputVars name="SD_1" comment="Data to Send" isInput="true" arraySize="-1" inputConnections="//@fbNetwork/@dataConnections.6" typeName="ANY" withs="//@fbNetwork/@fBs.7/@interface/@eventInputs.1/@with.1">
+          <value/>
+        </inputVars>
+        <inputVars name="SD_2" comment="Data to Send" isInput="true" arraySize="-1" inputConnections="//@fbNetwork/@dataConnections.7" typeName="ANY" withs="//@fbNetwork/@fBs.7/@interface/@eventInputs.1/@with.2">
+          <value/>
+        </inputVars>
+        <outputVars name="QO" comment="Event Output Qualifier" arraySize="-1" typeName="BOOL" withs="//@fbNetwork/@fBs.7/@interface/@eventOutputs.0/@with.0 //@fbNetwork/@fBs.7/@interface/@eventOutputs.1/@with.0"/>
+        <outputVars name="STATUS" comment="Service Status" arraySize="-1" typeName="WSTRING" withs="//@fbNetwork/@fBs.7/@interface/@eventOutputs.0/@with.1 //@fbNetwork/@fBs.7/@interface/@eventOutputs.1/@with.1"/>
+        <outputVars name="RD_1" comment="Received Data" arraySize="-1" outputConnections="//@fbNetwork/@dataConnections.8" typeName="ANY" withs="//@fbNetwork/@fBs.7/@interface/@eventOutputs.1/@with.2"/>
+        <outputVars name="RD_2" comment="Received Data" arraySize="-1" outputConnections="//@fbNetwork/@dataConnections.9" typeName="ANY" withs="//@fbNetwork/@fBs.7/@interface/@eventOutputs.1/@with.3"/>
+      </interface>
+      <position x="1608" y="144"/>
+    </fBs>
+    <fBs name="E_MERGE1_0" identifier="true" id="_s5CZ0OFYEeiMgZzesyZImg" fbtPath="events\E_MERGE.fbt">
+      <interface>
+        <eventInputs name="EI1" comment="First input event" isInput="true"/>
+        <eventInputs name="EI2" comment="Second input event" isInput="true"/>
+        <eventOutputs name="EO" comment="Output Event" outputConnections="//@fbNetwork/@eventConnections.10"/>
+      </interface>
+      <position x="1176" y="360"/>
+    </fBs>
+    <fBs name="App2_StripperTempandReactorTemp" identifier="true" id="_yq8uEOFYEeiMgZzesyZImg" fbtPath="OSCAT\Custom\App2_StripperTempandStripperLevel.fbt">
+      <interface>
+        <eventInputs name="INITO" comment="Initialization Request" isInput="true" inputConnections="//@fbNetwork/@eventConnections.12"/>
+        <eventInputs name="IND" comment="Normal Execution Request" isInput="true" inputConnections="//@fbNetwork/@eventConnections.13">
+          <with variables="//@fbNetwork/@fBs.9/@interface/@inputVars.0"/>
+          <with variables="//@fbNetwork/@fBs.9/@interface/@inputVars.1"/>
+          <with variables="//@fbNetwork/@fBs.9/@interface/@inputVars.3"/>
+          <with variables="//@fbNetwork/@fBs.9/@interface/@inputVars.4"/>
+          <with variables="//@fbNetwork/@fBs.9/@interface/@inputVars.2"/>
+          <with variables="//@fbNetwork/@fBs.9/@interface/@inputVars.5"/>
+        </eventInputs>
+        <eventOutputs name="INITO2" comment="Initialization Confirm" outputConnections="//@fbNetwork/@eventConnections.11"/>
+        <eventOutputs name="CNF" comment="Execution Confirmation" outputConnections="//@fbNetwork/@eventConnections.7">
+          <with variables="//@fbNetwork/@fBs.9/@interface/@outputVars.0"/>
+          <with variables="//@fbNetwork/@fBs.9/@interface/@outputVars.1"/>
+        </eventOutputs>
+        <inputVars name="XMEAS18" isInput="true" arraySize="-1" inputConnections="//@fbNetwork/@dataConnections.8" typeName="REAL" withs="//@fbNetwork/@fBs.9/@interface/@eventInputs.1/@with.0">
+          <value/>
+        </inputVars>
+        <inputVars name="XMEAS18SETP" isInput="true" arraySize="-1" typeName="REAL" withs="//@fbNetwork/@fBs.9/@interface/@eventInputs.1/@with.1">
+          <value value="66.5"/>
+        </inputVars>
+        <inputVars name="KP_StripTemp" isInput="true" arraySize="-1" typeName="REAL" withs="//@fbNetwork/@fBs.9/@interface/@eventInputs.1/@with.4">
+          <value value="2"/>
+        </inputVars>
+        <inputVars name="XMEAS9" isInput="true" arraySize="-1" inputConnections="//@fbNetwork/@dataConnections.9" typeName="REAL" withs="//@fbNetwork/@fBs.9/@interface/@eventInputs.1/@with.2">
+          <value/>
+        </inputVars>
+        <inputVars name="XMEAS9SETP" isInput="true" arraySize="-1" typeName="REAL" withs="//@fbNetwork/@fBs.9/@interface/@eventInputs.1/@with.3">
+          <value value="122.9"/>
+        </inputVars>
+        <inputVars name="KP_ReactorTemp" isInput="true" arraySize="-1" typeName="REAL" withs="//@fbNetwork/@fBs.9/@interface/@eventInputs.1/@with.5">
+          <value value="16"/>
+        </inputVars>
+        <outputVars name="XMV9" arraySize="-1" outputConnections="//@fbNetwork/@dataConnections.6" typeName="REAL" withs="//@fbNetwork/@fBs.9/@interface/@eventOutputs.1/@with.0"/>
+        <outputVars name="XMV10" arraySize="-1" outputConnections="//@fbNetwork/@dataConnections.7" typeName="REAL" withs="//@fbNetwork/@fBs.9/@interface/@eventOutputs.1/@with.1"/>
+      </interface>
+      <position x="1824" y="144"/>
+    </fBs>
+    <fBs name="App3_StripperLevelandSeparatorLevel" identifier="true" id="_7hOLMOFYEeiMgZzesyZImg" fbtPath="OSCAT\Custom\App3_SeparatorTempandSeparatorLevel.fbt">
+      <interface>
+        <eventInputs name="INITO" comment="Initialization Request" isInput="true" inputConnections="//@fbNetwork/@eventConnections.14"/>
+        <eventInputs name="IND" comment="Normal Execution Request" isInput="true" inputConnections="//@fbNetwork/@eventConnections.15">
+          <with variables="//@fbNetwork/@fBs.10/@interface/@inputVars.0"/>
+          <with variables="//@fbNetwork/@fBs.10/@interface/@inputVars.3"/>
+          <with variables="//@fbNetwork/@fBs.10/@interface/@inputVars.1"/>
+          <with variables="//@fbNetwork/@fBs.10/@interface/@inputVars.4"/>
+          <with variables="//@fbNetwork/@fBs.10/@interface/@inputVars.2"/>
+          <with variables="//@fbNetwork/@fBs.10/@interface/@inputVars.5"/>
+        </eventInputs>
+        <eventOutputs name="INITO3" comment="Initialization Confirm" outputConnections="//@fbNetwork/@eventConnections.16"/>
+        <eventOutputs name="CNF" comment="Execution Confirmation" outputConnections="//@fbNetwork/@eventConnections.17">
+          <with variables="//@fbNetwork/@fBs.10/@interface/@outputVars.0"/>
+          <with variables="//@fbNetwork/@fBs.10/@interface/@outputVars.1"/>
+        </eventOutputs>
+        <inputVars name="XMEAS15" isInput="true" arraySize="-1" inputConnections="//@fbNetwork/@dataConnections.10" typeName="REAL" withs="//@fbNetwork/@fBs.10/@interface/@eventInputs.1/@with.0">
+          <value/>
+        </inputVars>
+        <inputVars name="XMEAS15SETP" isInput="true" arraySize="-1" typeName="REAL" withs="//@fbNetwork/@fBs.10/@interface/@eventInputs.1/@with.2">
+          <value value="50"/>
+        </inputVars>
+        <inputVars name="KP_StripLevel" isInput="true" arraySize="-1" typeName="REAL" withs="//@fbNetwork/@fBs.10/@interface/@eventInputs.1/@with.4">
+          <value value="2"/>
+        </inputVars>
+        <inputVars name="XMEAS12" isInput="true" arraySize="-1" inputConnections="//@fbNetwork/@dataConnections.11" typeName="REAL" withs="//@fbNetwork/@fBs.10/@interface/@eventInputs.1/@with.1">
+          <value/>
+        </inputVars>
+        <inputVars name="XMEAS12SETP" isInput="true" arraySize="-1" typeName="REAL" withs="//@fbNetwork/@fBs.10/@interface/@eventInputs.1/@with.3">
+          <value value="50"/>
+        </inputVars>
+        <inputVars name="Kp_SepLevel" isInput="true" arraySize="-1" typeName="REAL" withs="//@fbNetwork/@fBs.10/@interface/@eventInputs.1/@with.5">
+          <value value="2.5"/>
+        </inputVars>
+        <outputVars name="XMV7" arraySize="-1" outputConnections="//@fbNetwork/@dataConnections.12" typeName="REAL" withs="//@fbNetwork/@fBs.10/@interface/@eventOutputs.1/@with.0"/>
+        <outputVars name="XMV11" arraySize="-1" outputConnections="//@fbNetwork/@dataConnections.13" typeName="REAL" withs="//@fbNetwork/@fBs.10/@interface/@eventOutputs.1/@with.1"/>
+      </interface>
+      <position x="576" y="600"/>
+    </fBs>
+    <fBs name="SERVER_2_1" identifier="true" id="_9K43sOFYEeiMgZzesyZImg" fbtPath="net\SERVER_2.fbt">
+      <interface>
+        <eventInputs name="INIT" comment="Service Initialization" isInput="true" inputConnections="//@fbNetwork/@eventConnections.18">
+          <with variables="//@fbNetwork/@fBs.11/@interface/@inputVars.0"/>
+          <with variables="//@fbNetwork/@fBs.11/@interface/@inputVars.1"/>
+        </eventInputs>
+        <eventInputs name="RSP" comment="Service Response" isInput="true" inputConnections="//@fbNetwork/@eventConnections.19 //@fbNetwork/@eventConnections.16">
+          <with variables="//@fbNetwork/@fBs.11/@interface/@inputVars.0"/>
+          <with variables="//@fbNetwork/@fBs.11/@interface/@inputVars.2"/>
+          <with variables="//@fbNetwork/@fBs.11/@interface/@inputVars.3"/>
+        </eventInputs>
+        <eventOutputs name="INITO" comment="Initialization Confirm" outputConnections="//@fbNetwork/@eventConnections.14">
+          <with variables="//@fbNetwork/@fBs.11/@interface/@outputVars.0"/>
+          <with variables="//@fbNetwork/@fBs.11/@interface/@outputVars.1"/>
+        </eventOutputs>
+        <eventOutputs name="IND" comment="Service Indication" outputConnections="//@fbNetwork/@eventConnections.15">
+          <with variables="//@fbNetwork/@fBs.11/@interface/@outputVars.0"/>
+          <with variables="//@fbNetwork/@fBs.11/@interface/@outputVars.1"/>
+          <with variables="//@fbNetwork/@fBs.11/@interface/@outputVars.2"/>
+          <with variables="//@fbNetwork/@fBs.11/@interface/@outputVars.3"/>
+        </eventOutputs>
+        <inputVars name="QI" comment="Event Input Qualifier" isInput="true" arraySize="-1" typeName="BOOL" withs="//@fbNetwork/@fBs.11/@interface/@eventInputs.0/@with.0 //@fbNetwork/@fBs.11/@interface/@eventInputs.1/@with.0">
+          <value value="TRUE"/>
+        </inputVars>
+        <inputVars name="ID" comment="Connection Identifier" isInput="true" arraySize="-1" typeName="WSTRING" withs="//@fbNetwork/@fBs.11/@interface/@eventInputs.0/@with.1">
+          <value value="localhost:61002"/>
+        </inputVars>
+        <inputVars name="SD_1" comment="Data to Send" isInput="true" arraySize="-1" inputConnections="//@fbNetwork/@dataConnections.12" typeName="ANY" withs="//@fbNetwork/@fBs.11/@interface/@eventInputs.1/@with.1">
+          <value/>
+        </inputVars>
+        <inputVars name="SD_2" comment="Data to Send" isInput="true" arraySize="-1" inputConnections="//@fbNetwork/@dataConnections.13" typeName="ANY" withs="//@fbNetwork/@fBs.11/@interface/@eventInputs.1/@with.2">
+          <value/>
+        </inputVars>
+        <outputVars name="QO" comment="Event Output Qualifier" arraySize="-1" typeName="BOOL" withs="//@fbNetwork/@fBs.11/@interface/@eventOutputs.0/@with.0 //@fbNetwork/@fBs.11/@interface/@eventOutputs.1/@with.0"/>
+        <outputVars name="STATUS" comment="Service Status" arraySize="-1" typeName="WSTRING" withs="//@fbNetwork/@fBs.11/@interface/@eventOutputs.0/@with.1 //@fbNetwork/@fBs.11/@interface/@eventOutputs.1/@with.1"/>
+        <outputVars name="RD_1" comment="Received Data" arraySize="-1" outputConnections="//@fbNetwork/@dataConnections.10" typeName="ANY" withs="//@fbNetwork/@fBs.11/@interface/@eventOutputs.1/@with.2"/>
+        <outputVars name="RD_2" comment="Received Data" arraySize="-1" outputConnections="//@fbNetwork/@dataConnections.11" typeName="ANY" withs="//@fbNetwork/@fBs.11/@interface/@eventOutputs.1/@with.3"/>
+      </interface>
+      <position x="336" y="696"/>
+    </fBs>
+    <fBs name="E_CYCLE_1" identifier="true" id="_9K5ewOFYEeiMgZzesyZImg" fbtPath="events\E_CYCLE.fbt">
+      <interface>
+        <eventInputs name="START" isInput="true" inputConnections="//@fbNetwork/@eventConnections.20">
+          <with variables="//@fbNetwork/@fBs.12/@interface/@inputVars.0"/>
+        </eventInputs>
+        <eventInputs name="STOP" isInput="true"/>
+        <eventOutputs name="EO" comment="Periodic event at period DT,starting at DT after START" outputConnections="//@fbNetwork/@eventConnections.19"/>
+        <inputVars name="DT" comment="Period between events" isInput="true" arraySize="-1" inputConnections="//@fbNetwork/@dataConnections.14" typeName="TIME" withs="//@fbNetwork/@fBs.12/@interface/@eventInputs.0/@with.0">
+          <value/>
+        </inputVars>
+      </interface>
+      <position x="120" y="672"/>
+    </fBs>
+    <fBs name="TIME2TIME_1" identifier="true" id="_9K6F0OFYEeiMgZzesyZImg" fbtPath="convert\TIME2TIME.fbt">
+      <interface>
+        <eventInputs name="REQ" comment="Normal Execution Request" isInput="true" inputConnections="//@fbNetwork/@eventConnections.17">
+          <with variables="//@fbNetwork/@fBs.13/@interface/@inputVars.0"/>
+        </eventInputs>
+        <eventOutputs name="CNF" comment="Execution Confirmation" outputConnections="//@fbNetwork/@eventConnections.20">
+          <with variables="//@fbNetwork/@fBs.13/@interface/@outputVars.0"/>
+        </eventOutputs>
+        <inputVars name="IN" comment="Input event qualifier" isInput="true" arraySize="-1" typeName="TIME" withs="//@fbNetwork/@fBs.13/@interface/@eventInputs.0/@with.0">
+          <value value="T#75ms"/>
+        </inputVars>
+        <outputVars name="OUT" comment="Output event qualifier" arraySize="-1" outputConnections="//@fbNetwork/@dataConnections.14" typeName="TIME" withs="//@fbNetwork/@fBs.13/@interface/@eventOutputs.0/@with.0"/>
+      </interface>
+      <position x="-96" y="696"/>
+    </fBs>
+    <fBs name="E_MERGE1_1" identifier="true" id="_9K7T8OFYEeiMgZzesyZImg" fbtPath="events\E_MERGE.fbt">
+      <interface>
+        <eventInputs name="EI1" comment="First input event" isInput="true"/>
+        <eventInputs name="EI2" comment="Second input event" isInput="true"/>
+        <eventOutputs name="EO" comment="Output Event" outputConnections="//@fbNetwork/@eventConnections.18"/>
+      </interface>
+      <position x="960" y="960"/>
+    </fBs>
+    <fBs name="App4_ReactorLevel" identifier="true" id="_G7iSYOFZEeiMgZzesyZImg" fbtPath="OSCAT\Custom\App4_ReactorLevel.fbt">
+      <interface>
+        <eventInputs name="INITO" comment="Initialization Request" isInput="true" inputConnections="//@fbNetwork/@eventConnections.21"/>
+        <eventInputs name="REQ" comment="Normal Execution Request" isInput="true">
+          <with variables="//@fbNetwork/@fBs.15/@interface/@inputVars.0"/>
+          <with variables="//@fbNetwork/@fBs.15/@interface/@inputVars.1"/>
+          <with variables="//@fbNetwork/@fBs.15/@interface/@inputVars.2"/>
+          <with variables="//@fbNetwork/@fBs.15/@interface/@inputVars.3"/>
+          <with variables="//@fbNetwork/@fBs.15/@interface/@inputVars.4"/>
+        </eventInputs>
+        <eventOutputs name="INITO4" comment="Initialization Confirm" outputConnections="//@fbNetwork/@eventConnections.22"/>
+        <eventOutputs name="CNF" comment="Execution Confirmation" outputConnections="//@fbNetwork/@eventConnections.23">
+          <with variables="//@fbNetwork/@fBs.15/@interface/@outputVars.0"/>
+          <with variables="//@fbNetwork/@fBs.15/@interface/@outputVars.1"/>
+        </eventOutputs>
+        <inputVars name="XMEAS8" isInput="true" arraySize="-1" inputConnections="//@fbNetwork/@dataConnections.15" typeName="REAL" withs="//@fbNetwork/@fBs.15/@interface/@eventInputs.1/@with.0">
+          <value/>
+        </inputVars>
+        <inputVars name="XMEAS8SETP" isInput="true" arraySize="-1" typeName="REAL" withs="//@fbNetwork/@fBs.15/@interface/@eventInputs.1/@with.1">
+          <value value="65"/>
+        </inputVars>
+        <inputVars name="KP_ReactorLevel" isInput="true" arraySize="-1" typeName="REAL" withs="//@fbNetwork/@fBs.15/@interface/@eventInputs.1/@with.2">
+          <value value="2"/>
+        </inputVars>
+        <inputVars name="REAL4" isInput="true" arraySize="-1" inputConnections="//@fbNetwork/@dataConnections.16" typeName="REAL" withs="//@fbNetwork/@fBs.15/@interface/@eventInputs.1/@with.3">
+          <value/>
+        </inputVars>
+        <inputVars name="RATIOGH" isInput="true" arraySize="-1" typeName="REAL" withs="//@fbNetwork/@fBs.15/@interface/@eventInputs.1/@with.4">
+          <value value="1"/>
+        </inputVars>
+        <outputVars name="XMV1" arraySize="-1" outputConnections="//@fbNetwork/@dataConnections.17" typeName="REAL" withs="//@fbNetwork/@fBs.15/@interface/@eventOutputs.1/@with.0"/>
+        <outputVars name="XMV2" arraySize="-1" outputConnections="//@fbNetwork/@dataConnections.18" typeName="REAL" withs="//@fbNetwork/@fBs.15/@interface/@eventOutputs.1/@with.1"/>
+      </interface>
+      <position x="1944" y="696"/>
+    </fBs>
+    <fBs name="TIME2TIME_0_0" identifier="true" id="_Lc3IgOFZEeiMgZzesyZImg" fbtPath="convert\TIME2TIME.fbt">
+      <interface>
+        <eventInputs name="REQ" comment="Normal Execution Request" isInput="true" inputConnections="//@fbNetwork/@eventConnections.23">
+          <with variables="//@fbNetwork/@fBs.16/@interface/@inputVars.0"/>
+        </eventInputs>
+        <eventOutputs name="CNF" comment="Execution Confirmation" outputConnections="//@fbNetwork/@eventConnections.24">
+          <with variables="//@fbNetwork/@fBs.16/@interface/@outputVars.0"/>
+        </eventOutputs>
+        <inputVars name="IN" comment="Input event qualifier" isInput="true" arraySize="-1" typeName="TIME" withs="//@fbNetwork/@fBs.16/@interface/@eventInputs.0/@with.0">
+          <value value="T#75ms"/>
+        </inputVars>
+        <outputVars name="OUT" comment="Output event qualifier" arraySize="-1" outputConnections="//@fbNetwork/@dataConnections.19" typeName="TIME" withs="//@fbNetwork/@fBs.16/@interface/@eventOutputs.0/@with.0"/>
+      </interface>
+      <position x="1248" y="720"/>
+    </fBs>
+    <fBs name="E_CYCLE_0_0" identifier="true" id="_Lc4WoOFZEeiMgZzesyZImg" fbtPath="events\E_CYCLE.fbt">
+      <interface>
+        <eventInputs name="START" isInput="true" inputConnections="//@fbNetwork/@eventConnections.24">
+          <with variables="//@fbNetwork/@fBs.17/@interface/@inputVars.0"/>
+        </eventInputs>
+        <eventInputs name="STOP" isInput="true"/>
+        <eventOutputs name="EO" comment="Periodic event at period DT,starting at DT after START" outputConnections="//@fbNetwork/@eventConnections.25"/>
+        <inputVars name="DT" comment="Period between events" isInput="true" arraySize="-1" inputConnections="//@fbNetwork/@dataConnections.19" typeName="TIME" withs="//@fbNetwork/@fBs.17/@interface/@eventInputs.0/@with.0">
+          <value/>
+        </inputVars>
+      </interface>
+      <position x="1464" y="696"/>
+    </fBs>
+    <fBs name="SERVER_2_0_0" identifier="true" id="_Lc5kwOFZEeiMgZzesyZImg" fbtPath="net\SERVER_2.fbt">
+      <interface>
+        <eventInputs name="INIT" comment="Service Initialization" isInput="true" inputConnections="//@fbNetwork/@eventConnections.26">
+          <with variables="//@fbNetwork/@fBs.18/@interface/@inputVars.0"/>
+          <with variables="//@fbNetwork/@fBs.18/@interface/@inputVars.1"/>
+        </eventInputs>
+        <eventInputs name="RSP" comment="Service Response" isInput="true" inputConnections="//@fbNetwork/@eventConnections.25 //@fbNetwork/@eventConnections.22">
+          <with variables="//@fbNetwork/@fBs.18/@interface/@inputVars.0"/>
+          <with variables="//@fbNetwork/@fBs.18/@interface/@inputVars.2"/>
+          <with variables="//@fbNetwork/@fBs.18/@interface/@inputVars.3"/>
+        </eventInputs>
+        <eventOutputs name="INITO" comment="Initialization Confirm" outputConnections="//@fbNetwork/@eventConnections.21">
+          <with variables="//@fbNetwork/@fBs.18/@interface/@outputVars.0"/>
+          <with variables="//@fbNetwork/@fBs.18/@interface/@outputVars.1"/>
+        </eventOutputs>
+        <eventOutputs name="IND" comment="Service Indication">
+          <with variables="//@fbNetwork/@fBs.18/@interface/@outputVars.0"/>
+          <with variables="//@fbNetwork/@fBs.18/@interface/@outputVars.1"/>
+          <with variables="//@fbNetwork/@fBs.18/@interface/@outputVars.2"/>
+          <with variables="//@fbNetwork/@fBs.18/@interface/@outputVars.3"/>
+        </eventOutputs>
+        <inputVars name="QI" comment="Event Input Qualifier" isInput="true" arraySize="-1" typeName="BOOL" withs="//@fbNetwork/@fBs.18/@interface/@eventInputs.0/@with.0 //@fbNetwork/@fBs.18/@interface/@eventInputs.1/@with.0">
+          <value value="TRUE"/>
+        </inputVars>
+        <inputVars name="ID" comment="Connection Identifier" isInput="true" arraySize="-1" typeName="WSTRING" withs="//@fbNetwork/@fBs.18/@interface/@eventInputs.0/@with.1">
+          <value value="localhost:61003"/>
+        </inputVars>
+        <inputVars name="SD_1" comment="Data to Send" isInput="true" arraySize="-1" inputConnections="//@fbNetwork/@dataConnections.17" typeName="ANY" withs="//@fbNetwork/@fBs.18/@interface/@eventInputs.1/@with.1">
+          <value/>
+        </inputVars>
+        <inputVars name="SD_2" comment="Data to Send" isInput="true" arraySize="-1" inputConnections="//@fbNetwork/@dataConnections.18" typeName="ANY" withs="//@fbNetwork/@fBs.18/@interface/@eventInputs.1/@with.2">
+          <value/>
+        </inputVars>
+        <outputVars name="QO" comment="Event Output Qualifier" arraySize="-1" typeName="BOOL" withs="//@fbNetwork/@fBs.18/@interface/@eventOutputs.0/@with.0 //@fbNetwork/@fBs.18/@interface/@eventOutputs.1/@with.0"/>
+        <outputVars name="STATUS" comment="Service Status" arraySize="-1" typeName="WSTRING" withs="//@fbNetwork/@fBs.18/@interface/@eventOutputs.0/@with.1 //@fbNetwork/@fBs.18/@interface/@eventOutputs.1/@with.1"/>
+        <outputVars name="RD_1" comment="Received Data" arraySize="-1" outputConnections="//@fbNetwork/@dataConnections.15" typeName="ANY" withs="//@fbNetwork/@fBs.18/@interface/@eventOutputs.1/@with.2"/>
+        <outputVars name="RD_2" comment="Received Data" arraySize="-1" outputConnections="//@fbNetwork/@dataConnections.16" typeName="ANY" withs="//@fbNetwork/@fBs.18/@interface/@eventOutputs.1/@with.3"/>
+      </interface>
+      <position x="1704" y="720"/>
+    </fBs>
+    <fBs name="E_MERGE1_0_0" identifier="true" id="_Lc6y4OFZEeiMgZzesyZImg" fbtPath="events\E_MERGE.fbt">
+      <interface>
+        <eventInputs name="EI1" comment="First input event" isInput="true"/>
+        <eventInputs name="EI2" comment="Second input event" isInput="true"/>
+        <eventOutputs name="EO" comment="Output Event" outputConnections="//@fbNetwork/@eventConnections.26"/>
+      </interface>
+      <position x="1296" y="1056"/>
+    </fBs>
+    <fBs name="App5_yAandyB" identifier="true" id="_Ue_QUOFZEeiMgZzesyZImg" fbtPath="OSCAT\Custom\App5_yAandyB.fbt">
+      <interface>
+        <eventInputs name="INIT" comment="Initialization Request" isInput="true" inputConnections="//@fbNetwork/@eventConnections.27"/>
+        <eventInputs name="REQ" comment="Normal Execution Request" isInput="true">
+          <with variables="//@fbNetwork/@fBs.20/@interface/@inputVars.0"/>
+          <with variables="//@fbNetwork/@fBs.20/@interface/@inputVars.1"/>
+          <with variables="//@fbNetwork/@fBs.20/@interface/@inputVars.2"/>
+          <with variables="//@fbNetwork/@fBs.20/@interface/@inputVars.3"/>
+          <with variables="//@fbNetwork/@fBs.20/@interface/@inputVars.4"/>
+          <with variables="//@fbNetwork/@fBs.20/@interface/@inputVars.5"/>
+        </eventInputs>
+        <eventOutputs name="INITO5" comment="Initialization Confirm" outputConnections="//@fbNetwork/@eventConnections.28"/>
+        <eventOutputs name="CNF" comment="Execution Confirmation" outputConnections="//@fbNetwork/@eventConnections.29">
+          <with variables="//@fbNetwork/@fBs.20/@interface/@outputVars.0"/>
+          <with variables="//@fbNetwork/@fBs.20/@interface/@outputVars.1"/>
+        </eventOutputs>
+        <inputVars name="XMEAS29" isInput="true" arraySize="-1" inputConnections="//@fbNetwork/@dataConnections.20" typeName="REAL" withs="//@fbNetwork/@fBs.20/@interface/@eventInputs.1/@with.0">
+          <value/>
+        </inputVars>
+        <inputVars name="XMEAS29SETP" isInput="true" arraySize="-1" typeName="REAL" withs="//@fbNetwork/@fBs.20/@interface/@eventInputs.1/@with.1">
+          <value value="32.73"/>
+        </inputVars>
+        <inputVars name="KP_yAControl" isInput="true" arraySize="-1" typeName="REAL" withs="//@fbNetwork/@fBs.20/@interface/@eventInputs.1/@with.2">
+          <value value="10"/>
+        </inputVars>
+        <inputVars name="XMEAS30" isInput="true" arraySize="-1" inputConnections="//@fbNetwork/@dataConnections.21" typeName="REAL" withs="//@fbNetwork/@fBs.20/@interface/@eventInputs.1/@with.3">
+          <value/>
+        </inputVars>
+        <inputVars name="XMEAS30SETP" isInput="true" arraySize="-1" typeName="REAL" withs="//@fbNetwork/@fBs.20/@interface/@eventInputs.1/@with.4">
+          <value value="21.83"/>
+        </inputVars>
+        <inputVars name="KP_yBControl" isInput="true" arraySize="-1" typeName="REAL" withs="//@fbNetwork/@fBs.20/@interface/@eventInputs.1/@with.5">
+          <value value="16"/>
+        </inputVars>
+        <outputVars name="XMV3" arraySize="-1" outputConnections="//@fbNetwork/@dataConnections.22" typeName="REAL" withs="//@fbNetwork/@fBs.20/@interface/@eventOutputs.1/@with.0"/>
+        <outputVars name="XMV6" arraySize="-1" outputConnections="//@fbNetwork/@dataConnections.23" typeName="REAL" withs="//@fbNetwork/@fBs.20/@interface/@eventOutputs.1/@with.1"/>
+      </interface>
+      <position x="624" y="1200"/>
+    </fBs>
+    <fBs name="E_CYCLE_1_0" identifier="true" id="_WnnJsOFZEeiMgZzesyZImg" fbtPath="events\E_CYCLE.fbt">
+      <interface>
+        <eventInputs name="START" isInput="true" inputConnections="//@fbNetwork/@eventConnections.30">
+          <with variables="//@fbNetwork/@fBs.21/@interface/@inputVars.0"/>
+        </eventInputs>
+        <eventInputs name="STOP" isInput="true"/>
+        <eventOutputs name="EO" comment="Periodic event at period DT,starting at DT after START" outputConnections="//@fbNetwork/@eventConnections.31"/>
+        <inputVars name="DT" comment="Period between events" isInput="true" arraySize="-1" inputConnections="//@fbNetwork/@dataConnections.24" typeName="TIME" withs="//@fbNetwork/@fBs.21/@interface/@eventInputs.0/@with.0">
+          <value/>
+        </inputVars>
+      </interface>
+      <position x="168" y="1128"/>
+    </fBs>
+    <fBs name="SERVER_2_1_0" identifier="true" id="_WnoX0OFZEeiMgZzesyZImg" fbtPath="net\SERVER_2.fbt">
+      <interface>
+        <eventInputs name="INIT" comment="Service Initialization" isInput="true" inputConnections="//@fbNetwork/@eventConnections.32">
+          <with variables="//@fbNetwork/@fBs.22/@interface/@inputVars.0"/>
+          <with variables="//@fbNetwork/@fBs.22/@interface/@inputVars.1"/>
+        </eventInputs>
+        <eventInputs name="RSP" comment="Service Response" isInput="true" inputConnections="//@fbNetwork/@eventConnections.28 //@fbNetwork/@eventConnections.31">
+          <with variables="//@fbNetwork/@fBs.22/@interface/@inputVars.0"/>
+          <with variables="//@fbNetwork/@fBs.22/@interface/@inputVars.2"/>
+          <with variables="//@fbNetwork/@fBs.22/@interface/@inputVars.3"/>
+        </eventInputs>
+        <eventOutputs name="INITO" comment="Initialization Confirm" outputConnections="//@fbNetwork/@eventConnections.27">
+          <with variables="//@fbNetwork/@fBs.22/@interface/@outputVars.0"/>
+          <with variables="//@fbNetwork/@fBs.22/@interface/@outputVars.1"/>
+        </eventOutputs>
+        <eventOutputs name="IND" comment="Service Indication">
+          <with variables="//@fbNetwork/@fBs.22/@interface/@outputVars.0"/>
+          <with variables="//@fbNetwork/@fBs.22/@interface/@outputVars.1"/>
+          <with variables="//@fbNetwork/@fBs.22/@interface/@outputVars.2"/>
+          <with variables="//@fbNetwork/@fBs.22/@interface/@outputVars.3"/>
+        </eventOutputs>
+        <inputVars name="QI" comment="Event Input Qualifier" isInput="true" arraySize="-1" typeName="BOOL" withs="//@fbNetwork/@fBs.22/@interface/@eventInputs.0/@with.0 //@fbNetwork/@fBs.22/@interface/@eventInputs.1/@with.0">
+          <value value="TRUE"/>
+        </inputVars>
+        <inputVars name="ID" comment="Connection Identifier" isInput="true" arraySize="-1" typeName="WSTRING" withs="//@fbNetwork/@fBs.22/@interface/@eventInputs.0/@with.1">
+          <value value="localhost:61004"/>
+        </inputVars>
+        <inputVars name="SD_1" comment="Data to Send" isInput="true" arraySize="-1" inputConnections="//@fbNetwork/@dataConnections.22" typeName="ANY" withs="//@fbNetwork/@fBs.22/@interface/@eventInputs.1/@with.1">
+          <value/>
+        </inputVars>
+        <inputVars name="SD_2" comment="Data to Send" isInput="true" arraySize="-1" inputConnections="//@fbNetwork/@dataConnections.23" typeName="ANY" withs="//@fbNetwork/@fBs.22/@interface/@eventInputs.1/@with.2">
+          <value/>
+        </inputVars>
+        <outputVars name="QO" comment="Event Output Qualifier" arraySize="-1" typeName="BOOL" withs="//@fbNetwork/@fBs.22/@interface/@eventOutputs.0/@with.0 //@fbNetwork/@fBs.22/@interface/@eventOutputs.1/@with.0"/>
+        <outputVars name="STATUS" comment="Service Status" arraySize="-1" typeName="WSTRING" withs="//@fbNetwork/@fBs.22/@interface/@eventOutputs.0/@with.1 //@fbNetwork/@fBs.22/@interface/@eventOutputs.1/@with.1"/>
+        <outputVars name="RD_1" comment="Received Data" arraySize="-1" outputConnections="//@fbNetwork/@dataConnections.20" typeName="ANY" withs="//@fbNetwork/@fBs.22/@interface/@eventOutputs.1/@with.2"/>
+        <outputVars name="RD_2" comment="Received Data" arraySize="-1" outputConnections="//@fbNetwork/@dataConnections.21" typeName="ANY" withs="//@fbNetwork/@fBs.22/@interface/@eventOutputs.1/@with.3"/>
+      </interface>
+      <position x="432" y="1128"/>
+    </fBs>
+    <fBs name="TIME2TIME_1_0" identifier="true" id="_Wno-4OFZEeiMgZzesyZImg" fbtPath="convert\TIME2TIME.fbt">
+      <interface>
+        <eventInputs name="REQ" comment="Normal Execution Request" isInput="true" inputConnections="//@fbNetwork/@eventConnections.29">
+          <with variables="//@fbNetwork/@fBs.23/@interface/@inputVars.0"/>
+        </eventInputs>
+        <eventOutputs name="CNF" comment="Execution Confirmation" outputConnections="//@fbNetwork/@eventConnections.30">
+          <with variables="//@fbNetwork/@fBs.23/@interface/@outputVars.0"/>
+        </eventOutputs>
+        <inputVars name="IN" comment="Input event qualifier" isInput="true" arraySize="-1" typeName="TIME" withs="//@fbNetwork/@fBs.23/@interface/@eventInputs.0/@with.0">
+          <value value="T#75ms"/>
+        </inputVars>
+        <outputVars name="OUT" comment="Output event qualifier" arraySize="-1" outputConnections="//@fbNetwork/@dataConnections.24" typeName="TIME" withs="//@fbNetwork/@fBs.23/@interface/@eventOutputs.0/@with.0"/>
+      </interface>
+      <position x="-72" y="1104"/>
+    </fBs>
+    <fBs name="E_MERGE1_1_0" identifier="true" id="_Wnpl8OFZEeiMgZzesyZImg" fbtPath="events\E_MERGE.fbt">
+      <interface>
+        <eventInputs name="EI1" comment="First input event" isInput="true"/>
+        <eventInputs name="EI2" comment="Second input event" isInput="true"/>
+        <eventOutputs name="EO" comment="Output Event" outputConnections="//@fbNetwork/@eventConnections.32"/>
+      </interface>
+      <position x="912" y="1200"/>
+    </fBs>
+    <fBs name="Server1" identifier="true" id="_lgJesAErEemDD-YHu13Nrg" fbtPath="net\SERVER_2.fbt">
+      <interface>
+        <eventInputs name="INIT" comment="Service Initialization" isInput="true">
+          <with variables="//@fbNetwork/@fBs.25/@interface/@inputVars.0"/>
+          <with variables="//@fbNetwork/@fBs.25/@interface/@inputVars.1"/>
+        </eventInputs>
+        <eventInputs name="RSP" comment="Service Response" isInput="true">
+          <with variables="//@fbNetwork/@fBs.25/@interface/@inputVars.0"/>
+          <with variables="//@fbNetwork/@fBs.25/@interface/@inputVars.2"/>
+          <with variables="//@fbNetwork/@fBs.25/@interface/@inputVars.3"/>
+        </eventInputs>
+        <eventOutputs name="INITO" comment="Initialization Confirm">
+          <with variables="//@fbNetwork/@fBs.25/@interface/@outputVars.0"/>
+          <with variables="//@fbNetwork/@fBs.25/@interface/@outputVars.1"/>
+        </eventOutputs>
+        <eventOutputs name="IND" comment="Service Indication">
+          <with variables="//@fbNetwork/@fBs.25/@interface/@outputVars.0"/>
+          <with variables="//@fbNetwork/@fBs.25/@interface/@outputVars.1"/>
+          <with variables="//@fbNetwork/@fBs.25/@interface/@outputVars.2"/>
+          <with variables="//@fbNetwork/@fBs.25/@interface/@outputVars.3"/>
+        </eventOutputs>
+        <inputVars name="QI" comment="Event Input Qualifier" isInput="true" arraySize="-1" typeName="BOOL" withs="//@fbNetwork/@fBs.25/@interface/@eventInputs.0/@with.0 //@fbNetwork/@fBs.25/@interface/@eventInputs.1/@with.0">
+          <value/>
+        </inputVars>
+        <inputVars name="ID" comment="Connection Identifier" isInput="true" arraySize="-1" typeName="WSTRING" withs="//@fbNetwork/@fBs.25/@interface/@eventInputs.0/@with.1">
+          <value/>
+        </inputVars>
+        <inputVars name="SD_1" comment="Data to Send" isInput="true" arraySize="-1" typeName="ANY" withs="//@fbNetwork/@fBs.25/@interface/@eventInputs.1/@with.1">
+          <value/>
+        </inputVars>
+        <inputVars name="SD_2" comment="Data to Send" isInput="true" arraySize="-1" typeName="ANY" withs="//@fbNetwork/@fBs.25/@interface/@eventInputs.1/@with.2">
+          <value/>
+        </inputVars>
+        <outputVars name="QO" comment="Event Output Qualifier" arraySize="-1" typeName="BOOL" withs="//@fbNetwork/@fBs.25/@interface/@eventOutputs.0/@with.0 //@fbNetwork/@fBs.25/@interface/@eventOutputs.1/@with.0"/>
+        <outputVars name="STATUS" comment="Service Status" arraySize="-1" typeName="WSTRING" withs="//@fbNetwork/@fBs.25/@interface/@eventOutputs.0/@with.1 //@fbNetwork/@fBs.25/@interface/@eventOutputs.1/@with.1"/>
+        <outputVars name="RD_1" comment="Received Data" arraySize="-1" typeName="ANY" withs="//@fbNetwork/@fBs.25/@interface/@eventOutputs.1/@with.2"/>
+        <outputVars name="RD_2" comment="Received Data" arraySize="-1" typeName="ANY" withs="//@fbNetwork/@fBs.25/@interface/@eventOutputs.1/@with.3"/>
+      </interface>
+      <position x="1356" y="801"/>
+    </fBs>
+    <fBs name="Server2" identifier="true" id="_mmVDoAErEemDD-YHu13Nrg" fbtPath="net\SERVER_2.fbt">
+      <interface>
+        <eventInputs name="INIT" comment="Service Initialization" isInput="true">
+          <with variables="//@fbNetwork/@fBs.26/@interface/@inputVars.0"/>
+          <with variables="//@fbNetwork/@fBs.26/@interface/@inputVars.1"/>
+        </eventInputs>
+        <eventInputs name="RSP" comment="Service Response" isInput="true">
+          <with variables="//@fbNetwork/@fBs.26/@interface/@inputVars.0"/>
+          <with variables="//@fbNetwork/@fBs.26/@interface/@inputVars.2"/>
+          <with variables="//@fbNetwork/@fBs.26/@interface/@inputVars.3"/>
+        </eventInputs>
+        <eventOutputs name="INITO" comment="Initialization Confirm">
+          <with variables="//@fbNetwork/@fBs.26/@interface/@outputVars.0"/>
+          <with variables="//@fbNetwork/@fBs.26/@interface/@outputVars.1"/>
+        </eventOutputs>
+        <eventOutputs name="IND" comment="Service Indication">
+          <with variables="//@fbNetwork/@fBs.26/@interface/@outputVars.0"/>
+          <with variables="//@fbNetwork/@fBs.26/@interface/@outputVars.1"/>
+          <with variables="//@fbNetwork/@fBs.26/@interface/@outputVars.2"/>
+          <with variables="//@fbNetwork/@fBs.26/@interface/@outputVars.3"/>
+        </eventOutputs>
+        <inputVars name="QI" comment="Event Input Qualifier" isInput="true" arraySize="-1" typeName="BOOL" withs="//@fbNetwork/@fBs.26/@interface/@eventInputs.0/@with.0 //@fbNetwork/@fBs.26/@interface/@eventInputs.1/@with.0">
+          <value/>
+        </inputVars>
+        <inputVars name="ID" comment="Connection Identifier" isInput="true" arraySize="-1" typeName="WSTRING" withs="//@fbNetwork/@fBs.26/@interface/@eventInputs.0/@with.1">
+          <value/>
+        </inputVars>
+        <inputVars name="SD_1" comment="Data to Send" isInput="true" arraySize="-1" typeName="ANY" withs="//@fbNetwork/@fBs.26/@interface/@eventInputs.1/@with.1">
+          <value/>
+        </inputVars>
+        <inputVars name="SD_2" comment="Data to Send" isInput="true" arraySize="-1" typeName="ANY" withs="//@fbNetwork/@fBs.26/@interface/@eventInputs.1/@with.2">
+          <value/>
+        </inputVars>
+        <outputVars name="QO" comment="Event Output Qualifier" arraySize="-1" typeName="BOOL" withs="//@fbNetwork/@fBs.26/@interface/@eventOutputs.0/@with.0 //@fbNetwork/@fBs.26/@interface/@eventOutputs.1/@with.0"/>
+        <outputVars name="STATUS" comment="Service Status" arraySize="-1" typeName="WSTRING" withs="//@fbNetwork/@fBs.26/@interface/@eventOutputs.0/@with.1 //@fbNetwork/@fBs.26/@interface/@eventOutputs.1/@with.1"/>
+        <outputVars name="RD_1" comment="Received Data" arraySize="-1" typeName="ANY" withs="//@fbNetwork/@fBs.26/@interface/@eventOutputs.1/@with.2"/>
+        <outputVars name="RD_2" comment="Received Data" arraySize="-1" typeName="ANY" withs="//@fbNetwork/@fBs.26/@interface/@eventOutputs.1/@with.3"/>
+      </interface>
+      <position x="1368" y="1056"/>
+    </fBs>
+    <fBs name="Server3" identifier="true" id="_nAmk0AErEemDD-YHu13Nrg" fbtPath="net\SERVER_2.fbt">
+      <interface>
+        <eventInputs name="INIT" comment="Service Initialization" isInput="true">
+          <with variables="//@fbNetwork/@fBs.27/@interface/@inputVars.0"/>
+          <with variables="//@fbNetwork/@fBs.27/@interface/@inputVars.1"/>
+        </eventInputs>
+        <eventInputs name="RSP" comment="Service Response" isInput="true">
+          <with variables="//@fbNetwork/@fBs.27/@interface/@inputVars.0"/>
+          <with variables="//@fbNetwork/@fBs.27/@interface/@inputVars.2"/>
+          <with variables="//@fbNetwork/@fBs.27/@interface/@inputVars.3"/>
+        </eventInputs>
+        <eventOutputs name="INITO" comment="Initialization Confirm">
+          <with variables="//@fbNetwork/@fBs.27/@interface/@outputVars.0"/>
+          <with variables="//@fbNetwork/@fBs.27/@interface/@outputVars.1"/>
+        </eventOutputs>
+        <eventOutputs name="IND" comment="Service Indication">
+          <with variables="//@fbNetwork/@fBs.27/@interface/@outputVars.0"/>
+          <with variables="//@fbNetwork/@fBs.27/@interface/@outputVars.1"/>
+          <with variables="//@fbNetwork/@fBs.27/@interface/@outputVars.2"/>
+          <with variables="//@fbNetwork/@fBs.27/@interface/@outputVars.3"/>
+        </eventOutputs>
+        <inputVars name="QI" comment="Event Input Qualifier" isInput="true" arraySize="-1" typeName="BOOL" withs="//@fbNetwork/@fBs.27/@interface/@eventInputs.0/@with.0 //@fbNetwork/@fBs.27/@interface/@eventInputs.1/@with.0">
+          <value/>
+        </inputVars>
+        <inputVars name="ID" comment="Connection Identifier" isInput="true" arraySize="-1" typeName="WSTRING" withs="//@fbNetwork/@fBs.27/@interface/@eventInputs.0/@with.1">
+          <value/>
+        </inputVars>
+        <inputVars name="SD_1" comment="Data to Send" isInput="true" arraySize="-1" typeName="ANY" withs="//@fbNetwork/@fBs.27/@interface/@eventInputs.1/@with.1">
+          <value/>
+        </inputVars>
+        <inputVars name="SD_2" comment="Data to Send" isInput="true" arraySize="-1" typeName="ANY" withs="//@fbNetwork/@fBs.27/@interface/@eventInputs.1/@with.2">
+          <value/>
+        </inputVars>
+        <outputVars name="QO" comment="Event Output Qualifier" arraySize="-1" typeName="BOOL" withs="//@fbNetwork/@fBs.27/@interface/@eventOutputs.0/@with.0 //@fbNetwork/@fBs.27/@interface/@eventOutputs.1/@with.0"/>
+        <outputVars name="STATUS" comment="Service Status" arraySize="-1" typeName="WSTRING" withs="//@fbNetwork/@fBs.27/@interface/@eventOutputs.0/@with.1 //@fbNetwork/@fBs.27/@interface/@eventOutputs.1/@with.1"/>
+        <outputVars name="RD_1" comment="Received Data" arraySize="-1" typeName="ANY" withs="//@fbNetwork/@fBs.27/@interface/@eventOutputs.1/@with.2"/>
+        <outputVars name="RD_2" comment="Received Data" arraySize="-1" typeName="ANY" withs="//@fbNetwork/@fBs.27/@interface/@eventOutputs.1/@with.3"/>
+      </interface>
+      <position x="1368" y="1296"/>
+    </fBs>
+    <fBs name="Server4" identifier="true" id="_nbo7AAErEemDD-YHu13Nrg" fbtPath="net\SERVER_2.fbt">
+      <interface>
+        <eventInputs name="INIT" comment="Service Initialization" isInput="true">
+          <with variables="//@fbNetwork/@fBs.28/@interface/@inputVars.0"/>
+          <with variables="//@fbNetwork/@fBs.28/@interface/@inputVars.1"/>
+        </eventInputs>
+        <eventInputs name="RSP" comment="Service Response" isInput="true">
+          <with variables="//@fbNetwork/@fBs.28/@interface/@inputVars.0"/>
+          <with variables="//@fbNetwork/@fBs.28/@interface/@inputVars.2"/>
+          <with variables="//@fbNetwork/@fBs.28/@interface/@inputVars.3"/>
+        </eventInputs>
+        <eventOutputs name="INITO" comment="Initialization Confirm">
+          <with variables="//@fbNetwork/@fBs.28/@interface/@outputVars.0"/>
+          <with variables="//@fbNetwork/@fBs.28/@interface/@outputVars.1"/>
+        </eventOutputs>
+        <eventOutputs name="IND" comment="Service Indication">
+          <with variables="//@fbNetwork/@fBs.28/@interface/@outputVars.0"/>
+          <with variables="//@fbNetwork/@fBs.28/@interface/@outputVars.1"/>
+          <with variables="//@fbNetwork/@fBs.28/@interface/@outputVars.2"/>
+          <with variables="//@fbNetwork/@fBs.28/@interface/@outputVars.3"/>
+        </eventOutputs>
+        <inputVars name="QI" comment="Event Input Qualifier" isInput="true" arraySize="-1" typeName="BOOL" withs="//@fbNetwork/@fBs.28/@interface/@eventInputs.0/@with.0 //@fbNetwork/@fBs.28/@interface/@eventInputs.1/@with.0">
+          <value/>
+        </inputVars>
+        <inputVars name="ID" comment="Connection Identifier" isInput="true" arraySize="-1" typeName="WSTRING" withs="//@fbNetwork/@fBs.28/@interface/@eventInputs.0/@with.1">
+          <value/>
+        </inputVars>
+        <inputVars name="SD_1" comment="Data to Send" isInput="true" arraySize="-1" typeName="ANY" withs="//@fbNetwork/@fBs.28/@interface/@eventInputs.1/@with.1">
+          <value/>
+        </inputVars>
+        <inputVars name="SD_2" comment="Data to Send" isInput="true" arraySize="-1" typeName="ANY" withs="//@fbNetwork/@fBs.28/@interface/@eventInputs.1/@with.2">
+          <value/>
+        </inputVars>
+        <outputVars name="QO" comment="Event Output Qualifier" arraySize="-1" typeName="BOOL" withs="//@fbNetwork/@fBs.28/@interface/@eventOutputs.0/@with.0 //@fbNetwork/@fBs.28/@interface/@eventOutputs.1/@with.0"/>
+        <outputVars name="STATUS" comment="Service Status" arraySize="-1" typeName="WSTRING" withs="//@fbNetwork/@fBs.28/@interface/@eventOutputs.0/@with.1 //@fbNetwork/@fBs.28/@interface/@eventOutputs.1/@with.1"/>
+        <outputVars name="RD_1" comment="Received Data" arraySize="-1" typeName="ANY" withs="//@fbNetwork/@fBs.28/@interface/@eventOutputs.1/@with.2"/>
+        <outputVars name="RD_2" comment="Received Data" arraySize="-1" typeName="ANY" withs="//@fbNetwork/@fBs.28/@interface/@eventOutputs.1/@with.3"/>
+      </interface>
+      <position x="1680" y="1032"/>
+    </fBs>
+    <fBs name="Server5" identifier="true" id="_nypFwAErEemDD-YHu13Nrg" fbtPath="net\SERVER_2.fbt">
+      <interface>
+        <eventInputs name="INIT" comment="Service Initialization" isInput="true">
+          <with variables="//@fbNetwork/@fBs.29/@interface/@inputVars.0"/>
+          <with variables="//@fbNetwork/@fBs.29/@interface/@inputVars.1"/>
+        </eventInputs>
+        <eventInputs name="RSP" comment="Service Response" isInput="true">
+          <with variables="//@fbNetwork/@fBs.29/@interface/@inputVars.0"/>
+          <with variables="//@fbNetwork/@fBs.29/@interface/@inputVars.2"/>
+          <with variables="//@fbNetwork/@fBs.29/@interface/@inputVars.3"/>
+        </eventInputs>
+        <eventOutputs name="INITO" comment="Initialization Confirm">
+          <with variables="//@fbNetwork/@fBs.29/@interface/@outputVars.0"/>
+          <with variables="//@fbNetwork/@fBs.29/@interface/@outputVars.1"/>
+        </eventOutputs>
+        <eventOutputs name="IND" comment="Service Indication">
+          <with variables="//@fbNetwork/@fBs.29/@interface/@outputVars.0"/>
+          <with variables="//@fbNetwork/@fBs.29/@interface/@outputVars.1"/>
+          <with variables="//@fbNetwork/@fBs.29/@interface/@outputVars.2"/>
+          <with variables="//@fbNetwork/@fBs.29/@interface/@outputVars.3"/>
+        </eventOutputs>
+        <inputVars name="QI" comment="Event Input Qualifier" isInput="true" arraySize="-1" typeName="BOOL" withs="//@fbNetwork/@fBs.29/@interface/@eventInputs.0/@with.0 //@fbNetwork/@fBs.29/@interface/@eventInputs.1/@with.0">
+          <value/>
+        </inputVars>
+        <inputVars name="ID" comment="Connection Identifier" isInput="true" arraySize="-1" typeName="WSTRING" withs="//@fbNetwork/@fBs.29/@interface/@eventInputs.0/@with.1">
+          <value/>
+        </inputVars>
+        <inputVars name="SD_1" comment="Data to Send" isInput="true" arraySize="-1" typeName="ANY" withs="//@fbNetwork/@fBs.29/@interface/@eventInputs.1/@with.1">
+          <value/>
+        </inputVars>
+        <inputVars name="SD_2" comment="Data to Send" isInput="true" arraySize="-1" typeName="ANY" withs="//@fbNetwork/@fBs.29/@interface/@eventInputs.1/@with.2">
+          <value/>
+        </inputVars>
+        <outputVars name="QO" comment="Event Output Qualifier" arraySize="-1" typeName="BOOL" withs="//@fbNetwork/@fBs.29/@interface/@eventOutputs.0/@with.0 //@fbNetwork/@fBs.29/@interface/@eventOutputs.1/@with.0"/>
+        <outputVars name="STATUS" comment="Service Status" arraySize="-1" typeName="WSTRING" withs="//@fbNetwork/@fBs.29/@interface/@eventOutputs.0/@with.1 //@fbNetwork/@fBs.29/@interface/@eventOutputs.1/@with.1"/>
+        <outputVars name="RD_1" comment="Received Data" arraySize="-1" typeName="ANY" withs="//@fbNetwork/@fBs.29/@interface/@eventOutputs.1/@with.2"/>
+        <outputVars name="RD_2" comment="Received Data" arraySize="-1" typeName="ANY" withs="//@fbNetwork/@fBs.29/@interface/@eventOutputs.1/@with.3"/>
+      </interface>
+      <position x="1656" y="1296"/>
+    </fBs>
+    <fBs name="App3_SeparatorLevel" identifier="true" id="_ap5RYAEsEemDD-YHu13Nrg" fbtPath="OSCAT\Custom\App3_SeparatorLevel.fbt">
+      <interface>
+        <eventInputs name="INITO" comment="Initialization Request" isInput="true"/>
+        <eventInputs name="IND" comment="Normal Execution Request" isInput="true">
+          <with variables="//@fbNetwork/@fBs.30/@interface/@inputVars.0"/>
+          <with variables="//@fbNetwork/@fBs.30/@interface/@inputVars.1"/>
+          <with variables="//@fbNetwork/@fBs.30/@interface/@inputVars.2"/>
+        </eventInputs>
+        <eventOutputs name="INITO3" comment="Initialization Confirm"/>
+        <eventOutputs name="CNF" comment="Execution Confirmation">
+          <with variables="//@fbNetwork/@fBs.30/@interface/@outputVars.0"/>
+        </eventOutputs>
+        <inputVars name="XMEAS12" isInput="true" arraySize="-1" typeName="REAL" withs="//@fbNetwork/@fBs.30/@interface/@eventInputs.1/@with.0">
+          <value/>
+        </inputVars>
+        <inputVars name="XMEAS12SETP" isInput="true" arraySize="-1" typeName="REAL" withs="//@fbNetwork/@fBs.30/@interface/@eventInputs.1/@with.1">
+          <value/>
+        </inputVars>
+        <inputVars name="Kp_SepLevel" isInput="true" arraySize="-1" typeName="REAL" withs="//@fbNetwork/@fBs.30/@interface/@eventInputs.1/@with.2">
+          <value/>
+        </inputVars>
+        <outputVars name="XMV11" arraySize="-1" typeName="REAL" withs="//@fbNetwork/@fBs.30/@interface/@eventOutputs.1/@with.0"/>
+      </interface>
+      <position x="1896" y="1080"/>
+    </fBs>
+    <dataConnections dx1="52" dx2="-56" dy="119" source="//@fbNetwork/@fBs.4/@interface/@outputVars.0" destination="//@fbNetwork/@fBs.1/@interface/@inputVars.2"/>
+    <dataConnections dx1="28" dx2="-32" dy="81" source="//@fbNetwork/@fBs.4/@interface/@outputVars.1" destination="//@fbNetwork/@fBs.1/@interface/@inputVars.3"/>
+    <dataConnections source="//@fbNetwork/@fBs.1/@interface/@outputVars.2" destination="//@fbNetwork/@fBs.4/@interface/@inputVars.0"/>
+    <dataConnections source="//@fbNetwork/@fBs.1/@interface/@outputVars.3" destination="//@fbNetwork/@fBs.4/@interface/@inputVars.3"/>
+    <dataConnections source="//@fbNetwork/@fBs.2/@interface/@outputVars.0" destination="//@fbNetwork/@fBs.3/@interface/@inputVars.0"/>
+    <dataConnections source="//@fbNetwork/@fBs.5/@interface/@outputVars.0" destination="//@fbNetwork/@fBs.6/@interface/@inputVars.0"/>
+    <dataConnections dy="123" source="//@fbNetwork/@fBs.9/@interface/@outputVars.0" destination="//@fbNetwork/@fBs.7/@interface/@inputVars.2"/>
+    <dataConnections dy="152" source="//@fbNetwork/@fBs.9/@interface/@outputVars.1" destination="//@fbNetwork/@fBs.7/@interface/@inputVars.3"/>
+    <dataConnections source="//@fbNetwork/@fBs.7/@interface/@outputVars.2" destination="//@fbNetwork/@fBs.9/@interface/@inputVars.0"/>
+    <dataConnections source="//@fbNetwork/@fBs.7/@interface/@outputVars.3" destination="//@fbNetwork/@fBs.9/@interface/@inputVars.3"/>
+    <dataConnections source="//@fbNetwork/@fBs.11/@interface/@outputVars.2" destination="//@fbNetwork/@fBs.10/@interface/@inputVars.0"/>
+    <dataConnections source="//@fbNetwork/@fBs.11/@interface/@outputVars.3" destination="//@fbNetwork/@fBs.10/@interface/@inputVars.3"/>
+    <dataConnections dx1="56" dx2="-75" dy="176" source="//@fbNetwork/@fBs.10/@interface/@outputVars.0" destination="//@fbNetwork/@fBs.11/@interface/@inputVars.2"/>
+    <dataConnections dx1="37" dx2="-51" dy="124" source="//@fbNetwork/@fBs.10/@interface/@outputVars.1" destination="//@fbNetwork/@fBs.11/@interface/@inputVars.3"/>
+    <dataConnections source="//@fbNetwork/@fBs.13/@interface/@outputVars.0" destination="//@fbNetwork/@fBs.12/@interface/@inputVars.0"/>
+    <dataConnections source="//@fbNetwork/@fBs.18/@interface/@outputVars.2" destination="//@fbNetwork/@fBs.15/@interface/@inputVars.0"/>
+    <dataConnections source="//@fbNetwork/@fBs.18/@interface/@outputVars.3" destination="//@fbNetwork/@fBs.15/@interface/@inputVars.3"/>
+    <dataConnections dy="116" source="//@fbNetwork/@fBs.15/@interface/@outputVars.0" destination="//@fbNetwork/@fBs.18/@interface/@inputVars.2"/>
+    <dataConnections dy="164" source="//@fbNetwork/@fBs.15/@interface/@outputVars.1" destination="//@fbNetwork/@fBs.18/@interface/@inputVars.3"/>
+    <dataConnections source="//@fbNetwork/@fBs.16/@interface/@outputVars.0" destination="//@fbNetwork/@fBs.17/@interface/@inputVars.0"/>
+    <dataConnections source="//@fbNetwork/@fBs.22/@interface/@outputVars.2" destination="//@fbNetwork/@fBs.20/@interface/@inputVars.0"/>
+    <dataConnections source="//@fbNetwork/@fBs.22/@interface/@outputVars.3" destination="//@fbNetwork/@fBs.20/@interface/@inputVars.3"/>
+    <dataConnections dy="166" source="//@fbNetwork/@fBs.20/@interface/@outputVars.0" destination="//@fbNetwork/@fBs.22/@interface/@inputVars.2"/>
+    <dataConnections dy="200" source="//@fbNetwork/@fBs.20/@interface/@outputVars.1" destination="//@fbNetwork/@fBs.22/@interface/@inputVars.3"/>
+    <dataConnections source="//@fbNetwork/@fBs.23/@interface/@outputVars.0" destination="//@fbNetwork/@fBs.21/@interface/@inputVars.0"/>
+    <eventConnections source="//@fbNetwork/@fBs.0/@interface/@eventOutputs.0" destination="//@fbNetwork/@fBs.1/@interface/@eventInputs.0"/>
+    <eventConnections source="//@fbNetwork/@fBs.3/@interface/@eventOutputs.0" destination="//@fbNetwork/@fBs.1/@interface/@eventInputs.1"/>
+    <eventConnections dy="-162" source="//@fbNetwork/@fBs.4/@interface/@eventOutputs.0" destination="//@fbNetwork/@fBs.1/@interface/@eventInputs.1"/>
+    <eventConnections source="//@fbNetwork/@fBs.1/@interface/@eventOutputs.0" destination="//@fbNetwork/@fBs.4/@interface/@eventInputs.0"/>
+    <eventConnections source="//@fbNetwork/@fBs.1/@interface/@eventOutputs.1" destination="//@fbNetwork/@fBs.4/@interface/@eventInputs.1"/>
+    <eventConnections dy="-242" source="//@fbNetwork/@fBs.4/@interface/@eventOutputs.1" destination="//@fbNetwork/@fBs.2/@interface/@eventInputs.0"/>
+    <eventConnections source="//@fbNetwork/@fBs.2/@interface/@eventOutputs.0" destination="//@fbNetwork/@fBs.3/@interface/@eventInputs.0"/>
+    <eventConnections dy="-148" source="//@fbNetwork/@fBs.9/@interface/@eventOutputs.1" destination="//@fbNetwork/@fBs.5/@interface/@eventInputs.0"/>
+    <eventConnections source="//@fbNetwork/@fBs.5/@interface/@eventOutputs.0" destination="//@fbNetwork/@fBs.6/@interface/@eventInputs.0"/>
+    <eventConnections source="//@fbNetwork/@fBs.6/@interface/@eventOutputs.0" destination="//@fbNetwork/@fBs.7/@interface/@eventInputs.1"/>
+    <eventConnections source="//@fbNetwork/@fBs.8/@interface/@eventOutputs.0" destination="//@fbNetwork/@fBs.7/@interface/@eventInputs.0"/>
+    <eventConnections dy="-117" source="//@fbNetwork/@fBs.9/@interface/@eventOutputs.0" destination="//@fbNetwork/@fBs.7/@interface/@eventInputs.1"/>
+    <eventConnections source="//@fbNetwork/@fBs.7/@interface/@eventOutputs.0" destination="//@fbNetwork/@fBs.9/@interface/@eventInputs.0"/>
+    <eventConnections source="//@fbNetwork/@fBs.7/@interface/@eventOutputs.1" destination="//@fbNetwork/@fBs.9/@interface/@eventInputs.1"/>
+    <eventConnections source="//@fbNetwork/@fBs.11/@interface/@eventOutputs.0" destination="//@fbNetwork/@fBs.10/@interface/@eventInputs.0"/>
+    <eventConnections source="//@fbNetwork/@fBs.11/@interface/@eventOutputs.1" destination="//@fbNetwork/@fBs.10/@interface/@eventInputs.1"/>
+    <eventConnections dy="-160" source="//@fbNetwork/@fBs.10/@interface/@eventOutputs.0" destination="//@fbNetwork/@fBs.11/@interface/@eventInputs.1"/>
+    <eventConnections dy="-142" source="//@fbNetwork/@fBs.10/@interface/@eventOutputs.1" destination="//@fbNetwork/@fBs.13/@interface/@eventInputs.0"/>
+    <eventConnections dx1="75" source="//@fbNetwork/@fBs.14/@interface/@eventOutputs.0" destination="//@fbNetwork/@fBs.11/@interface/@eventInputs.0"/>
+    <eventConnections source="//@fbNetwork/@fBs.12/@interface/@eventOutputs.0" destination="//@fbNetwork/@fBs.11/@interface/@eventInputs.1"/>
+    <eventConnections source="//@fbNetwork/@fBs.13/@interface/@eventOutputs.0" destination="//@fbNetwork/@fBs.12/@interface/@eventInputs.0"/>
+    <eventConnections source="//@fbNetwork/@fBs.18/@interface/@eventOutputs.0" destination="//@fbNetwork/@fBs.15/@interface/@eventInputs.0"/>
+    <eventConnections dy="-130" source="//@fbNetwork/@fBs.15/@interface/@eventOutputs.0" destination="//@fbNetwork/@fBs.18/@interface/@eventInputs.1"/>
+    <eventConnections dy="-144" source="//@fbNetwork/@fBs.15/@interface/@eventOutputs.1" destination="//@fbNetwork/@fBs.16/@interface/@eventInputs.0"/>
+    <eventConnections source="//@fbNetwork/@fBs.16/@interface/@eventOutputs.0" destination="//@fbNetwork/@fBs.17/@interface/@eventInputs.0"/>
+    <eventConnections source="//@fbNetwork/@fBs.17/@interface/@eventOutputs.0" destination="//@fbNetwork/@fBs.18/@interface/@eventInputs.1"/>
+    <eventConnections source="//@fbNetwork/@fBs.19/@interface/@eventOutputs.0" destination="//@fbNetwork/@fBs.18/@interface/@eventInputs.0"/>
+    <eventConnections source="//@fbNetwork/@fBs.22/@interface/@eventOutputs.0" destination="//@fbNetwork/@fBs.20/@interface/@eventInputs.0"/>
+    <eventConnections dy="-127" source="//@fbNetwork/@fBs.20/@interface/@eventOutputs.0" destination="//@fbNetwork/@fBs.22/@interface/@eventInputs.1"/>
+    <eventConnections dy="-133" source="//@fbNetwork/@fBs.20/@interface/@eventOutputs.1" destination="//@fbNetwork/@fBs.23/@interface/@eventInputs.0"/>
+    <eventConnections source="//@fbNetwork/@fBs.23/@interface/@eventOutputs.0" destination="//@fbNetwork/@fBs.21/@interface/@eventInputs.0"/>
+    <eventConnections source="//@fbNetwork/@fBs.21/@interface/@eventOutputs.0" destination="//@fbNetwork/@fBs.22/@interface/@eventInputs.1"/>
+    <eventConnections source="//@fbNetwork/@fBs.24/@interface/@eventOutputs.0" destination="//@fbNetwork/@fBs.22/@interface/@eventInputs.0"/>
+    <application href="temexdmodluyben2.xml#//@application.0"/>
+  </fbNetwork>
+</org.fordiac.ide.model.ui:UIFBNetwork>

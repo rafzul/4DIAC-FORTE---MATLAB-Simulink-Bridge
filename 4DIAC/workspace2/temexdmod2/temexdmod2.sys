@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE System SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<System Name="temexdmod2">
+  <VersionInfo Author="Author" Organization="4DIAC-Consortium" Version="1.0"/>
+  <Application Name="plantwide"/>
+  <Application Name="App1_ProdQualityandConstraints">
+    <SubAppNetwork>
+      <FB Name="StripperTemperature" Type="FB_CTRL_PID" x="3840.0" y="0.0">
+        <Parameter Name="SET" Value="66.5"/>
+        <Parameter Name="KP" Value="2"/>
+      </FB>
+      <FB Name="ReactorPressure" Type="FB_CTRL_PID" x="4080.0" y="4320.0">
+        <Parameter Name="SET" Value="2800"/>
+        <Parameter Name="KP" Value="3"/>
+      </FB>
+      <FB Name="ReactorTemperature" Type="FB_CTRL_PID" x="6720.0" y="1440.0">
+        <Parameter Name="KP" Value="3"/>
+      </FB>
+      <FB Name="SeparatorTemperature" Type="FB_CTRL_PID" x="3840.0" y="2280.0">
+        <Parameter Name="SET" Value="91.7"/>
+        <Parameter Name="KP" Value="0.15"/>
+      </FB>
+      <FB Name="E_CYCLE" Type="E_CYCLE" x="480.0" y="2160.0">
+        <Parameter Name="DT" Value="T#50ms"/>
+      </FB>
+      <FB Name="ProductionRate" Type="FB_CTRL_PID" x="3960.0" y="6600.0">
+        <Parameter Name="SET" Value="22.89"/>
+        <Parameter Name="KP" Value="1"/>
+      </FB>
+      <FB Name="SERVER_4_5" Type="SERVER_4_5" x="2210.0" y="2270.0">
+        <Parameter Name="QI" Value="TRUE"/>
+        <Parameter Name="ID" Value="localhost:61000"/>
+      </FB>
+      <EventConnections>
+        <Connection Destination="ReactorTemperature.INIT" Source="SeparatorTemperature.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SeparatorTemperature.INIT" Source="StripperTemperature.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="ReactorPressure.INIT" Source="ReactorTemperature.INITO" dx1="0.0" dx2="0.0" dy="710.0"/>
+        <Connection Destination="E_CYCLE.START" Source="ReactorPressure.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="E_CYCLE.START" Source="StripperTemperature.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="E_CYCLE.START" Source="ReactorTemperature.CNF" dx1="0.0" dx2="0.0" dy="-2560.0"/>
+        <Connection Destination="ProductionRate.INIT" Source="ReactorPressure.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="StripperTemperature.INIT" Source="SERVER_4_5.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="StripperTemperature.REQ" Source="SERVER_4_5.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SeparatorTemperature.REQ" Source="SERVER_4_5.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="ReactorPressure.REQ" Source="SERVER_4_5.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="ProductionRate.REQ" Source="SERVER_4_5.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="E_CYCLE.START" Source="ProductionRate.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_4_5.RSP" Source="E_CYCLE.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_4_5.RSP" Source="SERVER_4_5.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+      </EventConnections>
+      <DataConnections>
+        <Connection Destination="ReactorTemperature.SET" Source="SeparatorTemperature.Y" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_4_5.SD_1" Source="StripperTemperature.Y" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_4_5.SD_2" Source="ReactorTemperature.Y" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_4_5.SD_3" Source="ReactorPressure.Y" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_4_5.SD_4" Source="ProductionRate.Y" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="StripperTemperature.ACT" Source="SERVER_4_5.RD_1" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SeparatorTemperature.ACT" Source="SERVER_4_5.RD_2" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="ReactorTemperature.ACT" Source="SERVER_4_5.RD_3" dx1="2630.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="ReactorPressure.ACT" Source="SERVER_4_5.RD_4" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="ProductionRate.ACT" Source="SERVER_4_5.RD_5" dx1="0.0" dx2="0.0" dy="0.0"/>
+      </DataConnections>
+    </SubAppNetwork>
+  </Application>
+  <Application Name="App2_ControlInventories">
+    <SubAppNetwork>
+      <FB Name="StripperLevel" Type="FB_CTRL_PID" x="8880.0" y="5520.0">
+        <Parameter Name="SET" Value="50"/>
+        <Parameter Name="KP" Value="2"/>
+      </FB>
+      <FB Name="SeparatorLevel" Type="FB_CTRL_PID" x="8880.0" y="7440.0">
+        <Parameter Name="SET" Value="50"/>
+        <Parameter Name="KP" Value="4"/>
+      </FB>
+      <FB Name="ReactorLevel" Type="FB_CTRL_PID" x="8880.0" y="9360.0">
+        <Parameter Name="SET" Value="65"/>
+        <Parameter Name="KP" Value="2"/>
+      </FB>
+      <FB Name="xmv2" Type="F_MUL" x="11160.0" y="9600.0"/>
+      <FB Name="REAL2REAL" Type="REAL2REAL" x="10440.0" y="10080.0">
+        <Parameter Name="IN" Value="1"/>
+      </FB>
+      <FB Name="E_CYCLE_0" Type="E_CYCLE" x="5280.0" y="7680.0">
+        <Parameter Name="DT" Value="T#50ms"/>
+      </FB>
+      <FB Name="SERVER_4_3" Type="SERVER_4_3" x="6840.0" y="7200.0">
+        <Parameter Name="QI" Value="TRUE"/>
+        <Parameter Name="ID" Value="localhost:61001"/>
+      </FB>
+      <FB Name="REAL2REAL_0" Type="REAL2REAL" x="6000.0" y="10200.0"/>
+      <EventConnections>
+        <Connection Destination="SeparatorLevel.INIT" Source="StripperLevel.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="ReactorLevel.INIT" Source="SeparatorLevel.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="REAL2REAL.REQ" Source="ReactorLevel.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="xmv2.REQ" Source="ReactorLevel.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="E_CYCLE_0.START" Source="StripperLevel.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="E_CYCLE_0.START" Source="SeparatorLevel.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="xmv2.REQ" Source="REAL2REAL.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_4_3.RSP" Source="E_CYCLE_0.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="E_CYCLE_0.START" Source="ReactorLevel.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="REAL2REAL_0.REQ" Source="xmv2.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="E_CYCLE_0.START" Source="REAL2REAL_0.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="StripperLevel.INIT" Source="SERVER_4_3.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="StripperLevel.REQ" Source="SERVER_4_3.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SeparatorLevel.REQ" Source="SERVER_4_3.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="ReactorLevel.REQ" Source="SERVER_4_3.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_4_3.RSP" Source="SERVER_4_3.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+      </EventConnections>
+      <DataConnections>
+        <Connection Destination="xmv2.IN1" Source="ReactorLevel.Y" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="xmv2.IN2" Source="REAL2REAL.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="StripperLevel.ACT" Source="SERVER_4_3.RD_1" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SeparatorLevel.ACT" Source="SERVER_4_3.RD_2" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="ReactorLevel.ACT" Source="SERVER_4_3.RD_3" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_4_3.SD_1" Source="StripperLevel.Y" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_4_3.SD_2" Source="SeparatorLevel.Y" dx1="0.0" dx2="0.0" dy="1200.0"/>
+        <Connection Destination="SERVER_4_3.SD_3" Source="ReactorLevel.Y" dx1="590.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="REAL2REAL_0.IN" Source="xmv2.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_4_3.SD_4" Source="REAL2REAL_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      </DataConnections>
+    </SubAppNetwork>
+  </Application>
+  <Application Name="App3_ComponentBalances">
+    <SubAppNetwork>
+      <FB Name="yA" Type="FB_CTRL_PID" x="3720.0" y="720.0">
+        <Parameter Name="KP" Value="16"/>
+      </FB>
+      <FB Name="yB" Type="FB_CTRL_PID" x="3720.0" y="2880.0">
+        <Parameter Name="KP" Value="10"/>
+      </FB>
+      <FB Name="SERVER_2" Type="SERVER_2" x="2640.0" y="2280.0">
+        <Parameter Name="QI" Value="TRUE"/>
+        <Parameter Name="ID" Value="localhost:61002"/>
+      </FB>
+      <FB Name="E_CYCLE_1" Type="E_CYCLE" x="1080.0" y="1560.0">
+        <Parameter Name="DT" Value="T#50ms"/>
+      </FB>
+      <EventConnections>
+        <Connection Destination="yB.INIT" Source="yA.INITO" dx1="0.0" dx2="0.0" dy="725.0"/>
+        <Connection Destination="SERVER_2.RSP" Source="E_CYCLE_1.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="yA.INIT" Source="SERVER_2.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="yA.REQ" Source="SERVER_2.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="yB.REQ" Source="SERVER_2.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="E_CYCLE_1.START" Source="yA.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="E_CYCLE_1.START" Source="yB.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_2.RSP" Source="SERVER_2.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+      </EventConnections>
+      <DataConnections>
+        <Connection Destination="yA.ACT" Source="SERVER_2.RD_1" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="yB.ACT" Source="SERVER_2.RD_2" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_2.SD_2" Source="yB.Y" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_2.SD_1" Source="yA.Y" dx1="0.0" dx2="0.0" dy="0.0"/>
+      </DataConnections>
+    </SubAppNetwork>
+  </Application>
+  <Device Name="FORTE_PC" Type="FORTE_PC" x="3315.0" y="1050.0">
+    <Attribute Name="Color" Value="225,125,117"/>
+    <Attribute Name="Profile" Value="HOLOBLOC"/>
+    <Parameter Name="MGR_ID" Value="&quot;localhost:61499&quot;"/>
+    <Resource Name="EMB_RES" Type="EMB_RES"/>
+  </Device>
+  <Segment Name="Ethernet" Type="Ethernet" dx1="1500.0" x="4570.0" y="2650.0"/>
+  <Link CommResource="FORTE_PC" Comment="" SegmentName="Ethernet"/>
+</System>

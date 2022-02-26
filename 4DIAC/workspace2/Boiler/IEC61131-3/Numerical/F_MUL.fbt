@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE FBType SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd" >
+<FBType Name="F_MUL" Comment="Multiplies two values" >
+  <Identification Standard="61131-3" Classification="Mathematic" Function="MULTIPLICATOR" Type="Mathematical function" />
+<VersionInfo Author="4DIAC-IDE" Date="2011-09-20" Organization="4DIAC-Consortium" Version="1.0"/>
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="REQ" Comment="Normal Execution Request" >
+        <With Var="IN1" />
+        <With Var="IN2" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="CNF" Comment="Execution Confirmation" >
+        <With Var="OUT" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="IN1" Type="ANY_NUM" Comment="First funtion input" />
+      <VarDeclaration Name="IN2" Type="ANY_NUM" Comment="Second function input" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="OUT" Type="ANY_NUM" Comment="Function output" />
+    </OutputVars>
+  </InterfaceList>
+</FBType>

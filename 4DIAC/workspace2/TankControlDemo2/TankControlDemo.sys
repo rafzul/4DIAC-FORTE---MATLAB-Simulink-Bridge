@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE System SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<System Name="TankControlDemo">
+  <Identification/>
+  <VersionInfo Author="Author" Organization="4DIAC-Consortium" Version="1.0"/>
+  <Application Name="TankControl">
+    <SubAppNetwork>
+      <FB Name="F_NOT_1_1" Type="F_NOT" x="380.0" y="1045.0"/>
+      <FB Name="FB_CTRL_PID_1_1" Type="FB_CTRL_PID" x="1425.0" y="190.0">
+        <Parameter Name="SUP" Value="0.1"/>
+        <Parameter Name="OFS" Value="0"/>
+        <Parameter Name="KP" Value="2"/>
+        <Parameter Name="TN" Value="1"/>
+        <Parameter Name="TV" Value="0.02"/>
+        <Parameter Name="LIM_L" Value="0.0"/>
+        <Parameter Name="LIM_H" Value="100.0"/>
+      </FB>
+      <FB Name="CNV_VALVEPOS_1" Type="FB_REAL_UINT" x="3325.0" y="380.0"/>
+      <FB Name="VALVE_VIEW_1" Type="VALVE_VIEW" x="4275.0" y="285.0">
+        <Parameter Name="DIA" Value="50"/>
+        <Parameter Name="FGD" Value="[0,255,0]"/>
+      </FB>
+      <FB Name="TANK_VIEW_1" Type="MECH_VIEW" x="5035.0" y="570.0">
+        <Parameter Name="STYLE" Value="VSTYLE#CYLINDER"/>
+        <Parameter Name="WKPC" Value="[0,0,255]"/>
+        <Parameter Name="BKGD" Value="[255,255,255]"/>
+        <Parameter Name="LEN" Value="2"/>
+        <Parameter Name="DIR" Value="3"/>
+      </FB>
+      <FB Name="TANK_SIM_MDL_1" Type="TANK_MDL" x="2375.0" y="1235.0">
+        <Parameter Name="DT" Value="t#250ms"/>
+        <Parameter Name="TF" Value="T#1s"/>
+      </FB>
+      <FB Name="CNV_LEVEL_1" Type="FB_REAL_UINT" x="3325.0" y="1235.0"/>
+      <FB Name="SUB_VALVE_MODE_1" Type="SUBSCRIBE_1" x="4750.0" y="1900.0">
+        <Parameter Name="QI" Value="TRUE"/>
+        <Parameter Name="ID" Value="sfp[feed_valve_control.mode]"/>
+      </FB>
+      <FB Name="SUB_LEVEL_SETPOINT_1" Type="SUBSCRIBE_1" x="4655.0" y="-190.0">
+        <Parameter Name="QI" Value="TRUE"/>
+        <Parameter Name="ID" Value="sfp[level.set_point]"/>
+      </FB>
+      <FB Name="SUB_VALVE_MANUALPOS_1" Type="SUBSCRIBE_1" x="4560.0" y="855.0">
+        <Parameter Name="QI" Value="TRUE"/>
+        <Parameter Name="ID" Value="sfp[feed_valve_control.manual_set_position]"/>
+      </FB>
+      <FB Name="CNV_VALVE_MODE_1" Type="BOOL2BOOL" x="5795.0" y="1995.0"/>
+      <FB Name="SUB_PUMP_SETSPEED_1" Type="SUBSCRIBE_1" x="4655.0" y="2945.0">
+        <Parameter Name="QI" Value="TRUE"/>
+        <Parameter Name="ID" Value="sfp[pump.set_speed]"/>
+      </FB>
+      <FB Name="CNV_PUMP_SETSPEED_1" Type="F_LREAL_TO_UINT" x="5700.0" y="3040.0"/>
+      <FB Name="PUB_VALVE_SETPOS_1" Type="PUBLISH_1" x="2945.0" y="-475.0">
+        <Parameter Name="QI" Value="TRUE"/>
+        <Parameter Name="ID" Value="sfp[feed_valve_control.set_position]"/>
+      </FB>
+      <FB Name="CNV_LEVEL_MEASURED_1" Type="F_REAL_TO_LREAL" x="1330.0" y="865.0"/>
+      <FB Name="PUB_LEVEL_MEASURED_1" Type="PUBLISH_1" x="2945.0" y="580.0">
+        <Parameter Name="QI" Value="TRUE"/>
+        <Parameter Name="ID" Value="sfp[level.measured]"/>
+      </FB>
+      <FB Name="SCALE_PUMP_SETSPEED_1" Type="UNSCALE" x="2185.0" y="-95.0">
+        <Parameter Name="MAX" Value="360"/>
+      </FB>
+      <FB Name="SHAFT_MDL_1" Type="SHAFT_MDL" x="3515.0" y="-285.0">
+        <Parameter Name="DT" Value="T#100ms"/>
+      </FB>
+      <FB Name="XSPACE_1" Type="XSPACE" x="2280.0" y="665.0">
+        <Parameter Name="DIMS" Value="[3,1]"/>
+        <Parameter Name="DIA" Value="20"/>
+      </FB>
+      <FB Name="PIPE_VIEW_1" Type="PIPE_VIEW" x="3040.0" y="665.0">
+        <Parameter Name="DIR" Value="[0,1]"/>
+      </FB>
+      <FB Name="PUMP_DEV_VIEW_1" Type="PUMP_VIEW" x="4655.0" y="-95.0">
+        <Parameter Name="FGD" Value="[255,0,0]"/>
+        <Parameter Name="IX" Value="[0,0,255]"/>
+      </FB>
+      <EventConnections>
+        <Connection Destination="TANK_VIEW_1.REQ" Source="VALVE_VIEW_1.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="TANK_VIEW_1.INIT" Source="VALVE_VIEW_1.INITO" dx1="160.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="FB_CTRL_PID_1_1.REQ" Source="TANK_SIM_MDL_1.EO" dx1="0.0" dx2="-40.0" dy="-935.0"/>
+        <Connection Destination="CNV_VALVEPOS_1.REQ" Source="CNV_LEVEL_1.CNF" dx1="25.0" dx2="-55.0" dy="160.0"/>
+        <Connection Destination="PUB_LEVEL_MEASURED_1.REQ" Source="CNV_LEVEL_MEASURED_1.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="FB_CTRL_PID_1_1.RST" Source="F_NOT_1_1.CNF" dx1="45.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="VALVE_VIEW_1.REQ" Source="CNV_VALVEPOS_1.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="CNV_VALVE_MODE_1.REQ" Source="SUB_VALVE_MODE_1.IND" dx1="455.0" dx2="0.0" dy="350.0"/>
+        <Connection Destination="CNV_PUMP_SETSPEED_1.REQ" Source="SUB_PUMP_SETSPEED_1.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="TANK_SIM_MDL_1.START" Source="TANK_VIEW_1.INITO" dx1="-5.0" dx2="0.0" dy="-765.0"/>
+        <Connection Destination="CNV_LEVEL_1.REQ" Source="TANK_SIM_MDL_1.EO" dx1="220.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="FB_CTRL_PID_1_1.RST" Source="SUB_LEVEL_SETPOINT_1.IND" dx1="230.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="FB_CTRL_PID_1_1.RST" Source="SUB_VALVE_MANUALPOS_1.IND" dx1="940.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_NOT_1_1.REQ" Source="CNV_VALVE_MODE_1.CNF" dx1="105.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PUB_VALVE_SETPOS_1.REQ" Source="FB_CTRL_PID_1_1.CNF" dx1="865.0" dx2="30.0" dy="-600.0"/>
+        <Connection Destination="CNV_LEVEL_MEASURED_1.REQ" Source="TANK_SIM_MDL_1.EO" dx1="220.0" dx2="-195.0" dy="-1350.0"/>
+        <Connection Destination="SCALE_PUMP_SETSPEED_1.REQ" Source="CNV_PUMP_SETSPEED_1.CNF" dx1="485.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PUB_LEVEL_MEASURED_1.INIT" Source="PUB_VALVE_SETPOS_1.INITO" dx1="0.0" dx2="0.0" dy="290.0"/>
+        <Connection Destination="SUB_LEVEL_SETPOINT_1.INIT" Source="PUB_LEVEL_MEASURED_1.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SUB_VALVE_MANUALPOS_1.INIT" Source="SUB_LEVEL_SETPOINT_1.INITO" dx1="-25.0" dx2="0.0" dy="295.0"/>
+        <Connection Destination="SUB_VALVE_MODE_1.INIT" Source="SUB_VALVE_MANUALPOS_1.INITO" dx1="30.0" dx2="0.0" dy="285.0"/>
+        <Connection Destination="SUB_PUMP_SETSPEED_1.INIT" Source="SUB_VALVE_MODE_1.INITO" dx1="-25.0" dx2="0.0" dy="275.0"/>
+        <Connection Destination="CNV_LEVEL_MEASURED_1.REQ" Source="SUB_LOCAL_ACTLEVEL.IND" dx1="130.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PUB_LOCAL_PUMPSPEED.REQ" Source="CNV_PUMP_SETSPEED_1.CNF" dx1="585.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PUB_VALVE_SETPOS_1.INIT" Source="START.COLD" dx1="680.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PUB_VALVE_SETPOS_1.INIT" Source="START.WARM" dx1="780.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="XSPACE_1.INIT" Source="SUBSCRIBE_1_6.INITO" dx1="225.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SCALE_PUMP_SETSPEED_1.REQ" Source="SUBSCRIBE_1_6.IND" dx1="340.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PIPE_VIEW_1.INIT" Source="XSPACE_1.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PUMP_DEV_VIEW_1.INIT" Source="PIPE_VIEW_1.INITO" dx1="740.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PUMP_DEV_VIEW_1.REQ" Source="SHAFT_MDL_1.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SHAFT_MDL_1.START" Source="PUMP_DEV_VIEW_1.INITO" dx1="0.0" dx2="0.0" dy="-260.0"/>
+      </EventConnections>
+      <DataConnections>
+        <Connection Destination="TANK_VIEW_1.POS" Source="CNV_LEVEL_1.OUT" dx1="625.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="CNV_VALVE_MODE_1.IN" Source="SUB_VALVE_MODE_1.RD_1" dx1="220.0" dx2="-170.0" dy="-85.0"/>
+        <Connection Destination="FB_CTRL_PID_1_1.MAN" Source="F_NOT_1_1.OUT" dx1="450.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PUB_LEVEL_MEASURED_1.SD_1" Source="CNV_LEVEL_MEASURED_1.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="FB_CTRL_PID_1_1.ACT" Source="TANK_SIM_MDL_1.LEVEL" dx1="180.0" dx2="-310.0" dy="825.0"/>
+        <Connection Destination="VALVE_VIEW_1.POS" Source="CNV_VALVEPOS_1.OUT" dx1="95.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="CNV_PUMP_SETSPEED_1.IN" Source="SUB_PUMP_SETSPEED_1.RD_1" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="CNV_LEVEL_1.IN" Source="TANK_SIM_MDL_1.LEVEL" dx1="-10.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="TANK_SIM_MDL_1.FEED" Source="FB_CTRL_PID_1_1.Y" dx1="150.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="CNV_VALVEPOS_1.IN" Source="FB_CTRL_PID_1_1.Y" dx1="325.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="FB_CTRL_PID_1_1.SET" Source="SUB_LEVEL_SETPOINT_1.RD_1" dx1="395.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="FB_CTRL_PID_1_1.M_I" Source="SUB_VALVE_MANUALPOS_1.RD_1" dx1="500.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_NOT_1_1.IN" Source="CNV_VALVE_MODE_1.OUT" dx1="295.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PUB_VALVE_SETPOS_1.SD_1" Source="FB_CTRL_PID_1_1.Y" dx1="60.0" dx2="-190.0" dy="1610.0"/>
+        <Connection Destination="CNV_LEVEL_MEASURED_1.IN" Source="TANK_SIM_MDL_1.LEVEL" dx1="315.0" dx2="130.0" dy="585.0"/>
+        <Connection Destination="TANK_SIM_MDL_1.DRAW" Source="CNV_PUMP_SETSPEED_1.OUT" dx1="395.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SCALE_PUMP_SETSPEED_1.IN" Source="CNV_PUMP_SETSPEED_1.OUT" dx1="685.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="CNV_LEVEL_MEASURED_1.IN" Source="SUB_LOCAL_ACTLEVEL.RD_1" dx1="405.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PUB_LOCAL_PUMPSPEED.SD_1" Source="CNV_PUMP_SETSPEED_1.OUT" dx1="215.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SCALE_PUMP_SETSPEED_1.IN" Source="SUBSCRIBE_1_6.RD_1" dx1="40.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SHAFT_MDL_1.V" Source="SCALE_PUMP_SETSPEED_1.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PUMP_DEV_VIEW_1.ANGLE" Source="SHAFT_MDL_1.POS" dx1="0.0" dx2="0.0" dy="0.0"/>
+      </DataConnections>
+    </SubAppNetwork>
+  </Application>
+  <Device Name="TankSimulation" Type="RMT_FRAME" x="2565.0" y="760.0">
+    <Attribute Name="Color" Value="121,239,243"/>
+    <Attribute Name="Profile" Value="HOLOBLOC"/>
+    <Parameter Name="BOUNDS" Value="[315,100,175,260]"/>
+    <Parameter Name="MGR_ID" Value="&quot;localhost:61500&quot;"/>
+    <Resource Name="TankValveSim" Type="VIEW_PANEL">
+      <Parameter Name="DIA" Value="75"/>
+      <Parameter Name="SIZE" Value="[3,2]"/>
+      <FBNetwork>
+        <FB Name="PUB_ACTLEVEL" Type="PUBLISH_1" x="4275.0" y="-380.0">
+          <Parameter Name="QI" Value="TRUE"/>
+          <Parameter Name="ID" Value="225.0.0.2:61500"/>
+        </FB>
+        <FB Name="SUB_VALVEPOS" Type="SUBSCRIBE_1" x="1805.0" y="-190.0">
+          <Parameter Name="QI" Value="TRUE"/>
+          <Parameter Name="ID" Value="225.0.0.1:61499"/>
+        </FB>
+        <FB Name="SUBSCRIBE_1_7" Type="SUBSCRIBE_1" x="1805.0" y="950.0">
+          <Parameter Name="QI" Value="TRUE"/>
+          <Parameter Name="ID" Value="225.0.0.3:61499"/>
+        </FB>
+        <FB Name="TANK_SIM_MDL_1" Type="TANK_MDL" x="2850.0" y="760.0">
+          <Parameter Name="DT" Value="t#250ms"/>
+          <Parameter Name="TF" Value="T#1s"/>
+        </FB>
+        <FB Name="CNV_LEVEL_1" Type="FB_REAL_UINT" x="3990.0" y="1520.0"/>
+        <FB Name="CNV_VALVEPOS_1" Type="FB_REAL_UINT" x="3990.0" y="570.0"/>
+        <FB Name="VALVE_VIEW_1" Type="VALVE_VIEW" x="4940.0" y="570.0">
+          <Parameter Name="DIA" Value="50"/>
+          <Parameter Name="FGD" Value="[0,255,0]"/>
+        </FB>
+        <FB Name="TANK_VIEW_1" Type="MECH_VIEW" x="6270.0" y="570.0">
+          <Parameter Name="STYLE" Value="VSTYLE#CYLINDER"/>
+          <Parameter Name="WKPC" Value="[0,0,255]"/>
+          <Parameter Name="BKGD" Value="[255,255,255]"/>
+          <Parameter Name="LEN" Value="2"/>
+          <Parameter Name="DIR" Value="3"/>
+        </FB>
+        <EventConnections>
+          <Connection Destination="SUB_VALVEPOS.INIT" Source="START.COLD" dx1="20.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SUB_VALVEPOS.INIT" Source="START.WARM" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUB_ACTLEVEL.INIT" Source="SUB_VALVEPOS.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SUBSCRIBE_1_7.INIT" Source="SUB_VALVEPOS.INITO" dx1="170.0" dx2="0.0" dy="315.0"/>
+          <Connection Destination="CNV_LEVEL_1.REQ" Source="TANK_SIM_MDL_1.EO" dx1="220.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="CNV_VALVEPOS_1.REQ" Source="CNV_LEVEL_1.CNF" dx1="25.0" dx2="-55.0" dy="160.0"/>
+          <Connection Destination="VALVE_VIEW_1.REQ" Source="CNV_VALVEPOS_1.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="TANK_VIEW_1.INIT" Source="VALVE_VIEW_1.INITO" dx1="160.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="TANK_VIEW_1.REQ" Source="VALVE_VIEW_1.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="TANK_SIM_MDL_1.START" Source="TANK_VIEW_1.INITO" dx1="-5.0" dx2="0.0" dy="-765.0"/>
+          <Connection Destination="VALVE_VIEW_1.INIT" Source="PUB_ACTLEVEL.INITO" dx1="0.0" dx2="0.0" dy="145.0"/>
+          <Connection Destination="PUB_ACTLEVEL.REQ" Source="TANK_SIM_MDL_1.EO" dx1="-50.0" dx2="0.0" dy="0.0"/>
+        </EventConnections>
+        <DataConnections>
+          <Connection Destination="CNV_LEVEL_1.IN" Source="TANK_SIM_MDL_1.LEVEL" dx1="-10.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="VALVE_VIEW_1.POS" Source="CNV_VALVEPOS_1.OUT" dx1="95.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="TANK_VIEW_1.POS" Source="CNV_LEVEL_1.OUT" dx1="625.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUB_ACTLEVEL.SD_1" Source="TANK_SIM_MDL_1.LEVEL" dx1="165.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="CNV_VALVEPOS_1.IN" Source="SUB_VALVEPOS.RD_1" dx1="1495.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="TANK_SIM_MDL_1.FEED" Source="SUB_VALVEPOS.RD_1" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="TANK_SIM_MDL_1.DRAW" Source="SUBSCRIBE_1_7.RD_1" dx1="0.0" dx2="0.0" dy="0.0"/>
+        </DataConnections>
+      </FBNetwork>
+    </Resource>
+    <Resource Name="PumpSim" Type="VIEW_PANEL">
+      <Parameter Name="DIA" Value="50"/>
+      <Parameter Name="SIZE" Value="[4,1]"/>
+      <FBNetwork>
+        <FB Name="SUBSCRIBE_1_6" Type="SUBSCRIBE_1" x="1710.0" y="855.0">
+          <Parameter Name="QI" Value="TRUE"/>
+          <Parameter Name="ID" Value="225.0.0.3:61499"/>
+        </FB>
+        <FB Name="SCALE_PUMP_SETSPEED_1" Type="UNSCALE" x="2185.0" y="-95.0">
+          <Parameter Name="MAX" Value="360"/>
+        </FB>
+        <FB Name="SHAFT_MDL_1" Type="SHAFT_MDL" x="3515.0" y="-285.0">
+          <Parameter Name="DT" Value="T#100ms"/>
+        </FB>
+        <FB Name="XSPACE_1" Type="XSPACE" x="2280.0" y="665.0">
+          <Parameter Name="DIMS" Value="[3,1]"/>
+          <Parameter Name="DIA" Value="20"/>
+        </FB>
+        <FB Name="PIPE_VIEW_1" Type="PIPE_VIEW" x="3040.0" y="665.0">
+          <Parameter Name="DIR" Value="[0,1]"/>
+        </FB>
+        <FB Name="PUMP_DEV_VIEW_1" Type="PUMP_VIEW" x="4655.0" y="-95.0">
+          <Parameter Name="FGD" Value="[255,0,0]"/>
+          <Parameter Name="IX" Value="[0,0,255]"/>
+        </FB>
+        <EventConnections>
+          <Connection Destination="SUBSCRIBE_1_6.INIT" Source="START.COLD" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SUBSCRIBE_1_6.INIT" Source="START.WARM" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="XSPACE_1.INIT" Source="SUBSCRIBE_1_6.INITO" dx1="225.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SCALE_PUMP_SETSPEED_1.REQ" Source="SUBSCRIBE_1_6.IND" dx1="340.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SCALE_PUMP_SETSPEED_1.REQ" Source="CNV_PUMP_SETSPEED_1.CNF" dx1="485.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PIPE_VIEW_1.INIT" Source="XSPACE_1.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUMP_DEV_VIEW_1.INIT" Source="PIPE_VIEW_1.INITO" dx1="740.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUMP_DEV_VIEW_1.REQ" Source="SHAFT_MDL_1.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SHAFT_MDL_1.START" Source="PUMP_DEV_VIEW_1.INITO" dx1="0.0" dx2="0.0" dy="-260.0"/>
+        </EventConnections>
+        <DataConnections>
+          <Connection Destination="SCALE_PUMP_SETSPEED_1.IN" Source="SUBSCRIBE_1_6.RD_1" dx1="40.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SCALE_PUMP_SETSPEED_1.IN" Source="CNV_PUMP_SETSPEED_1.OUT" dx1="685.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SHAFT_MDL_1.V" Source="SCALE_PUMP_SETSPEED_1.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUMP_DEV_VIEW_1.ANGLE" Source="SHAFT_MDL_1.POS" dx1="0.0" dx2="0.0" dy="0.0"/>
+        </DataConnections>
+      </FBNetwork>
+    </Resource>
+  </Device>
+  <Device Name="Controller_1" Type="RMT_DEV" x="855.0" y="760.0">
+    <Attribute Name="Color" Value="243,211,121"/>
+    <Attribute Name="Profile" Value="HOLOBLOC"/>
+    <Parameter Name="MGR_ID" Value="&quot;localhost:61499&quot;"/>
+    <Resource Name="PID" Type="EMB_RES">
+      <FBNetwork>
+        <FB Name="SUB_LOCAL_ACTLEVEL" Type="SUBSCRIBE_1" x="-3800.0" y="2280.0">
+          <Parameter Name="QI" Value="TRUE"/>
+          <Parameter Name="ID" Value="225.0.0.2:61500"/>
+        </FB>
+        <FB Name="PUB_LOCAL_VALVEPOS_IN" Type="PUBLISH_1" x="3040.0" y="380.0">
+          <Parameter Name="QI" Value="TRUE"/>
+          <Parameter Name="ID" Value="225.0.0.1:61499"/>
+        </FB>
+        <FB Name="PUB_LOCAL_PUMPSPEED" Type="PUBLISH_1" x="-380.0" y="2185.0">
+          <Parameter Name="QI" Value="TRUE"/>
+          <Parameter Name="ID" Value="225.0.0.3:61499"/>
+        </FB>
+        <FB Name="SUB_VALVE_MODE_1" Type="SUBSCRIBE_1" x="4750.0" y="1900.0">
+          <Parameter Name="QI" Value="TRUE"/>
+          <Parameter Name="ID" Value="sfp[feed_valve_control.mode]"/>
+        </FB>
+        <FB Name="SUB_LEVEL_SETPOINT_1" Type="SUBSCRIBE_1" x="4655.0" y="-190.0">
+          <Parameter Name="QI" Value="TRUE"/>
+          <Parameter Name="ID" Value="sfp[level.set_point]"/>
+        </FB>
+        <FB Name="SUB_VALVE_MANUALPOS_1" Type="SUBSCRIBE_1" x="4560.0" y="855.0">
+          <Parameter Name="QI" Value="TRUE"/>
+          <Parameter Name="ID" Value="sfp[feed_valve_control.manual_set_position]"/>
+        </FB>
+        <FB Name="CNV_VALVE_MODE_1" Type="BOOL2BOOL" x="5795.0" y="1995.0"/>
+        <FB Name="SUB_PUMP_SETSPEED_1" Type="SUBSCRIBE_1" x="4655.0" y="2945.0">
+          <Parameter Name="QI" Value="TRUE"/>
+          <Parameter Name="ID" Value="sfp[pump.set_speed]"/>
+        </FB>
+        <FB Name="CNV_PUMP_SETSPEED_1" Type="F_LREAL_TO_UINT" x="5700.0" y="3040.0"/>
+        <FB Name="PUB_VALVE_SETPOS_1" Type="PUBLISH_1" x="2945.0" y="-475.0">
+          <Parameter Name="QI" Value="TRUE"/>
+          <Parameter Name="ID" Value="sfp[feed_valve_control.set_position]"/>
+        </FB>
+        <FB Name="CNV_LEVEL_MEASURED_1" Type="F_REAL_TO_LREAL" x="1330.0" y="865.0"/>
+        <FB Name="PUB_LEVEL_MEASURED_1" Type="PUBLISH_1" x="2945.0" y="580.0">
+          <Parameter Name="QI" Value="TRUE"/>
+          <Parameter Name="ID" Value="sfp[level.measured]"/>
+        </FB>
+        <FB Name="FB_CTRL_PID_1_1" Type="FB_CTRL_PID" x="1425.0" y="380.0">
+          <Parameter Name="SUP" Value="0.1"/>
+          <Parameter Name="OFS" Value="0"/>
+          <Parameter Name="KP" Value="2"/>
+          <Parameter Name="TN" Value="1"/>
+          <Parameter Name="TV" Value="0.02"/>
+          <Parameter Name="LIM_L" Value="0.0"/>
+          <Parameter Name="LIM_H" Value="100.0"/>
+        </FB>
+        <FB Name="F_NOT_1_1" Type="F_NOT" x="380.0" y="1615.0"/>
+        <EventConnections>
+          <Connection Destination="SUB_LOCAL_ACTLEVEL.INIT" Source="START.COLD" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SUB_LOCAL_ACTLEVEL.INIT" Source="START.WARM" dx1="25.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="FB_CTRL_PID_1_1.RST" Source="SUB_LEVEL_SETPOINT_1.IND" dx1="230.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="FB_CTRL_PID_1_1.RST" Source="SUB_VALVE_MANUALPOS_1.IND" dx1="940.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUB_VALVE_SETPOS_1.REQ" Source="FB_CTRL_PID_1_1.CNF" dx1="865.0" dx2="30.0" dy="-600.0"/>
+          <Connection Destination="F_NOT_1_1.REQ" Source="CNV_VALVE_MODE_1.CNF" dx1="105.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="FB_CTRL_PID_1_1.RST" Source="F_NOT_1_1.CNF" dx1="45.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUB_LOCAL_PUMPSPEED.INIT" Source="SUB_LOCAL_ACTLEVEL.INITO" dx1="170.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUB_LOCAL_VALVEPOS_IN.INIT" Source="PUB_LOCAL_PUMPSPEED.INITO" dx1="2080.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="CNV_LEVEL_MEASURED_1.REQ" Source="SUB_LOCAL_ACTLEVEL.IND" dx1="130.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUB_LOCAL_PUMPSPEED.REQ" Source="CNV_PUMP_SETSPEED_1.CNF" dx1="585.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUB_LOCAL_VALVEPOS_IN.REQ" Source="FB_CTRL_PID_1_1.CNF" dx1="390.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUB_VALVE_SETPOS_1.INIT" Source="START.COLD" dx1="680.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUB_VALVE_SETPOS_1.INIT" Source="START.WARM" dx1="780.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="FB_CTRL_PID_1_1.INIT" Source="START.COLD" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="FB_CTRL_PID_1_1.INIT" Source="START.WARM" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="FB_CTRL_PID_1_1.REQ" Source="SUB_LOCAL_ACTLEVEL.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="CNV_LEVEL_MEASURED_1.REQ" Source="TANK_SIM_MDL_1.EO" dx1="220.0" dx2="-195.0" dy="-1350.0"/>
+          <Connection Destination="SCALE_PUMP_SETSPEED_1.REQ" Source="CNV_PUMP_SETSPEED_1.CNF" dx1="485.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUB_LEVEL_MEASURED_1.INIT" Source="PUB_VALVE_SETPOS_1.INITO" dx1="0.0" dx2="0.0" dy="290.0"/>
+          <Connection Destination="SUB_LEVEL_SETPOINT_1.INIT" Source="PUB_LEVEL_MEASURED_1.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SUB_VALVE_MANUALPOS_1.INIT" Source="SUB_LEVEL_SETPOINT_1.INITO" dx1="-25.0" dx2="0.0" dy="295.0"/>
+          <Connection Destination="SUB_VALVE_MODE_1.INIT" Source="SUB_VALVE_MANUALPOS_1.INITO" dx1="30.0" dx2="0.0" dy="285.0"/>
+          <Connection Destination="SUB_PUMP_SETSPEED_1.INIT" Source="SUB_VALVE_MODE_1.INITO" dx1="-25.0" dx2="0.0" dy="275.0"/>
+        </EventConnections>
+        <DataConnections>
+          <Connection Destination="FB_CTRL_PID_1_1.SET" Source="SUB_LEVEL_SETPOINT_1.RD_1" dx1="395.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="FB_CTRL_PID_1_1.M_I" Source="SUB_VALVE_MANUALPOS_1.RD_1" dx1="500.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUB_VALVE_SETPOS_1.SD_1" Source="FB_CTRL_PID_1_1.Y" dx1="60.0" dx2="-190.0" dy="1610.0"/>
+          <Connection Destination="F_NOT_1_1.IN" Source="CNV_VALVE_MODE_1.OUT" dx1="295.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="FB_CTRL_PID_1_1.MAN" Source="F_NOT_1_1.OUT" dx1="450.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="CNV_LEVEL_MEASURED_1.IN" Source="SUB_LOCAL_ACTLEVEL.RD_1" dx1="405.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="FB_CTRL_PID_1_1.ACT" Source="SUB_LOCAL_ACTLEVEL.RD_1" dx1="4235.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUB_LOCAL_PUMPSPEED.SD_1" Source="CNV_PUMP_SETSPEED_1.OUT" dx1="215.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUB_LOCAL_VALVEPOS_IN.SD_1" Source="FB_CTRL_PID_1_1.Y" dx1="10.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="CNV_LEVEL_MEASURED_1.IN" Source="TANK_SIM_MDL_1.LEVEL" dx1="315.0" dx2="130.0" dy="585.0"/>
+          <Connection Destination="TANK_SIM_MDL_1.DRAW" Source="CNV_PUMP_SETSPEED_1.OUT" dx1="395.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SCALE_PUMP_SETSPEED_1.IN" Source="CNV_PUMP_SETSPEED_1.OUT" dx1="685.0" dx2="0.0" dy="0.0"/>
+        </DataConnections>
+      </FBNetwork>
+    </Resource>
+  </Device>
+  <Mapping From="TankControl.F_NOT_1_1" To="Controller_1.PID.F_NOT_1_1"/>
+  <Mapping From="TankControl.FB_CTRL_PID_1_1" To="Controller_1.PID.FB_CTRL_PID_1_1"/>
+  <Mapping From="TankControl.CNV_VALVEPOS_1" To="TankSimulation.TankValveSim.CNV_VALVEPOS_1"/>
+  <Mapping From="TankControl.VALVE_VIEW_1" To="TankSimulation.TankValveSim.VALVE_VIEW_1"/>
+  <Mapping From="TankControl.TANK_VIEW_1" To="TankSimulation.TankValveSim.TANK_VIEW_1"/>
+  <Mapping From="TankControl.TANK_SIM_MDL_1" To="TankSimulation.TankValveSim.TANK_SIM_MDL_1"/>
+  <Mapping From="TankControl.CNV_LEVEL_1" To="TankSimulation.TankValveSim.CNV_LEVEL_1"/>
+  <Segment Name="Ethernet" Type="Ethernet" dx1="2380.0" x="1425.0" y="190.0"/>
+  <Link CommResource="Controller_1" Comment="" SegmentName="Ethernet"/>
+  <Link CommResource="TankSimulation" Comment="" SegmentName="Ethernet"/>
+</System>

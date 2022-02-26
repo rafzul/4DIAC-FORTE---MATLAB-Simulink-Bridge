@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<libraryElement:AutomationSystem xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:libraryElement="org.fordiac.ide.model.libraryElement" name="Test_FB" id="_RTVzAASgEemuOYKHzpd74Q">
+  <versionInfo author="Author" organization="4DIAC-Consortium" version="1.0"/>
+  <application comment="" name="Fb_Test">
+    <fBNetwork href="Fb_Test.xml#//@fbNetwork"/>
+  </application>
+  <application comment="" name="UDP">
+    <fBNetwork href="UDP.xml#//@fbNetwork"/>
+  </application>
+  <application comment="" name="UDPPUBLISH">
+    <fBNetwork href="UDPPUBLISH.xml#//@fbNetwork"/>
+  </application>
+  <application comment="" name="UDPSUBSCRIBE">
+    <fBNetwork href="UDPSUBSCRIBE.xml#//@fbNetwork"/>
+  </application>
+  <systemConfiguration>
+    <systemConfigurationNetwork href="SysConf.xml#//@systemConfigNetwork"/>
+  </systemConfiguration>
+</libraryElement:AutomationSystem>

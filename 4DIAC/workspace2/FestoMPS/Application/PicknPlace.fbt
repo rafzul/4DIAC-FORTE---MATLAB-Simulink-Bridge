@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE FBType SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<FBType Comment="Basic Function Block Type" Name="PicknPlace">
+  <Identification Standard="61499-2"/>
+  <VersionInfo Author="4DIAC-IDE" Date="2015-03-26" Organization="4DIAC-Consortium" Version="0.0"/>
+  <InterfaceList>
+    <EventInputs>
+      <Event Comment="" Name="Intit" Type="Event"/>
+      <Event Name="Initialized" Type="Event"/>
+      <Event Name="WPatAssembly" Type="Event"/>
+      <Event Name="DoneAssembly" Type="Event"/>
+      <Event Name="CollectFailures" Type="Event"/>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="NotifyInit" Type="Event"/>
+      <Event Comment="Initialization Confirm" Name="SetToDefalut" Type="Event"/>
+      <Event Name="DoAssembly" Type="Event"/>
+      <Event Name="ReleaseWP" Type="Event"/>
+      <Event Name="NotifyFailure" Type="Event"/>
+    </EventOutputs>
+    <InputVars/>
+    <OutputVars/>
+  </InterfaceList>
+  <BasicFB>
+    <ECC>
+      <ECState Comment="Initial State" Name="START" x="1235.0" y="855.0"/>
+      <ECState Name="StationInit" x="760.0" y="285.0">
+        <ECAction Output="NotifyInit"/>
+        <ECAction Output="SetToDefalut"/>
+      </ECState>
+      <ECState Name="PerfomAssembly" x="1710.0" y="1235.0">
+        <ECAction Output="DoAssembly"/>
+      </ECState>
+      <ECState Name="AssemblyCompleted" x="190.0" y="1235.0">
+        <ECAction Output="ReleaseWP"/>
+      </ECState>
+      <ECState Name="Failure" x="2470.0" y="1995.0">
+        <ECAction Output="NotifyFailure"/>
+      </ECState>
+      <ECState Name="Initialized" x="1900.0" y="285.0">
+        <ECAction Output="NotifyInit"/>
+      </ECState>
+      <ECTransition Comment="" Condition="Intit" Destination="StationInit" Source="START" x="945.0" y="690.0"/>
+      <ECTransition Comment="" Condition="DoneAssembly" Destination="AssemblyCompleted" Source="PerfomAssembly" x="1265.0" y="1675.0"/>
+      <ECTransition Comment="" Condition="WPatAssembly" Destination="PerfomAssembly" Source="START" x="1850.0" y="1040.0"/>
+      <ECTransition Comment="" Condition="1" Destination="START" Source="AssemblyCompleted" x="860.0" y="965.0"/>
+      <ECTransition Comment="" Condition="1" Destination="PerfomAssembly" Source="Failure" x="1995.0" y="1790.0"/>
+      <ECTransition Comment="" Condition="CollectFailures" Destination="Failure" Source="PerfomAssembly" x="2530.0" y="1575.0"/>
+      <ECTransition Comment="" Condition="1" Destination="START" Source="Initialized" x="1925.0" y="700.0"/>
+      <ECTransition Comment="" Condition="Initialized" Destination="Initialized" Source="StationInit" x="1550.0" y="60.0"/>
+    </ECC>
+    <Algorithm Comment="Initialization algorithm" Name="INIT">
+      <ST Text=""/>
+    </Algorithm>
+    <Algorithm Comment="Normally executed algorithm" Name="REQ">
+      <ST Text=""/>
+    </Algorithm>
+  </BasicFB>
+</FBType>

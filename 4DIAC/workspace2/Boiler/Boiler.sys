@@ -1,0 +1,824 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE System SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<System Name="Boiler">
+  <VersionInfo Author="Author" Organization="4DIAC-Consortium" Version="1.0"/>
+  <Application Name="MyBoiler">
+    <SubAppNetwork>
+      <FB Name="IN_ANY_1" Type="IN_ANY" x="950.0" y="760.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="TYPE" Value="LREAL"/>
+        <Parameter Name="IVAL" Value="0"/>
+      </FB>
+      <FB Name="OUT_ANY" Type="OUT_ANY" x="8645.0" y="0.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="TYPE" Value="LREAL"/>
+        <Parameter Name="IVAL" Value="0"/>
+      </FB>
+      <FB Name="LREAL2LREAL_0" Type="LREAL2LREAL" x="7730.0" y="215.0"/>
+      <FB Name="FB_LABEL_0" Type="FB_LABEL" x="285.0" y="760.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="LABEL" Value="Steam Removal (0..10)"/>
+      </FB>
+      <FB Name="LREAL2LREAL_2" Type="LREAL2LREAL" x="7885.0" y="1330.0"/>
+      <FB Name="OUT_ANY_0" Type="OUT_ANY" x="8645.0" y="1235.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="TYPE" Value="LREAL"/>
+        <Parameter Name="IVAL" Value="1"/>
+      </FB>
+      <FB Name="FB_LABEL_1" Type="FB_LABEL" x="7030.0" y="0.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="LABEL" Value="Actual Fill Level"/>
+      </FB>
+      <FB Name="FB_LABEL_2" Type="FB_LABEL" x="7030.0" y="1235.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="LABEL" Value="Actual Feed Water Flow"/>
+      </FB>
+      <FB Name="OUT_ANY_1" Type="OUT_ANY" x="8645.0" y="2565.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="TYPE" Value="LREAL"/>
+        <Parameter Name="IVAL" Value="1"/>
+      </FB>
+      <FB Name="FB_LABEL_3" Type="FB_LABEL" x="7030.0" y="2565.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="LABEL" Value="Actual Steam Flow"/>
+      </FB>
+      <FB Name="LREAL2LREAL_5" Type="LREAL2LREAL" x="7885.0" y="2660.0"/>
+      <FB Name="IN_ANY" Type="IN_ANY" x="-1710.0" y="380.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="TYPE" Value="LREAL"/>
+        <Parameter Name="IVAL" Value="0"/>
+      </FB>
+      <FB Name="FB_LABEL" Type="FB_LABEL" x="-2375.0" y="380.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="LABEL" Value="Set Fill Level (0..1000)"/>
+      </FB>
+      <FB Name="LREAL2LREAL" Type="LREAL2LREAL" x="-1045.0" y="570.0"/>
+      <FB Name="LREAL2LREAL_1" Type="LREAL2LREAL" x="1615.0" y="855.0"/>
+      <FB Name="FlowController" Type="FlowController" x="2755.0" y="4275.0"/>
+      <FB Name="ControlComputation" Type="ControlComputation" x="1710.0" y="3325.0"/>
+      <FB Name="BasicAO" Type="BasicAO" x="4010.0" y="3230.0">
+        <Parameter Name="minEng" Value="0"/>
+        <Parameter Name="maxEng" Value="10"/>
+        <Parameter Name="minRaw" Value="0"/>
+        <Parameter Name="maxRaw" Value="16#FFFF"/>
+      </FB>
+      <FB Name="FeedWaterValve" Type="QW" x="5130.0" y="3230.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="PARAMS" Value="%watervalve%"/>
+      </FB>
+      <FB Name="SteamValve" Type="QW" x="3895.0" y="1900.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="PARAMS" Value="%steamvalve%"/>
+      </FB>
+      <FB Name="BasicAO_0" Type="BasicAO" x="2660.0" y="1900.0">
+        <Parameter Name="minEng" Value="0"/>
+        <Parameter Name="maxEng" Value="10"/>
+        <Parameter Name="minRaw" Value="0"/>
+        <Parameter Name="maxRaw" Value="16#FFFF"/>
+      </FB>
+      <FB Name="LC" Type="BasicPID" x="285.0" y="2375.0">
+        <Parameter Name="bReset" Value="0"/>
+        <Parameter Name="fCtrlCycleTime" Value="0.01"/>
+        <Parameter Name="fTv" Value="0"/>
+        <Parameter Name="fTd" Value="0.01"/>
+        <Parameter Name="fKp" Value="1"/>
+        <Parameter Name="fTn" Value="0"/>
+      </FB>
+      <FB Name="BasicAI_1" Type="BasicAI" x="-950.0" y="1995.0">
+        <Parameter Name="minEng" Value="0"/>
+        <Parameter Name="maxEng" Value="1000"/>
+        <Parameter Name="minRaw" Value="0"/>
+        <Parameter Name="maxRaw" Value="16#FFFF"/>
+      </FB>
+      <FB Name="TankLevel" Type="IW" x="-2090.0" y="1995.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="PARAMS" Value="%tanklevel%"/>
+      </FB>
+      <FB Name="E_CYCLE" Type="E_CYCLE" x="-3135.0" y="2090.0">
+        <Parameter Name="DT" Value="T#100ms"/>
+      </FB>
+      <FB Name="BasicAI_2" Type="BasicAI" x="-950.0" y="4560.0">
+        <Parameter Name="minEng" Value="0"/>
+        <Parameter Name="maxEng" Value="10"/>
+        <Parameter Name="minRaw" Value="0"/>
+        <Parameter Name="maxRaw" Value="16#FFFF"/>
+      </FB>
+      <FB Name="SteamFlow" Type="IW" x="-2090.0" y="4560.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="PARAMS" Value="%steamflow%"/>
+      </FB>
+      <FB Name="IW" Type="IW" x="-2090.0" y="3325.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="PARAMS" Value="%feedwaterflow%"/>
+      </FB>
+      <FB Name="BasicAI_3" Type="BasicAI" x="-950.0" y="3325.0">
+        <Parameter Name="minEng" Value="0"/>
+        <Parameter Name="maxEng" Value="10"/>
+        <Parameter Name="minRaw" Value="0"/>
+        <Parameter Name="maxRaw" Value="16#FFFF"/>
+      </FB>
+      <FB Name="LREAL2LREAL_3" Type="LREAL2LREAL" x="7875.0" y="3870.0"/>
+      <FB Name="OUT_ANY_2" Type="OUT_ANY" x="8645.0" y="3800.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="TYPE" Value="LREAL"/>
+        <Parameter Name="IVAL" Value="0"/>
+      </FB>
+      <FB Name="FB_LABEL_4" Type="FB_LABEL" x="6935.0" y="3800.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="LABEL" Value="Feed Water Valve"/>
+      </FB>
+      <FB Name="IN_ANY_0" Type="IN_ANY" x="-1610.0" y="480.0">
+        <Parameter Name="TYPE" Value="LREAL"/>
+        <Parameter Name="IVAL" Value="0"/>
+      </FB>
+      <EventConnections>
+        <Connection Destination="OUT_ANY.REQ" Source="LREAL2LREAL_0.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="IN_ANY_1.INIT" Source="FB_LABEL_0.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="LREAL2LREAL_2.REQ" Source="OUT_ANY.CNF" dx1="385.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="OUT_ANY_0.REQ" Source="LREAL2LREAL_2.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="OUT_ANY.INIT" Source="FB_LABEL_1.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="FB_LABEL_2.INIT" Source="OUT_ANY.INITO" dx1="0.0" dx2="0.0" dy="340.0"/>
+        <Connection Destination="OUT_ANY_0.INIT" Source="FB_LABEL_2.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="OUT_ANY_1.INIT" Source="FB_LABEL_3.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="FB_LABEL_3.INIT" Source="OUT_ANY_0.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="OUT_ANY_1.REQ" Source="LREAL2LREAL_5.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="LREAL2LREAL_5.REQ" Source="OUT_ANY_0.CNF" dx1="275.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="IN_ANY.INIT" Source="FB_LABEL.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="FB_LABEL_0.INIT" Source="IN_ANY.INITO" dx1="1560.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="LREAL2LREAL.REQ" Source="IN_ANY.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="IN_ANY_1.REQ" Source="LREAL2LREAL.CNF" dx1="195.0" dx2="0.0" dy="165.0"/>
+        <Connection Destination="LREAL2LREAL_1.REQ" Source="IN_ANY_1.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="FlowController.REQ" Source="ControlComputation.CNF" dx1="180.0" dx2="-610.0" dy="410.0"/>
+        <Connection Destination="BasicAO.REQ" Source="FlowController.CNF" dx1="120.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="FeedWaterValve.REQ" Source="BasicAO.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="FeedWaterValve.INIT" Source="BasicAO.INITO" dx1="180.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SteamValve.REQ" Source="BasicAO_0.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SteamValve.INIT" Source="BasicAO_0.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="BasicAO_0.REQ" Source="LREAL2LREAL_1.CNF" dx1="350.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="BasicAI_1.INIT" Source="TankLevel.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="BasicAI_1.REQ" Source="TankLevel.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="TankLevel.REQ" Source="E_CYCLE.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="ControlComputation.REQ" Source="LC.CNF" dx1="130.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="BasicAI_2.REQ" Source="SteamFlow.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="BasicAI_3.REQ" Source="IW.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="IW.REQ" Source="BasicAI_1.CNF" dx1="0.0" dx2="-185.0" dy="215.0"/>
+        <Connection Destination="LC.REQ" Source="BasicAI_2.CNF" dx1="540.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="LREAL2LREAL_3.REQ" Source="OUT_ANY_1.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="OUT_ANY_2.REQ" Source="LREAL2LREAL_3.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="FB_LABEL_4.INIT" Source="OUT_ANY_1.INITO" dx1="0.0" dx2="0.0" dy="480.0"/>
+        <Connection Destination="OUT_ANY_2.INIT" Source="FB_LABEL_4.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="BasicAI_3.INIT" Source="IW.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="BasicAI_2.INIT" Source="SteamFlow.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="BasicAO.INIT" Source="SteamValve.INITO" dx1="0.0" dx2="0.0" dy="410.0"/>
+        <Connection Destination="SteamFlow.REQ" Source="BasicAI_3.CNF" dx1="50.0" dx2="-180.0" dy="270.0"/>
+        <Connection Destination="SteamFlow.INIT" Source="BasicAI_3.INITO" dx1="195.0" dx2="0.0" dy="425.0"/>
+        <Connection Destination="IW.INIT" Source="BasicAI_1.INITO" dx1="170.0" dx2="0.0" dy="395.0"/>
+        <Connection Destination="BasicAO_0.INIT" Source="BasicAI_2.INITO" dx1="385.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="E_CYCLE.START" Source="FeedWaterValve.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      </EventConnections>
+      <DataConnections>
+        <Connection Destination="OUT_ANY.IN" Source="LREAL2LREAL_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="OUT_ANY_0.IN" Source="LREAL2LREAL_2.OUT" dx1="295.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="OUT_ANY_1.IN" Source="LREAL2LREAL_5.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="IN_ANY_1.QI" Source="FB_LABEL_0.QO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="IN_ANY.QI" Source="FB_LABEL.QO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="LREAL2LREAL.IN" Source="IN_ANY.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="LREAL2LREAL_1.IN" Source="IN_ANY_1.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="FlowController.Setpoint" Source="ControlComputation.ControlOut" dx1="-15.0" dx2="0.0" dy="-240.0"/>
+        <Connection Destination="FeedWaterValve.OUT" Source="BasicAO.Out" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="BasicAO.Val" Source="FlowController.ControlOut" dx1="420.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SteamValve.OUT" Source="BasicAO_0.Out" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="BasicAO_0.Val" Source="LREAL2LREAL_1.OUT" dx1="165.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="LC.fSetpointValue" Source="LREAL2LREAL.OUT" dx1="405.0" dx2="0.0" dy="555.0"/>
+        <Connection Destination="BasicAI_1.Val" Source="TankLevel.IN" dx1="35.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="ControlComputation.Input1" Source="LC.fCtrlOutput" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="LC.fActualValue" Source="BasicAI_1.Out" dx1="260.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="BasicAI_2.Val" Source="SteamFlow.IN" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="BasicAI_3.Val" Source="IW.IN" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="ControlComputation.Input3" Source="BasicAI_2.Out" dx1="1490.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="ControlComputation.Input2" Source="BasicAI_3.Out" dx1="1130.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="OUT_ANY_2.IN" Source="LREAL2LREAL_3.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="LREAL2LREAL_3.IN" Source="FlowController.ControlOut" dx1="4285.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="LREAL2LREAL_5.IN" Source="BasicAI_2.Out" dx1="8065.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="LREAL2LREAL_0.IN" Source="BasicAI_1.Out" dx1="260.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="LREAL2LREAL_2.IN" Source="BasicAI_3.Out" dx1="445.0" dx2="0.0" dy="0.0"/>
+      </DataConnections>
+    </SubAppNetwork>
+  </Application>
+  <Application Name="globals">
+    <SubAppNetwork>
+      <FB Name="LREAL2LREAL_7" Type="LREAL2LREAL" x="1235.0" y="1045.0">
+        <Parameter Name="IN" Value="1000"/>
+      </FB>
+      <FB Name="FB_LABEL_6" Type="FB_LABEL" x="855.0" y="95.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="LABEL" Value="MaxFillLevel"/>
+      </FB>
+      <FB Name="OUT_ANY_4" Type="OUT_ANY" x="2090.0" y="380.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="TYPE" Value="LREAL"/>
+        <Parameter Name="IVAL" Value="1000"/>
+      </FB>
+      <FB Name="PUBLISH_1" Type="PUBLISH_1" x="3705.0" y="190.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="ID" Value="%ip_multicast%:61505"/>
+      </FB>
+      <EventConnections>
+        <Connection Destination="PUBLISH_1.INIT" Source="OUT_ANY_4.INITO" dx1="375.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="OUT_ANY_4.INIT" Source="FB_LABEL_6.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="LREAL2LREAL_7.REQ" Source="PUBLISH_1.INITO" dx1="0.0" dx2="-475.0" dy="1370.0"/>
+        <Connection Destination="OUT_ANY_4.REQ" Source="LREAL2LREAL_7.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PUBLISH_1.REQ" Source="OUT_ANY_4.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      </EventConnections>
+      <DataConnections>
+        <Connection Destination="OUT_ANY_4.IN" Source="LREAL2LREAL_7.OUT" dx1="310.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PUBLISH_1.SD_1" Source="LREAL2LREAL_7.OUT" dx1="1445.0" dx2="0.0" dy="0.0"/>
+      </DataConnections>
+    </SubAppNetwork>
+  </Application>
+  <Application Name="BoilerModel">
+    <SubAppNetwork>
+      <FB Name="OutputPipe_0" Type="OutputPipe" x="2850.0" y="-95.0"/>
+      <FB Name="Drum_0" Type="Drum" x="4655.0" y="-665.0">
+        <Parameter Name="rMaxFillLevel" Value="1000"/>
+      </FB>
+      <FB Name="BusCycle_0" Type="E_CYCLE" x="1995.0" y="-1615.0">
+        <Parameter Name="DT" Value="T#50ms"/>
+      </FB>
+      <FB Name="InvertSteamPoti_0" Type="LReal_To_Int" x="1995.0" y="95.0">
+        <Parameter Name="minInt" Value="0"/>
+        <Parameter Name="maxInt" Value="32767"/>
+        <Parameter Name="minReal" Value="0"/>
+        <Parameter Name="maxReal" Value="10"/>
+      </FB>
+      <FB Name="InputPipe_0" Type="InputPipe" x="2755.0" y="-1140.0">
+        <Parameter Name="enValveMotor" Value="1"/>
+      </FB>
+      <FB Name="SUBSCRIBE_1_1" Type="SUBSCRIBE_1" x="95.0" y="0.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="ID" Value="%steamvalve%"/>
+      </FB>
+      <FB Name="BasicAI" Type="BasicAI" x="1140.0" y="0.0">
+        <Parameter Name="minEng" Value="0"/>
+        <Parameter Name="maxEng" Value="10"/>
+        <Parameter Name="minRaw" Value="0"/>
+        <Parameter Name="maxRaw" Value="16#FFFF"/>
+      </FB>
+      <FB Name="SUBSCRIBE_1_1_0" Type="SUBSCRIBE_1" x="0.0" y="-1235.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="ID" Value="%watervalve%"/>
+      </FB>
+      <FB Name="BasicAI_0" Type="BasicAI" x="1045.0" y="-1235.0">
+        <Parameter Name="minEng" Value="0"/>
+        <Parameter Name="maxEng" Value="10"/>
+        <Parameter Name="minRaw" Value="0"/>
+        <Parameter Name="maxRaw" Value="16#FFFF"/>
+      </FB>
+      <FB Name="BasicAO_1" Type="BasicAO" x="6175.0" y="-285.0">
+        <Parameter Name="minEng" Value="0"/>
+        <Parameter Name="maxEng" Value="1000"/>
+        <Parameter Name="minRaw" Value="0"/>
+        <Parameter Name="maxRaw" Value="16#FFFF"/>
+      </FB>
+      <FB Name="BasicAO_2" Type="BasicAO" x="6175.0" y="950.0">
+        <Parameter Name="minEng" Value="0"/>
+        <Parameter Name="maxEng" Value="10"/>
+        <Parameter Name="minRaw" Value="0"/>
+        <Parameter Name="maxRaw" Value="16#FFFF"/>
+      </FB>
+      <FB Name="BasicAO_3" Type="BasicAO" x="6175.0" y="2185.0">
+        <Parameter Name="minEng" Value="0"/>
+        <Parameter Name="maxEng" Value="10"/>
+        <Parameter Name="minRaw" Value="0"/>
+        <Parameter Name="maxRaw" Value="16#FFFF"/>
+      </FB>
+      <FB Name="PUBLISH_1_3" Type="PUBLISH_1" x="7410.0" y="-285.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="ID" Value="%tanklevel%"/>
+      </FB>
+      <FB Name="PUBLISH_1_4" Type="PUBLISH_1" x="7410.0" y="950.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="ID" Value="%steamflow%"/>
+      </FB>
+      <FB Name="PUBLISH_1_5" Type="PUBLISH_1" x="7410.0" y="2185.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="ID" Value="%feedwaterflow%"/>
+      </FB>
+      <EventConnections>
+        <Connection Destination="BasicAI.INIT" Source="SUBSCRIBE_1_1.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="BasicAI.REQ" Source="SUBSCRIBE_1_1.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="BasicAI_0.INIT" Source="SUBSCRIBE_1_1_0.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="BasicAI_0.REQ" Source="SUBSCRIBE_1_1_0.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="InvertSteamPoti_0.REQ" Source="BasicAI.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="BasicAO_2.INIT" Source="BasicAO_1.INITO" dx1="155.0" dx2="0.0" dy="435.0"/>
+        <Connection Destination="BasicAO_3.INIT" Source="BasicAO_2.INITO" dx1="170.0" dx2="0.0" dy="415.0"/>
+        <Connection Destination="BasicAO_2.REQ" Source="BasicAO_1.CNF" dx1="0.0" dx2="-195.0" dy="250.0"/>
+        <Connection Destination="BasicAO_3.REQ" Source="BasicAO_2.CNF" dx1="-45.0" dx2="-205.0" dy="230.0"/>
+        <Connection Destination="PUBLISH_1_3.INIT" Source="BasicAO_1.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PUBLISH_1_3.REQ" Source="BasicAO_1.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PUBLISH_1_4.INIT" Source="BasicAO_2.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PUBLISH_1_4.REQ" Source="BasicAO_2.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PUBLISH_1_5.INIT" Source="BasicAO_3.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PUBLISH_1_5.REQ" Source="BasicAO_3.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="InputPipe_0.REQ" Source="BusCycle_0.EO" dx1="1100.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="Drum_0.REQ" Source="OutputPipe_0.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="OutputPipe_0.REQ" Source="InputPipe_0.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SUBSCRIBE_1_1.INIT" Source="BasicAI_0.INITO" dx1="0.0" dx2="0.0" dy="390.0"/>
+        <Connection Destination="BasicAO_1.REQ" Source="Drum_0.CNF" dx1="815.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="BusCycle_0.START" Source="PUBLISH_1_5.INITO" dx1="205.0" dx2="0.0" dy="-2475.0"/>
+        <Connection Destination="BasicAO_1.INIT" Source="BasicAI.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      </EventConnections>
+      <DataConnections>
+        <Connection Destination="Drum_0.rFlowOut" Source="OutputPipe_0.SteamFlow" dx1="220.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="Drum_0.rFlowIn" Source="InputPipe_0.Feedwater" dx1="335.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="OutputPipe_0.SteamPoti" Source="InvertSteamPoti_0.Out" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="BasicAI.Val" Source="SUBSCRIBE_1_1.RD_1" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="BasicAI_0.Val" Source="SUBSCRIBE_1_1_0.RD_1" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="InputPipe_0.SetValve" Source="BasicAI_0.Out" dx1="310.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="InvertSteamPoti_0.x" Source="BasicAI.Out" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PUBLISH_1_3.SD_1" Source="BasicAO_1.Out" dx1="255.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PUBLISH_1_4.SD_1" Source="BasicAO_2.Out" dx1="255.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PUBLISH_1_5.SD_1" Source="BasicAO_3.Out" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="BasicAO_1.Val" Source="Drum_0.Measurement" dx1="355.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="BasicAO_3.Val" Source="InputPipe_0.Feedwater" dx1="340.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="BasicAO_2.Val" Source="OutputPipe_0.SteamFlow" dx1="215.0" dx2="0.0" dy="0.0"/>
+      </DataConnections>
+    </SubAppNetwork>
+  </Application>
+  <Device Name="HMI" Type="FBRT_WINDOW" x="190.0" y="760.0">
+    <Attribute Name="Color" Value="186,243,121"/>
+    <Attribute Name="Profile" Value="HOLOBLOC"/>
+    <Parameter Name="BOUNDS" Value="[200,200,268,500]"/>
+    <Parameter Name="GRID" Value="[3,1]"/>
+    <Parameter Name="MGR_ID" Value="&quot;localhost:61505&quot;"/>
+    <Resource Name="VIS_IN" Type="PANEL_RESOURCE">
+      <FBNetwork>
+        <FB Name="IN_ANY_1" Type="IN_ANY" x="1400.0" y="1120.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="TYPE" Value="LREAL"/>
+          <Parameter Name="IVAL" Value="0"/>
+        </FB>
+        <FB Name="FB_LABEL_0" Type="FB_LABEL" x="280.0" y="1190.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="LABEL" Value="Steam Removal (0..10)"/>
+        </FB>
+        <FB Name="IN_ANY" Type="IN_ANY" x="975.0" y="130.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="TYPE" Value="LREAL"/>
+          <Parameter Name="IVAL" Value="0"/>
+        </FB>
+        <FB Name="FB_LABEL" Type="FB_LABEL" x="95.0" y="190.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="LABEL" Value="Set Fill Level (0..1000)"/>
+        </FB>
+        <FB Name="LREAL2LREAL" Type="LREAL2LREAL" x="1890.0" y="350.0"/>
+        <FB Name="LREAL2LREAL_1" Type="LREAL2LREAL" x="2185.0" y="1330.0"/>
+        <FB Name="PUBLISH_1_1" Type="PUBLISH_1" x="5030.0" y="1655.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="ID" Value="%hmi_steamdemand%"/>
+        </FB>
+        <FB Name="PUBLISH_1_2" Type="PUBLISH_1" x="4750.0" y="-95.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="ID" Value="%hmi_leveldemand%"/>
+        </FB>
+        <EventConnections>
+          <Connection Destination="IN_ANY_1.INIT" Source="FB_LABEL_0.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="FB_LABEL_0.INIT" Source="IN_ANY.INITO" dx1="1560.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="IN_ANY.INIT" Source="FB_LABEL.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="LREAL2LREAL.REQ" Source="IN_ANY.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="IN_ANY_1.REQ" Source="LREAL2LREAL.CNF" dx1="195.0" dx2="0.0" dy="165.0"/>
+          <Connection Destination="FB_LABEL.INIT" Source="START.COLD" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="FB_LABEL.INIT" Source="START.WARM" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="LREAL2LREAL_1.REQ" Source="IN_ANY_1.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBLISH_1_1.REQ" Source="LREAL2LREAL_1.CNF" dx1="1815.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBLISH_1_2.REQ" Source="LREAL2LREAL.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBLISH_1_2.INIT" Source="IN_ANY_1.INITO" dx1="2055.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBLISH_1_1.INIT" Source="PUBLISH_1_2.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        </EventConnections>
+        <DataConnections>
+          <Connection Destination="IN_ANY_1.QI" Source="FB_LABEL_0.QO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="IN_ANY.QI" Source="FB_LABEL.QO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="LREAL2LREAL.IN" Source="IN_ANY.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="LREAL2LREAL_1.IN" Source="IN_ANY_1.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBLISH_1_1.SD_1" Source="LREAL2LREAL_1.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBLISH_1_2.SD_1" Source="LREAL2LREAL.OUT" dx1="245.0" dx2="0.0" dy="0.0"/>
+        </DataConnections>
+      </FBNetwork>
+    </Resource>
+    <Resource Name="VIS_OUT" Type="PANEL_RESOURCE">
+      <FBNetwork>
+        <FB Name="SUBSCRIBE_4" Type="SUBSCRIBE_4" x="4180.0" y="285.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="ID" Value="%hmi_feedback%"/>
+        </FB>
+        <FB Name="FB_LABEL_1" Type="FB_LABEL" x="7030.0" y="0.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="LABEL" Value="Actual Fill Level"/>
+        </FB>
+        <FB Name="LREAL2LREAL_0" Type="LREAL2LREAL" x="7730.0" y="215.0"/>
+        <FB Name="OUT_ANY" Type="OUT_ANY" x="8645.0" y="0.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="TYPE" Value="LREAL"/>
+          <Parameter Name="IVAL" Value="0"/>
+        </FB>
+        <FB Name="FB_LABEL_2" Type="FB_LABEL" x="7030.0" y="1235.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="LABEL" Value="Actual Feed Water Flow"/>
+        </FB>
+        <FB Name="LREAL2LREAL_2" Type="LREAL2LREAL" x="7885.0" y="1330.0"/>
+        <FB Name="OUT_ANY_0" Type="OUT_ANY" x="8645.0" y="1235.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="TYPE" Value="LREAL"/>
+          <Parameter Name="IVAL" Value="1"/>
+        </FB>
+        <FB Name="FB_LABEL_3" Type="FB_LABEL" x="7030.0" y="2565.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="LABEL" Value="Actual Steam Flow"/>
+        </FB>
+        <FB Name="LREAL2LREAL_5" Type="LREAL2LREAL" x="7885.0" y="2660.0"/>
+        <FB Name="OUT_ANY_1" Type="OUT_ANY" x="8645.0" y="2565.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="TYPE" Value="LREAL"/>
+          <Parameter Name="IVAL" Value="1"/>
+        </FB>
+        <FB Name="FB_LABEL_4" Type="FB_LABEL" x="6935.0" y="3800.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="LABEL" Value="Feed Water Valve"/>
+        </FB>
+        <FB Name="LREAL2LREAL_3" Type="LREAL2LREAL" x="7875.0" y="3870.0"/>
+        <FB Name="OUT_ANY_2" Type="OUT_ANY" x="8645.0" y="3800.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="TYPE" Value="LREAL"/>
+          <Parameter Name="IVAL" Value="0"/>
+        </FB>
+        <EventConnections>
+          <Connection Destination="SUBSCRIBE_4.INIT" Source="START.COLD" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SUBSCRIBE_4.INIT" Source="START.WARM" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="OUT_ANY.INIT" Source="FB_LABEL_1.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="OUT_ANY.REQ" Source="LREAL2LREAL_0.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="FB_LABEL_2.INIT" Source="OUT_ANY.INITO" dx1="0.0" dx2="0.0" dy="340.0"/>
+          <Connection Destination="LREAL2LREAL_2.REQ" Source="OUT_ANY.CNF" dx1="385.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="OUT_ANY_0.INIT" Source="FB_LABEL_2.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="OUT_ANY_0.REQ" Source="LREAL2LREAL_2.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="FB_LABEL_3.INIT" Source="OUT_ANY_0.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="LREAL2LREAL_5.REQ" Source="OUT_ANY_0.CNF" dx1="275.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="OUT_ANY_1.INIT" Source="FB_LABEL_3.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="OUT_ANY_1.REQ" Source="LREAL2LREAL_5.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="FB_LABEL_4.INIT" Source="OUT_ANY_1.INITO" dx1="0.0" dx2="0.0" dy="480.0"/>
+          <Connection Destination="LREAL2LREAL_3.REQ" Source="OUT_ANY_1.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="OUT_ANY_2.INIT" Source="FB_LABEL_4.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="OUT_ANY_2.REQ" Source="LREAL2LREAL_3.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="FB_LABEL_1.INIT" Source="SUBSCRIBE_4.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="LREAL2LREAL_0.REQ" Source="SUBSCRIBE_4.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+        </EventConnections>
+        <DataConnections>
+          <Connection Destination="OUT_ANY.IN" Source="LREAL2LREAL_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="OUT_ANY_0.IN" Source="LREAL2LREAL_2.OUT" dx1="295.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="OUT_ANY_1.IN" Source="LREAL2LREAL_5.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="OUT_ANY_2.IN" Source="LREAL2LREAL_3.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="LREAL2LREAL_0.IN" Source="SUBSCRIBE_4.RD_1" dx1="865.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="LREAL2LREAL_2.IN" Source="SUBSCRIBE_4.RD_2" dx1="450.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="LREAL2LREAL_3.IN" Source="SUBSCRIBE_4.RD_4" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="LREAL2LREAL_5.IN" Source="SUBSCRIBE_4.RD_3" dx1="315.0" dx2="0.0" dy="0.0"/>
+        </DataConnections>
+      </FBNetwork>
+    </Resource>
+    <Resource Name="GLOBALS" Type="PANEL_RESOURCE">
+      <FBNetwork>
+        <FB Name="OUT_ANY_4" Type="OUT_ANY" x="2375.0" y="0.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="TYPE" Value="LREAL"/>
+          <Parameter Name="IVAL" Value="1000"/>
+        </FB>
+        <FB Name="FB_LABEL_6" Type="FB_LABEL" x="950.0" y="0.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="LABEL" Value="MaxFillLevel"/>
+        </FB>
+        <FB Name="LREAL2LREAL_7" Type="LREAL2LREAL" x="1330.0" y="665.0">
+          <Parameter Name="IN" Value="1000"/>
+        </FB>
+        <FB Name="PUBLISH_1" Type="PUBLISH_1" x="3610.0" y="95.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="ID" Value="%ip_multicast%:61505"/>
+        </FB>
+        <EventConnections>
+          <Connection Destination="FB_LABEL_6.INIT" Source="START.COLD" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="FB_LABEL_6.INIT" Source="START.WARM" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBLISH_1.INIT" Source="OUT_ANY_4.INITO" dx1="375.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="OUT_ANY_4.INIT" Source="FB_LABEL_6.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="LREAL2LREAL_7.REQ" Source="PUBLISH_1.INITO" dx1="0.0" dx2="-475.0" dy="1370.0"/>
+          <Connection Destination="OUT_ANY_4.REQ" Source="LREAL2LREAL_7.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBLISH_1.REQ" Source="OUT_ANY_4.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        </EventConnections>
+        <DataConnections>
+          <Connection Destination="OUT_ANY_4.IN" Source="LREAL2LREAL_7.OUT" dx1="310.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBLISH_1.SD_1" Source="LREAL2LREAL_7.OUT" dx1="1445.0" dx2="0.0" dy="0.0"/>
+        </DataConnections>
+      </FBNetwork>
+    </Resource>
+  </Device>
+  <Device Name="BoilerController" Type="FORTE_PC" x="2280.0" y="855.0">
+    <Attribute Name="Color" Value="243,121,221"/>
+    <Attribute Name="Profile" Value="HOLOBLOC"/>
+    <Parameter Name="MGR_ID" Value="%ip_controller%:61499"/>
+    <Resource Name="Controller" Type="EMB_RES">
+      <FBNetwork>
+        <FB Name="ControlComputation" Type="ControlComputation" x="1425.0" y="3895.0"/>
+        <FB Name="FlowController" Type="FlowController" x="2945.0" y="4180.0"/>
+        <FB Name="BasicAO" Type="BasicAO" x="4675.0" y="4370.0">
+          <Parameter Name="minEng" Value="0"/>
+          <Parameter Name="maxEng" Value="10"/>
+          <Parameter Name="minRaw" Value="0"/>
+          <Parameter Name="maxRaw" Value="16#FFFF"/>
+        </FB>
+        <FB Name="FeedWaterValve" Type="QW" x="5795.0" y="4370.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="PARAMS" Value="%watervalve%"/>
+        </FB>
+        <FB Name="BasicAO_0" Type="BasicAO" x="3705.0" y="0.0">
+          <Parameter Name="minEng" Value="0"/>
+          <Parameter Name="maxEng" Value="10"/>
+          <Parameter Name="minRaw" Value="0"/>
+          <Parameter Name="maxRaw" Value="16#FFFF"/>
+        </FB>
+        <FB Name="SteamValve" Type="QW" x="4845.0" y="0.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="PARAMS" Value="%steamvalve%"/>
+        </FB>
+        <FB Name="SUBSCRIBE_1" Type="SUBSCRIBE_1" x="2555.0" y="335.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="ID" Value="%hmi_steamdemand%"/>
+        </FB>
+        <FB Name="TankLevel" Type="IW" x="-2090.0" y="1995.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="PARAMS" Value="%tanklevel%"/>
+        </FB>
+        <FB Name="BasicAI_1" Type="BasicAI" x="-950.0" y="1995.0">
+          <Parameter Name="minEng" Value="0"/>
+          <Parameter Name="maxEng" Value="1000"/>
+          <Parameter Name="minRaw" Value="0"/>
+          <Parameter Name="maxRaw" Value="16#FFFF"/>
+        </FB>
+        <FB Name="LC" Type="BasicPID" x="285.0" y="2375.0">
+          <Parameter Name="bReset" Value="0"/>
+          <Parameter Name="fCtrlCycleTime" Value="0.01"/>
+          <Parameter Name="fTv" Value="0"/>
+          <Parameter Name="fTd" Value="0.01"/>
+          <Parameter Name="fKp" Value="1"/>
+          <Parameter Name="fTn" Value="0"/>
+        </FB>
+        <FB Name="E_CYCLE" Type="E_CYCLE" x="-3135.0" y="2090.0">
+          <Parameter Name="DT" Value="T#100ms"/>
+        </FB>
+        <FB Name="SUBSCRIBE_1_2" Type="SUBSCRIBE_1" x="-855.0" y="3325.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="ID" Value="%hmi_leveldemand%"/>
+        </FB>
+        <FB Name="SteamFlow" Type="IW" x="-3230.0" y="3135.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="PARAMS" Value="%steamflow%"/>
+        </FB>
+        <FB Name="BasicAI_2" Type="BasicAI" x="-2090.0" y="3135.0">
+          <Parameter Name="minEng" Value="0"/>
+          <Parameter Name="maxEng" Value="10"/>
+          <Parameter Name="minRaw" Value="0"/>
+          <Parameter Name="maxRaw" Value="16#FFFF"/>
+        </FB>
+        <FB Name="IW" Type="IW" x="-3325.0" y="4465.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="PARAMS" Value="%feedwaterflow%"/>
+        </FB>
+        <FB Name="BasicAI_3" Type="BasicAI" x="-2185.0" y="4465.0">
+          <Parameter Name="minEng" Value="0"/>
+          <Parameter Name="maxEng" Value="10"/>
+          <Parameter Name="minRaw" Value="0"/>
+          <Parameter Name="maxRaw" Value="16#FFFF"/>
+        </FB>
+        <FB Name="PUBLISH_4" Type="PUBLISH_4" x="3610.0" y="2280.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="ID" Value="%hmi_feedback%"/>
+        </FB>
+        <EventConnections>
+          <Connection Destination="FlowController.REQ" Source="ControlComputation.CNF" dx1="180.0" dx2="-610.0" dy="410.0"/>
+          <Connection Destination="BasicAO.REQ" Source="FlowController.CNF" dx1="120.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="FeedWaterValve.INIT" Source="BasicAO.INITO" dx1="180.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="FeedWaterValve.REQ" Source="BasicAO.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SteamValve.INIT" Source="BasicAO_0.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SteamValve.REQ" Source="BasicAO_0.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="BasicAO_0.REQ" Source="SUBSCRIBE_1.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SUBSCRIBE_1.INIT" Source="START.COLD" dx1="1770.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="BasicAI_1.INIT" Source="TankLevel.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="BasicAI_1.REQ" Source="TankLevel.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="TankLevel.REQ" Source="E_CYCLE.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="ControlComputation.REQ" Source="LC.CNF" dx1="130.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="BasicAI_2.REQ" Source="SteamFlow.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="BasicAI_3.REQ" Source="IW.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="IW.REQ" Source="BasicAI_1.CNF" dx1="0.0" dx2="-185.0" dy="215.0"/>
+          <Connection Destination="LC.REQ" Source="BasicAI_2.CNF" dx1="540.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBLISH_4.REQ" Source="FeedWaterValve.CNF" dx1="300.0" dx2="0.0" dy="-910.0"/>
+          <Connection Destination="BasicAI_3.INIT" Source="IW.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="BasicAI_2.INIT" Source="SteamFlow.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="BasicAO.INIT" Source="SteamValve.INITO" dx1="0.0" dx2="0.0" dy="410.0"/>
+          <Connection Destination="SteamFlow.REQ" Source="BasicAI_3.CNF" dx1="50.0" dx2="-180.0" dy="270.0"/>
+          <Connection Destination="SteamFlow.INIT" Source="BasicAI_3.INITO" dx1="195.0" dx2="0.0" dy="425.0"/>
+          <Connection Destination="IW.INIT" Source="BasicAI_1.INITO" dx1="170.0" dx2="0.0" dy="395.0"/>
+          <Connection Destination="TankLevel.INIT" Source="START.COLD" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SUBSCRIBE_1_2.INIT" Source="START.COLD" dx1="0.0" dx2="0.0" dy="1290.0"/>
+          <Connection Destination="BasicAO_0.INIT" Source="BasicAI_2.INITO" dx1="385.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="E_CYCLE.START" Source="FeedWaterValve.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBLISH_4.INIT" Source="START.COLD" dx1="0.0" dx2="0.0" dy="0.0"/>
+        </EventConnections>
+        <DataConnections>
+          <Connection Destination="FlowController.Setpoint" Source="ControlComputation.ControlOut" dx1="-15.0" dx2="0.0" dy="-240.0"/>
+          <Connection Destination="BasicAO.Val" Source="FlowController.ControlOut" dx1="420.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="FeedWaterValve.OUT" Source="BasicAO.Out" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SteamValve.OUT" Source="BasicAO_0.Out" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="BasicAO_0.Val" Source="SUBSCRIBE_1.RD_1" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="BasicAI_1.Val" Source="TankLevel.IN" dx1="35.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="LC.fSetpointValue" Source="SUBSCRIBE_1_2.RD_1" dx1="370.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="ControlComputation.Input1" Source="LC.fCtrlOutput" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="LC.fActualValue" Source="BasicAI_1.Out" dx1="260.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="BasicAI_2.Val" Source="SteamFlow.IN" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="BasicAI_3.Val" Source="IW.IN" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="ControlComputation.Input3" Source="BasicAI_2.Out" dx1="1490.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="ControlComputation.Input2" Source="BasicAI_3.Out" dx1="1130.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBLISH_4.SD_4" Source="FlowController.ControlOut" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBLISH_4.SD_3" Source="BasicAI_3.Out" dx1="4475.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBLISH_4.SD_2" Source="BasicAI_2.Out" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBLISH_4.SD_1" Source="BasicAI_1.Out" dx1="0.0" dx2="0.0" dy="0.0"/>
+        </DataConnections>
+      </FBNetwork>
+    </Resource>
+  </Device>
+  <Device Name="BoilerModel" Type="FORTE_PC" x="4275.0" y="855.0">
+    <Attribute Name="Color" Value="153,121,243"/>
+    <Attribute Name="Profile" Value="HOLOBLOC"/>
+    <Parameter Name="MGR_ID" Value="%ip_controller%:61498"/>
+    <Resource Name="Simulation" Type="EMB_RES">
+      <FBNetwork>
+        <FB Name="OutputPipe_0" Type="OutputPipe" x="2850.0" y="-95.0"/>
+        <FB Name="Drum_0" Type="Drum" x="4275.0" y="-95.0">
+          <Parameter Name="rMaxFillLevel" Value="1000"/>
+        </FB>
+        <FB Name="BusCycle_0" Type="E_CYCLE" x="1995.0" y="-1615.0">
+          <Parameter Name="DT" Value="T#50ms"/>
+        </FB>
+        <FB Name="InvertSteamPoti_0" Type="LReal_To_Int" x="1995.0" y="95.0">
+          <Parameter Name="minInt" Value="0"/>
+          <Parameter Name="maxInt" Value="32767"/>
+          <Parameter Name="minReal" Value="0"/>
+          <Parameter Name="maxReal" Value="10"/>
+        </FB>
+        <FB Name="InputPipe_0" Type="InputPipe" x="2755.0" y="-1140.0">
+          <Parameter Name="enValveMotor" Value="1"/>
+        </FB>
+        <FB Name="SUBSCRIBE_1_1" Type="SUBSCRIBE_1" x="95.0" y="0.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="ID" Value="%steamvalve%"/>
+        </FB>
+        <FB Name="BasicAI" Type="BasicAI" x="1140.0" y="0.0">
+          <Parameter Name="minEng" Value="0"/>
+          <Parameter Name="maxEng" Value="10"/>
+          <Parameter Name="minRaw" Value="0"/>
+          <Parameter Name="maxRaw" Value="16#FFFF"/>
+        </FB>
+        <FB Name="SUBSCRIBE_1_1_0" Type="SUBSCRIBE_1" x="0.0" y="-1235.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="ID" Value="%watervalve%"/>
+        </FB>
+        <FB Name="BasicAI_0" Type="BasicAI" x="1045.0" y="-1235.0">
+          <Parameter Name="minEng" Value="0"/>
+          <Parameter Name="maxEng" Value="10"/>
+          <Parameter Name="minRaw" Value="0"/>
+          <Parameter Name="maxRaw" Value="16#FFFF"/>
+        </FB>
+        <FB Name="BasicAO_1" Type="BasicAO" x="6175.0" y="-285.0">
+          <Parameter Name="minEng" Value="0"/>
+          <Parameter Name="maxEng" Value="1000"/>
+          <Parameter Name="minRaw" Value="0"/>
+          <Parameter Name="maxRaw" Value="16#FFFF"/>
+        </FB>
+        <FB Name="BasicAO_2" Type="BasicAO" x="6175.0" y="950.0">
+          <Parameter Name="minEng" Value="0"/>
+          <Parameter Name="maxEng" Value="10"/>
+          <Parameter Name="minRaw" Value="0"/>
+          <Parameter Name="maxRaw" Value="16#FFFF"/>
+        </FB>
+        <FB Name="BasicAO_3" Type="BasicAO" x="6175.0" y="2185.0">
+          <Parameter Name="minEng" Value="0"/>
+          <Parameter Name="maxEng" Value="10"/>
+          <Parameter Name="minRaw" Value="0"/>
+          <Parameter Name="maxRaw" Value="16#FFFF"/>
+        </FB>
+        <FB Name="PUBLISH_1_3" Type="PUBLISH_1" x="7410.0" y="-285.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="ID" Value="%tanklevel%"/>
+        </FB>
+        <FB Name="PUBLISH_1_4" Type="PUBLISH_1" x="7410.0" y="950.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="ID" Value="%steamflow%"/>
+        </FB>
+        <FB Name="PUBLISH_1_5" Type="PUBLISH_1" x="7410.0" y="2185.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="ID" Value="%feedwaterflow%"/>
+        </FB>
+        <EventConnections>
+          <Connection Destination="Drum_0.REQ" Source="OutputPipe_0.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="InputPipe_0.REQ" Source="BusCycle_0.EO" dx1="1100.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="OutputPipe_0.REQ" Source="InputPipe_0.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="BasicAI.INIT" Source="SUBSCRIBE_1_1.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="BasicAI.REQ" Source="SUBSCRIBE_1_1.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="InvertSteamPoti_0.REQ" Source="BasicAI.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="BasicAI_0.INIT" Source="SUBSCRIBE_1_1_0.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="BasicAI_0.REQ" Source="SUBSCRIBE_1_1_0.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SUBSCRIBE_1_1.INIT" Source="BasicAI_0.INITO" dx1="0.0" dx2="0.0" dy="390.0"/>
+          <Connection Destination="BasicAO_1.REQ" Source="Drum_0.CNF" dx1="815.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="BasicAO_2.INIT" Source="BasicAO_1.INITO" dx1="155.0" dx2="0.0" dy="435.0"/>
+          <Connection Destination="BasicAO_2.REQ" Source="BasicAO_1.CNF" dx1="0.0" dx2="-195.0" dy="250.0"/>
+          <Connection Destination="BasicAO_3.INIT" Source="BasicAO_2.INITO" dx1="170.0" dx2="0.0" dy="415.0"/>
+          <Connection Destination="BasicAO_3.REQ" Source="BasicAO_2.CNF" dx1="-45.0" dx2="-205.0" dy="230.0"/>
+          <Connection Destination="PUBLISH_1_3.INIT" Source="BasicAO_1.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBLISH_1_3.REQ" Source="BasicAO_1.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBLISH_1_4.INIT" Source="BasicAO_2.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBLISH_1_4.REQ" Source="BasicAO_2.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBLISH_1_5.INIT" Source="BasicAO_3.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBLISH_1_5.REQ" Source="BasicAO_3.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SUBSCRIBE_1_1_0.INIT" Source="START.COLD" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SUBSCRIBE_1_1_0.INIT" Source="START.WARM" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="BusCycle_0.START" Source="PUBLISH_1_5.INITO" dx1="205.0" dx2="0.0" dy="-2475.0"/>
+          <Connection Destination="BasicAO_1.INIT" Source="BasicAI.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        </EventConnections>
+        <DataConnections>
+          <Connection Destination="Drum_0.rFlowOut" Source="OutputPipe_0.SteamFlow" dx1="220.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="OutputPipe_0.SteamPoti" Source="InvertSteamPoti_0.Out" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="Drum_0.rFlowIn" Source="InputPipe_0.Feedwater" dx1="335.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="BasicAI.Val" Source="SUBSCRIBE_1_1.RD_1" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="InvertSteamPoti_0.x" Source="BasicAI.Out" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="BasicAI_0.Val" Source="SUBSCRIBE_1_1_0.RD_1" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="InputPipe_0.SetValve" Source="BasicAI_0.Out" dx1="310.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="BasicAO_1.Val" Source="Drum_0.Measurement" dx1="355.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="BasicAO_2.Val" Source="OutputPipe_0.SteamFlow" dx1="215.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="BasicAO_3.Val" Source="InputPipe_0.Feedwater" dx1="340.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBLISH_1_3.SD_1" Source="BasicAO_1.Out" dx1="255.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBLISH_1_4.SD_1" Source="BasicAO_2.Out" dx1="255.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBLISH_1_5.SD_1" Source="BasicAO_3.Out" dx1="0.0" dx2="0.0" dy="0.0"/>
+        </DataConnections>
+      </FBNetwork>
+    </Resource>
+  </Device>
+  <Mapping From="MyBoiler.IN_ANY_1" To="HMI.VIS_IN.IN_ANY_1"/>
+  <Mapping From="MyBoiler.OUT_ANY" To="HMI.VIS_OUT.OUT_ANY"/>
+  <Mapping From="MyBoiler.LREAL2LREAL_0" To="HMI.VIS_OUT.LREAL2LREAL_0"/>
+  <Mapping From="MyBoiler.FB_LABEL_0" To="HMI.VIS_IN.FB_LABEL_0"/>
+  <Mapping From="MyBoiler.LREAL2LREAL_2" To="HMI.VIS_OUT.LREAL2LREAL_2"/>
+  <Mapping From="MyBoiler.OUT_ANY_0" To="HMI.VIS_OUT.OUT_ANY_0"/>
+  <Mapping From="MyBoiler.FB_LABEL_1" To="HMI.VIS_OUT.FB_LABEL_1"/>
+  <Mapping From="MyBoiler.FB_LABEL_2" To="HMI.VIS_OUT.FB_LABEL_2"/>
+  <Mapping From="MyBoiler.OUT_ANY_1" To="HMI.VIS_OUT.OUT_ANY_1"/>
+  <Mapping From="MyBoiler.FB_LABEL_3" To="HMI.VIS_OUT.FB_LABEL_3"/>
+  <Mapping From="MyBoiler.LREAL2LREAL_5" To="HMI.VIS_OUT.LREAL2LREAL_5"/>
+  <Mapping From="MyBoiler.IN_ANY" To="HMI.VIS_IN.IN_ANY"/>
+  <Mapping From="MyBoiler.FB_LABEL" To="HMI.VIS_IN.FB_LABEL"/>
+  <Mapping From="MyBoiler.LREAL2LREAL" To="HMI.VIS_IN.LREAL2LREAL"/>
+  <Mapping From="MyBoiler.LREAL2LREAL_1" To="HMI.VIS_IN.LREAL2LREAL_1"/>
+  <Mapping From="MyBoiler.FlowController" To="BoilerController.Controller.FlowController"/>
+  <Mapping From="MyBoiler.ControlComputation" To="BoilerController.Controller.ControlComputation"/>
+  <Mapping From="MyBoiler.BasicAO" To="BoilerController.Controller.BasicAO"/>
+  <Mapping From="MyBoiler.FeedWaterValve" To="BoilerController.Controller.FeedWaterValve"/>
+  <Mapping From="MyBoiler.SteamValve" To="BoilerController.Controller.SteamValve"/>
+  <Mapping From="MyBoiler.BasicAO_0" To="BoilerController.Controller.BasicAO_0"/>
+  <Mapping From="MyBoiler.LC" To="BoilerController.Controller.LC"/>
+  <Mapping From="MyBoiler.BasicAI_1" To="BoilerController.Controller.BasicAI_1"/>
+  <Mapping From="MyBoiler.TankLevel" To="BoilerController.Controller.TankLevel"/>
+  <Mapping From="MyBoiler.E_CYCLE" To="BoilerController.Controller.E_CYCLE"/>
+  <Mapping From="MyBoiler.BasicAI_2" To="BoilerController.Controller.BasicAI_2"/>
+  <Mapping From="MyBoiler.SteamFlow" To="BoilerController.Controller.SteamFlow"/>
+  <Mapping From="MyBoiler.IW" To="BoilerController.Controller.IW"/>
+  <Mapping From="MyBoiler.BasicAI_3" To="BoilerController.Controller.BasicAI_3"/>
+  <Mapping From="MyBoiler.LREAL2LREAL_3" To="HMI.VIS_OUT.LREAL2LREAL_3"/>
+  <Mapping From="MyBoiler.OUT_ANY_2" To="HMI.VIS_OUT.OUT_ANY_2"/>
+  <Mapping From="MyBoiler.FB_LABEL_4" To="HMI.VIS_OUT.FB_LABEL_4"/>
+  <Mapping From="globals.LREAL2LREAL_7" To="HMI.GLOBALS.LREAL2LREAL_7"/>
+  <Mapping From="globals.FB_LABEL_6" To="HMI.GLOBALS.FB_LABEL_6"/>
+  <Mapping From="globals.OUT_ANY_4" To="HMI.GLOBALS.OUT_ANY_4"/>
+  <Mapping From="globals.PUBLISH_1" To="HMI.GLOBALS.PUBLISH_1"/>
+  <Mapping From="BoilerModel.OutputPipe_0" To="BoilerModel.Simulation.OutputPipe_0"/>
+  <Mapping From="BoilerModel.Drum_0" To="BoilerModel.Simulation.Drum_0"/>
+  <Mapping From="BoilerModel.BusCycle_0" To="BoilerModel.Simulation.BusCycle_0"/>
+  <Mapping From="BoilerModel.InvertSteamPoti_0" To="BoilerModel.Simulation.InvertSteamPoti_0"/>
+  <Mapping From="BoilerModel.InputPipe_0" To="BoilerModel.Simulation.InputPipe_0"/>
+  <Mapping From="BoilerModel.SUBSCRIBE_1_1" To="BoilerModel.Simulation.SUBSCRIBE_1_1"/>
+  <Mapping From="BoilerModel.BasicAI" To="BoilerModel.Simulation.BasicAI"/>
+  <Mapping From="BoilerModel.SUBSCRIBE_1_1_0" To="BoilerModel.Simulation.SUBSCRIBE_1_1_0"/>
+  <Mapping From="BoilerModel.BasicAI_0" To="BoilerModel.Simulation.BasicAI_0"/>
+  <Mapping From="BoilerModel.BasicAO_1" To="BoilerModel.Simulation.BasicAO_1"/>
+  <Mapping From="BoilerModel.BasicAO_2" To="BoilerModel.Simulation.BasicAO_2"/>
+  <Mapping From="BoilerModel.BasicAO_3" To="BoilerModel.Simulation.BasicAO_3"/>
+  <Mapping From="BoilerModel.PUBLISH_1_3" To="BoilerModel.Simulation.PUBLISH_1_3"/>
+  <Mapping From="BoilerModel.PUBLISH_1_4" To="BoilerModel.Simulation.PUBLISH_1_4"/>
+  <Mapping From="BoilerModel.PUBLISH_1_5" To="BoilerModel.Simulation.PUBLISH_1_5"/>
+  <Segment Name="Ethernet" Type="Ethernet" dx1="5135.0" x="760.0" y="285.0"/>
+  <Link CommResource="HMI" Comment="" SegmentName="Ethernet"/>
+  <Link CommResource="BoilerController" Comment="" SegmentName="Ethernet"/>
+  <Link CommResource="BoilerModel" Comment="" SegmentName="Ethernet"/>
+</System>

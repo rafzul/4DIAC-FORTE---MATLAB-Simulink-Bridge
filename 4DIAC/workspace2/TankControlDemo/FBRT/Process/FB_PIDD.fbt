@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd" >
+<FBType Name="FB_PIDD" Comment="PID with Bumpless Transfer and Anti-Reset Windup" >
+  <Identification Standard="61499-1-D.1" />
+  <VersionInfo Organization="Rockwell Automation" Version="0.1" Author="JHC" Date="2001-04-21" Remarks="Laid out ECC." />
+  <VersionInfo Organization="Rockwell Automation" Version="0.0" Author="JHC" Date="2000-04-29" />
+  <CompilerInfo header="package fb.rt.process;" >
+    <Compiler Language="Java" Vendor="IBM" Product="VisualAge" Version="3.0" />
+  </CompilerInfo>
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="REQ" >
+        <With Var="AUTO" />
+        <With Var="PV" />
+        <With Var="SP" />
+        <With Var="X0" />
+        <With Var="KP" />
+        <With Var="TR" />
+        <With Var="TD" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="CNF" >
+        <With Var="XOUT" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="AUTO" Type="BOOL" Comment="0-manual,1-automatic" />
+      <VarDeclaration Name="PV" Type="REAL" Comment="Process variable,0-100 percent" />
+      <VarDeclaration Name="SP" Type="REAL" Comment="Set Point,0-100 percent" />
+      <VarDeclaration Name="X0" Type="REAL" Comment="Manual Output Setting,0-100 percent" />
+      <VarDeclaration Name="KP" Type="REAL" Comment="Proportionality Constant" />
+      <VarDeclaration Name="TR" Type="REAL" Comment="Reset Time as Multiple of Sampling Period" />
+      <VarDeclaration Name="TD" Type="REAL" Comment="Derivative Time Constant as Multiple of Sampling Period" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="XOUT" Type="REAL" Comment="Manipulated Variable,0-100 percent" />
+    </OutputVars>
+  </InterfaceList>
+  <BasicFB>
+    <InternalVars>
+      <VarDeclaration Name="WASAUTO" Type="BOOL" />
+      <VarDeclaration Name="ERROR" Type="REAL" />
+      <VarDeclaration Name="ITERM" Type="REAL" />
+      <VarDeclaration Name="DTERM" Type="REAL" />
+      <VarDeclaration Name="X1" Type="REAL" />
+      <VarDeclaration Name="X2" Type="REAL" />
+      <VarDeclaration Name="X3" Type="REAL" />
+    </InternalVars>
+    <ECC >
+      <ECState Name="START" x="217.6470" y="135.2941" >
+      </ECState>
+      <ECState Name="REQ" x="541.1765" y="405.8824" >
+        <ECAction Algorithm="REQ" Output="CNF" />
+      </ECState>
+      <ECTransition Source="START" Destination="REQ" Condition="REQ" x="541.1765" y="135.2941" />
+      <ECTransition Source="REQ" Destination="START" Condition="1" x="217.6470" y="405.8824" />
+    </ECC>
+  <Algorithm Name="REQ" >
+    <ST Text="ERROR:=PV-SP;&#10;&#10;IF AUTO THEN&#10;&#10;IF WASAUTO THEN&#10;&#10;ITERM:=ITERM+ERROR/TR;&#10;&#10;DTERM:=(3*(ERROR-X3)+X1-X2)/10*TD;&#10;&#10;ELSE&#10;&#10;ITERM:=(X0-ERROR)/KP;&#10;&#10;DTERM:=0;&#10;&#10;END_IF;&#10;&#10;XOUT:=KP*(ERROR+ITERM+DTERM);&#10;&#10;ELSE XOUT:=X0;&#10;&#10;END_IF&#10;&#10;X2:=X1;X1:=ERROR;&#10;&#10;IF XOUT&#60;0 THEN XOUT:=0;&#10;&#10;ITERM:=ITERM-ERROR/TR;&#10;&#10;ELSIF XOUT>100 THEN XOUT:=100;&#10;&#10;ITERM:=ITERM-ERROR/TR;&#10;&#10;END_IF;&#10;&#10;WASAUTO:=AUTO;&#10;" />
+  </Algorithm>
+  </BasicFB>
+</FBType>

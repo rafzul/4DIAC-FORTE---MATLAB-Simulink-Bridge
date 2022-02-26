@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE System SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<System Name="FestoMPS">
+  <Identification/>
+  <VersionInfo Author="Author" Organization="4DIAC-Consortium" Version="1.0"/>
+  <Application Name="PicknPlace">
+    <SubAppNetwork>
+      <FB Name="Motor" Type="QX" x="5795.0" y="-285.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="PARAMS" Value="%QX_Motor%"/>
+      </FB>
+      <FB Name="Separator" Type="QX" x="5795.0" y="-1045.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="PARAMS" Value="%QX_Separator%"/>
+      </FB>
+      <FB Name="ActuatorDown" Type="QX" x="5795.0" y="3040.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="PARAMS" Value="%QX_ActuatorDown%"/>
+      </FB>
+      <FB Name="ActuatorVacuum" Type="QX" x="5795.0" y="2280.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="PARAMS" Value="%QX_ActuatorVacuum%"/>
+      </FB>
+      <FB Comment="" Name="ActuatorRetract" Type="QX" x="5795.0" y="1425.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="PARAMS" Value="%QX_ActuatorRetract%"/>
+      </FB>
+      <FB Comment="" Name="ActuatorExtend" Type="QX" x="5795.0" y="570.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="PARAMS" Value="%QX_ActuatorExtend%"/>
+      </FB>
+      <FB Name="E_TimeOut" Type="E_TimeOut" x="4845.0" y="3135.0"/>
+      <FB Name="E_TimeOut_0" Type="E_TimeOut" x="4845.0" y="2470.0"/>
+      <FB Name="E_TimeOut_1" Type="E_TimeOut" x="4655.0" y="1995.0"/>
+      <FB Name="SensorSeparator" Type="IX" x="0.0" y="-1615.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="PARAMS" Value="%IX_SensorSeparator%"/>
+      </FB>
+      <FB Name="SensorPartIn" Type="IX" x="0.0" y="-760.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="PARAMS" Value="%IX_SensorPartIn%"/>
+      </FB>
+      <FB Name="SensorPartOut" Type="IX" x="0.0" y="0.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="PARAMS" Value="%IX_SensorPartOut%"/>
+      </FB>
+      <FB Name="SensorRetract" Type="IX" x="0.0" y="760.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="PARAMS" Value="%IX_SensorRetract%"/>
+      </FB>
+      <FB Name="SensorVacuum" Type="IX" x="0.0" y="2375.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="PARAMS" Value="%IX_SensorVacuum%"/>
+      </FB>
+      <FB Name="SensorExtend" Type="IX" x="0.0" y="1615.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="PARAMS" Value="%IX_SensorExtend%"/>
+      </FB>
+      <FB Name="SensorUp" Type="IX" x="0.0" y="3135.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="PARAMS" Value="%IX_SensorUp%"/>
+      </FB>
+      <FB Name="E_TimeOut_2" Type="E_TimeOut" x="4655.0" y="95.0"/>
+      <FB Comment="" Name="GreenLight" Type="QX" x="5795.0" y="-1805.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="PARAMS" Value="%QX_Light_Green%"/>
+      </FB>
+      <FB Comment="" Name="RedLight" Type="QX" x="5795.0" y="-3230.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="PARAMS" Value="%QX_Light_Red%"/>
+      </FB>
+      <FB Comment="" Name="OrangeLight" Type="QX" x="5795.0" y="-2470.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="PARAMS" Value="%QX_Light_Orange%"/>
+      </FB>
+      <FB Comment="" Name="E_TimeOut_3" Type="E_TimeOut" x="4940.0" y="-380.0"/>
+      <FB Comment="" Name="PartOnBeltCounter" Type="PartCount" x="3735.0" y="485.0"/>
+      <FB Comment="" Name="AssembleCounter" Type="PartCount" x="2280.0" y="2755.0">
+        <Parameter Name="PartIn" Value="true"/>
+        <Parameter Name="PartOut" Value="false"/>
+      </FB>
+      <FB Comment="" Name="VerticalAxisControl" Type="CylinderSA" x="3705.0" y="2185.0"/>
+      <FB Comment="" Name="PneumaticGripperControl" Type="GripperPneumatic" x="3610.0" y="2945.0"/>
+      <FB Comment="" Name="HorizontalAxisControl" Type="CylinderDA" x="3705.0" y="1520.0"/>
+      <FB Comment="" Name="PicknPlaceControl" Type="PicknPlace" x="855.0" y="855.0"/>
+      <FB Comment="" Name="TransportControl" Type="Transport" x="3705.0" y="-190.0">
+        <Parameter Name="DelayTime" Value="T#500ms"/>
+      </FB>
+      <FB Name="StatusLightControl" Type="StatusLight" x="3800.0" y="-2470.0"/>
+      <FB Name="StatusManagement" Type="StatusManagement" x="2375.0" y="-2470.0"/>
+      <FB Name="SeparatorControl" Type="Separator" x="3640.0" y="-940.0"/>
+      <FB Name="ConveyorControl" Type="Conveyor" x="1900.0" y="-380.0"/>
+      <FB Name="ManipulatorControl" Type="Manipulator" x="2090.0" y="1805.0"/>
+      <EventConnections>
+        <Connection Destination="Motor.INIT" Source="Separator.INITO" dx1="0.0" dx2="0.0" dy="210.0"/>
+        <Connection Destination="ActuatorExtend.INIT" Source="Motor.INITO" dx1="0.0" dx2="0.0" dy="205.0"/>
+        <Connection Destination="ActuatorRetract.INIT" Source="ActuatorExtend.INITO" dx1="0.0" dx2="0.0" dy="245.0"/>
+        <Connection Destination="ActuatorVacuum.INIT" Source="ActuatorRetract.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="ActuatorDown.INIT" Source="ActuatorVacuum.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SensorPartIn.INIT" Source="SensorSeparator.INITO" dx1="0.0" dx2="0.0" dy="265.0"/>
+        <Connection Destination="SensorPartOut.INIT" Source="SensorPartIn.INITO" dx1="0.0" dx2="0.0" dy="255.0"/>
+        <Connection Destination="SensorRetract.INIT" Source="SensorPartOut.INITO" dx1="0.0" dx2="0.0" dy="250.0"/>
+        <Connection Destination="SensorExtend.INIT" Source="SensorRetract.INITO" dx1="0.0" dx2="0.0" dy="245.0"/>
+        <Connection Destination="SensorVacuum.INIT" Source="SensorExtend.INITO" dx1="0.0" dx2="0.0" dy="255.0"/>
+        <Connection Destination="SensorUp.INIT" Source="SensorVacuum.INITO" dx1="0.0" dx2="0.0" dy="255.0"/>
+        <Connection Destination="Separator.INIT" Source="SensorUp.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="OrangeLight.INIT" Source="RedLight.INITO" dx1="0.0" dx2="0.0" dy="225.0"/>
+        <Connection Destination="GreenLight.INIT" Source="OrangeLight.INITO" dx1="0.0" dx2="0.0" dy="225.0"/>
+        <Connection Destination="PartOnBeltCounter.PartIncoming" Source="SensorPartIn.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PartOnBeltCounter.PartOutgoing" Source="SensorPartOut.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="VerticalAxisControl.INDsensor" Source="SensorUp.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="ActuatorDown.REQ" Source="VerticalAxisControl.CylinderCMD" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PneumaticGripperControl.INDsensor" Source="SensorVacuum.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="ActuatorVacuum.REQ" Source="PneumaticGripperControl.GripperCMD" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="HorizontalAxisControl.INDsensor" Source="SensorRetract.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="HorizontalAxisControl.INDsensor" Source="SensorExtend.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="ActuatorRetract.REQ" Source="HorizontalAxisControl.CylinderCMD" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PicknPlaceControl.Intit" Source="ActuatorDown.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="AssembleCounter.PartIncoming" Source="PicknPlaceControl.DoAssembly" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="ActuatorExtend.REQ" Source="HorizontalAxisControl.CylinderCMD" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="Motor.REQ" Source="TransportControl.MotorCMD" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="RedLight.REQ" Source="StatusLightControl.EOred" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="OrangeLight.REQ" Source="StatusLightControl.EOorange" dx1="330.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="GreenLight.REQ" Source="StatusLightControl.EOgreen" dx1="255.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="StatusManagement.Initialization" Source="PicknPlaceControl.NotifyInit" dx1="-200.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="StatusManagement.CollectFailures" Source="PicknPlaceControl.NotifyFailure" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SeparatorControl.INDsensor" Source="SensorSeparator.IND" dx1="795.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="Separator.REQ" Source="SeparatorControl.SeparatorCMD" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="ConveyorControl.ReleaseWP" Source="PicknPlaceControl.ReleaseWP" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="ConveyorControl.WPatSeparator" Source="SeparatorControl.WPAtSeparator" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="ConveyorControl.WPatAssembly" Source="SeparatorControl.WPatAssembly" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SeparatorControl.ConfinePosition" Source="ConveyorControl.AssemblePosition" dx1="400.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PicknPlaceControl.WPatAssembly" Source="ConveyorControl.ReadyForAssembly" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SeparatorControl.ReleasePosition" Source="ConveyorControl.ReleaseWPfromAssembly" dx1="210.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="TransportControl.MotorStop" Source="ConveyorControl.ConveyorEmpty" dx1="450.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="TransportControl.MotorStart" Source="ConveyorControl.AssemblePosition" dx1="405.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="ManipulatorControl.SetToDefault" Source="PicknPlaceControl.SetToDefalut" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="ManipulatorControl.DoAssembly" Source="PicknPlaceControl.DoAssembly" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PicknPlaceControl.Initialized" Source="ManipulatorControl.AtDefault" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="AssembleCounter.PartOutgoing" Source="ManipulatorControl.DoneAssembly" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PicknPlaceControl.DoneAssembly" Source="ManipulatorControl.DoneAssembly" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PicknPlaceControl.CollectFailures" Source="ManipulatorControl.SlideEmptyFailure" dx1="0.0" dx2="0.0" dy="0.0"/>
+      </EventConnections>
+      <DataConnections>
+        <Connection Destination="PartOnBeltCounter.PartIn" Source="SensorPartIn.IN" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PartOnBeltCounter.PartOut" Source="SensorPartOut.IN" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="VerticalAxisControl.Sensor_Ret" Source="SensorUp.IN" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="ActuatorDown.OUT" Source="VerticalAxisControl.Extend" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="E_TimeOut_0.TimeOutSocket" Source="VerticalAxisControl.Timer" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PneumaticGripperControl.Sensor_Grip" Source="SensorVacuum.IN" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="ActuatorVacuum.OUT" Source="PneumaticGripperControl.Release" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="E_TimeOut.TimeOutSocket" Source="PneumaticGripperControl.Timer" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="HorizontalAxisControl.Sensor_Ret" Source="SensorRetract.IN" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="HorizontalAxisControl.Sensor_Ext" Source="SensorExtend.IN" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="ActuatorExtend.OUT" Source="HorizontalAxisControl.Extend" dx1="660.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="ActuatorRetract.OUT" Source="HorizontalAxisControl.Retract" dx1="690.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="E_TimeOut_1.TimeOutSocket" Source="HorizontalAxisControl.Timer" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="Motor.OUT" Source="TransportControl.On" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="E_TimeOut_2.TimeOutSocket" Source="TransportControl.DelayStop" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="RedLight.OUT" Source="StatusLightControl.Red" dx1="175.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="OrangeLight.OUT" Source="StatusLightControl.Orange" dx1="175.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="GreenLight.OUT" Source="StatusLightControl.Green" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="StatusLightControl.StatusLight" Source="StatusManagement.StatusLight" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="Separator.OUT" Source="SeparatorControl.CounterclockRotate" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="E_TimeOut_3.TimeOutSocket" Source="SeparatorControl.Timer" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SeparatorControl.PartAtAssembly" Source="SensorSeparator.IN" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="ConveyorControl.Parts" Source="PartOnBeltCounter.NumberOfParts" dx1="0.0" dx2="0.0" dy="590.0"/>
+        <Connection Destination="ManipulatorControl.AssembleCounter" Source="AssembleCounter.NumberOfParts" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="HorizontalAxisControl.Cylinder" Source="ManipulatorControl.HorizontalAxis" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="VerticalAxisControl.Cylinder" Source="ManipulatorControl.VerticalAxis" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PneumaticGripperControl.GripperPneumatic" Source="ManipulatorControl.Gripper" dx1="0.0" dx2="0.0" dy="0.0"/>
+      </DataConnections>
+    </SubAppNetwork>
+  </Application>
+  <Device Name="PicknPlaceStatus" Type="GenericFORTE" x="1805.0" y="760.0">
+    <Attribute Name="Color" Value="255,167,79"/>
+    <Parameter Name="MGR_ID" Value="%PicknPlaceStatusController%:61499"/>
+    <Resource Name="FORTE" Type="EMB_RES">
+      <FBNetwork>
+        <FB Name="SUBSCRIBE_0_1" Type="SUBSCRIBE_0" x="950.0" y="-2945.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="ID" Value="%multicast%:61501"/>
+        </FB>
+        <FB Name="SUBSCRIBE_0_2" Type="SUBSCRIBE_0" x="950.0" y="-2185.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="ID" Value="%multicast%:61500"/>
+        </FB>
+        <FB Name="StatusManagement" Type="StatusManagement" x="1995.0" y="-2755.0"/>
+        <FB Name="StatusLightControl" Type="StatusLight" x="3040.0" y="-2755.0"/>
+        <FB Comment="" Name="RedLight" Type="QX" x="4560.0" y="-3230.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="PARAMS" Value="%QX_Light_Red%"/>
+        </FB>
+        <FB Comment="" Name="OrangeLight" Type="QX" x="4560.0" y="-2470.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="PARAMS" Value="%QX_Light_Orange%"/>
+        </FB>
+        <FB Comment="" Name="GreenLight" Type="QX" x="4560.0" y="-1615.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="PARAMS" Value="%QX_Light_Green%"/>
+        </FB>
+        <EventConnections>
+          <Connection Destination="SUBSCRIBE_0_1.INIT" Source="START.COLD" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SUBSCRIBE_0_2.INIT" Source="SUBSCRIBE_0_1.INITO" dx1="20.0" dx2="0.0" dy="175.0"/>
+          <Connection Destination="RedLight.REQ" Source="StatusLightControl.EOred" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="OrangeLight.INIT" Source="RedLight.INITO" dx1="0.0" dx2="0.0" dy="225.0"/>
+          <Connection Destination="OrangeLight.REQ" Source="StatusLightControl.EOorange" dx1="330.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="GreenLight.INIT" Source="OrangeLight.INITO" dx1="0.0" dx2="0.0" dy="225.0"/>
+          <Connection Destination="GreenLight.REQ" Source="StatusLightControl.EOgreen" dx1="255.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="StatusManagement.Initialization" Source="SUBSCRIBE_0_1.IND" dx1="340.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="StatusManagement.CollectFailures" Source="SUBSCRIBE_0_2.IND" dx1="325.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="RedLight.INIT" Source="SUBSCRIBE_0_2.INITO" dx1="195.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SUBSCRIBE_0_1.INIT" Source="START.WARM" dx1="0.0" dx2="0.0" dy="0.0"/>
+        </EventConnections>
+        <DataConnections>
+          <Connection Destination="StatusLightControl.StatusLight" Source="StatusManagement.StatusLight" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="RedLight.OUT" Source="StatusLightControl.Red" dx1="175.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="OrangeLight.OUT" Source="StatusLightControl.Orange" dx1="175.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="GreenLight.OUT" Source="StatusLightControl.Green" dx1="0.0" dx2="0.0" dy="0.0"/>
+        </DataConnections>
+      </FBNetwork>
+    </Resource>
+  </Device>
+  <Device Name="PicknPlace" Type="GenericFORTE" x="285.0" y="760.0">
+    <Attribute Name="Color" Value="98,176,255"/>
+    <Parameter Name="MGR_ID" Value="%PicknPlaceController%:61499"/>
+    <Resource Name="FORTE" Type="EMB_RES">
+      <FBNetwork>
+        <FB Name="PUBLISH_0_1" Type="PUBLISH_0" x="2280.0" y="475.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="ID" Value="%multicast%:61500"/>
+        </FB>
+        <FB Name="PUBLISH_0_2" Type="PUBLISH_0" x="2280.0" y="1140.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="ID" Value="%multicast%:61501"/>
+        </FB>
+        <FB Name="Motor" Type="QX" x="5795.0" y="-285.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="PARAMS" Value="%QX_Motor%"/>
+        </FB>
+        <FB Name="Separator" Type="QX" x="5795.0" y="-1045.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="PARAMS" Value="%QX_Separator%"/>
+        </FB>
+        <FB Name="ActuatorDown" Type="QX" x="5795.0" y="3040.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="PARAMS" Value="%QX_ActuatorDown%"/>
+        </FB>
+        <FB Name="ActuatorVacuum" Type="QX" x="5795.0" y="2280.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="PARAMS" Value="%QX_ActuatorVacuum%"/>
+        </FB>
+        <FB Comment="" Name="ActuatorRetract" Type="QX" x="5795.0" y="1425.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="PARAMS" Value="%QX_ActuatorRetract%"/>
+        </FB>
+        <FB Comment="" Name="ActuatorExtend" Type="QX" x="5795.0" y="570.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="PARAMS" Value="%QX_ActuatorExtend%"/>
+        </FB>
+        <FB Name="E_TimeOut" Type="E_TimeOut" x="4845.0" y="3135.0"/>
+        <FB Name="E_TimeOut_0" Type="E_TimeOut" x="4845.0" y="2470.0"/>
+        <FB Name="E_TimeOut_1" Type="E_TimeOut" x="4845.0" y="1805.0"/>
+        <FB Name="SensorSeparator" Type="IX" x="0.0" y="-1615.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="PARAMS" Value="%IX_SensorSeparator%"/>
+        </FB>
+        <FB Name="SensorPartIn" Type="IX" x="0.0" y="-760.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="PARAMS" Value="%IX_SensorPartIn%"/>
+        </FB>
+        <FB Name="SensorPartOut" Type="IX" x="0.0" y="0.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="PARAMS" Value="%IX_SensorPartOut%"/>
+        </FB>
+        <FB Name="SensorRetract" Type="IX" x="0.0" y="760.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="PARAMS" Value="%IX_SensorRetract%"/>
+        </FB>
+        <FB Name="SensorVacuum" Type="IX" x="0.0" y="2375.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="PARAMS" Value="%IX_SensorVacuum%"/>
+        </FB>
+        <FB Name="SensorExtend" Type="IX" x="0.0" y="1615.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="PARAMS" Value="%IX_SensorExtend%"/>
+        </FB>
+        <FB Name="SensorUp" Type="IX" x="0.0" y="3135.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="PARAMS" Value="%IX_SensorUp%"/>
+        </FB>
+        <FB Name="E_TimeOut_2" Type="E_TimeOut" x="4655.0" y="95.0"/>
+        <FB Comment="" Name="E_TimeOut_3" Type="E_TimeOut" x="5035.0" y="-570.0"/>
+        <FB Comment="" Name="PartOnBeltCounter" Type="PartCount" x="3735.0" y="485.0"/>
+        <FB Comment="" Name="AssembleCounter" Type="PartCount" x="2280.0" y="2755.0">
+          <Parameter Name="PartIn" Value="true"/>
+          <Parameter Name="PartOut" Value="false"/>
+        </FB>
+        <FB Comment="" Name="VerticalAxisControl" Type="CylinderSA" x="3705.0" y="2185.0"/>
+        <FB Comment="" Name="PneumaticGripperControl" Type="GripperPneumatic" x="3610.0" y="2945.0"/>
+        <FB Comment="" Name="HorizontalAxisControl" Type="CylinderDA" x="3705.0" y="1520.0"/>
+        <FB Comment="" Name="PicknPlaceControl" Type="PicknPlace" x="855.0" y="855.0"/>
+        <FB Comment="" Name="TransportControl" Type="Transport" x="3705.0" y="-190.0">
+          <Parameter Name="DelayTime" Value="T#500ms"/>
+        </FB>
+        <FB Name="SeparatorControl" Type="Separator" x="3640.0" y="-940.0"/>
+        <FB Name="ConveyorControl" Type="Conveyor" x="1900.0" y="-380.0"/>
+        <FB Name="ManipulatorControl" Type="Manipulator" x="2090.0" y="1805.0"/>
+        <EventConnections>
+          <Connection Destination="PUBLISH_0_2.INIT" Source="PUBLISH_0_1.INITO" dx1="0.0" dx2="0.0" dy="185.0"/>
+          <Connection Destination="PUBLISH_0_1.INIT" Source="START.COLD" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBLISH_0_1.INIT" Source="START.WARM" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="Motor.INIT" Source="Separator.INITO" dx1="0.0" dx2="0.0" dy="210.0"/>
+          <Connection Destination="ActuatorDown.INIT" Source="ActuatorVacuum.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="ActuatorVacuum.INIT" Source="ActuatorRetract.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="ActuatorExtend.INIT" Source="Motor.INITO" dx1="0.0" dx2="0.0" dy="205.0"/>
+          <Connection Destination="ActuatorRetract.INIT" Source="ActuatorExtend.INITO" dx1="0.0" dx2="0.0" dy="245.0"/>
+          <Connection Destination="SensorPartIn.INIT" Source="SensorSeparator.INITO" dx1="0.0" dx2="0.0" dy="265.0"/>
+          <Connection Destination="SensorPartOut.INIT" Source="SensorPartIn.INITO" dx1="0.0" dx2="0.0" dy="255.0"/>
+          <Connection Destination="SensorRetract.INIT" Source="SensorPartOut.INITO" dx1="0.0" dx2="0.0" dy="250.0"/>
+          <Connection Destination="SensorExtend.INIT" Source="SensorRetract.INITO" dx1="0.0" dx2="0.0" dy="245.0"/>
+          <Connection Destination="SensorVacuum.INIT" Source="SensorExtend.INITO" dx1="0.0" dx2="0.0" dy="255.0"/>
+          <Connection Destination="SensorUp.INIT" Source="SensorVacuum.INITO" dx1="0.0" dx2="0.0" dy="255.0"/>
+          <Connection Destination="Separator.INIT" Source="SensorUp.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PartOnBeltCounter.PartIncoming" Source="SensorPartIn.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PartOnBeltCounter.PartOutgoing" Source="SensorPartOut.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="VerticalAxisControl.INDsensor" Source="SensorUp.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="ActuatorDown.REQ" Source="VerticalAxisControl.CylinderCMD" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PneumaticGripperControl.INDsensor" Source="SensorVacuum.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="ActuatorVacuum.REQ" Source="PneumaticGripperControl.GripperCMD" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="HorizontalAxisControl.INDsensor" Source="SensorRetract.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="HorizontalAxisControl.INDsensor" Source="SensorExtend.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="ActuatorRetract.REQ" Source="HorizontalAxisControl.CylinderCMD" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="ActuatorExtend.REQ" Source="HorizontalAxisControl.CylinderCMD" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PicknPlaceControl.Intit" Source="ActuatorDown.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="AssembleCounter.PartIncoming" Source="PicknPlaceControl.DoAssembly" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="Motor.REQ" Source="TransportControl.MotorCMD" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SeparatorControl.INDsensor" Source="SensorSeparator.IND" dx1="795.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="Separator.REQ" Source="SeparatorControl.SeparatorCMD" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="ConveyorControl.ReleaseWP" Source="PicknPlaceControl.ReleaseWP" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="ConveyorControl.WPatSeparator" Source="SeparatorControl.WPAtSeparator" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="ConveyorControl.WPatAssembly" Source="SeparatorControl.WPatAssembly" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SeparatorControl.ConfinePosition" Source="ConveyorControl.AssemblePosition" dx1="400.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="TransportControl.MotorStart" Source="ConveyorControl.AssemblePosition" dx1="405.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PicknPlaceControl.WPatAssembly" Source="ConveyorControl.ReadyForAssembly" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SeparatorControl.ReleasePosition" Source="ConveyorControl.ReleaseWPfromAssembly" dx1="210.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="TransportControl.MotorStop" Source="ConveyorControl.ConveyorEmpty" dx1="450.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="ManipulatorControl.SetToDefault" Source="PicknPlaceControl.SetToDefalut" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="ManipulatorControl.DoAssembly" Source="PicknPlaceControl.DoAssembly" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PicknPlaceControl.Initialized" Source="ManipulatorControl.AtDefault" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="AssembleCounter.PartOutgoing" Source="ManipulatorControl.DoneAssembly" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PicknPlaceControl.DoneAssembly" Source="ManipulatorControl.DoneAssembly" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PicknPlaceControl.CollectFailures" Source="ManipulatorControl.SlideEmptyFailure" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBLISH_0_2.REQ" Source="PicknPlaceControl.NotifyInit" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBLISH_0_1.REQ" Source="PicknPlaceControl.NotifyFailure" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SensorSeparator.INIT" Source="PUBLISH_0_2.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        </EventConnections>
+        <DataConnections>
+          <Connection Destination="PartOnBeltCounter.PartIn" Source="SensorPartIn.IN" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PartOnBeltCounter.PartOut" Source="SensorPartOut.IN" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="VerticalAxisControl.Sensor_Ret" Source="SensorUp.IN" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="ActuatorDown.OUT" Source="VerticalAxisControl.Extend" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="E_TimeOut_0.TimeOutSocket" Source="VerticalAxisControl.Timer" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PneumaticGripperControl.Sensor_Grip" Source="SensorVacuum.IN" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="ActuatorVacuum.OUT" Source="PneumaticGripperControl.Release" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="E_TimeOut.TimeOutSocket" Source="PneumaticGripperControl.Timer" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="HorizontalAxisControl.Sensor_Ret" Source="SensorRetract.IN" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="HorizontalAxisControl.Sensor_Ext" Source="SensorExtend.IN" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="ActuatorExtend.OUT" Source="HorizontalAxisControl.Extend" dx1="660.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="ActuatorRetract.OUT" Source="HorizontalAxisControl.Retract" dx1="690.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="E_TimeOut_1.TimeOutSocket" Source="HorizontalAxisControl.Timer" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="Motor.OUT" Source="TransportControl.On" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="E_TimeOut_2.TimeOutSocket" Source="TransportControl.DelayStop" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SeparatorControl.PartAtAssembly" Source="SensorSeparator.IN" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="Separator.OUT" Source="SeparatorControl.CounterclockRotate" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="E_TimeOut_3.TimeOutSocket" Source="SeparatorControl.Timer" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="ConveyorControl.Parts" Source="PartOnBeltCounter.NumberOfParts" dx1="0.0" dx2="0.0" dy="590.0"/>
+          <Connection Destination="ManipulatorControl.AssembleCounter" Source="AssembleCounter.NumberOfParts" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="HorizontalAxisControl.Cylinder" Source="ManipulatorControl.HorizontalAxis" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="VerticalAxisControl.Cylinder" Source="ManipulatorControl.VerticalAxis" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PneumaticGripperControl.GripperPneumatic" Source="ManipulatorControl.Gripper" dx1="0.0" dx2="0.0" dy="0.0"/>
+        </DataConnections>
+      </FBNetwork>
+    </Resource>
+  </Device>
+  <Mapping From="PicknPlace.Motor" To="PicknPlace.FORTE.Motor"/>
+  <Mapping From="PicknPlace.Separator" To="PicknPlace.FORTE.Separator"/>
+  <Mapping From="PicknPlace.ActuatorDown" To="PicknPlace.FORTE.ActuatorDown"/>
+  <Mapping From="PicknPlace.ActuatorVacuum" To="PicknPlace.FORTE.ActuatorVacuum"/>
+  <Mapping From="PicknPlace.ActuatorRetract" To="PicknPlace.FORTE.ActuatorRetract"/>
+  <Mapping From="PicknPlace.ActuatorExtend" To="PicknPlace.FORTE.ActuatorExtend"/>
+  <Mapping From="PicknPlace.E_TimeOut" To="PicknPlace.FORTE.E_TimeOut"/>
+  <Mapping From="PicknPlace.E_TimeOut_0" To="PicknPlace.FORTE.E_TimeOut_0"/>
+  <Mapping From="PicknPlace.E_TimeOut_1" To="PicknPlace.FORTE.E_TimeOut_1"/>
+  <Mapping From="PicknPlace.SensorSeparator" To="PicknPlace.FORTE.SensorSeparator"/>
+  <Mapping From="PicknPlace.SensorPartIn" To="PicknPlace.FORTE.SensorPartIn"/>
+  <Mapping From="PicknPlace.SensorPartOut" To="PicknPlace.FORTE.SensorPartOut"/>
+  <Mapping From="PicknPlace.SensorRetract" To="PicknPlace.FORTE.SensorRetract"/>
+  <Mapping From="PicknPlace.SensorVacuum" To="PicknPlace.FORTE.SensorVacuum"/>
+  <Mapping From="PicknPlace.SensorExtend" To="PicknPlace.FORTE.SensorExtend"/>
+  <Mapping From="PicknPlace.SensorUp" To="PicknPlace.FORTE.SensorUp"/>
+  <Mapping From="PicknPlace.E_TimeOut_2" To="PicknPlace.FORTE.E_TimeOut_2"/>
+  <Mapping From="PicknPlace.GreenLight" To="PicknPlaceStatus.FORTE.GreenLight"/>
+  <Mapping From="PicknPlace.RedLight" To="PicknPlaceStatus.FORTE.RedLight"/>
+  <Mapping From="PicknPlace.OrangeLight" To="PicknPlaceStatus.FORTE.OrangeLight"/>
+  <Mapping From="PicknPlace.E_TimeOut_3" To="PicknPlace.FORTE.E_TimeOut_3"/>
+  <Mapping From="PicknPlace.PartOnBeltCounter" To="PicknPlace.FORTE.PartOnBeltCounter"/>
+  <Mapping From="PicknPlace.AssembleCounter" To="PicknPlace.FORTE.AssembleCounter"/>
+  <Mapping From="PicknPlace.VerticalAxisControl" To="PicknPlace.FORTE.VerticalAxisControl"/>
+  <Mapping From="PicknPlace.PneumaticGripperControl" To="PicknPlace.FORTE.PneumaticGripperControl"/>
+  <Mapping From="PicknPlace.HorizontalAxisControl" To="PicknPlace.FORTE.HorizontalAxisControl"/>
+  <Mapping From="PicknPlace.PicknPlaceControl" To="PicknPlace.FORTE.PicknPlaceControl"/>
+  <Mapping From="PicknPlace.TransportControl" To="PicknPlace.FORTE.TransportControl"/>
+  <Mapping From="PicknPlace.StatusLightControl" To="PicknPlaceStatus.FORTE.StatusLightControl"/>
+  <Mapping From="PicknPlace.StatusManagement" To="PicknPlaceStatus.FORTE.StatusManagement"/>
+  <Mapping From="PicknPlace.SeparatorControl" To="PicknPlace.FORTE.SeparatorControl"/>
+  <Mapping From="PicknPlace.ConveyorControl" To="PicknPlace.FORTE.ConveyorControl"/>
+  <Mapping From="PicknPlace.ManipulatorControl" To="PicknPlace.FORTE.ManipulatorControl"/>
+  <Segment Name="Ethernet" Type="Ethernet" dx1="1500.0" x="1425.0" y="190.0"/>
+  <Link CommResource="PicknPlaceStatus" Comment="" SegmentName="Ethernet"/>
+  <Link CommResource="PicknPlace" Comment="" SegmentName="Ethernet"/>
+</System>

@@ -1,0 +1,656 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE System SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<System Name="MechPress">
+  <VersionInfo Author="Author" Organization="4DIAC-Consortium" Version="1.0"/>
+  <Application Name="Manual">
+    <SubAppNetwork>
+      <FB Name="PRESS_MDL" Type="PRESS" x="1520.0" y="950.0"/>
+      <FB Name="ADV1" Type="IN_BOOL" x="-95.0" y="475.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="LABEL" Value="ADV1"/>
+      </FB>
+      <FB Name="ADV2" Type="IN_BOOL" x="-95.0" y="1615.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="LABEL" Value="ADV2"/>
+      </FB>
+      <FB Name="RET" Type="IN_BOOL" x="-95.0" y="2755.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="LABEL" Value="RET"/>
+      </FB>
+      <FB Name="FWD" Type="IN_BOOL" x="1140.0" y="3990.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="LABEL" Value="FWD"/>
+      </FB>
+      <FB Name="REV" Type="IN_BOOL" x="2090.0" y="3990.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="LABEL" Value="REV"/>
+      </FB>
+      <FB Name="TRANS_HOME" Type="OUT_BOOL" x="3545.0" y="595.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="LABEL" Value="TRANS HOME"/>
+      </FB>
+      <FB Name="TRANS_MID" Type="OUT_BOOL" x="4475.0" y="895.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="LABEL" Value="TRANS MID"/>
+      </FB>
+      <FB Name="TRANS_END" Type="OUT_BOOL" x="5415.0" y="1140.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="LABEL" Value="TRANS END"/>
+      </FB>
+      <FB Name="PRESS_HOME" Type="OUT_BOOL" x="3325.0" y="2280.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="LABEL" Value="PRESS HOME"/>
+      </FB>
+      <FB Name="PRESS_END" Type="OUT_BOOL" x="4180.0" y="2755.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="LABEL" Value="PRESS END"/>
+      </FB>
+      <FB Name="FB_LABEL" Type="FB_LABEL" x="-95.0" y="-475.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="LABEL" Value="Conveyor Controls"/>
+      </FB>
+      <FB Name="FB_LABEL_0" Type="FB_LABEL" x="380.0" y="3990.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="LABEL" Value="Press Controls"/>
+      </FB>
+      <EventConnections>
+        <Connection Destination="PRESS_END.INIT" Source="PRESS_HOME.INITO" dx1="195.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PRESS_MDL.REQ_TRANS" Source="ADV1.IND" dx1="185.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PRESS_MDL.REQ_TRANS" Source="RET.IND" dx1="190.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="TRANS_MID.REQ" Source="TRANS_HOME.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="RET.INIT" Source="ADV2.INITO" dx1="0.0" dx2="0.0" dy="375.0"/>
+        <Connection Destination="PRESS_MDL.REQ_TRANS" Source="ADV2.IND" dx1="185.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="TRANS_END.REQ" Source="TRANS_MID.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="ADV2.INIT" Source="ADV1.INITO" dx1="75.0" dx2="0.0" dy="305.0"/>
+        <Connection Destination="TRANS_HOME.INIT" Source="RET.INITO" dx1="495.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="TRANS_END.INIT" Source="TRANS_MID.INITO" dx1="165.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="TRANS_MID.INIT" Source="TRANS_HOME.INITO" dx1="235.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="REV.INIT" Source="FWD.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="TRANS_HOME.REQ" Source="PRESS_MDL.IND_TRANS" dx1="545.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PRESS_HOME.REQ" Source="PRESS_MDL.IND_PRESS" dx1="375.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PRESS_MDL.REQ_PRESS" Source="FWD.IND" dx1="0.0" dx2="-290.0" dy="1050.0"/>
+        <Connection Destination="PRESS_HOME.INIT" Source="REV.INITO" dx1="1575.0" dx2="1265.0" dy="740.0"/>
+        <Connection Destination="PRESS_END.REQ" Source="PRESS_HOME.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PRESS_MDL.REQ_PRESS" Source="REV.IND" dx1="0.0" dx2="-285.0" dy="1050.0"/>
+        <Connection Destination="FB_LABEL.INIT" Source="PRESS_MDL.INITO" dx1="0.0" dx2="0.0" dy="-950.0"/>
+        <Connection Destination="ADV1.INIT" Source="FB_LABEL.INITO" dx1="0.0" dx2="-200.0" dy="200.0"/>
+        <Connection Destination="FB_LABEL_0.INIT" Source="TRANS_END.INITO" dx1="0.0" dx2="-575.0" dy="2345.0"/>
+        <Connection Destination="FWD.INIT" Source="FB_LABEL_0.INITO" dx1="230.0" dx2="0.0" dy="0.0"/>
+      </EventConnections>
+      <DataConnections>
+        <Connection Destination="TRANS_END.IN" Source="PRESS_MDL.TRANS_END" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="TRANS_MID.IN" Source="PRESS_MDL.TRANS_MID" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PRESS_HOME.IN" Source="PRESS_MDL.PRESS_HOME" dx1="200.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PRESS_END.IN" Source="PRESS_MDL.PRESS_END" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PRESS_MDL.PRESS_FWD" Source="FWD.OUT" dx1="215.0" dx2="-175.0" dy="390.0"/>
+        <Connection Destination="PRESS_MDL.PRESS_REV" Source="REV.OUT" dx1="190.0" dx2="0.0" dy="245.0"/>
+        <Connection Destination="PRESS_MDL.TRANS_ADV2" Source="ADV2.OUT" dx1="290.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="TRANS_HOME.IN" Source="PRESS_MDL.TRANS_HOME" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PRESS_MDL.TRANS_ADV1" Source="ADV1.OUT" dx1="295.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PRESS_MDL.TRANS_RET" Source="RET.OUT" dx1="390.0" dx2="0.0" dy="0.0"/>
+      </DataConnections>
+    </SubAppNetwork>
+  </Application>
+  <Application Name="Simulation">
+    <SubAppNetwork>
+      <FB Name="PRESS_MODEL_0" Type="PRESS" x="2280.0" y="285.0"/>
+      <FB Name="SUBSCRIBE_4" Type="SUBSCRIBE_4" x="665.0" y="285.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="ID" Value="%ConvOutputs%"/>
+      </FB>
+      <FB Name="SUBSCRIBE_4_0" Type="SUBSCRIBE_4" x="665.0" y="1710.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="ID" Value="%PressOutputs%"/>
+      </FB>
+      <FB Name="TypeSetting1" Type="BOOL2BOOL" x="2530.0" y="1615.0"/>
+      <FB Name="TypeSetting2" Type="BOOL2BOOL" x="2530.0" y="2280.0"/>
+      <FB Name="TypeSetting3" Type="BOOL2BOOL" x="2530.0" y="2945.0"/>
+      <FB Name="PUBLISH_4" Type="PUBLISH_4" x="4465.0" y="285.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="ID" Value="%ConvInputs%"/>
+      </FB>
+      <FB Name="PUBLISH_4_0" Type="PUBLISH_4" x="4465.0" y="1710.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="ID" Value="%PressInputs%"/>
+      </FB>
+      <EventConnections>
+        <Connection Destination="SUBSCRIBE_4_0.INIT" Source="SUBSCRIBE_4.INITO" dx1="0.0" dx2="0.0" dy="440.0"/>
+        <Connection Destination="PRESS_MODEL_0.INIT" Source="SUBSCRIBE_4_0.INITO" dx1="125.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PRESS_MODEL_0.REQ_TRANS" Source="SUBSCRIBE_4.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PRESS_MODEL_0.REQ_PRESS" Source="SUBSCRIBE_4_0.IND" dx1="200.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PUBLISH_4.INIT" Source="PRESS_MODEL_0.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PUBLISH_4.REQ" Source="PRESS_MODEL_0.IND_TRANS" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PUBLISH_4_0.INIT" Source="PUBLISH_4.INITO" dx1="0.0" dx2="0.0" dy="450.0"/>
+        <Connection Destination="PUBLISH_4_0.REQ" Source="PRESS_MODEL_0.IND_PRESS" dx1="565.0" dx2="0.0" dy="0.0"/>
+      </EventConnections>
+      <DataConnections>
+        <Connection Destination="PRESS_MODEL_0.TRANS_ADV1" Source="SUBSCRIBE_4.RD_1" dx1="375.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PRESS_MODEL_0.TRANS_ADV2" Source="SUBSCRIBE_4.RD_2" dx1="455.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PRESS_MODEL_0.TRANS_RET" Source="SUBSCRIBE_4.RD_3" dx1="570.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="TypeSetting1.IN" Source="SUBSCRIBE_4.RD_4" dx1="465.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PRESS_MODEL_0.PRESS_FWD" Source="SUBSCRIBE_4_0.RD_1" dx1="585.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PRESS_MODEL_0.PRESS_REV" Source="SUBSCRIBE_4_0.RD_2" dx1="685.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="TypeSetting2.IN" Source="SUBSCRIBE_4_0.RD_3" dx1="255.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="TypeSetting3.IN" Source="SUBSCRIBE_4_0.RD_4" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PUBLISH_4.SD_1" Source="PRESS_MODEL_0.TRANS_HOME" dx1="480.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PUBLISH_4.SD_2" Source="PRESS_MODEL_0.TRANS_MID" dx1="385.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PUBLISH_4.SD_3" Source="PRESS_MODEL_0.TRANS_END" dx1="285.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PUBLISH_4.SD_4" Source="TypeSetting1.OUT" dx1="600.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PUBLISH_4_0.SD_1" Source="PRESS_MODEL_0.PRESS_HOME" dx1="190.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PUBLISH_4_0.SD_4" Source="TypeSetting3.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PUBLISH_4_0.SD_2" Source="PRESS_MODEL_0.PRESS_END" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PUBLISH_4_0.SD_3" Source="TypeSetting2.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      </DataConnections>
+    </SubAppNetwork>
+  </Application>
+  <Application Name="Automated">
+    <SubAppNetwork>
+      <FB Name="PRESS_START" Type="IN_EVENT" x="380.0" y="4655.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="LABEL" Value="START"/>
+      </FB>
+      <FB Name="TRANS_MID_0" Type="E_PERMIT" x="1805.0" y="475.0"/>
+      <FB Name="PRESS_END_0" Type="E_PERMIT" x="1805.0" y="1330.0"/>
+      <FB Name="TRANS_END_0" Type="E_PERMIT" x="1805.0" y="1995.0"/>
+      <FB Name="TRANS_HOME_0" Type="E_PERMIT" x="1805.0" y="2660.0"/>
+      <FB Name="PRESS_HOME_0" Type="E_PERMIT" x="1805.0" y="3325.0"/>
+      <FB Name="PRESS_FWD" Type="E_SR" x="2850.0" y="475.0"/>
+      <FB Name="TRANS_ADV2" Type="E_SR" x="2850.0" y="1330.0"/>
+      <FB Name="PRESS_REV" Type="E_SR" x="2850.0" y="2090.0"/>
+      <FB Name="TRANS_RET" Type="E_SR" x="2850.0" y="2850.0"/>
+      <FB Name="TRANS_ADV1" Type="E_SR" x="3610.0" y="3990.0"/>
+      <FB Name="REND" Type="E_REND" x="2850.0" y="3610.0"/>
+      <FB Name="ConvInputs" Type="DI_4" x="475.0" y="285.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="ID" Value="%ConvInputs%"/>
+      </FB>
+      <FB Name="PressInputs" Type="DI_4" x="475.0" y="1710.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="ID" Value="%PressInputs%"/>
+      </FB>
+      <FB Name="ConvOutputs" Type="DO_4" x="5130.0" y="285.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="ID" Value="%ConvOutputs%"/>
+      </FB>
+      <FB Name="PressOutputs" Type="DO_4" x="5130.0" y="1710.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="ID" Value="%PressOutputs%"/>
+      </FB>
+      <FB Name="Running" Type="E_SR" x="1995.0" y="4465.0"/>
+      <FB Name="E_PERMIT" Type="E_PERMIT" x="2755.0" y="4560.0"/>
+      <FB Name="PRESS_STOP" Type="IN_EVENT" x="380.0" y="5615.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="LABEL" Value="STOP"/>
+      </FB>
+      <EventConnections>
+        <Connection Destination="PRESS_REV.R" Source="PRESS_HOME_0.EO" dx1="115.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="REND.EI2" Source="PRESS_HOME_0.EO" dx1="115.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="TRANS_ADV1.R" Source="TRANS_ADV2.EO" dx1="120.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="REND.EI1" Source="TRANS_HOME_0.EO" dx1="200.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PRESS_FWD.R" Source="TRANS_ADV2.EO" dx1="120.0" dx2="0.0" dy="90.0"/>
+        <Connection Destination="TRANS_ADV2.R" Source="TRANS_END_0.EO" dx1="170.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PRESS_FWD.S" Source="TRANS_MID_0.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="TRANS_RET.S" Source="TRANS_END_0.EO" dx1="360.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="TRANS_RET.R" Source="TRANS_HOME_0.EO" dx1="200.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PRESS_REV.S" Source="PRESS_END_0.EO" dx1="460.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="TRANS_ADV2.S" Source="PRESS_END_0.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="TRANS_MID_0.EI" Source="ConvInputs.IND" dx1="600.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="TRANS_END_0.EI" Source="ConvInputs.IND" dx1="595.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="TRANS_HOME_0.EI" Source="ConvInputs.IND" dx1="595.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PRESS_HOME_0.EI" Source="PressInputs.IND" dx1="705.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PRESS_END_0.EI" Source="PressInputs.IND" dx1="695.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="ConvOutputs.REQ" Source="TRANS_RET.EO" dx1="930.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="ConvOutputs.REQ" Source="TRANS_ADV1.EO" dx1="115.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PressOutputs.REQ" Source="PRESS_REV.EO" dx1="470.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PressOutputs.REQ" Source="PRESS_FWD.EO" dx1="440.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PressInputs.INIT" Source="ConvInputs.INITO" dx1="0.0" dx2="0.0" dy="460.0"/>
+        <Connection Destination="ConvOutputs.INIT" Source="PressInputs.INITO" dx1="225.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PressOutputs.INIT" Source="ConvOutputs.INITO" dx1="0.0" dx2="0.0" dy="455.0"/>
+        <Connection Destination="PRESS_START.INIT" Source="PressOutputs.INITO" dx1="115.0" dx2="-300.0" dy="3170.0"/>
+        <Connection Destination="E_PERMIT.EI" Source="REND.EO" dx1="0.0" dx2="0.0" dy="185.0"/>
+        <Connection Destination="Running.S" Source="PRESS_START.IND" dx1="200.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="E_PERMIT.EI" Source="Running.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="TRANS_ADV1.S" Source="E_PERMIT.EO" dx1="220.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PRESS_STOP.INIT" Source="PRESS_START.INITO" dx1="0.0" dx2="0.0" dy="240.0"/>
+        <Connection Destination="Running.R" Source="PRESS_STOP.IND" dx1="305.0" dx2="0.0" dy="0.0"/>
+      </EventConnections>
+      <DataConnections>
+        <Connection Destination="TRANS_HOME_0.PERMIT" Source="ConvInputs.IN_1" dx1="410.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="TRANS_MID_0.PERMIT" Source="ConvInputs.IN_2" dx1="500.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="TRANS_END_0.PERMIT" Source="ConvInputs.IN_3" dx1="505.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PRESS_HOME_0.PERMIT" Source="PressInputs.IN_1" dx1="130.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PRESS_END_0.PERMIT" Source="PressInputs.IN_2" dx1="315.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="ConvOutputs.OUT_1" Source="TRANS_ADV1.Q" dx1="215.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="ConvOutputs.OUT_2" Source="TRANS_ADV2.Q" dx1="215.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="ConvOutputs.OUT_3" Source="TRANS_RET.Q" dx1="370.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PressOutputs.OUT_1" Source="PRESS_FWD.Q" dx1="540.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PressOutputs.OUT_2" Source="PRESS_REV.Q" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="E_PERMIT.PERMIT" Source="Running.Q" dx1="0.0" dx2="0.0" dy="0.0"/>
+      </DataConnections>
+    </SubAppNetwork>
+  </Application>
+  <Application Name="Start">
+    <SubAppNetwork>
+      <FB Name="ConvInputs_0" Type="DI_4" x="575.0" y="385.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="ID" Value="%ConvInputs%"/>
+      </FB>
+      <FB Name="PressInputs_0" Type="DI_4" x="575.0" y="1810.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="ID" Value="%PressInputs%"/>
+      </FB>
+      <FB Name="ConvOutputs_0" Type="DO_4" x="5230.0" y="385.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="ID" Value="%ConvOutputs%"/>
+      </FB>
+      <FB Name="PressOutputs_0" Type="DO_4" x="5230.0" y="1810.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="ID" Value="%PressOutputs%"/>
+      </FB>
+      <EventConnections>
+        <Connection Destination="PressOutputs_0.INIT" Source="ConvOutputs_0.INITO" dx1="0.0" dx2="0.0" dy="455.0"/>
+        <Connection Destination="ConvOutputs_0.INIT" Source="PressInputs_0.INITO" dx1="225.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PressInputs_0.INIT" Source="ConvInputs_0.INITO" dx1="0.0" dx2="0.0" dy="460.0"/>
+      </EventConnections>
+    </SubAppNetwork>
+  </Application>
+  <Device Name="ManualTest" Type="FBRT_WINDOW" x="95.0" y="95.0">
+    <Attribute Name="Color" Value="193,121,243"/>
+    <Attribute Name="Profile" Value="HOLOBLOC"/>
+    <Parameter Name="BOUNDS" Value="[100,100,360,280]"/>
+    <Parameter Name="GRID" Value="[2,2]"/>
+    <Parameter Name="MGR_ID" Value="&quot;localhost:61500&quot;"/>
+    <Resource Name="Simulation" Type="VIEW_PANEL">
+      <Parameter Name="BKGD" Value="COLOR#white"/>
+      <Parameter Name="DIA" Value="25"/>
+      <Parameter Name="SIZE" Value="[7,4]"/>
+      <Parameter Name="VERTICAL" Value="0"/>
+      <FBNetwork>
+        <FB Name="PRESS_MDL" Type="PRESS" x="2185.0" y="0.0"/>
+        <FB Name="SUBL_3_0" Type="SUBL_3" x="1140.0" y="0.0">
+          <Parameter Name="ID" Value="ConvActuators"/>
+        </FB>
+        <FB Name="PUBL_3_0" Type="PUBL_3" x="4180.0" y="0.0">
+          <Parameter Name="ID" Value="ConvSensors"/>
+        </FB>
+        <FB Name="SUBL_2_0" Type="SUBL_2" x="1140.0" y="950.0">
+          <Parameter Name="ID" Value="PressActuators"/>
+        </FB>
+        <FB Name="PUBL_2_0" Type="PUBL_2" x="4180.0" y="1140.0">
+          <Parameter Name="ID" Value="PressSensors"/>
+        </FB>
+        <EventConnections>
+          <Connection Destination="SUBL_3_0.INIT" Source="START.COLD" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PRESS_MDL.INIT" Source="SUBL_3_0.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PRESS_MDL.REQ_TRANS" Source="SUBL_3_0.IND" dx1="240.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBL_3_0.INIT" Source="PRESS_MDL.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBL_3_0.REQ" Source="PRESS_MDL.IND_TRANS" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SUBL_2_0.INIT" Source="START.COLD" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBL_2_0.REQ" Source="PRESS_MDL.IND_PRESS" dx1="435.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBL_2_0.INIT" Source="PUBL_3_0.INITO" dx1="0.0" dx2="0.0" dy="360.0"/>
+          <Connection Destination="PRESS_MDL.REQ_PRESS" Source="SUBL_2_0.IND" dx1="235.0" dx2="0.0" dy="0.0"/>
+        </EventConnections>
+        <DataConnections>
+          <Connection Destination="PRESS_MDL.TRANS_ADV1" Source="SUBL_3_0.RD_1" dx1="170.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PRESS_MDL.TRANS_ADV2" Source="SUBL_3_0.RD_2" dx1="130.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PRESS_MDL.TRANS_RET" Source="SUBL_3_0.RD_3" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBL_3_0.SD_1" Source="PRESS_MDL.TRANS_HOME" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBL_3_0.SD_2" Source="PRESS_MDL.TRANS_MID" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBL_3_0.SD_3" Source="PRESS_MDL.TRANS_END" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBL_2_0.SD_1" Source="PRESS_MDL.PRESS_HOME" dx1="190.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBL_2_0.SD_2" Source="PRESS_MDL.PRESS_END" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PRESS_MDL.PRESS_FWD" Source="SUBL_2_0.RD_1" dx1="310.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PRESS_MDL.PRESS_REV" Source="SUBL_2_0.RD_2" dx1="425.0" dx2="0.0" dy="0.0"/>
+        </DataConnections>
+      </FBNetwork>
+    </Resource>
+    <Resource Name="PressControls" Type="PANEL_RESOURCE">
+      <Parameter Name="COLS" Value="1"/>
+      <FBNetwork>
+        <FB Name="FWD" Type="IN_BOOL" x="1900.0" y="380.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="LABEL" Value="FWD"/>
+        </FB>
+        <FB Name="REV" Type="IN_BOOL" x="2850.0" y="380.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="LABEL" Value="REV"/>
+        </FB>
+        <FB Name="PRESS_HOME" Type="OUT_BOOL" x="3325.0" y="2280.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="LABEL" Value="PRESS HOME"/>
+        </FB>
+        <FB Name="PRESS_END" Type="OUT_BOOL" x="4180.0" y="2755.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="LABEL" Value="PRESS END"/>
+        </FB>
+        <FB Name="PUBL_2" Type="PUBL_2" x="4085.0" y="1140.0">
+          <Parameter Name="ID" Value="PressActuators"/>
+        </FB>
+        <FB Name="SUBL_2" Type="SUBL_2" x="2090.0" y="2280.0">
+          <Parameter Name="ID" Value="PressSensors"/>
+        </FB>
+        <FB Name="FB_LABEL_0" Type="FB_LABEL" x="1045.0" y="380.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="LABEL" Value="Press Controls"/>
+        </FB>
+        <EventConnections>
+          <Connection Destination="REV.INIT" Source="FWD.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PRESS_HOME.INIT" Source="REV.INITO" dx1="1575.0" dx2="1265.0" dy="740.0"/>
+          <Connection Destination="PRESS_END.INIT" Source="PRESS_HOME.INITO" dx1="195.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PRESS_END.REQ" Source="PRESS_HOME.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBL_2.INIT" Source="REV.INITO" dx1="440.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBL_2.REQ" Source="REV.IND" dx1="220.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBL_2.REQ" Source="FWD.IND" dx1="220.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PRESS_HOME.REQ" Source="SUBL_2.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SUBL_2.INIT" Source="PUBL_2.INITO" dx1="0.0" dx2="0.0" dy="215.0"/>
+          <Connection Destination="FWD.INIT" Source="FB_LABEL_0.INITO" dx1="230.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="FB_LABEL_0.INIT" Source="START.COLD" dx1="0.0" dx2="0.0" dy="0.0"/>
+        </EventConnections>
+        <DataConnections>
+          <Connection Destination="PUBL_2.SD_2" Source="REV.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBL_2.SD_1" Source="FWD.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PRESS_END.IN" Source="SUBL_2.RD_2" dx1="130.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PRESS_HOME.IN" Source="SUBL_2.RD_1" dx1="215.0" dx2="0.0" dy="0.0"/>
+        </DataConnections>
+      </FBNetwork>
+    </Resource>
+    <Resource Name="ConveyorControls" Type="PANEL_RESOURCE">
+      <Parameter Name="COLS" Value="1"/>
+      <FBNetwork>
+        <FB Name="RET" Type="IN_BOOL" x="1140.0" y="3135.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="LABEL" Value="RET"/>
+        </FB>
+        <FB Name="ADV1" Type="IN_BOOL" x="1140.0" y="760.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="LABEL" Value="ADV1"/>
+        </FB>
+        <FB Name="ADV2" Type="IN_BOOL" x="1140.0" y="1900.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="LABEL" Value="ADV2"/>
+        </FB>
+        <FB Name="TRANS_HOME" Type="OUT_BOOL" x="4560.0" y="285.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="LABEL" Value="TRANS HOME"/>
+        </FB>
+        <FB Name="TRANS_MID" Type="OUT_BOOL" x="5415.0" y="760.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="LABEL" Value="TRANS MID"/>
+        </FB>
+        <FB Name="TRANS_END" Type="OUT_BOOL" x="6175.0" y="1330.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="LABEL" Value="TRANS END"/>
+        </FB>
+        <FB Name="PUBL_3" Type="PUBL_3" x="2375.0" y="855.0">
+          <Parameter Name="ID" Value="ConvActuators"/>
+        </FB>
+        <FB Name="SUBL_3" Type="SUBL_3" x="3515.0" y="855.0">
+          <Parameter Name="ID" Value="ConvSensors"/>
+        </FB>
+        <FB Name="FB_LABEL" Type="FB_LABEL" x="1140.0" y="-95.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="LABEL" Value="Conveyor Controls"/>
+        </FB>
+        <EventConnections>
+          <Connection Destination="ADV2.INIT" Source="ADV1.INITO" dx1="75.0" dx2="0.0" dy="305.0"/>
+          <Connection Destination="RET.INIT" Source="ADV2.INITO" dx1="0.0" dx2="0.0" dy="375.0"/>
+          <Connection Destination="TRANS_HOME.INIT" Source="RET.INITO" dx1="495.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="TRANS_MID.INIT" Source="TRANS_HOME.INITO" dx1="235.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="TRANS_MID.REQ" Source="TRANS_HOME.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="TRANS_END.INIT" Source="TRANS_MID.INITO" dx1="165.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="TRANS_END.REQ" Source="TRANS_MID.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBL_3.REQ" Source="ADV1.IND" dx1="220.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBL_3.REQ" Source="ADV2.IND" dx1="210.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBL_3.REQ" Source="RET.IND" dx1="210.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBL_3.INIT" Source="RET.INITO" dx1="300.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SUBL_3.INIT" Source="PUBL_3.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="TRANS_HOME.REQ" Source="SUBL_3.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="ADV1.INIT" Source="FB_LABEL.INITO" dx1="0.0" dx2="-200.0" dy="200.0"/>
+          <Connection Destination="FB_LABEL.INIT" Source="START.COLD" dx1="0.0" dx2="0.0" dy="0.0"/>
+        </EventConnections>
+        <DataConnections>
+          <Connection Destination="PUBL_3.SD_1" Source="ADV1.OUT" dx1="325.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBL_3.SD_2" Source="ADV2.OUT" dx1="405.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBL_3.SD_3" Source="RET.OUT" dx1="545.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="TRANS_HOME.IN" Source="SUBL_3.RD_1" dx1="295.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="TRANS_MID.IN" Source="SUBL_3.RD_2" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="TRANS_END.IN" Source="SUBL_3.RD_3" dx1="0.0" dx2="0.0" dy="0.0"/>
+        </DataConnections>
+      </FBNetwork>
+    </Resource>
+  </Device>
+  <Device Name="Simulation" Type="FBRT_WINDOW" x="380.0" y="2280.0">
+    <Attribute Name="Color" Value="121,141,243"/>
+    <Attribute Name="Profile" Value="HOLOBLOC"/>
+    <Parameter Name="BOUNDS" Value="[0,0,177,158]"/>
+    <Parameter Name="MGR_ID" Value="&quot;localhost:61501&quot;"/>
+    <Resource Name="Simulation" Type="VIEW_PANEL">
+      <Parameter Name="DIA" Value="25"/>
+      <Parameter Name="SIZE" Value="[7,4]"/>
+      <Parameter Name="VERTICAL" Value="0"/>
+      <FBNetwork>
+        <FB Name="PRESS_MODEL_0" Type="PRESS" x="2280.0" y="285.0"/>
+        <FB Name="SUBSCRIBE_4" Type="SUBSCRIBE_4" x="665.0" y="285.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="ID" Value="%ConvOutputs%"/>
+        </FB>
+        <FB Name="SUBSCRIBE_4_0" Type="SUBSCRIBE_4" x="665.0" y="1710.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="ID" Value="%PressOutputs%"/>
+        </FB>
+        <FB Name="TypeSetting1" Type="BOOL2BOOL" x="2565.0" y="1615.0"/>
+        <FB Name="TypeSetting2" Type="BOOL2BOOL" x="2565.0" y="2280.0"/>
+        <FB Name="TypeSetting3" Type="BOOL2BOOL" x="2565.0" y="2945.0"/>
+        <FB Name="PUBLISH_4" Type="PUBLISH_4" x="4465.0" y="285.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="ID" Value="%ConvInputs%"/>
+        </FB>
+        <FB Name="PUBLISH_4_0" Type="PUBLISH_4" x="4465.0" y="1710.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="ID" Value="%PressInputs%"/>
+        </FB>
+        <EventConnections>
+          <Connection Destination="PRESS_MODEL_0.REQ_TRANS" Source="SUBSCRIBE_4.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SUBSCRIBE_4_0.INIT" Source="SUBSCRIBE_4.INITO" dx1="0.0" dx2="0.0" dy="440.0"/>
+          <Connection Destination="PRESS_MODEL_0.INIT" Source="SUBSCRIBE_4_0.INITO" dx1="125.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PRESS_MODEL_0.REQ_PRESS" Source="SUBSCRIBE_4_0.IND" dx1="200.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBLISH_4.INIT" Source="PRESS_MODEL_0.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBLISH_4.REQ" Source="PRESS_MODEL_0.IND_TRANS" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBLISH_4_0.INIT" Source="PUBLISH_4.INITO" dx1="0.0" dx2="0.0" dy="450.0"/>
+          <Connection Destination="PUBLISH_4_0.REQ" Source="PRESS_MODEL_0.IND_PRESS" dx1="565.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SUBSCRIBE_4.INIT" Source="START.COLD" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SUBSCRIBE_4.INIT" Source="START.WARM" dx1="0.0" dx2="0.0" dy="0.0"/>
+        </EventConnections>
+        <DataConnections>
+          <Connection Destination="PRESS_MODEL_0.TRANS_ADV1" Source="SUBSCRIBE_4.RD_1" dx1="375.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PRESS_MODEL_0.TRANS_ADV2" Source="SUBSCRIBE_4.RD_2" dx1="455.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PRESS_MODEL_0.TRANS_RET" Source="SUBSCRIBE_4.RD_3" dx1="570.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PRESS_MODEL_0.PRESS_FWD" Source="SUBSCRIBE_4_0.RD_1" dx1="585.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PRESS_MODEL_0.PRESS_REV" Source="SUBSCRIBE_4_0.RD_2" dx1="685.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="TypeSetting1.IN" Source="SUBSCRIBE_4.RD_4" dx1="465.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="TypeSetting2.IN" Source="SUBSCRIBE_4_0.RD_3" dx1="255.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="TypeSetting3.IN" Source="SUBSCRIBE_4_0.RD_4" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBLISH_4.SD_1" Source="PRESS_MODEL_0.TRANS_HOME" dx1="480.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBLISH_4.SD_2" Source="PRESS_MODEL_0.TRANS_MID" dx1="385.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBLISH_4.SD_3" Source="PRESS_MODEL_0.TRANS_END" dx1="285.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBLISH_4.SD_4" Source="TypeSetting1.OUT" dx1="600.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBLISH_4_0.SD_1" Source="PRESS_MODEL_0.PRESS_HOME" dx1="190.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBLISH_4_0.SD_2" Source="PRESS_MODEL_0.PRESS_END" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBLISH_4_0.SD_3" Source="TypeSetting2.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBLISH_4_0.SD_4" Source="TypeSetting3.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        </DataConnections>
+      </FBNetwork>
+    </Resource>
+  </Device>
+  <Device Name="Control" Type="FORTE_PC" x="2185.0" y="2280.0">
+    <Attribute Name="Color" Value="177,243,121"/>
+    <Attribute Name="Profile" Value="HOLOBLOC"/>
+    <Parameter Name="MGR_ID" Value="&quot;localhost:61499&quot;"/>
+    <Resource Name="EMB_RES" Type="EMB_RES">
+      <FBNetwork>
+        <FB Name="TRANS_HOME_0" Type="E_PERMIT" x="1805.0" y="2660.0"/>
+        <FB Name="REND" Type="E_REND" x="2850.0" y="3610.0"/>
+        <FB Name="PressOutputs" Type="DO_4" x="4845.0" y="1710.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="ID" Value="%PressOutputs%"/>
+        </FB>
+        <FB Name="PressInputs" Type="DI_4" x="475.0" y="1710.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="ID" Value="%PressInputs%"/>
+        </FB>
+        <FB Name="TRANS_ADV2" Type="E_SR" x="2850.0" y="1330.0"/>
+        <FB Name="ConvOutputs" Type="DO_4" x="4845.0" y="285.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="ID" Value="%ConvOutputs%"/>
+        </FB>
+        <FB Name="TRANS_ADV1" Type="E_SR" x="3515.0" y="3990.0"/>
+        <FB Name="ConvInputs" Type="DI_4" x="475.0" y="285.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="ID" Value="%ConvInputs%"/>
+        </FB>
+        <FB Name="PRESS_FWD" Type="E_SR" x="2850.0" y="475.0"/>
+        <FB Name="PRESS_END_0" Type="E_PERMIT" x="1805.0" y="1330.0"/>
+        <FB Name="PRESS_REV" Type="E_SR" x="2850.0" y="2090.0"/>
+        <FB Name="TRANS_MID_0" Type="E_PERMIT" x="1805.0" y="475.0"/>
+        <FB Name="TRANS_END_0" Type="E_PERMIT" x="1805.0" y="1995.0"/>
+        <FB Name="TRANS_RET" Type="E_SR" x="2850.0" y="2850.0"/>
+        <FB Name="PRESS_HOME_0" Type="E_PERMIT" x="1805.0" y="3325.0"/>
+        <FB Name="Running" Type="E_SR" x="1995.0" y="4465.0"/>
+        <FB Name="E_PERMIT" Type="E_PERMIT" x="2755.0" y="4560.0"/>
+        <FB Name="SUBSCRIBE_0" Type="SUBSCRIBE_0" x="475.0" y="3990.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="ID" Value="%START%"/>
+        </FB>
+        <FB Name="SUBSCRIBE_0_0" Type="SUBSCRIBE_0" x="475.0" y="4940.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="ID" Value="%STOP%"/>
+        </FB>
+        <EventConnections>
+          <Connection Destination="REND.EI1" Source="TRANS_HOME_0.EO" dx1="200.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="ConvOutputs.INIT" Source="PressInputs.INITO" dx1="225.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PressOutputs.INIT" Source="ConvOutputs.INITO" dx1="0.0" dx2="0.0" dy="455.0"/>
+          <Connection Destination="TRANS_ADV1.R" Source="TRANS_ADV2.EO" dx1="120.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="ConvOutputs.REQ" Source="TRANS_ADV1.EO" dx1="115.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PressInputs.INIT" Source="ConvInputs.INITO" dx1="0.0" dx2="0.0" dy="460.0"/>
+          <Connection Destination="TRANS_HOME_0.EI" Source="ConvInputs.IND" dx1="595.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PRESS_FWD.R" Source="TRANS_ADV2.EO" dx1="120.0" dx2="0.0" dy="90.0"/>
+          <Connection Destination="PressOutputs.REQ" Source="PRESS_FWD.EO" dx1="440.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PRESS_END_0.EI" Source="PressInputs.IND" dx1="695.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="TRANS_ADV2.S" Source="PRESS_END_0.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PRESS_REV.S" Source="PRESS_END_0.EO" dx1="460.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PressOutputs.REQ" Source="PRESS_REV.EO" dx1="470.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="TRANS_MID_0.EI" Source="ConvInputs.IND" dx1="600.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PRESS_FWD.S" Source="TRANS_MID_0.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="TRANS_END_0.EI" Source="ConvInputs.IND" dx1="595.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="TRANS_ADV2.R" Source="TRANS_END_0.EO" dx1="170.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="TRANS_RET.S" Source="TRANS_END_0.EO" dx1="360.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="TRANS_RET.R" Source="TRANS_HOME_0.EO" dx1="200.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="ConvOutputs.REQ" Source="TRANS_RET.EO" dx1="930.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PRESS_HOME_0.EI" Source="PressInputs.IND" dx1="705.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PRESS_REV.R" Source="PRESS_HOME_0.EO" dx1="115.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="REND.EI2" Source="PRESS_HOME_0.EO" dx1="115.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="ConvInputs.INIT" Source="START.COLD" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="E_PERMIT.EI" Source="REND.EO" dx1="0.0" dx2="0.0" dy="185.0"/>
+          <Connection Destination="E_PERMIT.EI" Source="Running.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="TRANS_ADV1.S" Source="E_PERMIT.EO" dx1="220.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SUBSCRIBE_0.INIT" Source="PressOutputs.INITO" dx1="0.0" dx2="-385.0" dy="2870.0"/>
+          <Connection Destination="Running.R" Source="SUBSCRIBE_0_0.IND" dx1="175.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="Running.S" Source="SUBSCRIBE_0.IND" dx1="170.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SUBSCRIBE_0_0.INIT" Source="SUBSCRIBE_0.INITO" dx1="0.0" dx2="0.0" dy="215.0"/>
+        </EventConnections>
+        <DataConnections>
+          <Connection Destination="ConvOutputs.OUT_2" Source="TRANS_ADV2.Q" dx1="215.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="ConvOutputs.OUT_1" Source="TRANS_ADV1.Q" dx1="215.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="TRANS_HOME_0.PERMIT" Source="ConvInputs.IN_1" dx1="410.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PressOutputs.OUT_1" Source="PRESS_FWD.Q" dx1="540.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PRESS_END_0.PERMIT" Source="PressInputs.IN_2" dx1="315.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PressOutputs.OUT_2" Source="PRESS_REV.Q" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="TRANS_MID_0.PERMIT" Source="ConvInputs.IN_2" dx1="500.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="TRANS_END_0.PERMIT" Source="ConvInputs.IN_3" dx1="505.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="ConvOutputs.OUT_3" Source="TRANS_RET.Q" dx1="370.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PRESS_HOME_0.PERMIT" Source="PressInputs.IN_1" dx1="130.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="E_PERMIT.PERMIT" Source="Running.Q" dx1="0.0" dx2="0.0" dy="0.0"/>
+        </DataConnections>
+      </FBNetwork>
+    </Resource>
+  </Device>
+  <Device Name="HMI" Type="FBRT_WINDOW" x="3800.0" y="2280.0">
+    <Attribute Name="Color" Value="255,165,0"/>
+    <Attribute Name="Profile" Value="HOLOBLOC"/>
+    <Parameter Name="BOUNDS" Value="[300,0,55,108]"/>
+    <Parameter Name="MGR_ID" Value="&quot;localhost:61502&quot;"/>
+    <Resource Name="STARTSTOP" Type="PANEL_RESOURCE">
+      <Parameter Name="COLS" Value="1"/>
+      <FBNetwork>
+        <FB Name="PRESS_START" Type="IN_EVENT" x="1000.0" y="0.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="LABEL" Value="START"/>
+        </FB>
+        <FB Name="PRESS_STOP" Type="IN_EVENT" x="1045.0" y="1045.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="LABEL" Value="STOP"/>
+        </FB>
+        <FB Name="PUBLISH_0" Type="PUBLISH_0" x="2470.0" y="0.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="ID" Value="%START%"/>
+        </FB>
+        <FB Name="PUBLISH_0_0" Type="PUBLISH_0" x="2470.0" y="1045.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="ID" Value="%STOP%"/>
+        </FB>
+        <EventConnections>
+          <Connection Destination="PRESS_STOP.INIT" Source="PRESS_START.INITO" dx1="0.0" dx2="0.0" dy="240.0"/>
+          <Connection Destination="PRESS_START.INIT" Source="START.COLD" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBLISH_0.REQ" Source="PRESS_START.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBLISH_0.INIT" Source="PRESS_STOP.INITO" dx1="215.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBLISH_0_0.REQ" Source="PRESS_STOP.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBLISH_0_0.INIT" Source="PUBLISH_0.INITO" dx1="0.0" dx2="0.0" dy="255.0"/>
+        </EventConnections>
+      </FBNetwork>
+    </Resource>
+  </Device>
+  <Mapping From="Manual.PRESS_MDL" To="ManualTest.Simulation.PRESS_MDL"/>
+  <Mapping From="Manual.ADV1" To="ManualTest.ConveyorControls.ADV1"/>
+  <Mapping From="Manual.ADV2" To="ManualTest.ConveyorControls.ADV2"/>
+  <Mapping From="Manual.RET" To="ManualTest.ConveyorControls.RET"/>
+  <Mapping From="Manual.FWD" To="ManualTest.PressControls.FWD"/>
+  <Mapping From="Manual.REV" To="ManualTest.PressControls.REV"/>
+  <Mapping From="Manual.TRANS_HOME" To="ManualTest.ConveyorControls.TRANS_HOME"/>
+  <Mapping From="Manual.TRANS_MID" To="ManualTest.ConveyorControls.TRANS_MID"/>
+  <Mapping From="Manual.TRANS_END" To="ManualTest.ConveyorControls.TRANS_END"/>
+  <Mapping From="Manual.PRESS_HOME" To="ManualTest.PressControls.PRESS_HOME"/>
+  <Mapping From="Manual.PRESS_END" To="ManualTest.PressControls.PRESS_END"/>
+  <Mapping From="Manual.FB_LABEL" To="ManualTest.ConveyorControls.FB_LABEL"/>
+  <Mapping From="Manual.FB_LABEL_0" To="ManualTest.PressControls.FB_LABEL_0"/>
+  <Mapping From="Simulation.PRESS_MODEL_0" To="Simulation.Simulation.PRESS_MODEL_0"/>
+  <Mapping From="Simulation.SUBSCRIBE_4" To="Simulation.Simulation.SUBSCRIBE_4"/>
+  <Mapping From="Simulation.SUBSCRIBE_4_0" To="Simulation.Simulation.SUBSCRIBE_4_0"/>
+  <Mapping From="Simulation.TypeSetting1" To="Simulation.Simulation.TypeSetting1"/>
+  <Mapping From="Simulation.TypeSetting2" To="Simulation.Simulation.TypeSetting2"/>
+  <Mapping From="Simulation.TypeSetting3" To="Simulation.Simulation.TypeSetting3"/>
+  <Mapping From="Simulation.PUBLISH_4" To="Simulation.Simulation.PUBLISH_4"/>
+  <Mapping From="Simulation.PUBLISH_4_0" To="Simulation.Simulation.PUBLISH_4_0"/>
+  <Mapping From="Automated.PRESS_START" To="HMI.STARTSTOP.PRESS_START"/>
+  <Mapping From="Automated.TRANS_MID_0" To="Control.EMB_RES.TRANS_MID_0"/>
+  <Mapping From="Automated.PRESS_END_0" To="Control.EMB_RES.PRESS_END_0"/>
+  <Mapping From="Automated.TRANS_END_0" To="Control.EMB_RES.TRANS_END_0"/>
+  <Mapping From="Automated.TRANS_HOME_0" To="Control.EMB_RES.TRANS_HOME_0"/>
+  <Mapping From="Automated.PRESS_HOME_0" To="Control.EMB_RES.PRESS_HOME_0"/>
+  <Mapping From="Automated.PRESS_FWD" To="Control.EMB_RES.PRESS_FWD"/>
+  <Mapping From="Automated.TRANS_ADV2" To="Control.EMB_RES.TRANS_ADV2"/>
+  <Mapping From="Automated.PRESS_REV" To="Control.EMB_RES.PRESS_REV"/>
+  <Mapping From="Automated.TRANS_RET" To="Control.EMB_RES.TRANS_RET"/>
+  <Mapping From="Automated.TRANS_ADV1" To="Control.EMB_RES.TRANS_ADV1"/>
+  <Mapping From="Automated.REND" To="Control.EMB_RES.REND"/>
+  <Mapping From="Automated.ConvInputs" To="Control.EMB_RES.ConvInputs"/>
+  <Mapping From="Automated.PressInputs" To="Control.EMB_RES.PressInputs"/>
+  <Mapping From="Automated.ConvOutputs" To="Control.EMB_RES.ConvOutputs"/>
+  <Mapping From="Automated.PressOutputs" To="Control.EMB_RES.PressOutputs"/>
+  <Mapping From="Automated.Running" To="Control.EMB_RES.Running"/>
+  <Mapping From="Automated.E_PERMIT" To="Control.EMB_RES.E_PERMIT"/>
+  <Mapping From="Automated.PRESS_STOP" To="HMI.STARTSTOP.PRESS_STOP"/>
+  <Segment Name="Ethernet" Type="Ethernet" dx1="3995.0" x="1235.0" y="1805.0"/>
+  <Link CommResource="HMI" Comment="" SegmentName="Ethernet"/>
+  <Link CommResource="Control" Comment="" SegmentName="Ethernet"/>
+  <Link CommResource="Simulation" Comment="" SegmentName="Ethernet"/>
+</System>

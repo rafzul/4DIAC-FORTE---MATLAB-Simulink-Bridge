@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;temexdmodluyben2/net/Server_ALL.fbt&apos;" deleteContents="false" description="Delete resource &apos;temexdmodluyben2/net/Server_ALL.fbt&apos;" element1="/temexdmodluyben2/net/Server_ALL.fbt" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1541587580954"/>
+</session>

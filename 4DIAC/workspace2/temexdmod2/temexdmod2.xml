@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<libraryElement:AutomationSystem xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:libraryElement="org.fordiac.ide.model.libraryElement" name="temexdmod2" id="_fjmpANIeEeiu-bo57SeNYQ">
+  <versionInfo author="Author" organization="4DIAC-Consortium" version="1.0"/>
+  <application comment="" name="plantwide">
+    <fBNetwork href="plantwide.xml#//@fbNetwork"/>
+  </application>
+  <application comment="" name="App1_ProdQualityandConstraints">
+    <fBNetwork href="App1_ProdQualityandConstraints.xml#//@fbNetwork"/>
+  </application>
+  <application comment="" name="App2_ControlInventories">
+    <fBNetwork href="App2_ControlInventories.xml#//@fbNetwork"/>
+  </application>
+  <application comment="" name="App3_ComponentBalances">
+    <fBNetwork href="App3_ComponentBalances.xml#//@fbNetwork"/>
+  </application>
+  <systemConfiguration>
+    <systemConfigurationNetwork href="SysConf.xml#//@systemConfigNetwork"/>
+  </systemConfiguration>
+</libraryElement:AutomationSystem>

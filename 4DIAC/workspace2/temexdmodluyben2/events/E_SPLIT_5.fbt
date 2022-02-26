@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE FBType SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<FBType Comment="Composite Function Block Type" Name="E_SPLIT_5">
+  <Identification Standard="61499-2"/>
+  <VersionInfo Author="4DIAC-IDE" Date="2018-11-02" Organization="4DIAC-Consortium" Version="0.0"/>
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="EI" Type="Event"/>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="EO1" Type="Event"/>
+      <Event Name="EO2" Type="Event"/>
+      <Event Name="EO3" Type="Event"/>
+      <Event Name="EO4" Type="Event"/>
+      <Event Name="EO5" Type="Event"/>
+    </EventOutputs>
+    <InputVars/>
+    <OutputVars/>
+  </InterfaceList>
+  <FBNetwork>
+    <FB Name="E_SPLIT_3" Type="E_SPLIT_3" x="720.0" y="0.0"/>
+    <FB Name="E_SPLIT" Type="E_SPLIT" x="2520.0" y="120.0"/>
+    <FB Name="E_SPLIT_1" Type="E_SPLIT" x="2520.0" y="840.0"/>
+    <EventConnections>
+      <Connection Destination="E_SPLIT_3.EI" Source="EI" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="EO1" Source="E_SPLIT_3.EO1" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_SPLIT.EI" Source="E_SPLIT_3.EO2" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="EO2" Source="E_SPLIT.EO1" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="EO3" Source="E_SPLIT.EO2" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_SPLIT_1.EI" Source="E_SPLIT_3.EO3" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="EO4" Source="E_SPLIT_1.EO1" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="EO5" Source="E_SPLIT_1.EO2" dx1="0.0" dx2="0.0" dy="0.0"/>
+    </EventConnections>
+  </FBNetwork>
+</FBType>

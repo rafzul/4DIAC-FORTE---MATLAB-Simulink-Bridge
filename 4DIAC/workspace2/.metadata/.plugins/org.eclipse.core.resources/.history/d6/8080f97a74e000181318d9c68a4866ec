@@ -1,0 +1,523 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE System SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<System Name="temexdmodluyben">
+  <VersionInfo Author="Author" Organization="4DIAC-Consortium" Version="1.0"/>
+  <Application Name="App1_ProdRateandPressure">
+    <SubAppNetwork>
+      <FB Name="ProdRate" Type="FB_CTRL_PI" x="4200.0" y="0.0">
+        <Parameter Name="SET_POINT" Value="22.89"/>
+        <Parameter Name="KP" Value="1.8"/>
+      </FB>
+      <FB Name="E_CYCLE" Type="E_CYCLE" x="840.0" y="1080.0"/>
+      <FB Name="TIME2TIME" Type="TIME2TIME" x="0.0" y="1080.0">
+        <Parameter Name="IN" Value="T#75ms"/>
+      </FB>
+      <FB Name="SERVER_2" Type="SERVER_2" x="1800.0" y="960.0">
+        <Parameter Name="QI" Value="TRUE"/>
+        <Parameter Name="ID" Value="localhost:61000"/>
+      </FB>
+      <FB Name="Pressure" Type="FB_CTRL_PI" x="4080.0" y="2160.0">
+        <Parameter Name="SET_POINT" Value="2800"/>
+        <Parameter Name="KP" Value="100"/>
+      </FB>
+      <FB Name="INITO1" Type="E_SPLIT_3" x="2520.0" y="120.0"/>
+      <FB Name="IND1" Type="E_SPLIT" x="2760.0" y="1080.0"/>
+      <FB Name="CNF1" Type="E_MERGE" x="-600.0" y="1080.0"/>
+      <FB Name="E_MERGE1" Type="E_MERGE" x="1080.0" y="240.0"/>
+      <EventConnections>
+        <Connection Destination="E_CYCLE.START" Source="TIME2TIME.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_2.RSP" Source="E_CYCLE.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="INITO1.EI" Source="SERVER_2.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="ProdRate.INIT" Source="INITO1.EO2" dx1="185.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="Pressure.INIT" Source="INITO1.EO3" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_2.RSP" Source="INITO1.EO1" dx1="0.0" dx2="0.0" dy="-825.0"/>
+        <Connection Destination="IND1.EI" Source="SERVER_2.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="ProdRate.REQ" Source="IND1.EO1" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="Pressure.REQ" Source="IND1.EO2" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="CNF1.EI1" Source="ProdRate.CNF" dx1="0.0" dx2="0.0" dy="-1455.0"/>
+        <Connection Destination="CNF1.EI2" Source="Pressure.CNF" dx1="0.0" dx2="0.0" dy="1510.0"/>
+        <Connection Destination="TIME2TIME.REQ" Source="CNF1.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="IND1.EI" Source="IND1.EO2" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_2.INIT" Source="E_MERGE1.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      </EventConnections>
+      <DataConnections>
+        <Connection Destination="E_CYCLE.DT" Source="TIME2TIME.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="ProdRate.ACTUAL" Source="SERVER_2.RD_1" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="Pressure.ACTUAL" Source="SERVER_2.RD_2" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_2.SD_1" Source="ProdRate.Y" dx1="0.0" dx2="0.0" dy="-1400.0"/>
+        <Connection Destination="SERVER_2.SD_2" Source="Pressure.Y" dx1="0.0" dx2="0.0" dy="1135.0"/>
+      </DataConnections>
+    </SubAppNetwork>
+  </Application>
+  <Application Name="App2_StripperTemperatureandReactorTemperature">
+    <SubAppNetwork>
+      <FB Name="StripperTemp" Type="FB_CTRL_PI" x="4800.0" y="0.0">
+        <Parameter Name="SET_POINT" Value="66.5"/>
+        <Parameter Name="KP" Value="2"/>
+      </FB>
+      <FB Name="E_CYCLE_0" Type="E_CYCLE" x="940.0" y="1180.0"/>
+      <FB Name="TIME2TIME_0" Type="TIME2TIME" x="100.0" y="1180.0">
+        <Parameter Name="IN" Value="T#75ms"/>
+      </FB>
+      <FB Name="SERVER_2_0" Type="SERVER_2" x="1540.0" y="1060.0">
+        <Parameter Name="QI" Value="TRUE"/>
+        <Parameter Name="ID" Value="localhost:61001"/>
+      </FB>
+      <FB Name="ReactorTemp" Type="FB_CTRL_PI" x="4920.0" y="2040.0">
+        <Parameter Name="SET_POINT" Value="122.9"/>
+        <Parameter Name="KP" Value="-0.197"/>
+      </FB>
+      <FB Name="CNF2" Type="E_MERGE" x="-600.0" y="1200.0"/>
+      <FB Name="IND2" Type="E_SPLIT" x="2400.0" y="1200.0"/>
+      <FB Name="INIT2" Type="E_SPLIT_3" x="2520.0" y="360.0"/>
+      <FB Name="E_MERGE2" Type="E_MERGE" x="775.0" y="345.0"/>
+      <EventConnections>
+        <Connection Destination="SERVER_2_0.RSP" Source="E_CYCLE_0.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="E_CYCLE_0.START" Source="TIME2TIME_0.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="INIT2.EI" Source="SERVER_2_0.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_2_0.RSP" Source="INIT2.EO1" dx1="0.0" dx2="0.0" dy="-345.0"/>
+        <Connection Destination="StripperTemp.INIT" Source="INIT2.EO2" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="ReactorTemp.INIT" Source="INIT2.EO3" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="IND2.EI" Source="SERVER_2_0.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="StripperTemp.REQ" Source="IND2.EO1" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="ReactorTemp.REQ" Source="IND2.EO2" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="CNF2.EI1" Source="StripperTemp.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="CNF2.EI2" Source="ReactorTemp.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="TIME2TIME_0.REQ" Source="CNF2.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_2_0.INIT" Source="E_MERGE2.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      </EventConnections>
+      <DataConnections>
+        <Connection Destination="E_CYCLE_0.DT" Source="TIME2TIME_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_2_0.SD_1" Source="StripperTemp.Y" dx1="0.0" dx2="0.0" dy="-1400.0"/>
+        <Connection Destination="StripperTemp.ACTUAL" Source="SERVER_2_0.RD_1" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="ReactorTemp.ACTUAL" Source="SERVER_2_0.RD_2" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_2_0.SD_2" Source="ReactorTemp.Y" dx1="0.0" dx2="0.0" dy="855.0"/>
+      </DataConnections>
+    </SubAppNetwork>
+  </Application>
+  <Application Name="App3_StripperLevelandSeparatorLevel">
+    <SubAppNetwork>
+      <FB Name="StripperLevel" Type="FB_CTRL_PI" x="5280.0" y="0.0">
+        <Parameter Name="SET_POINT" Value="50"/>
+        <Parameter Name="KP" Value="2"/>
+      </FB>
+      <FB Name="E_CYCLE_1" Type="E_CYCLE" x="940.0" y="1180.0"/>
+      <FB Name="TIME2TIME_1" Type="TIME2TIME" x="100.0" y="1180.0">
+        <Parameter Name="IN" Value="T#75ms"/>
+      </FB>
+      <FB Name="SERVER_2_1" Type="SERVER_2" x="1540.0" y="1060.0">
+        <Parameter Name="QI" Value="TRUE"/>
+        <Parameter Name="ID" Value="localhost:61002"/>
+      </FB>
+      <FB Name="SeparatorLevel" Type="FB_CTRL_PI" x="4320.0" y="1800.0">
+        <Parameter Name="SET_POINT" Value="50"/>
+        <Parameter Name="KP" Value="0.5"/>
+      </FB>
+      <FB Name="INIT3" Type="E_SPLIT_3" x="2880.0" y="600.0"/>
+      <FB Name="IND3" Type="E_SPLIT" x="2280.0" y="1200.0"/>
+      <FB Name="CNF3" Type="E_MERGE" x="-600.0" y="1200.0"/>
+      <FB Name="E_MERGE3" Type="E_MERGE" x="840.0" y="480.0"/>
+      <EventConnections>
+        <Connection Destination="SERVER_2_1.RSP" Source="E_CYCLE_1.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="E_CYCLE_1.START" Source="TIME2TIME_1.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="INIT3.EI" Source="SERVER_2_1.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_2_1.RSP" Source="INIT3.EO1" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="StripperLevel.INIT" Source="INIT3.EO2" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SeparatorLevel.INIT" Source="INIT3.EO3" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="IND3.EI" Source="SERVER_2_1.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="StripperLevel.REQ" Source="IND3.EO1" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SeparatorLevel.REQ" Source="IND3.EO2" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="TIME2TIME_1.REQ" Source="CNF3.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="CNF3.EI1" Source="StripperLevel.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="CNF3.EI2" Source="SeparatorLevel.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_2_1.INIT" Source="E_MERGE3.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      </EventConnections>
+      <DataConnections>
+        <Connection Destination="E_CYCLE_1.DT" Source="TIME2TIME_1.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_2_1.SD_1" Source="StripperLevel.Y" dx1="0.0" dx2="0.0" dy="-1240.0"/>
+        <Connection Destination="StripperLevel.ACTUAL" Source="SERVER_2_1.RD_1" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SeparatorLevel.ACTUAL" Source="SERVER_2_1.RD_2" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_2_1.SD_2" Source="SeparatorLevel.Y" dx1="0.0" dx2="0.0" dy="800.0"/>
+      </DataConnections>
+    </SubAppNetwork>
+  </Application>
+  <Application Name="App4_ReactorLevel">
+    <SubAppNetwork>
+      <FB Name="ReactorLevel" Type="FB_CTRL_PI" x="3120.0" y="840.0">
+        <Parameter Name="SET_POINT" Value="65"/>
+        <Parameter Name="KP" Value="2"/>
+      </FB>
+      <FB Name="E_CYCLE_3" Type="E_CYCLE" x="940.0" y="1180.0"/>
+      <FB Name="TIME2TIME_3" Type="TIME2TIME" x="100.0" y="1180.0">
+        <Parameter Name="IN" Value="T#75ms"/>
+      </FB>
+      <FB Name="SERVER_2_3" Type="SERVER_2" x="1680.0" y="1080.0">
+        <Parameter Name="QI" Value="TRUE"/>
+        <Parameter Name="ID" Value="localhost:61003"/>
+      </FB>
+      <FB Name="F_MUL" Type="F_MUL" x="5280.0" y="1320.0"/>
+      <FB Name="REAL2REAL" Type="REAL2REAL" x="4080.0" y="2280.0">
+        <Parameter Name="IN" Value="1"/>
+      </FB>
+      <FB Name="REAL2REAL_0" Type="REAL2REAL" x="5760.0" y="1320.0"/>
+      <FB Name="REAL2REAL_1" Type="REAL2REAL" x="2520.0" y="2520.0"/>
+      <FB Name="IND4" Type="E_SPLIT" x="2400.0" y="1200.0"/>
+      <FB Name="INIT4" Type="E_SPLIT" x="2280.0" y="600.0"/>
+      <FB Name="REQ_MUL" Type="E_MERGE" x="4680.0" y="1080.0"/>
+      <FB Name="CNF_REACTOR" Type="E_SPLIT" x="3960.0" y="960.0"/>
+      <FB Name="E_MERGE4" Type="E_MERGE" x="960.0" y="480.0"/>
+      <EventConnections>
+        <Connection Destination="SERVER_2_3.RSP" Source="E_CYCLE_3.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="E_CYCLE_3.START" Source="TIME2TIME_3.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="REAL2REAL_0.REQ" Source="F_MUL.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="TIME2TIME_3.REQ" Source="REAL2REAL_0.CNF" dx1="0.0" dx2="0.0" dy="1970.0"/>
+        <Connection Destination="IND4.EI" Source="SERVER_2_3.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="ReactorLevel.REQ" Source="IND4.EO1" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="REAL2REAL_1.REQ" Source="IND4.EO2" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="INIT4.EI" Source="SERVER_2_3.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_2_3.RSP" Source="INIT4.EO1" dx1="0.0" dx2="0.0" dy="-605.0"/>
+        <Connection Destination="ReactorLevel.INIT" Source="INIT4.EO2" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="CNF_REACTOR.EI" Source="ReactorLevel.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="REAL2REAL.REQ" Source="CNF_REACTOR.EO2" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="REQ_MUL.EI1" Source="CNF_REACTOR.EO1" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="REQ_MUL.EI2" Source="REAL2REAL.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_MUL.REQ" Source="REQ_MUL.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_2_3.INIT" Source="E_MERGE4.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      </EventConnections>
+      <DataConnections>
+        <Connection Destination="E_CYCLE_3.DT" Source="TIME2TIME_3.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_2_3.SD_1" Source="ReactorLevel.Y" dx1="0.0" dx2="0.0" dy="-1400.0"/>
+        <Connection Destination="ReactorLevel.ACTUAL" Source="SERVER_2_3.RD_1" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_MUL.IN1" Source="ReactorLevel.Y" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_MUL.IN2" Source="REAL2REAL.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="REAL2REAL_0.IN" Source="F_MUL.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_2_3.SD_2" Source="REAL2REAL_0.OUT" dx1="0.0" dx2="0.0" dy="1865.0"/>
+        <Connection Destination="REAL2REAL_1.IN" Source="SERVER_2_3.RD_2" dx1="0.0" dx2="0.0" dy="0.0"/>
+      </DataConnections>
+    </SubAppNetwork>
+  </Application>
+  <Application Name="App5_yAandyB">
+    <SubAppNetwork>
+      <FB Name="yA" Type="FB_CTRL_PI" x="4200.0" y="0.0">
+        <Parameter Name="SET_POINT" Value="32.73"/>
+        <Parameter Name="KP" Value="10"/>
+      </FB>
+      <FB Name="E_CYCLE_2" Type="E_CYCLE" x="940.0" y="1180.0"/>
+      <FB Name="TIME2TIME_2" Type="TIME2TIME" x="100.0" y="1180.0">
+        <Parameter Name="IN" Value="T#75ms"/>
+      </FB>
+      <FB Name="SERVER_2_2" Type="SERVER_2" x="1920.0" y="1080.0">
+        <Parameter Name="QI" Value="TRUE"/>
+        <Parameter Name="ID" Value="localhost:61004"/>
+      </FB>
+      <FB Name="yB" Type="FB_CTRL_PI" x="4320.0" y="2040.0">
+        <Parameter Name="SET_POINT" Value="21.83"/>
+        <Parameter Name="KP" Value="16"/>
+      </FB>
+      <FB Name="INIT5" Type="E_SPLIT_3" x="2640.0" y="0.0"/>
+      <FB Name="IND5" Type="E_SPLIT" x="2880.0" y="1440.0"/>
+      <FB Name="CNF5" Type="E_MERGE" x="-480.0" y="1080.0"/>
+      <FB Name="E_MERGE5" Type="E_MERGE" x="1055.0" y="385.0"/>
+      <EventConnections>
+        <Connection Destination="SERVER_2_2.RSP" Source="E_CYCLE_2.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="E_CYCLE_2.START" Source="TIME2TIME_2.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="INIT5.EI" Source="SERVER_2_2.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_2_2.RSP" Source="INIT5.EO1" dx1="0.0" dx2="0.0" dy="-405.0"/>
+        <Connection Destination="yA.INIT" Source="INIT5.EO2" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="yB.INIT" Source="INIT5.EO3" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="IND5.EI" Source="SERVER_2_2.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="yA.REQ" Source="IND5.EO1" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="yB.REQ" Source="IND5.EO2" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="TIME2TIME_2.REQ" Source="CNF5.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="CNF5.EI1" Source="yA.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="CNF5.EI2" Source="yB.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_2_2.INIT" Source="E_MERGE5.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      </EventConnections>
+      <DataConnections>
+        <Connection Destination="E_CYCLE_2.DT" Source="TIME2TIME_2.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_2_2.SD_1" Source="yA.Y" dx1="0.0" dx2="0.0" dy="-1400.0"/>
+        <Connection Destination="yA.ACTUAL" Source="SERVER_2_2.RD_1" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="yB.ACTUAL" Source="SERVER_2_2.RD_2" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_2_2.SD_2" Source="yB.Y" dx1="0.0" dx2="0.0" dy="2125.0"/>
+      </DataConnections>
+    </SubAppNetwork>
+  </Application>
+  <Device Name="FORTE_PC" Type="FORTE_PC" x="2610.0" y="1925.0">
+    <Attribute Name="Color" Value="53,205,43"/>
+    <Attribute Name="Profile" Value="HOLOBLOC"/>
+    <Parameter Name="MGR_ID" Value="&quot;localhost:61499&quot;"/>
+    <Resource Name="EMB_RES" Type="EMB_RES">
+      <FBNetwork>
+        <FB Name="ProdRate" Type="FB_CTRL_PI" x="3000.0" y="-720.0">
+          <Parameter Name="SET_POINT" Value="22.89"/>
+          <Parameter Name="KP" Value="1.8"/>
+        </FB>
+        <FB Name="E_CYCLE" Type="E_CYCLE" x="600.0" y="840.0"/>
+        <FB Name="TIME2TIME" Type="TIME2TIME" x="0.0" y="1080.0">
+          <Parameter Name="IN" Value="T#75ms"/>
+        </FB>
+        <FB Name="SERVER_2" Type="SERVER_2" x="1440.0" y="960.0">
+          <Parameter Name="QI" Value="TRUE"/>
+          <Parameter Name="ID" Value="localhost:61000"/>
+        </FB>
+        <FB Name="Pressure" Type="FB_CTRL_PI" x="2880.0" y="1200.0">
+          <Parameter Name="SET_POINT" Value="2800"/>
+          <Parameter Name="KP" Value="100"/>
+        </FB>
+        <FB Name="StripperTemp" Type="FB_CTRL_PI" x="10920.0" y="-600.0">
+          <Parameter Name="SET_POINT" Value="66.5"/>
+          <Parameter Name="KP" Value="2"/>
+        </FB>
+        <FB Name="E_CYCLE_0" Type="E_CYCLE" x="6360.0" y="-840.0"/>
+        <FB Name="TIME2TIME_0" Type="TIME2TIME" x="5280.0" y="-720.0">
+          <Parameter Name="IN" Value="T#75ms"/>
+        </FB>
+        <FB Name="SERVER_2_0" Type="SERVER_2" x="7560.0" y="-720.0">
+          <Parameter Name="QI" Value="TRUE"/>
+          <Parameter Name="ID" Value="localhost:61001"/>
+        </FB>
+        <FB Name="ReactorTemp" Type="FB_CTRL_PI" x="10800.0" y="1560.0">
+          <Parameter Name="SET_POINT" Value="122.9"/>
+          <Parameter Name="KP" Value="-0.197"/>
+        </FB>
+        <FB Name="ReactorLevel" Type="FB_CTRL_PI" x="13200.0" y="3840.0">
+          <Parameter Name="SET_POINT" Value="65"/>
+          <Parameter Name="KP" Value="2"/>
+        </FB>
+        <FB Name="E_CYCLE_3" Type="E_CYCLE" x="9720.0" y="4080.0"/>
+        <FB Name="TIME2TIME_3" Type="TIME2TIME" x="8880.0" y="4080.0">
+          <Parameter Name="IN" Value="T#75ms"/>
+        </FB>
+        <FB Name="SERVER_2_3" Type="SERVER_2" x="10440.0" y="4080.0">
+          <Parameter Name="QI" Value="TRUE"/>
+          <Parameter Name="ID" Value="localhost:61003"/>
+        </FB>
+        <FB Name="F_MUL" Type="F_MUL" x="15480.0" y="3960.0"/>
+        <FB Name="REAL2REAL" Type="REAL2REAL" x="14040.0" y="4800.0">
+          <Parameter Name="IN" Value="1"/>
+        </FB>
+        <FB Name="REAL2REAL_0" Type="REAL2REAL" x="16080.0" y="4080.0"/>
+        <FB Name="REAL2REAL_1" Type="REAL2REAL" x="12480.0" y="4920.0"/>
+        <FB Name="yA" Type="FB_CTRL_PI" x="6720.0" y="6840.0">
+          <Parameter Name="SET_POINT" Value="32.73"/>
+          <Parameter Name="KP" Value="10"/>
+        </FB>
+        <FB Name="E_CYCLE_2" Type="E_CYCLE" x="1320.0" y="7320.0"/>
+        <FB Name="TIME2TIME_2" Type="TIME2TIME" x="360.0" y="7200.0">
+          <Parameter Name="IN" Value="T#75ms"/>
+        </FB>
+        <FB Name="SERVER_2_2" Type="SERVER_2" x="2280.0" y="7200.0">
+          <Parameter Name="QI" Value="TRUE"/>
+          <Parameter Name="ID" Value="localhost:61004"/>
+        </FB>
+        <FB Name="yB" Type="FB_CTRL_PI" x="6840.0" y="8760.0">
+          <Parameter Name="SET_POINT" Value="21.83"/>
+          <Parameter Name="KP" Value="16"/>
+        </FB>
+        <FB Name="StripperLevel" Type="FB_CTRL_PI" x="5040.0" y="4080.0">
+          <Parameter Name="SET_POINT" Value="50"/>
+          <Parameter Name="KP" Value="2"/>
+        </FB>
+        <FB Name="E_CYCLE_1" Type="E_CYCLE" x="1080.0" y="4560.0"/>
+        <FB Name="TIME2TIME_1" Type="TIME2TIME" x="120.0" y="4560.0">
+          <Parameter Name="IN" Value="T#75ms"/>
+        </FB>
+        <FB Name="SERVER_2_1" Type="SERVER_2" x="1800.0" y="4440.0">
+          <Parameter Name="QI" Value="TRUE"/>
+          <Parameter Name="ID" Value="localhost:61002"/>
+        </FB>
+        <FB Name="SeparatorLevel" Type="FB_CTRL_PI" x="6840.0" y="3720.0">
+          <Parameter Name="SET_POINT" Value="50"/>
+          <Parameter Name="KP" Value="0.5"/>
+        </FB>
+        <FB Name="CNF1" Type="E_MERGE" x="-600.0" y="960.0"/>
+        <FB Name="IND1" Type="E_SPLIT" x="2160.0" y="1560.0"/>
+        <FB Name="INITO1" Type="E_SPLIT_3" x="2160.0" y="600.0"/>
+        <FB Name="CNF2" Type="E_MERGE" x="4680.0" y="-720.0"/>
+        <FB Name="INIT2" Type="E_SPLIT_3" x="8400.0" y="-720.0"/>
+        <FB Name="IND2" Type="E_SPLIT" x="8400.0" y="960.0"/>
+        <FB Name="IND3" Type="E_SPLIT" x="3240.0" y="5400.0"/>
+        <FB Name="INIT3" Type="E_SPLIT_3" x="3120.0" y="4440.0"/>
+        <FB Name="CNF3" Type="E_MERGE" x="-600.0" y="4440.0"/>
+        <FB Name="IND4" Type="E_SPLIT" x="12000.0" y="4320.0"/>
+        <FB Name="INIT4" Type="E_SPLIT" x="11400.0" y="3960.0"/>
+        <FB Name="CNF_REACTOR" Type="E_SPLIT" x="14160.0" y="3960.0"/>
+        <FB Name="REQ_MUL" Type="E_MERGE" x="14880.0" y="3960.0"/>
+        <FB Name="INIT5" Type="E_SPLIT_3" x="3720.0" y="7440.0"/>
+        <FB Name="IND5" Type="E_SPLIT" x="3840.0" y="8640.0"/>
+        <FB Name="CNF5" Type="E_MERGE" x="-720.0" y="7200.0"/>
+        <FB Name="E_SPLIT_5" Type="E_SPLIT_5" x="4800.0" y="1080.0"/>
+        <FB Name="E_SPLIT_5_0" Type="E_SPLIT_5" x="4940.0" y="2370.0"/>
+        <FB Name="E_MERGE1" Type="E_MERGE" x="1080.0" y="240.0"/>
+        <FB Name="E_MERGE2" Type="E_MERGE" x="6840.0" y="480.0"/>
+        <FB Name="E_MERGE3" Type="E_MERGE" x="720.0" y="3720.0"/>
+        <FB Name="E_MERGE5" Type="E_MERGE" x="1440.0" y="6720.0"/>
+        <FB Name="E_MERGE4" Type="E_MERGE" x="9840.0" y="3360.0"/>
+        <EventConnections>
+          <Connection Destination="E_CYCLE.START" Source="TIME2TIME.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SERVER_2.RSP" Source="E_CYCLE.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="E_CYCLE_0.START" Source="TIME2TIME_0.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SERVER_2_0.RSP" Source="E_CYCLE_0.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="E_CYCLE_3.START" Source="TIME2TIME_3.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SERVER_2_3.RSP" Source="E_CYCLE_3.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="REAL2REAL_0.REQ" Source="F_MUL.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="TIME2TIME_3.REQ" Source="REAL2REAL_0.CNF" dx1="0.0" dx2="0.0" dy="1970.0"/>
+          <Connection Destination="E_CYCLE_2.START" Source="TIME2TIME_2.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SERVER_2_2.RSP" Source="E_CYCLE_2.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="E_CYCLE_1.START" Source="TIME2TIME_1.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SERVER_2_1.RSP" Source="E_CYCLE_1.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="CNF1.EI1" Source="ProdRate.CNF" dx1="0.0" dx2="0.0" dy="-1455.0"/>
+          <Connection Destination="CNF1.EI2" Source="Pressure.CNF" dx1="0.0" dx2="0.0" dy="1510.0"/>
+          <Connection Destination="TIME2TIME.REQ" Source="CNF1.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="IND1.EI" Source="SERVER_2.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="ProdRate.REQ" Source="IND1.EO1" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="Pressure.REQ" Source="IND1.EO2" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="INITO1.EI" Source="SERVER_2.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SERVER_2.RSP" Source="INITO1.EO1" dx1="0.0" dx2="0.0" dy="-825.0"/>
+          <Connection Destination="ProdRate.INIT" Source="INITO1.EO2" dx1="185.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="Pressure.INIT" Source="INITO1.EO3" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="CNF2.EI1" Source="StripperTemp.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="CNF2.EI2" Source="ReactorTemp.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="TIME2TIME_0.REQ" Source="CNF2.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="INIT2.EI" Source="SERVER_2_0.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SERVER_2_0.RSP" Source="INIT2.EO1" dx1="0.0" dx2="0.0" dy="-345.0"/>
+          <Connection Destination="StripperTemp.INIT" Source="INIT2.EO2" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="ReactorTemp.INIT" Source="INIT2.EO3" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="IND2.EI" Source="SERVER_2_0.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="StripperTemp.REQ" Source="IND2.EO1" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="ReactorTemp.REQ" Source="IND2.EO2" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="IND3.EI" Source="SERVER_2_1.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="StripperLevel.REQ" Source="IND3.EO1" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SeparatorLevel.REQ" Source="IND3.EO2" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="INIT3.EI" Source="SERVER_2_1.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SERVER_2_1.RSP" Source="INIT3.EO1" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="StripperLevel.INIT" Source="INIT3.EO2" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SeparatorLevel.INIT" Source="INIT3.EO3" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="CNF3.EI1" Source="StripperLevel.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="CNF3.EI2" Source="SeparatorLevel.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="TIME2TIME_1.REQ" Source="CNF3.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="IND4.EI" Source="SERVER_2_3.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="ReactorLevel.REQ" Source="IND4.EO1" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="REAL2REAL_1.REQ" Source="IND4.EO2" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="INIT4.EI" Source="SERVER_2_3.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SERVER_2_3.RSP" Source="INIT4.EO1" dx1="0.0" dx2="0.0" dy="-605.0"/>
+          <Connection Destination="ReactorLevel.INIT" Source="INIT4.EO2" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="CNF_REACTOR.EI" Source="ReactorLevel.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="REAL2REAL.REQ" Source="CNF_REACTOR.EO2" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="REQ_MUL.EI1" Source="CNF_REACTOR.EO1" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="REQ_MUL.EI2" Source="REAL2REAL.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="F_MUL.REQ" Source="REQ_MUL.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="INIT5.EI" Source="SERVER_2_2.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SERVER_2_2.RSP" Source="INIT5.EO1" dx1="0.0" dx2="0.0" dy="-405.0"/>
+          <Connection Destination="yA.INIT" Source="INIT5.EO2" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="yB.INIT" Source="INIT5.EO3" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="IND5.EI" Source="SERVER_2_2.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="yA.REQ" Source="IND5.EO1" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="yB.REQ" Source="IND5.EO2" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="CNF5.EI1" Source="yA.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="CNF5.EI2" Source="yB.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="TIME2TIME_2.REQ" Source="CNF5.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="IND1.EI" Source="IND1.EO2" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="E_SPLIT_5.EI" Source="START.COLD" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="E_SPLIT_5_0.EI" Source="START.WARM" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SERVER_2.INIT" Source="E_MERGE1.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SERVER_2_0.INIT" Source="E_MERGE2.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SERVER_2_1.INIT" Source="E_MERGE3.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SERVER_2_2.INIT" Source="E_MERGE5.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SERVER_2_3.INIT" Source="E_MERGE4.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="E_MERGE1.EI1" Source="E_SPLIT_5.EO1" dx1="690.0" dx2="0.0" dy="-1600.0"/>
+          <Connection Destination="E_MERGE1.EI2" Source="E_SPLIT_5_0.EO1" dx1="510.0" dx2="0.0" dy="-2445.0"/>
+          <Connection Destination="E_MERGE2.EI1" Source="E_SPLIT_5.EO2" dx1="1240.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="E_MERGE2.EI2" Source="E_SPLIT_5_0.EO2" dx1="970.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="E_MERGE3.EI1" Source="E_SPLIT_5.EO3" dx1="530.0" dx2="0.0" dy="460.0"/>
+          <Connection Destination="E_MERGE3.EI2" Source="E_SPLIT_5_0.EO3" dx1="480.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="E_MERGE4.EI1" Source="E_SPLIT_5.EO4" dx1="1850.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="E_MERGE4.EI2" Source="E_SPLIT_5_0.EO4" dx1="1790.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="E_MERGE5.EI1" Source="E_SPLIT_5.EO5" dx1="2940.0" dx2="0.0" dy="1830.0"/>
+          <Connection Destination="E_MERGE5.EI2" Source="E_SPLIT_5_0.EO5" dx1="2660.0" dx2="0.0" dy="1245.0"/>
+        </EventConnections>
+        <DataConnections>
+          <Connection Destination="E_CYCLE.DT" Source="TIME2TIME.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SERVER_2.SD_1" Source="ProdRate.Y" dx1="0.0" dx2="0.0" dy="-1400.0"/>
+          <Connection Destination="ProdRate.ACTUAL" Source="SERVER_2.RD_1" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="Pressure.ACTUAL" Source="SERVER_2.RD_2" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SERVER_2.SD_2" Source="Pressure.Y" dx1="0.0" dx2="0.0" dy="1135.0"/>
+          <Connection Destination="E_CYCLE_0.DT" Source="TIME2TIME_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SERVER_2_0.SD_1" Source="StripperTemp.Y" dx1="0.0" dx2="0.0" dy="-1400.0"/>
+          <Connection Destination="StripperTemp.ACTUAL" Source="SERVER_2_0.RD_1" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="ReactorTemp.ACTUAL" Source="SERVER_2_0.RD_2" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SERVER_2_0.SD_2" Source="ReactorTemp.Y" dx1="0.0" dx2="0.0" dy="855.0"/>
+          <Connection Destination="E_CYCLE_3.DT" Source="TIME2TIME_3.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SERVER_2_3.SD_1" Source="ReactorLevel.Y" dx1="0.0" dx2="0.0" dy="-1400.0"/>
+          <Connection Destination="ReactorLevel.ACTUAL" Source="SERVER_2_3.RD_1" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="F_MUL.IN1" Source="ReactorLevel.Y" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="F_MUL.IN2" Source="REAL2REAL.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="REAL2REAL_0.IN" Source="F_MUL.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SERVER_2_3.SD_2" Source="REAL2REAL_0.OUT" dx1="0.0" dx2="0.0" dy="1865.0"/>
+          <Connection Destination="REAL2REAL_1.IN" Source="SERVER_2_3.RD_2" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="E_CYCLE_2.DT" Source="TIME2TIME_2.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SERVER_2_2.SD_1" Source="yA.Y" dx1="0.0" dx2="0.0" dy="-1400.0"/>
+          <Connection Destination="yA.ACTUAL" Source="SERVER_2_2.RD_1" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="yB.ACTUAL" Source="SERVER_2_2.RD_2" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SERVER_2_2.SD_2" Source="yB.Y" dx1="0.0" dx2="0.0" dy="2125.0"/>
+          <Connection Destination="E_CYCLE_1.DT" Source="TIME2TIME_1.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SERVER_2_1.SD_1" Source="StripperLevel.Y" dx1="0.0" dx2="0.0" dy="-1240.0"/>
+          <Connection Destination="StripperLevel.ACTUAL" Source="SERVER_2_1.RD_1" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SeparatorLevel.ACTUAL" Source="SERVER_2_1.RD_2" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SERVER_2_1.SD_2" Source="SeparatorLevel.Y" dx1="0.0" dx2="0.0" dy="800.0"/>
+        </DataConnections>
+      </FBNetwork>
+    </Resource>
+  </Device>
+  <Mapping From="App1_ProdRateandPressure.ProdRate" To="FORTE_PC.EMB_RES.ProdRate"/>
+  <Mapping From="App1_ProdRateandPressure.E_CYCLE" To="FORTE_PC.EMB_RES.E_CYCLE"/>
+  <Mapping From="App1_ProdRateandPressure.TIME2TIME" To="FORTE_PC.EMB_RES.TIME2TIME"/>
+  <Mapping From="App1_ProdRateandPressure.SERVER_2" To="FORTE_PC.EMB_RES.SERVER_2"/>
+  <Mapping From="App1_ProdRateandPressure.Pressure" To="FORTE_PC.EMB_RES.Pressure"/>
+  <Mapping From="App1_ProdRateandPressure.INITO1" To="FORTE_PC.EMB_RES.INITO1"/>
+  <Mapping From="App1_ProdRateandPressure.IND1" To="FORTE_PC.EMB_RES.IND1"/>
+  <Mapping From="App1_ProdRateandPressure.CNF1" To="FORTE_PC.EMB_RES.CNF1"/>
+  <Mapping From="App1_ProdRateandPressure.E_MERGE1" To="FORTE_PC.EMB_RES.E_MERGE1"/>
+  <Mapping From="App2_StripperTemperatureandReactorTemperature.StripperTemp" To="FORTE_PC.EMB_RES.StripperTemp"/>
+  <Mapping From="App2_StripperTemperatureandReactorTemperature.E_CYCLE_0" To="FORTE_PC.EMB_RES.E_CYCLE_0"/>
+  <Mapping From="App2_StripperTemperatureandReactorTemperature.TIME2TIME_0" To="FORTE_PC.EMB_RES.TIME2TIME_0"/>
+  <Mapping From="App2_StripperTemperatureandReactorTemperature.SERVER_2_0" To="FORTE_PC.EMB_RES.SERVER_2_0"/>
+  <Mapping From="App2_StripperTemperatureandReactorTemperature.ReactorTemp" To="FORTE_PC.EMB_RES.ReactorTemp"/>
+  <Mapping From="App2_StripperTemperatureandReactorTemperature.CNF2" To="FORTE_PC.EMB_RES.CNF2"/>
+  <Mapping From="App2_StripperTemperatureandReactorTemperature.IND2" To="FORTE_PC.EMB_RES.IND2"/>
+  <Mapping From="App2_StripperTemperatureandReactorTemperature.INIT2" To="FORTE_PC.EMB_RES.INIT2"/>
+  <Mapping From="App2_StripperTemperatureandReactorTemperature.E_MERGE2" To="FORTE_PC.EMB_RES.E_MERGE2"/>
+  <Mapping From="App3_StripperLevelandSeparatorLevel.StripperLevel" To="FORTE_PC.EMB_RES.StripperLevel"/>
+  <Mapping From="App3_StripperLevelandSeparatorLevel.E_CYCLE_1" To="FORTE_PC.EMB_RES.E_CYCLE_1"/>
+  <Mapping From="App3_StripperLevelandSeparatorLevel.TIME2TIME_1" To="FORTE_PC.EMB_RES.TIME2TIME_1"/>
+  <Mapping From="App3_StripperLevelandSeparatorLevel.SERVER_2_1" To="FORTE_PC.EMB_RES.SERVER_2_1"/>
+  <Mapping From="App3_StripperLevelandSeparatorLevel.SeparatorLevel" To="FORTE_PC.EMB_RES.SeparatorLevel"/>
+  <Mapping From="App3_StripperLevelandSeparatorLevel.INIT3" To="FORTE_PC.EMB_RES.INIT3"/>
+  <Mapping From="App3_StripperLevelandSeparatorLevel.IND3" To="FORTE_PC.EMB_RES.IND3"/>
+  <Mapping From="App3_StripperLevelandSeparatorLevel.CNF3" To="FORTE_PC.EMB_RES.CNF3"/>
+  <Mapping From="App3_StripperLevelandSeparatorLevel.E_MERGE3" To="FORTE_PC.EMB_RES.E_MERGE3"/>
+  <Mapping From="App4_ReactorLevel.ReactorLevel" To="FORTE_PC.EMB_RES.ReactorLevel"/>
+  <Mapping From="App4_ReactorLevel.E_CYCLE_3" To="FORTE_PC.EMB_RES.E_CYCLE_3"/>
+  <Mapping From="App4_ReactorLevel.TIME2TIME_3" To="FORTE_PC.EMB_RES.TIME2TIME_3"/>
+  <Mapping From="App4_ReactorLevel.SERVER_2_3" To="FORTE_PC.EMB_RES.SERVER_2_3"/>
+  <Mapping From="App4_ReactorLevel.F_MUL" To="FORTE_PC.EMB_RES.F_MUL"/>
+  <Mapping From="App4_ReactorLevel.REAL2REAL" To="FORTE_PC.EMB_RES.REAL2REAL"/>
+  <Mapping From="App4_ReactorLevel.REAL2REAL_0" To="FORTE_PC.EMB_RES.REAL2REAL_0"/>
+  <Mapping From="App4_ReactorLevel.REAL2REAL_1" To="FORTE_PC.EMB_RES.REAL2REAL_1"/>
+  <Mapping From="App4_ReactorLevel.IND4" To="FORTE_PC.EMB_RES.IND4"/>
+  <Mapping From="App4_ReactorLevel.INIT4" To="FORTE_PC.EMB_RES.INIT4"/>
+  <Mapping From="App4_ReactorLevel.REQ_MUL" To="FORTE_PC.EMB_RES.REQ_MUL"/>
+  <Mapping From="App4_ReactorLevel.CNF_REACTOR" To="FORTE_PC.EMB_RES.CNF_REACTOR"/>
+  <Mapping From="App4_ReactorLevel.E_MERGE4" To="FORTE_PC.EMB_RES.E_MERGE4"/>
+  <Mapping From="App5_yAandyB.yA" To="FORTE_PC.EMB_RES.yA"/>
+  <Mapping From="App5_yAandyB.E_CYCLE_2" To="FORTE_PC.EMB_RES.E_CYCLE_2"/>
+  <Mapping From="App5_yAandyB.TIME2TIME_2" To="FORTE_PC.EMB_RES.TIME2TIME_2"/>
+  <Mapping From="App5_yAandyB.SERVER_2_2" To="FORTE_PC.EMB_RES.SERVER_2_2"/>
+  <Mapping From="App5_yAandyB.yB" To="FORTE_PC.EMB_RES.yB"/>
+  <Mapping From="App5_yAandyB.INIT5" To="FORTE_PC.EMB_RES.INIT5"/>
+  <Mapping From="App5_yAandyB.IND5" To="FORTE_PC.EMB_RES.IND5"/>
+  <Mapping From="App5_yAandyB.CNF5" To="FORTE_PC.EMB_RES.CNF5"/>
+  <Mapping From="App5_yAandyB.E_MERGE5" To="FORTE_PC.EMB_RES.E_MERGE5"/>
+  <Segment Name="Ethernet" Type="Ethernet" dx1="1500.0" x="2765.0" y="1250.0"/>
+  <Link CommResource="FORTE_PC" Comment="" SegmentName="Ethernet"/>
+</System>

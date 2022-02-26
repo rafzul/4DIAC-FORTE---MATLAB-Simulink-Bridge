@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE FBType SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<FBType Comment="Composite Function Block Type" Name="E_Merge16">
+  <Identification Standard="61499-2"/>
+  <VersionInfo Author="4DIAC-IDE" Date="2018-12-21" Organization="4DIAC-Consortium" Version="0.0"/>
+  <InterfaceList>
+    <EventInputs>
+      <Event Comment="Initialization Request" Name="EI1" Type="Event"/>
+      <Event Name="EI2" Type="Event"/>
+      <Event Name="EI3" Type="Event"/>
+      <Event Name="EI4" Type="Event"/>
+      <Event Name="EI5" Type="Event"/>
+      <Event Name="EI6" Type="Event"/>
+      <Event Name="EI7" Type="Event"/>
+      <Event Name="EI8" Type="Event"/>
+      <Event Name="EI9" Type="Event"/>
+      <Event Name="EI10" Type="Event"/>
+      <Event Name="EI11" Type="Event"/>
+      <Event Name="EI12" Type="Event"/>
+      <Event Name="EI13" Type="Event"/>
+      <Event Name="EI14" Type="Event"/>
+      <Event Name="EI15" Type="Event"/>
+      <Event Name="EI16" Type="Event"/>
+    </EventInputs>
+    <EventOutputs>
+      <Event Comment="Initialization Confirm" Name="EO" Type="Event"/>
+    </EventOutputs>
+    <InputVars/>
+    <OutputVars/>
+  </InterfaceList>
+  <FBNetwork>
+    <FB Name="E_MERGE" Type="E_MERGE" x="720.0" y="-120.0"/>
+    <FB Name="E_MERGE_1" Type="E_MERGE" x="1320.0" y="120.0"/>
+    <FB Name="E_MERGE_2" Type="E_MERGE" x="1920.0" y="360.0"/>
+    <FB Name="E_MERGE_3" Type="E_MERGE" x="2520.0" y="600.0"/>
+    <FB Name="E_MERGE_4" Type="E_MERGE" x="3000.0" y="840.0"/>
+    <FB Name="E_MERGE_5" Type="E_MERGE" x="3480.0" y="1080.0"/>
+    <FB Name="E_MERGE_6" Type="E_MERGE" x="2520.0" y="-120.0"/>
+    <FB Name="E_MERGE_7" Type="E_MERGE" x="3120.0" y="120.0"/>
+    <FB Name="E_MERGE_8" Type="E_MERGE" x="3720.0" y="360.0"/>
+    <FB Name="E_MERGE_9" Type="E_MERGE" x="4200.0" y="600.0"/>
+    <FB Name="E_MERGE_10" Type="E_MERGE" x="4800.0" y="840.0"/>
+    <FB Name="E_MERGE_11" Type="E_MERGE" x="5400.0" y="1200.0"/>
+    <FB Name="E_MERGE_12" Type="E_MERGE" x="4560.0" y="-120.0"/>
+    <FB Name="E_MERGE_13" Type="E_MERGE" x="5160.0" y="120.0"/>
+    <FB Name="E_MERGE_14" Type="E_MERGE" x="5760.0" y="240.0"/>
+    <EventConnections>
+      <Connection Destination="E_MERGE.EI1" Source="EI1" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_MERGE.EI2" Source="EI2" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_MERGE_1.EI2" Source="EI3" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_MERGE_1.EI1" Source="E_MERGE.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_MERGE_2.EI1" Source="E_MERGE_1.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_MERGE_2.EI2" Source="EI4" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_MERGE_3.EI1" Source="E_MERGE_2.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_MERGE_3.EI2" Source="EI5" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_MERGE_4.EI1" Source="E_MERGE_3.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_MERGE_4.EI2" Source="EI6" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_MERGE_5.EI1" Source="E_MERGE_4.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_MERGE_5.EI2" Source="EI7" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_MERGE_6.EI1" Source="E_MERGE_5.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_MERGE_6.EI2" Source="EI8" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_MERGE_7.EI1" Source="E_MERGE_6.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_MERGE_7.EI2" Source="EI9" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_MERGE_8.EI1" Source="E_MERGE_7.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_MERGE_8.EI2" Source="EI10" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_MERGE_9.EI1" Source="E_MERGE_8.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_MERGE_9.EI2" Source="EI11" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_MERGE_10.EI1" Source="E_MERGE_9.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_MERGE_10.EI2" Source="EI12" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_MERGE_11.EI1" Source="E_MERGE_10.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_MERGE_11.EI2" Source="EI13" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_MERGE_12.EI1" Source="E_MERGE_11.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_MERGE_12.EI2" Source="EI14" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_MERGE_13.EI1" Source="E_MERGE_12.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_MERGE_13.EI2" Source="EI15" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_MERGE_14.EI1" Source="E_MERGE_13.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_MERGE_14.EI2" Source="EI16" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="EO" Source="E_MERGE_14.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+    </EventConnections>
+  </FBNetwork>
+</FBType>

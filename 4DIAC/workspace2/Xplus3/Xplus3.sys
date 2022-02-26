@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE System SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<System Name="Xplus3">
+  <VersionInfo Author="Author" Organization="4DIAC-Consortium" Version="1.0"/>
+  <Application Name="Xplus3Application">
+    <SubAppNetwork>
+      <FB Name="OUT_ANY" Type="OUT_ANY" x="3135.0" y="95.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="W" Value="20"/>
+        <Parameter Name="TYPE" Value="INT"/>
+        <Parameter Name="IVAL" Value="0"/>
+      </FB>
+      <FB Name="INT2INT" Type="INT2INT" x="2515.0" y="320.0"/>
+      <FB Name="INT2INT_0" Type="INT2INT" x="935.0" y="335.0"/>
+      <FB Name="F_ADD" Type="F_ADD" x="1710.0" y="190.0">
+        <Parameter Name="IN2" Value="INT#3"/>
+      </FB>
+      <FB Name="IN_ANY" Type="IN_ANY" x="315.0" y="75.0">
+        <Parameter Name="QI" Value="BOOL#1"/>
+        <Parameter Name="W" Value="20"/>
+        <Parameter Name="TYPE" Value="INT"/>
+        <Parameter Name="IVAL" Value="0"/>
+      </FB>
+      <EventConnections>
+        <Connection Destination="F_ADD.REQ" Source="INT2INT_0.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="INT2INT.REQ" Source="F_ADD.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="INT2INT_0.REQ" Source="IN_ANY.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="OUT_ANY.REQ" Source="INT2INT.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      </EventConnections>
+      <DataConnections>
+        <Connection Destination="F_ADD.IN1" Source="INT2INT_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="INT2INT.IN" Source="F_ADD.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="OUT_ANY.IN" Source="INT2INT.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="INT2INT_0.IN" Source="IN_ANY.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      </DataConnections>
+    </SubAppNetwork>
+  </Application>
+  <Device Name="MICROCONTROLLER" Type="FORTE_PC" x="95.0" y="570.0">
+    <Attribute Name="Color" Value="243,183,121"/>
+    <Attribute Name="Profile" Value="HOLOBLOC"/>
+    <Parameter Name="MGR_ID" Value="&quot;localhost:61499&quot;"/>
+    <Resource Name="CALC" Type="EMB_RES">
+      <FBNetwork>
+        <FB Name="F_ADD" Type="F_ADD" x="2160.0" y="360.0">
+          <Parameter Name="IN2" Value="INT#3"/>
+        </FB>
+        <FB Name="INT2INT_1" Type="INT2INT" x="2760.0" y="1200.0"/>
+        <FB Name="INT2INT_2" Type="INT2INT" x="1560.0" y="1080.0"/>
+        <FB Name="publish4FBDK" Type="PUBLISH_1" x="3420.0" y="190.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="ID" Value="239.192.0.2:61499"/>
+        </FB>
+        <FB Name="subscribeFromFBDK" Type="SUBSCRIBE_1" x="720.0" y="240.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="ID" Value="239.192.0.2:61500"/>
+        </FB>
+        <EventConnections>
+          <Connection Destination="F_ADD.REQ" Source="INT2INT_2.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="INT2INT_1.REQ" Source="F_ADD.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="publish4FBDK.REQ" Source="INT2INT_1.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="publish4FBDK.INIT" Source="subscribeFromFBDK.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="subscribeFromFBDK.INIT" Source="START.COLD" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="subscribeFromFBDK.INIT" Source="START.WARM" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="INT2INT_2.REQ" Source="subscribeFromFBDK.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+        </EventConnections>
+        <DataConnections>
+          <Connection Destination="F_ADD.IN1" Source="INT2INT_2.OUT" dx1="10.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="INT2INT_1.IN" Source="F_ADD.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="publish4FBDK.SD_1" Source="INT2INT_1.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="INT2INT_2.IN" Source="subscribeFromFBDK.RD_1" dx1="0.0" dx2="0.0" dy="0.0"/>
+        </DataConnections>
+      </FBNetwork>
+    </Resource>
+  </Device>
+  <Device Name="PC" Type="FBRT_WINDOW" x="1995.0" y="570.0">
+    <Attribute Name="Color" Value="148,121,243"/>
+    <Attribute Name="Profile" Value="HOLOBLOC"/>
+    <Parameter Name="BOUNDS" Value="[50,50,250,100]"/>
+    <Parameter Name="GRID" Value="[1,1]"/>
+    <Parameter Name="MGR_ID" Value="&quot;localhost:61499&quot;"/>
+    <Resource Name="VIS" Type="PANEL_RESOURCE">
+      <FBNetwork>
+        <FB Name="INT2INT_0" Type="INT2INT" x="1200.0" y="720.0"/>
+        <FB Name="INT2INT" Type="INT2INT" x="3515.0" y="760.0"/>
+        <FB Name="OUT_ANY" Type="OUT_ANY" x="4085.0" y="475.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="W" Value="20"/>
+          <Parameter Name="TYPE" Value="INT"/>
+          <Parameter Name="IVAL" Value="0"/>
+        </FB>
+        <FB Name="SUBSCRIBE_1_0" Type="SUBSCRIBE_1" x="2880.0" y="120.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="ID" Value="239.192.0.2:61499"/>
+        </FB>
+        <FB Name="PUBLISH_1_0" Type="PUBLISH_1" x="1805.0" y="0.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="ID" Value="239.192.0.2:61500"/>
+        </FB>
+        <FB Name="IN_ANY" Type="IN_ANY" x="480.0" y="1200.0">
+          <Parameter Name="QI" Value="BOOL#1"/>
+          <Parameter Name="W" Value="20"/>
+          <Parameter Name="TYPE" Value="INT"/>
+          <Parameter Name="IVAL" Value="0"/>
+        </FB>
+        <EventConnections>
+          <Connection Destination="SUBSCRIBE_1_0.INIT" Source="PUBLISH_1_0.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="OUT_ANY.INIT" Source="SUBSCRIBE_1_0.INITO" dx1="795.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBLISH_1_0.REQ" Source="INT2INT_0.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="INT2INT.REQ" Source="SUBSCRIBE_1_0.IND" dx1="265.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="INT2INT_0.REQ" Source="IN_ANY.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="IN_ANY.INIT" Source="START.COLD" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="IN_ANY.INIT" Source="START.WARM" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBLISH_1_0.INIT" Source="IN_ANY.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="OUT_ANY.REQ" Source="INT2INT.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        </EventConnections>
+        <DataConnections>
+          <Connection Destination="OUT_ANY.IN" Source="INT2INT.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBLISH_1_0.SD_1" Source="INT2INT_0.OUT" dx1="200.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="INT2INT.IN" Source="SUBSCRIBE_1_0.RD_1" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="INT2INT_0.IN" Source="IN_ANY.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        </DataConnections>
+      </FBNetwork>
+    </Resource>
+  </Device>
+  <Mapping From="Xplus3Application.OUT_ANY" To="PC.VIS.OUT_ANY"/>
+  <Mapping From="Xplus3Application.INT2INT" To="PC.VIS.INT2INT"/>
+  <Mapping From="Xplus3Application.INT2INT_0" To="PC.VIS.INT2INT_0"/>
+  <Mapping From="Xplus3Application.F_ADD" To="MICROCONTROLLER.CALC.F_ADD"/>
+  <Mapping From="Xplus3Application.IN_ANY" To="PC.VIS.IN_ANY"/>
+  <Segment Name="Ethernet" Type="Ethernet" dx1="2760.0" x="665.0" y="95.0"/>
+  <Link CommResource="MICROCONTROLLER" Comment="" SegmentName="Ethernet"/>
+  <Link CommResource="PC" Comment="" SegmentName="Ethernet"/>
+</System>

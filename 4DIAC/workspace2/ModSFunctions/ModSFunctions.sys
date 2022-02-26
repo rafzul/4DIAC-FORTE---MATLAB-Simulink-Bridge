@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE System SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<System Name="ModSFunctions">
+  <VersionInfo Author="Author" Organization="4DIAC-Consortium" Version="1.0"/>
+  <Application Name="Constants">
+    <SubAppNetwork>
+      <FB Name="LREAL2LREAL_0" Type="LREAL2LREAL" x="2160.0" y="360.0"/>
+      <FB Name="LREAL2LREAL_3" Type="LREAL2LREAL" x="2160.0" y="1080.0"/>
+      <FB Name="E_CYCLE" Type="E_CYCLE" x="3240.0" y="480.0">
+        <Parameter Name="DT" Value="T#1s"/>
+      </FB>
+      <FB Name="SERVER_5_3" Type="SERVER_5_3" x="3600.0" y="1440.0">
+        <Parameter Name="QI" Value="TRUE"/>
+        <Parameter Name="ID" Value="localhost:61500"/>
+      </FB>
+      <FB Name="LREAL2LREAL_1" Type="LREAL2LREAL" x="2160.0" y="1800.0"/>
+      <FB Name="LREAL2LREAL_4" Type="LREAL2LREAL" x="2160.0" y="3240.0"/>
+      <FB Name="LREAL2LREAL_2" Type="LREAL2LREAL" x="2160.0" y="2640.0"/>
+      <FB Name="LREAL2LREAL5_0" Type="LREAL2LREAL" x="4440.0" y="1080.0"/>
+      <FB Name="LREAL2LREAL5_0_0_0" Type="LREAL2LREAL" x="4440.0" y="2640.0"/>
+      <FB Name="LREAL2LREAL5_0_0" Type="LREAL2LREAL" x="4440.0" y="1800.0"/>
+      <FB Name="R1" Type="F_ADD" x="6480.0" y="960.0">
+        <Parameter Name="IN2" Value="LREAL#2"/>
+      </FB>
+      <FB Name="R2" Type="F_ADD" x="6480.0" y="1800.0">
+        <Parameter Name="IN2" Value="LREAL#1"/>
+      </FB>
+      <FB Name="R3" Type="F_ADD" x="6480.0" y="2520.0">
+        <Parameter Name="IN2" Value="LREAL#1"/>
+      </FB>
+      <FB Name="C2" Type="F_ADD" x="6480.0" y="3960.0">
+        <Parameter Name="IN2" Value="LREAL#1"/>
+      </FB>
+      <FB Name="C1" Type="F_ADD" x="6480.0" y="3240.0">
+        <Parameter Name="IN2" Value="LREAL#1"/>
+      </FB>
+      <EventConnections>
+        <Connection Destination="E_CYCLE.START" Source="LREAL2LREAL_0.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="E_CYCLE.START" Source="LREAL2LREAL_3.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="E_CYCLE.START" Source="SERVER_5_3.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_5_3.RSP" Source="E_CYCLE.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="E_CYCLE.START" Source="LREAL2LREAL_1.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="E_CYCLE.START" Source="LREAL2LREAL_2.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="E_CYCLE.START" Source="LREAL2LREAL_4.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="LREAL2LREAL5_0.REQ" Source="SERVER_5_3.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="LREAL2LREAL5_0_0_0.REQ" Source="SERVER_5_3.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="LREAL2LREAL5_0_0.REQ" Source="SERVER_5_3.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="R1.REQ" Source="LREAL2LREAL5_0.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="LREAL2LREAL_0.REQ" Source="R1.CNF" dx1="0.0" dx2="0.0" dy="-450.0"/>
+        <Connection Destination="R2.REQ" Source="LREAL2LREAL5_0_0.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="LREAL2LREAL_3.REQ" Source="R2.CNF" dx1="0.0" dx2="0.0" dy="-1330.0"/>
+        <Connection Destination="R3.REQ" Source="LREAL2LREAL5_0_0.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="LREAL2LREAL_1.REQ" Source="R3.CNF" dx1="0.0" dx2="0.0" dy="2340.0"/>
+        <Connection Destination="C2.REQ" Source="LREAL2LREAL5_0_0_0.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="LREAL2LREAL_4.REQ" Source="C2.CNF" dx1="0.0" dx2="0.0" dy="1090.0"/>
+        <Connection Destination="C1.REQ" Source="LREAL2LREAL5_0_0_0.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="LREAL2LREAL_2.REQ" Source="C1.CNF" dx1="0.0" dx2="0.0" dy="1900.0"/>
+      </EventConnections>
+      <DataConnections>
+        <Connection Destination="SERVER_5_3.SD_1" Source="LREAL2LREAL_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_5_3.SD_2" Source="LREAL2LREAL_3.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_5_3.SD_5" Source="LREAL2LREAL_4.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_5_3.SD_4" Source="LREAL2LREAL_2.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_5_3.SD_3" Source="LREAL2LREAL_1.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="LREAL2LREAL5_0.IN" Source="SERVER_5_3.RD_1" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="LREAL2LREAL5_0_0_0.IN" Source="SERVER_5_3.RD_3" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="LREAL2LREAL5_0_0.IN" Source="SERVER_5_3.RD_2" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="R1.IN1" Source="LREAL2LREAL5_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="LREAL2LREAL_0.IN" Source="R1.OUT" dx1="0.0" dx2="0.0" dy="-570.0"/>
+        <Connection Destination="R2.IN1" Source="LREAL2LREAL5_0_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="LREAL2LREAL_3.IN" Source="R2.OUT" dx1="250.0" dx2="-220.0" dy="-1520.0"/>
+        <Connection Destination="R3.IN1" Source="LREAL2LREAL5_0_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="LREAL2LREAL_1.IN" Source="R3.OUT" dx1="325.0" dx2="-340.0" dy="-2475.0"/>
+        <Connection Destination="C2.IN1" Source="LREAL2LREAL5_0_0_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="LREAL2LREAL_4.IN" Source="C2.OUT" dx1="0.0" dx2="0.0" dy="425.0"/>
+        <Connection Destination="C1.IN1" Source="LREAL2LREAL5_0_0_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="LREAL2LREAL_2.IN" Source="C1.OUT" dx1="350.0" dx2="-350.0" dy="1275.0"/>
+      </DataConnections>
+    </SubAppNetwork>
+  </Application>
+  <Application Name="aa">
+    <SubAppNetwork>
+      <FB Name="E_SR" Type="E_SR" x="1320.0" y="1560.0"/>
+      <FB Name="E_DELAY" Type="E_DELAY" x="480.0" y="1560.0">
+        <Parameter Name="DT" Value="T#30s"/>
+      </FB>
+      <FB Name="F_SEL" Type="F_SEL" x="2040.0" y="2400.0">
+        <Parameter Name="IN1" Value="REAL#6"/>
+      </FB>
+      <FB Name="REAL2REAL" Type="REAL2REAL" x="960.0" y="2640.0"/>
+      <FB Name="IN_ANY" Type="IN_ANY" x="120.0" y="2520.0">
+        <Parameter Name="QI" Value="BOOL#1"/>
+        <Parameter Name="W" Value="20"/>
+        <Parameter Name="TYPE" Value="REAL"/>
+        <Parameter Name="IVAL" Value="20"/>
+      </FB>
+      <EventConnections>
+        <Connection Destination="E_SR.R" Source="E_DELAY.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_SEL.REQ" Source="E_SR.EO" dx1="225.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="E_SR.S" Source="REAL2REAL.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="E_DELAY.START" Source="F_SEL.CNF" dx1="0.0" dx2="0.0" dy="-1005.0"/>
+        <Connection Destination="REAL2REAL.REQ" Source="IN_ANY.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="IN_ANY.REQ" Source="IN_ANY.INITO" dx1="0.0" dx2="0.0" dy="-255.0"/>
+      </EventConnections>
+      <DataConnections>
+        <Connection Destination="F_SEL.IN0" Source="REAL2REAL.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_SEL.G" Source="E_SR.Q" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="REAL2REAL.IN" Source="IN_ANY.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      </DataConnections>
+    </SubAppNetwork>
+  </Application>
+  <Device Name="FORTE_PC" Type="FORTE_PC" x="4030.0" y="2095.0">
+    <Attribute Name="Color" Value="95,178,203"/>
+    <Attribute Name="Profile" Value="HOLOBLOC"/>
+    <Parameter Name="MGR_ID" Value="&quot;localhost:61500&quot;"/>
+    <Resource Name="EMB_RES" Type="EMB_RES">
+      <FBNetwork>
+        <FB Name="C1" Type="F_ADD" x="5640.0" y="2640.0">
+          <Parameter Name="IN2" Value="LREAL#1"/>
+        </FB>
+        <FB Name="C2" Type="F_ADD" x="5640.0" y="3360.0">
+          <Parameter Name="IN2" Value="LREAL#1"/>
+        </FB>
+        <FB Name="R3" Type="F_ADD" x="5640.0" y="1920.0">
+          <Parameter Name="IN2" Value="LREAL#1"/>
+        </FB>
+        <FB Name="R2" Type="F_ADD" x="5640.0" y="1200.0">
+          <Parameter Name="IN2" Value="LREAL#1"/>
+        </FB>
+        <FB Name="R1" Type="F_ADD" x="5640.0" y="360.0">
+          <Parameter Name="IN2" Value="LREAL#2"/>
+        </FB>
+        <FB Name="LREAL2LREAL5_0_0" Type="LREAL2LREAL" x="4680.0" y="1560.0"/>
+        <FB Name="LREAL2LREAL5_0_0_0" Type="LREAL2LREAL" x="4680.0" y="2400.0"/>
+        <FB Name="LREAL2LREAL5_0" Type="LREAL2LREAL" x="4680.0" y="720.0"/>
+        <FB Name="LREAL2LREAL_2" Type="LREAL2LREAL" x="2160.0" y="2400.0"/>
+        <FB Name="LREAL2LREAL_4" Type="LREAL2LREAL" x="2160.0" y="3120.0"/>
+        <FB Name="LREAL2LREAL_1" Type="LREAL2LREAL" x="2160.0" y="1800.0"/>
+        <FB Name="SERVER_5_3" Type="SERVER_5_3" x="3600.0" y="1440.0">
+          <Parameter Name="QI" Value="TRUE"/>
+          <Parameter Name="ID" Value="localhost:61500"/>
+        </FB>
+        <FB Name="E_CYCLE" Type="E_CYCLE" x="3240.0" y="480.0">
+          <Parameter Name="DT" Value="T#1s"/>
+        </FB>
+        <FB Name="LREAL2LREAL_3" Type="LREAL2LREAL" x="2160.0" y="1080.0"/>
+        <FB Name="LREAL2LREAL_0" Type="LREAL2LREAL" x="2160.0" y="360.0"/>
+        <EventConnections>
+          <Connection Destination="R2.REQ" Source="LREAL2LREAL5_0_0.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="R3.REQ" Source="LREAL2LREAL5_0_0.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="C2.REQ" Source="LREAL2LREAL5_0_0_0.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="C1.REQ" Source="LREAL2LREAL5_0_0_0.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="R1.REQ" Source="LREAL2LREAL5_0.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="LREAL2LREAL_2.REQ" Source="C1.CNF" dx1="0.0" dx2="0.0" dy="1900.0"/>
+          <Connection Destination="LREAL2LREAL_4.REQ" Source="C2.CNF" dx1="0.0" dx2="0.0" dy="1090.0"/>
+          <Connection Destination="LREAL2LREAL_1.REQ" Source="R3.CNF" dx1="0.0" dx2="0.0" dy="2340.0"/>
+          <Connection Destination="SERVER_5_3.INIT" Source="START.COLD" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SERVER_5_3.INIT" Source="START.WARM" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="LREAL2LREAL5_0.REQ" Source="SERVER_5_3.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="LREAL2LREAL5_0_0_0.REQ" Source="SERVER_5_3.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="LREAL2LREAL5_0_0.REQ" Source="SERVER_5_3.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="E_CYCLE.START" Source="SERVER_5_3.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="E_CYCLE.START" Source="LREAL2LREAL_1.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="E_CYCLE.START" Source="LREAL2LREAL_2.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="E_CYCLE.START" Source="LREAL2LREAL_4.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SERVER_5_3.RSP" Source="E_CYCLE.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="LREAL2LREAL_3.REQ" Source="R2.CNF" dx1="0.0" dx2="0.0" dy="-1330.0"/>
+          <Connection Destination="E_CYCLE.START" Source="LREAL2LREAL_3.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="LREAL2LREAL_0.REQ" Source="R1.CNF" dx1="0.0" dx2="0.0" dy="-450.0"/>
+          <Connection Destination="E_CYCLE.START" Source="LREAL2LREAL_0.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        </EventConnections>
+        <DataConnections>
+          <Connection Destination="R2.IN1" Source="LREAL2LREAL5_0_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="R3.IN1" Source="LREAL2LREAL5_0_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="C2.IN1" Source="LREAL2LREAL5_0_0_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="C1.IN1" Source="LREAL2LREAL5_0_0_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="R1.IN1" Source="LREAL2LREAL5_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="LREAL2LREAL_2.IN" Source="C1.OUT" dx1="350.0" dx2="-350.0" dy="1275.0"/>
+          <Connection Destination="LREAL2LREAL_4.IN" Source="C2.OUT" dx1="0.0" dx2="0.0" dy="425.0"/>
+          <Connection Destination="LREAL2LREAL_1.IN" Source="R3.OUT" dx1="325.0" dx2="-340.0" dy="-2475.0"/>
+          <Connection Destination="SERVER_5_3.SD_3" Source="LREAL2LREAL_1.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SERVER_5_3.SD_4" Source="LREAL2LREAL_2.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SERVER_5_3.SD_5" Source="LREAL2LREAL_4.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="LREAL2LREAL5_0.IN" Source="SERVER_5_3.RD_1" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="LREAL2LREAL5_0_0.IN" Source="SERVER_5_3.RD_2" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="LREAL2LREAL5_0_0_0.IN" Source="SERVER_5_3.RD_3" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="LREAL2LREAL_3.IN" Source="R2.OUT" dx1="250.0" dx2="-220.0" dy="-1520.0"/>
+          <Connection Destination="SERVER_5_3.SD_2" Source="LREAL2LREAL_3.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="LREAL2LREAL_0.IN" Source="R1.OUT" dx1="0.0" dx2="0.0" dy="-570.0"/>
+          <Connection Destination="SERVER_5_3.SD_1" Source="LREAL2LREAL_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        </DataConnections>
+      </FBNetwork>
+    </Resource>
+  </Device>
+  <Device Name="FORTE_PC_1" Type="FORTE_PC" x="5130.0" y="855.0">
+    <Attribute Name="Color" Value="198,154,89"/>
+    <Attribute Name="Profile" Value="HOLOBLOC"/>
+    <Parameter Name="MGR_ID" Value="&quot;localhost:61499&quot;"/>
+    <Resource Name="EMB_RES" Type="EMB_RES">
+      <FBNetwork>
+        <FB Name="E_DELAY" Type="E_DELAY" x="720.0" y="1680.0">
+          <Parameter Name="DT" Value="T#30s"/>
+        </FB>
+        <FB Name="E_SR" Type="E_SR" x="1440.0" y="1440.0"/>
+        <FB Name="REAL2REAL" Type="REAL2REAL" x="1200.0" y="2520.0"/>
+        <FB Name="IN_ANY" Type="IN_ANY" x="480.0" y="2520.0">
+          <Parameter Name="QI" Value="BOOL#1"/>
+          <Parameter Name="W" Value="20"/>
+          <Parameter Name="TYPE" Value="REAL"/>
+          <Parameter Name="IVAL" Value="20"/>
+        </FB>
+        <FB Name="F_SEL" Type="F_SEL" x="2040.0" y="2400.0">
+          <Parameter Name="IN1" Value="REAL#6"/>
+        </FB>
+        <EventConnections>
+          <Connection Destination="E_SR.R" Source="E_DELAY.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="E_SR.S" Source="REAL2REAL.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="REAL2REAL.REQ" Source="IN_ANY.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="F_SEL.REQ" Source="E_SR.EO" dx1="225.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="E_DELAY.START" Source="F_SEL.CNF" dx1="0.0" dx2="0.0" dy="-1005.0"/>
+          <Connection Destination="IN_ANY.INIT" Source="START.COLD" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="IN_ANY.INIT" Source="START.WARM" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="IN_ANY.REQ" Source="IN_ANY.INITO" dx1="0.0" dx2="0.0" dy="-255.0"/>
+        </EventConnections>
+        <DataConnections>
+          <Connection Destination="REAL2REAL.IN" Source="IN_ANY.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="F_SEL.G" Source="E_SR.Q" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="F_SEL.IN0" Source="REAL2REAL.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        </DataConnections>
+      </FBNetwork>
+    </Resource>
+  </Device>
+  <Mapping From="Constants.LREAL2LREAL_0" To="FORTE_PC.EMB_RES.LREAL2LREAL_0"/>
+  <Mapping From="Constants.LREAL2LREAL_3" To="FORTE_PC.EMB_RES.LREAL2LREAL_3"/>
+  <Mapping From="Constants.E_CYCLE" To="FORTE_PC.EMB_RES.E_CYCLE"/>
+  <Mapping From="Constants.SERVER_5_3" To="FORTE_PC.EMB_RES.SERVER_5_3"/>
+  <Mapping From="Constants.LREAL2LREAL_1" To="FORTE_PC.EMB_RES.LREAL2LREAL_1"/>
+  <Mapping From="Constants.LREAL2LREAL_4" To="FORTE_PC.EMB_RES.LREAL2LREAL_4"/>
+  <Mapping From="Constants.LREAL2LREAL_2" To="FORTE_PC.EMB_RES.LREAL2LREAL_2"/>
+  <Mapping From="Constants.LREAL2LREAL5_0" To="FORTE_PC.EMB_RES.LREAL2LREAL5_0"/>
+  <Mapping From="Constants.LREAL2LREAL5_0_0_0" To="FORTE_PC.EMB_RES.LREAL2LREAL5_0_0_0"/>
+  <Mapping From="Constants.LREAL2LREAL5_0_0" To="FORTE_PC.EMB_RES.LREAL2LREAL5_0_0"/>
+  <Mapping From="Constants.R1" To="FORTE_PC.EMB_RES.R1"/>
+  <Mapping From="Constants.R2" To="FORTE_PC.EMB_RES.R2"/>
+  <Mapping From="Constants.R3" To="FORTE_PC.EMB_RES.R3"/>
+  <Mapping From="Constants.C2" To="FORTE_PC.EMB_RES.C2"/>
+  <Mapping From="Constants.C1" To="FORTE_PC.EMB_RES.C1"/>
+  <Mapping From="aa.E_SR" To="FORTE_PC_1.EMB_RES.E_SR"/>
+  <Mapping From="aa.E_DELAY" To="FORTE_PC_1.EMB_RES.E_DELAY"/>
+  <Mapping From="aa.F_SEL" To="FORTE_PC_1.EMB_RES.F_SEL"/>
+  <Mapping From="aa.REAL2REAL" To="FORTE_PC_1.EMB_RES.REAL2REAL"/>
+  <Mapping From="aa.IN_ANY" To="FORTE_PC_1.EMB_RES.IN_ANY"/>
+  <Segment Name="Ethernet" Type="Ethernet" dx1="1500.0" x="2780.0" y="1205.0"/>
+  <Link CommResource="FORTE_PC_1" Comment="" SegmentName="Ethernet"/>
+</System>

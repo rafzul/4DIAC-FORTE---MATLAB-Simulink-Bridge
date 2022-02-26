@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE FBType SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<FBType Comment="Composite Function Block Type" Name="StatusLight">
+  <Identification Standard="61499-2"/>
+  <VersionInfo Author="4DIAC-IDE" Date="2015-05-20" Organization="4DIAC-Consortium" Version="0.0"/>
+  <InterfaceList>
+    <EventInputs/>
+    <EventOutputs>
+      <Event Comment="Execution Confirmation" Name="EOred" Type="Event">
+        <With Var="Red"/>
+      </Event>
+      <Event Name="EOorange" Type="Event">
+        <With Var="Orange"/>
+      </Event>
+      <Event Name="EOgreen" Type="Event">
+        <With Var="Green"/>
+      </Event>
+    </EventOutputs>
+    <InputVars/>
+    <OutputVars>
+      <VarDeclaration Comment="Output event qualifier" Name="Red" Type="BOOL"/>
+      <VarDeclaration Name="Orange" Type="BOOL"/>
+      <VarDeclaration Name="Green" Type="BOOL"/>
+    </OutputVars>
+    <Sockets>
+      <AdapterDeclaration Name="StatusLight" Type="AStatusLight" x="950.0" y="95.0"/>
+    </Sockets>
+  </InterfaceList>
+  <FBNetwork>
+    <FB Name="LightMode" Type="LightMode" x="2850.0" y="-380.0">
+      <Parameter Name="BlinkInterval" Value="t#500ms"/>
+    </FB>
+    <FB Name="LightMode_1" Type="LightMode" x="2850.0" y="285.0">
+      <Parameter Name="BlinkInterval" Value="t#500ms"/>
+    </FB>
+    <FB Name="LightMode_2" Type="LightMode" x="2850.0" y="950.0">
+      <Parameter Name="BlinkInterval" Value="t#500ms"/>
+    </FB>
+    <DataConnections>
+      <Connection Destination="Red" Source="LightMode.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="Orange" Source="LightMode_1.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="Green" Source="LightMode_2.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="LightMode.Blink" Source="StatusLight.BlinkRed" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="LightMode_1.Blink" Source="StatusLight.BlinkOrange" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="LightMode_2.Blink" Source="StatusLight.BlinkGreen" dx1="0.0" dx2="0.0" dy="0.0"/>
+    </DataConnections>
+    <EventConnections>
+      <Connection Destination="EOred" Source="LightMode.CMD" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="EOorange" Source="LightMode_1.CMD" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="EOgreen" Source="LightMode_2.CMD" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="LightMode.On" Source="StatusLight.EIred" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="LightMode_1.On" Source="StatusLight.EIorange" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="LightMode_2.On" Source="StatusLight.EIgreen" dx1="0.0" dx2="0.0" dy="0.0"/>
+    </EventConnections>
+  </FBNetwork>
+</FBType>

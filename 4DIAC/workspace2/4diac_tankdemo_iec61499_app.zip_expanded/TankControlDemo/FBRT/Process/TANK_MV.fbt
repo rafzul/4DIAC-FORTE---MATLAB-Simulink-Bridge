@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd" >
+<FBType Name="TANK_MV" Comment="Model+View for a Liquid Tank" >
+  <Identification Standard="61499-1" />
+  <VersionInfo Organization="Rockwell Automation" Version="0.2" Author="JHC" Date="2001-04-23" Remarks="Moved to fb.rt.process." />
+  <VersionInfo Organization="Rockwell Automation" Version="0.1" Author="JHC" Date="2000-06-21" Remarks="Uses LibraryElement.dtd" />
+  <VersionInfo Organization="Rockwell Automation" Version="0.0" Author="JHC" Date="2000-04-28" />
+  <CompilerInfo header="package fb.rt.process; import fb.rt.hmi.*; import fb.rt.math.*;" >
+    <Compiler Language="Java" Vendor="IBM" Product="VisualAge" Version="3.0" />
+  </CompilerInfo>
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="INIT" >
+        <With Var="LVLI" />
+        <With Var="TF" />
+        <With Var="DT" />
+        <With Var="FGD" />
+        <With Var="BKGD" />
+        <With Var="W" />
+        <With Var="H" />
+      </Event>
+      <Event Name="REQ" Comment="Run a Simulation Cycle" >
+        <With Var="FEED" />
+        <With Var="DRAW" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="INITO" >
+        <With Var="LEVEL" />
+      </Event>
+      <Event Name="CNF" >
+        <With Var="LEVEL" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="FEED" Type="REAL" InitialValue="0" Comment="Liquid Feed Rate(0-100,Arbitrary Units)" />
+      <VarDeclaration Name="DRAW" Type="REAL" InitialValue="0" Comment="Liquid Drain Rate(0-100,Arbitrary Units)" />
+      <VarDeclaration Name="LVLI" Type="REAL" Comment="Initial Level" />
+      <VarDeclaration Name="TF" Type="REAL" InitialValue="30" Comment="Filling time in seconds at(FEED-DRAW)=100" />
+      <VarDeclaration Name="DT" Type="REAL" InitialValue="0.25" Comment="Integration time interval in seconds" />
+      <VarDeclaration Name="FGD" Type="COLOR" InitialValue="blue" Comment="Foreground Color" />
+      <VarDeclaration Name="BKGD" Type="COLOR" InitialValue="white" Comment="Background Color" />
+      <VarDeclaration Name="W" Type="UINT" Comment="Bar width" />
+      <VarDeclaration Name="H" Type="UINT" Comment="Bar height" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="LEVEL" Type="REAL" InitialValue="0" Comment="Liquid Level(0-100,Arbitrary Units)" />
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork >
+    <FB Name="MDL" Type="TANK_MDL" x="288.2353" y="11.7647" />
+    <FB Name="CNVRT" Type="FB_REAL_UINT" x="976.4706" y="217.6470" />
+    <FB Name="VIEW" Type="FB_BAR" x="1605.8823" y="105.8824" />
+    <EventConnections>
+      <Connection Source="INIT" Destination="MDL.INIT" dx1="182.3529" />
+      <Connection Source="MDL.INITO" Destination="VIEW.INIT" dx1="800" />
+      <Connection Source="VIEW.INITO" Destination="INITO" dx1="2064.7058" />
+      <Connection Source="REQ" Destination="MDL.REQ" dx1="176.4706" />
+      <Connection Source="MDL.CNF" Destination="CNVRT.REQ" dx1="76.4706" />
+      <Connection Source="CNVRT.CNF" Destination="VIEW.REQ" dx1="35.2941" />
+      <Connection Source="VIEW.CNF" Destination="CNF" dx1="2041.1764" />
+    </EventConnections>
+    <DataConnections>
+      <Connection Source="LVLI" Destination="MDL.LVLI" dx1="176.4706" />
+      <Connection Source="TF" Destination="MDL.TF" dx1="200" />
+      <Connection Source="DT" Destination="MDL.DT" dx1="200" />
+      <Connection Source="FEED" Destination="MDL.FEED" dx1="158.8235" />
+      <Connection Source="DRAW" Destination="MDL.DRAW" dx1="152.9412" />
+      <Connection Source="MDL.LEVEL" Destination="CNVRT.IN" dx1="205.8824" />
+      <Connection Source="MDL.LEVEL" Destination="LEVEL" dx1="800" />
+      <Connection Source="CNVRT.OUT" Destination="VIEW.IN" dx1="35.2941" />
+      <Connection Source="FGD" Destination="VIEW.FGD" dx1="1494.1177" />
+      <Connection Source="BKGD" Destination="VIEW.BKGD" dx1="1470.5883" />
+      <Connection Source="W" Destination="VIEW.W" dx1="1529.4117" />
+      <Connection Source="H" Destination="VIEW.H" dx1="1535.2941" />
+      <Connection Source="3" Destination="VIEW.DIR" dx1="1541.1764" />
+      <Connection Source="5" Destination="VIEW.STYLE" dx1="1541.1764" />
+    </DataConnections>
+  </FBNetwork>
+</FBType>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE FBType SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<FBType Comment="Composite Function Block Type" Name="ControlComputation">
+  <Identification Standard="61499-2"/>
+  <VersionInfo Author="4DIAC-IDE" Date="2011-12-18" Organization="4DIAC-Consortium" Version="0.0"/>
+  <InterfaceList>
+    <EventInputs>
+      <Event Comment="Normal Execution Request" Name="REQ" Type="Event">
+        <With Var="Input1"/>
+        <With Var="Input2"/>
+        <With Var="Input3"/>
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Comment="Execution Confirmation" Name="CNF" Type="Event">
+        <With Var="ControlOut"/>
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Comment="Input event qualifier" Name="Input1" Type="LREAL"/>
+      <VarDeclaration Name="Input2" Type="LREAL"/>
+      <VarDeclaration Name="Input3" Type="LREAL"/>
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Comment="Output event qualifier" Name="ControlOut" Type="LREAL"/>
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB Name="FeedwaterEstimator" Type="FeedwaterEstimator" x="475.0" y="-95.0"/>
+    <FB Name="rFlowDifference" Type="F_SUB" x="1520.0" y="-95.0"/>
+    <FB Name="ControlOut" Type="F_ADD" x="2945.0" y="-95.0"/>
+    <FB Name="LREAL2LREAL" Type="LREAL2LREAL" x="2185.0" y="-95.0"/>
+    <DataConnections>
+      <Connection Comment="" Destination="FeedwaterEstimator.rSteamFlow" Source="Input3" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="rFlowDifference.IN1" Source="FeedwaterEstimator.FeedwaterEst" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="rFlowDifference.IN2" Source="Input2" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="ControlOut.IN1" Source="Input1" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="LREAL2LREAL.IN" Source="rFlowDifference.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="ControlOut.IN2" Source="LREAL2LREAL.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="ControlOut" Source="ControlOut.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+    </DataConnections>
+    <EventConnections>
+      <Connection Comment="" Destination="FeedwaterEstimator.REQ" Source="REQ" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="rFlowDifference.REQ" Source="FeedwaterEstimator.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="LREAL2LREAL.REQ" Source="rFlowDifference.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="ControlOut.REQ" Source="LREAL2LREAL.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="CNF" Source="ControlOut.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+    </EventConnections>
+  </FBNetwork>
+</FBType>

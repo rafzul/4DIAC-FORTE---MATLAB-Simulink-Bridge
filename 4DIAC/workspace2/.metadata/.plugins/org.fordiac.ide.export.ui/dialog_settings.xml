@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item value="FORTE 1.x" key="SelectFBTypesWizardPage.STORE_CURRENT_FILTER_SELECTION_ID"/>
+	<list key="SelectFBTypesWizardPage.STORE_DIRECTORY_NAMES_ID">
+		<item value="D:\Apps\4DIAC-IDE_1.8.4_win32.x86_64\runtime\FORTE\1.8.4\FORTE_FOLDER_ROOT\src\modules\OSCAT\Custom"/>
+		<item value="D:\Apps\4DIAC-IDE_1.8.4_win32.x86_64\runtime\FORTE\1.8.4\FORTE_FOLDER_ROOT\src\modules\OSCAT"/>
+		<item value="D:\Apps\4DIAC-IDE_1.8.4_win32.x86_64\runtime\FORTE\1.8.4\FORTE_FOLDER_ROOT\src\stdfblib\events"/>
+		<item value="C:\Users\Rafi Zulfahmi\Desktop"/>
+		<item value="D:\Apps\4DIAC-IDE_1.8.4_win32.x86_64\runtime\FORTE\1.8.4\FORTE_FOLDER_ROOT\src\modules\EXTERNAL_MODULES\mech"/>
+		<item value="D:\Apps\4DIAC-IDE_1.8.4_win32.x86_64\runtime\FORTE\1.8.4\FORTE_FOLDER_ROOT\src\modules\EXTERNAL_MODULES\net"/>
+		<item value="D:\Apps\4DIAC-IDE_1.8.4_win32.x86_64\runtime\FORTE\1.8.4\FORTE_FOLDER_ROOT\src\modules\net"/>
+		<item value="D:\Apps\4DIAC-IDE_1.8.4_win32.x86_64\runtime\FORTE\1.8.4\FORTE_FOLDER_ROOT\src\modules\mech"/>
+		<item value="D:\Apps\4DIAC-IDE_1.8.4_win32.x86_64\runtime\FORTE\1.8.4\FORTE_FOLDER_ROOT\src\modules\FBRT\hmi"/>
+		<item value="D:\Apps\4DIAC-IDE_1.8.4_win32.x86_64\runtime\FORTE\1.8.4\FORTE_FOLDER_ROOT\src\modules\FBRT"/>
+	</list>
+	<section name="4DIAC_EXPORT_SECTION">
+	</section>
+</section>

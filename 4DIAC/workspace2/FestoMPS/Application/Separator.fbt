@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE FBType SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<FBType Comment="Basic Function Block Type" Name="Separator">
+  <Identification Standard="61499-2"/>
+  <VersionInfo Author="4DIAC-IDE" Date="2015-03-24" Organization="4DIAC-Consortium" Version="0.0"/>
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="ReleasePosition" Type="Event"/>
+      <Event Name="ConfinePosition" Type="Event"/>
+      <Event Name="INDsensor" Type="Event">
+        <With Var="PartAtAssembly"/>
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="SeparatorCMD" Type="Event">
+        <With Var="CounterclockRotate"/>
+      </Event>
+      <Event Name="WPAtSeparator" Type="Event"/>
+      <Event Name="WPatAssembly" Type="Event"/>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="PartAtAssembly" Type="BOOL"/>
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="CounterclockRotate" Type="BOOL"/>
+    </OutputVars>
+    <Plugs>
+      <AdapterDeclaration Name="Timer" Type="ATimeOut"/>
+    </Plugs>
+  </InterfaceList>
+  <BasicFB>
+    <ECC>
+      <ECState Comment="Initial State" Name="START" x="190.0" y="760.0"/>
+      <ECState Name="ReleasePosition" x="1330.0" y="760.0">
+        <ECAction Algorithm="ReleaseWP" Output="SeparatorCMD"/>
+        <ECAction Algorithm="SetTimer" Output="Timer.START"/>
+      </ECState>
+      <ECState Name="AssemblePosition" x="1330.0" y="1140.0">
+        <ECAction Output="WPatAssembly"/>
+      </ECState>
+      <ECState Name="ConfinePosition" x="1330.0" y="285.0">
+        <ECAction Algorithm="AssembleWP" Output="SeparatorCMD"/>
+        <ECAction Output="Timer.STOP"/>
+      </ECState>
+      <ECState Name="TimeOut" x="2945.0" y="760.0">
+        <ECAction Output="Timer.STOP"/>
+      </ECState>
+      <ECState Name="ConfineAfterTimeOut" x="2945.0" y="475.0"/>
+      <ECTransition Comment="" Condition="ReleasePosition" Destination="ReleasePosition" Source="START" x="925.0" y="730.0"/>
+      <ECTransition Comment="" Condition="1" Destination="START" Source="ConfinePosition" x="980.0" y="440.0"/>
+      <ECTransition Comment="" Condition="1" Destination="START" Source="AssemblePosition" x="580.0" y="1370.0"/>
+      <ECTransition Comment="" Condition="1" Destination="START" Source="TimeOut" x="2125.0" y="1230.0"/>
+      <ECTransition Comment="" Condition="Timer.TimeOut" Destination="TimeOut" Source="ReleasePosition" x="2440.0" y="615.0"/>
+      <ECTransition Comment="" Condition="INDsensor&amp;PartAtAssembly" Destination="AssemblePosition" Source="START" x="930.0" y="1090.0"/>
+      <ECTransition Comment="" Condition="ConfinePosition" Destination="ConfinePosition" Source="START" x="780.0" y="215.0"/>
+      <ECTransition Comment="" Condition="ConfinePosition" Destination="ConfineAfterTimeOut" Source="ReleasePosition" x="2260.0" y="530.0"/>
+      <ECTransition Comment="" Condition="Timer.TimeOut" Destination="ConfinePosition" Source="ConfineAfterTimeOut" x="2555.0" y="40.0"/>
+    </ECC>
+    <Algorithm Comment="" Name="ReleaseWP">
+      <ST Text="CounterclockRotate := FALSE;"/>
+    </Algorithm>
+    <Algorithm Comment="" Name="AssembleWP">
+      <ST Text="CounterclockRotate := TRUE;"/>
+    </Algorithm>
+    <Algorithm Comment="new algorithm" Name="SetTimer">
+      <ST Text="Timer.DT := T#750ms;"/>
+    </Algorithm>
+  </BasicFB>
+  <Service Comment="Basic Function Block Type" LeftInterface="separator_interface" RightInterface="separator_implementation">
+    <ServiceSequence Name="ReleasePosition_Timer">
+      <ServiceTransaction>
+        <InputPrimitive Event="ReleasePosition" Interface="separator_interface" Parameters=""/>
+        <OutputPrimitive Event="SeparatorCMD" Interface="separator_interface" Parameters="CounterclockRotate = false"/>
+        <OutputPrimitive Event="Timer.START" Interface="separator_interface" Parameters="Timer.DT = T#750ms"/>
+      </ServiceTransaction>
+      <ServiceTransaction>
+        <InputPrimitive Event="Timer.TimeOut" Interface="separator_interface"/>
+        <OutputPrimitive Event="Timer.STOP" Interface="separator_interface"/>
+      </ServiceTransaction>
+    </ServiceSequence>
+    <ServiceSequence Name="AssemblePosition">
+      <ServiceTransaction>
+        <InputPrimitive Event="INDsensor" Interface="separator_interface" Parameters="PartAtAssembly = true"/>
+        <OutputPrimitive Event="WPatAssembly" Interface="separator_interface"/>
+      </ServiceTransaction>
+    </ServiceSequence>
+    <ServiceSequence Name="ConfinePosition">
+      <ServiceTransaction>
+        <InputPrimitive Event="ConfinePosition" Interface="separator_interface"/>
+        <OutputPrimitive Event="SeparatorCMD" Interface="separator_interface" Parameters="CounterclockRotate = true"/>
+        <OutputPrimitive Event="Timer.STOP" Interface="separator_interface"/>
+      </ServiceTransaction>
+    </ServiceSequence>
+    <ServiceSequence Name="ReleasePosition_Confine">
+      <ServiceTransaction>
+        <InputPrimitive Event="ReleasePosition" Interface="separator_interface"/>
+        <OutputPrimitive Event="SeparatorCMD" Interface="separator_interface" Parameters="CounterclockRotate = false"/>
+        <OutputPrimitive Event="Timer.START" Interface="separator_interface" Parameters="Timer.DT = T#750ms"/>
+      </ServiceTransaction>
+      <ServiceTransaction>
+        <InputPrimitive Event="ConfinePosition" Interface="separator_interface"/>
+      </ServiceTransaction>
+      <ServiceTransaction>
+        <InputPrimitive Event="Timer.TimeOut" Interface="separator_interface"/>
+        <OutputPrimitive Event="SeparatorCMD" Interface="separator_interface" Parameters="CounterclockRotate = true"/>
+        <OutputPrimitive Event="Timer.STOP" Interface="separator_interface"/>
+      </ServiceTransaction>
+    </ServiceSequence>
+  </Service>
+</FBType>

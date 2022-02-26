@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE FBType SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<FBType Comment="Identifier for the output module" Name="DO_4">
+  <Identification Standard="61499-2"/>
+  <VersionInfo Author="4DIAC-IDE" Date="2014-01-12" Organization="4DIAC-Consortium" Version="0.0"/>
+  <InterfaceList>
+    <EventInputs>
+      <Event Comment="Initialization Request" Name="INIT" Type="Event">
+        <With Var="QI"/>
+        <With Var="ID"/>
+      </Event>
+      <Event Comment="Normal Execution Request" Name="REQ" Type="Event">
+        <With Var="QI"/>
+        <With Var="OUT_1"/>
+        <With Var="OUT_2"/>
+        <With Var="OUT_3"/>
+        <With Var="OUT_4"/>
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Comment="Initialization Confirm" Name="INITO" Type="Event">
+        <With Var="QO"/>
+      </Event>
+      <Event Comment="Execution Confirmation" Name="CNF" Type="Event">
+        <With Var="QO"/>
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Comment="Input event qualifier" Name="QI" Type="BOOL"/>
+      <VarDeclaration Comment="Identifier for the output module" Name="ID" Type="WSTRING"/>
+      <VarDeclaration Name="OUT_1" Type="BOOL"/>
+      <VarDeclaration Name="OUT_2" Type="BOOL"/>
+      <VarDeclaration Name="OUT_3" Type="BOOL"/>
+      <VarDeclaration Name="OUT_4" Type="BOOL"/>
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Comment="Output event qualifier" Name="QO" Type="BOOL"/>
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB Name="PUBLISH_4" Type="PUBLISH_4" x="1140.0" y="0.0"/>
+    <DataConnections>
+      <Connection Comment="" Destination="PUBLISH_4.ID" Source="ID" dx1="455.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="PUBLISH_4.QI" Source="QI" dx1="565.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="PUBLISH_4.SD_1" Source="OUT_1" dx1="370.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="PUBLISH_4.SD_2" Source="OUT_2" dx1="285.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="PUBLISH_4.SD_3" Source="OUT_3" dx1="195.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="PUBLISH_4.SD_4" Source="OUT_4" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="QO" Source="PUBLISH_4.QO" dx1="315.0" dx2="0.0" dy="0.0"/>
+    </DataConnections>
+    <EventConnections>
+      <Connection Comment="" Destination="PUBLISH_4.INIT" Source="INIT" dx1="755.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="PUBLISH_4.REQ" Source="REQ" dx1="665.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="INITO" Source="PUBLISH_4.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="CNF" Source="PUBLISH_4.CNF" dx1="195.0" dx2="0.0" dy="0.0"/>
+    </EventConnections>
+  </FBNetwork>
+</FBType>

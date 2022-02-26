@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE FBType SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<FBType Comment="Basic Function Block Type" Name="GripperPneumatic">
+  <Identification Standard="61499-2"/>
+  <VersionInfo Author="4DIAC-IDE" Date="2014-08-21" Organization="4DIAC-Consortium" Version="0.0"/>
+  <CompilerInfo/>
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="INDsensor" Type="Event">
+        <With Var="Sensor_Grip"/>
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="GripperCMD" Type="Event">
+        <With Var="Release"/>
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Comment="Input event qualifier" Name="Sensor_Grip" Type="BOOL"/>
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Comment="Output event qualifier" Name="Release" Type="BOOL"/>
+    </OutputVars>
+    <Sockets>
+      <AdapterDeclaration Name="GripperPneumatic" Type="AGripperPneumatic"/>
+    </Sockets>
+    <Plugs>
+      <AdapterDeclaration Name="Timer" Type="ATimeOut"/>
+    </Plugs>
+  </InterfaceList>
+  <BasicFB>
+    <ECC>
+      <ECState Comment="Initial State" Name="START" x="1900.0" y="1615.0"/>
+      <ECState Comment="" Name="Released" x="2375.0" y="1995.0">
+        <ECAction Output="Timer.STOP"/>
+        <ECAction Output="GripperPneumatic.Released"/>
+      </ECState>
+      <ECState Comment="" Name="Release" x="1710.0" y="2945.0">
+        <ECAction Algorithm="ReleaseAlg" Output="GripperCMD"/>
+        <ECAction Algorithm="WaitAlg" Output="Timer.START"/>
+      </ECState>
+      <ECState Comment="" Name="Gripped" x="2375.0" y="1140.0">
+        <ECAction Output="Timer.STOP"/>
+        <ECAction Output="GripperPneumatic.Gripped"/>
+      </ECState>
+      <ECState Comment="" Name="Go_Grab" x="1520.0" y="570.0">
+        <ECAction Algorithm="GripAlg" Output="GripperCMD"/>
+        <ECAction Algorithm="WaitAlg" Output="Timer.START"/>
+      </ECState>
+      <ECState Name="GripFail" x="760.0" y="1140.0">
+        <ECAction Output="Timer.STOP"/>
+        <ECAction Output="GripperPneumatic.GripFail"/>
+        <ECAction Algorithm="ReleaseAlg" Output="GripperCMD"/>
+      </ECState>
+      <ECState Name="ReleaseFail" x="855.0" y="1995.0">
+        <ECAction Output="Timer.STOP"/>
+        <ECAction Output="GripperPneumatic.RelaseFail"/>
+      </ECState>
+      <ECTransition Comment="" Condition="GripperPneumatic.Grip" Destination="Go_Grab" Source="START" x="-1050.0" y="1360.0"/>
+      <ECTransition Comment="" Condition="GripperPneumatic.Release" Destination="Release" Source="START" x="-600.0" y="1990.0"/>
+      <ECTransition Comment="" Condition="Timer.TimeOut" Destination="ReleaseFail" Source="Release" x="1390.0" y="2595.0"/>
+      <ECTransition Comment="" Condition="Timer.TimeOut" Destination="GripFail" Source="Go_Grab" x="1300.0" y="915.0"/>
+      <ECTransition Comment="" Condition="Sensor_Grip" Destination="Gripped" Source="Go_Grab" x="1920.0" y="925.0"/>
+      <ECTransition Comment="" Condition="(NOT Sensor_Grip)" Destination="Released" Source="Release" x="2590.0" y="2580.0"/>
+      <ECTransition Comment="" Condition="1" Destination="START" Source="Gripped" x="2320.0" y="1420.0"/>
+      <ECTransition Comment="" Condition="1" Destination="START" Source="ReleaseFail" x="1810.0" y="1865.0"/>
+      <ECTransition Comment="" Condition="1" Destination="START" Source="GripFail" x="795.0" y="1525.0"/>
+      <ECTransition Comment="" Condition="1" Destination="START" Source="Released" x="2180.0" y="1845.0"/>
+    </ECC>
+    <Algorithm Comment="" Name="GripAlg">
+      <ST Text="Release := TRUE;"/>
+    </Algorithm>
+    <Algorithm Comment="" Name="ReleaseAlg">
+      <ST Text="Release:= FALSE;"/>
+    </Algorithm>
+    <Algorithm Comment="Timedelay for sensor data" Name="WaitAlg">
+      <ST Text="Timer.DT:= T#5s;"/>
+    </Algorithm>
+  </BasicFB>
+  <Service Comment="Basic Function Block Type" LeftInterface="FB interface" RightInterface="Run time"/>
+</FBType>

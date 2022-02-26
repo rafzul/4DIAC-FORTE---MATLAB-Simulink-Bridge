@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.fordiac.ide.model.ui:UISystemConfiguration xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:libraryElement="org.fordiac.ide.model.libraryElement" xmlns:org.fordiac.ide.model.ui="org.fordiac.ide.model.ui">
+  <children xsi:type="org.fordiac.ide.model.ui:SegmentView" segment="//@systemConfigNetwork/@segments.0" outConnections="//@connections.0">
+    <position x="414" y="136"/>
+    <backgroundColor red="125" green="241" blue="160"/>
+    <size width="300" height="-1"/>
+  </children>
+  <children xsi:type="org.fordiac.ide.model.ui:DeviceView" deviceElement="//@systemConfigNetwork/@devices.0" inConnections="//@connections.0">
+    <position x="456" y="288"/>
+    <backgroundColor red="231" green="177" blue="104"/>
+    <interfaceElements iInterfaceElement="//@systemConfigNetwork/@devices.0/@varDeclarations.0"/>
+    <resourceContainerView showContent="true">
+      <resources resourceElement="//@systemConfigNetwork/@devices.0/@resource.0">
+        <uIResourceDiagram resourceElement="//@systemConfigNetwork/@devices.0/@resource.0" activeNetwork="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@fbNetworks.0">
+          <children xsi:type="org.fordiac.ide.model.ui:FBView" fb="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork/@fBs.0">
+            <position x="408" y="216"/>
+            <backgroundColor red="192" green="192" blue="192"/>
+            <interfaceElements iInterfaceElement="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork/@fBs.0/@interface/@eventOutputs.0" outConnections="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@connections.12" fbNetwork="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork"/>
+            <interfaceElements iInterfaceElement="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork/@fBs.0/@interface/@eventOutputs.1" outConnections="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@connections.13" fbNetwork="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork"/>
+            <interfaceElements iInterfaceElement="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork/@fBs.0/@interface/@eventOutputs.2" fbNetwork="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork"/>
+          </children>
+          <children xsi:type="org.fordiac.ide.model.ui:FBView">
+            <position x="336" y="408"/>
+            <backgroundColor red="192" green="192" blue="192"/>
+            <fb href="reactortemperatureloop.xml#//@fbNetwork/@fBs.0"/>
+            <interfaceElements inConnections="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@connections.10 //@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@connections.17" fbNetwork="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork">
+              <iInterfaceElement xsi:type="libraryElement:Event" href="reactortemperatureloop.xml#//@fbNetwork/@fBs.0/@interface/@eventInputs.0"/>
+              <applicationInterfaceElement href="reactortemperatureloop.xml#//@children.0/@interfaceElements.0"/>
+            </interfaceElements>
+            <interfaceElements fbNetwork="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork">
+              <iInterfaceElement xsi:type="libraryElement:VarDeclaration" href="reactortemperatureloop.xml#//@fbNetwork/@fBs.0/@interface/@inputVars.0"/>
+              <applicationInterfaceElement href="reactortemperatureloop.xml#//@children.0/@interfaceElements.1"/>
+            </interfaceElements>
+            <interfaceElements outConnections="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@connections.0" fbNetwork="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork">
+              <iInterfaceElement xsi:type="libraryElement:Event" href="reactortemperatureloop.xml#//@fbNetwork/@fBs.0/@interface/@eventOutputs.0"/>
+              <applicationInterfaceElement href="reactortemperatureloop.xml#//@children.0/@interfaceElements.2"/>
+            </interfaceElements>
+            <interfaceElements outConnections="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@connections.1" fbNetwork="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork">
+              <iInterfaceElement xsi:type="libraryElement:VarDeclaration" href="reactortemperatureloop.xml#//@fbNetwork/@fBs.0/@interface/@outputVars.0"/>
+              <applicationInterfaceElement href="reactortemperatureloop.xml#//@children.0/@interfaceElements.3"/>
+            </interfaceElements>
+            <applicationFB href="reactortemperatureloop.xml#//@children.0"/>
+          </children>
+          <children xsi:type="org.fordiac.ide.model.ui:FBView">
+            <position x="456" y="384"/>
+            <backgroundColor red="192" green="192" blue="192"/>
+            <fb href="reactortemperatureloop.xml#//@fbNetwork/@fBs.1"/>
+            <interfaceElements inConnections="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@connections.0" fbNetwork="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork">
+              <iInterfaceElement xsi:type="libraryElement:Event" href="reactortemperatureloop.xml#//@fbNetwork/@fBs.1/@interface/@eventInputs.0"/>
+              <applicationInterfaceElement href="reactortemperatureloop.xml#//@children.1/@interfaceElements.0"/>
+            </interfaceElements>
+            <interfaceElements fbNetwork="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork">
+              <iInterfaceElement xsi:type="libraryElement:Event" href="reactortemperatureloop.xml#//@fbNetwork/@fBs.1/@interface/@eventInputs.1"/>
+              <applicationInterfaceElement href="reactortemperatureloop.xml#//@children.1/@interfaceElements.1"/>
+            </interfaceElements>
+            <interfaceElements inConnections="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@connections.1" fbNetwork="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork">
+              <iInterfaceElement xsi:type="libraryElement:VarDeclaration" href="reactortemperatureloop.xml#//@fbNetwork/@fBs.1/@interface/@inputVars.0"/>
+              <applicationInterfaceElement href="reactortemperatureloop.xml#//@children.1/@interfaceElements.2"/>
+            </interfaceElements>
+            <interfaceElements outConnections="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@connections.2" fbNetwork="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork">
+              <iInterfaceElement xsi:type="libraryElement:Event" href="reactortemperatureloop.xml#//@fbNetwork/@fBs.1/@interface/@eventOutputs.0"/>
+              <applicationInterfaceElement href="reactortemperatureloop.xml#//@children.1/@interfaceElements.3"/>
+            </interfaceElements>
+            <applicationFB href="reactortemperatureloop.xml#//@children.1"/>
+          </children>
+          <children xsi:type="org.fordiac.ide.model.ui:FBView">
+            <position x="624" y="384"/>
+            <backgroundColor red="192" green="192" blue="192"/>
+            <fb href="reactortemperatureloop.xml#//@fbNetwork/@fBs.2"/>
+            <interfaceElements inConnections="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@connections.12 //@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@connections.13" fbNetwork="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork">
+              <iInterfaceElement xsi:type="libraryElement:Event" href="reactortemperatureloop.xml#//@fbNetwork/@fBs.2/@interface/@eventInputs.0"/>
+              <applicationInterfaceElement href="reactortemperatureloop.xml#//@children.2/@interfaceElements.0"/>
+            </interfaceElements>
+            <interfaceElements inConnections="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@connections.2 //@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@connections.6 //@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@connections.14" fbNetwork="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork">
+              <iInterfaceElement xsi:type="libraryElement:Event" href="reactortemperatureloop.xml#//@fbNetwork/@fBs.2/@interface/@eventInputs.1"/>
+              <applicationInterfaceElement href="reactortemperatureloop.xml#//@children.2/@interfaceElements.1"/>
+            </interfaceElements>
+            <interfaceElements fbNetwork="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork">
+              <iInterfaceElement xsi:type="libraryElement:VarDeclaration" href="reactortemperatureloop.xml#//@fbNetwork/@fBs.2/@interface/@inputVars.0"/>
+              <applicationInterfaceElement href="reactortemperatureloop.xml#//@children.2/@interfaceElements.2"/>
+            </interfaceElements>
+            <interfaceElements fbNetwork="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork">
+              <iInterfaceElement xsi:type="libraryElement:VarDeclaration" href="reactortemperatureloop.xml#//@fbNetwork/@fBs.2/@interface/@inputVars.1"/>
+              <applicationInterfaceElement href="reactortemperatureloop.xml#//@children.2/@interfaceElements.3"/>
+            </interfaceElements>
+            <interfaceElements inConnections="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@connections.11" fbNetwork="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork">
+              <iInterfaceElement xsi:type="libraryElement:VarDeclaration" href="reactortemperatureloop.xml#//@fbNetwork/@fBs.2/@interface/@inputVars.2"/>
+              <applicationInterfaceElement href="reactortemperatureloop.xml#//@children.2/@interfaceElements.4"/>
+            </interfaceElements>
+            <interfaceElements inConnections="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@connections.18" fbNetwork="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork">
+              <iInterfaceElement xsi:type="libraryElement:VarDeclaration" href="reactortemperatureloop.xml#//@fbNetwork/@fBs.2/@interface/@inputVars.3"/>
+              <applicationInterfaceElement href="reactortemperatureloop.xml#//@children.2/@interfaceElements.5"/>
+            </interfaceElements>
+            <interfaceElements outConnections="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@connections.3" fbNetwork="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork">
+              <iInterfaceElement xsi:type="libraryElement:Event" href="reactortemperatureloop.xml#//@fbNetwork/@fBs.2/@interface/@eventOutputs.0"/>
+              <applicationInterfaceElement href="reactortemperatureloop.xml#//@children.2/@interfaceElements.6"/>
+            </interfaceElements>
+            <interfaceElements outConnections="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@connections.4 //@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@connections.14 //@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@connections.15" fbNetwork="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork">
+              <iInterfaceElement xsi:type="libraryElement:Event" href="reactortemperatureloop.xml#//@fbNetwork/@fBs.2/@interface/@eventOutputs.1"/>
+              <applicationInterfaceElement href="reactortemperatureloop.xml#//@children.2/@interfaceElements.7"/>
+            </interfaceElements>
+            <interfaceElements fbNetwork="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork">
+              <iInterfaceElement xsi:type="libraryElement:VarDeclaration" href="reactortemperatureloop.xml#//@fbNetwork/@fBs.2/@interface/@outputVars.0"/>
+              <applicationInterfaceElement href="reactortemperatureloop.xml#//@children.2/@interfaceElements.8"/>
+            </interfaceElements>
+            <interfaceElements fbNetwork="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork">
+              <iInterfaceElement xsi:type="libraryElement:VarDeclaration" href="reactortemperatureloop.xml#//@fbNetwork/@fBs.2/@interface/@outputVars.1"/>
+              <applicationInterfaceElement href="reactortemperatureloop.xml#//@children.2/@interfaceElements.9"/>
+            </interfaceElements>
+            <interfaceElements outConnections="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@connections.5" fbNetwork="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork">
+              <iInterfaceElement xsi:type="libraryElement:VarDeclaration" href="reactortemperatureloop.xml#//@fbNetwork/@fBs.2/@interface/@outputVars.2"/>
+              <applicationInterfaceElement href="reactortemperatureloop.xml#//@children.2/@interfaceElements.10"/>
+            </interfaceElements>
+            <interfaceElements outConnections="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@connections.16" fbNetwork="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork">
+              <iInterfaceElement xsi:type="libraryElement:VarDeclaration" href="reactortemperatureloop.xml#//@fbNetwork/@fBs.2/@interface/@outputVars.3"/>
+              <applicationInterfaceElement href="reactortemperatureloop.xml#//@children.2/@interfaceElements.11"/>
+            </interfaceElements>
+            <applicationFB href="reactortemperatureloop.xml#//@children.2"/>
+          </children>
+          <children xsi:type="org.fordiac.ide.model.ui:FBView">
+            <position x="816" y="48"/>
+            <backgroundColor red="192" green="192" blue="192"/>
+            <fb href="reactortemperatureloop.xml#//@fbNetwork/@fBs.3"/>
+            <interfaceElements inConnections="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@connections.3" fbNetwork="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork">
+              <iInterfaceElement xsi:type="libraryElement:Event" href="reactortemperatureloop.xml#//@fbNetwork/@fBs.3/@interface/@eventInputs.0"/>
+              <applicationInterfaceElement href="reactortemperatureloop.xml#//@children.3/@interfaceElements.0"/>
+            </interfaceElements>
+            <interfaceElements inConnections="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@connections.4" fbNetwork="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork">
+              <iInterfaceElement xsi:type="libraryElement:Event" href="reactortemperatureloop.xml#//@fbNetwork/@fBs.3/@interface/@eventInputs.1"/>
+              <applicationInterfaceElement href="reactortemperatureloop.xml#//@children.3/@interfaceElements.1"/>
+            </interfaceElements>
+            <interfaceElements fbNetwork="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork">
+              <iInterfaceElement xsi:type="libraryElement:Event" href="reactortemperatureloop.xml#//@fbNetwork/@fBs.3/@interface/@eventInputs.2"/>
+              <applicationInterfaceElement href="reactortemperatureloop.xml#//@children.3/@interfaceElements.2"/>
+            </interfaceElements>
+            <interfaceElements inConnections="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@connections.5" fbNetwork="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork">
+              <iInterfaceElement xsi:type="libraryElement:VarDeclaration" href="reactortemperatureloop.xml#//@fbNetwork/@fBs.3/@interface/@inputVars.0"/>
+              <applicationInterfaceElement href="reactortemperatureloop.xml#//@children.3/@interfaceElements.3"/>
+            </interfaceElements>
+            <interfaceElements fbNetwork="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork">
+              <iInterfaceElement xsi:type="libraryElement:VarDeclaration" href="reactortemperatureloop.xml#//@fbNetwork/@fBs.3/@interface/@inputVars.1"/>
+              <applicationInterfaceElement href="reactortemperatureloop.xml#//@children.3/@interfaceElements.4"/>
+            </interfaceElements>
+            <interfaceElements fbNetwork="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork">
+              <iInterfaceElement xsi:type="libraryElement:VarDeclaration" href="reactortemperatureloop.xml#//@fbNetwork/@fBs.3/@interface/@inputVars.2"/>
+              <applicationInterfaceElement href="reactortemperatureloop.xml#//@children.3/@interfaceElements.5"/>
+            </interfaceElements>
+            <interfaceElements fbNetwork="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork">
+              <iInterfaceElement xsi:type="libraryElement:VarDeclaration" href="reactortemperatureloop.xml#//@fbNetwork/@fBs.3/@interface/@inputVars.3"/>
+              <applicationInterfaceElement href="reactortemperatureloop.xml#//@children.3/@interfaceElements.6"/>
+            </interfaceElements>
+            <interfaceElements fbNetwork="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork">
+              <iInterfaceElement xsi:type="libraryElement:VarDeclaration" href="reactortemperatureloop.xml#//@fbNetwork/@fBs.3/@interface/@inputVars.4"/>
+              <applicationInterfaceElement href="reactortemperatureloop.xml#//@children.3/@interfaceElements.7"/>
+            </interfaceElements>
+            <interfaceElements fbNetwork="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork">
+              <iInterfaceElement xsi:type="libraryElement:VarDeclaration" href="reactortemperatureloop.xml#//@fbNetwork/@fBs.3/@interface/@inputVars.5"/>
+              <applicationInterfaceElement href="reactortemperatureloop.xml#//@children.3/@interfaceElements.8"/>
+            </interfaceElements>
+            <interfaceElements fbNetwork="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork">
+              <iInterfaceElement xsi:type="libraryElement:VarDeclaration" href="reactortemperatureloop.xml#//@fbNetwork/@fBs.3/@interface/@inputVars.6"/>
+              <applicationInterfaceElement href="reactortemperatureloop.xml#//@children.3/@interfaceElements.9"/>
+            </interfaceElements>
+            <interfaceElements fbNetwork="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork">
+              <iInterfaceElement xsi:type="libraryElement:VarDeclaration" href="reactortemperatureloop.xml#//@fbNetwork/@fBs.3/@interface/@inputVars.7"/>
+              <applicationInterfaceElement href="reactortemperatureloop.xml#//@children.3/@interfaceElements.10"/>
+            </interfaceElements>
+            <interfaceElements fbNetwork="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork">
+              <iInterfaceElement xsi:type="libraryElement:VarDeclaration" href="reactortemperatureloop.xml#//@fbNetwork/@fBs.3/@interface/@inputVars.8"/>
+              <applicationInterfaceElement href="reactortemperatureloop.xml#//@children.3/@interfaceElements.11"/>
+            </interfaceElements>
+            <interfaceElements fbNetwork="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork">
+              <iInterfaceElement xsi:type="libraryElement:VarDeclaration" href="reactortemperatureloop.xml#//@fbNetwork/@fBs.3/@interface/@inputVars.9"/>
+              <applicationInterfaceElement href="reactortemperatureloop.xml#//@children.3/@interfaceElements.12"/>
+            </interfaceElements>
+            <interfaceElements outConnections="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@connections.6 //@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@connections.7" fbNetwork="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork">
+              <iInterfaceElement xsi:type="libraryElement:Event" href="reactortemperatureloop.xml#//@fbNetwork/@fBs.3/@interface/@eventOutputs.0"/>
+              <applicationInterfaceElement href="reactortemperatureloop.xml#//@children.3/@interfaceElements.13"/>
+            </interfaceElements>
+            <interfaceElements outConnections="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@connections.8" fbNetwork="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork">
+              <iInterfaceElement xsi:type="libraryElement:Event" href="reactortemperatureloop.xml#//@fbNetwork/@fBs.3/@interface/@eventOutputs.1"/>
+              <applicationInterfaceElement href="reactortemperatureloop.xml#//@children.3/@interfaceElements.14"/>
+            </interfaceElements>
+            <interfaceElements outConnections="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@connections.9" fbNetwork="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork">
+              <iInterfaceElement xsi:type="libraryElement:VarDeclaration" href="reactortemperatureloop.xml#//@fbNetwork/@fBs.3/@interface/@outputVars.0"/>
+              <applicationInterfaceElement href="reactortemperatureloop.xml#//@children.3/@interfaceElements.15"/>
+            </interfaceElements>
+            <interfaceElements fbNetwork="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork">
+              <iInterfaceElement xsi:type="libraryElement:VarDeclaration" href="reactortemperatureloop.xml#//@fbNetwork/@fBs.3/@interface/@outputVars.1"/>
+              <applicationInterfaceElement href="reactortemperatureloop.xml#//@children.3/@interfaceElements.16"/>
+            </interfaceElements>
+            <interfaceElements fbNetwork="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork">
+              <iInterfaceElement xsi:type="libraryElement:VarDeclaration" href="reactortemperatureloop.xml#//@fbNetwork/@fBs.3/@interface/@outputVars.2"/>
+              <applicationInterfaceElement href="reactortemperatureloop.xml#//@children.3/@interfaceElements.17"/>
+            </interfaceElements>
+            <applicationFB href="reactortemperatureloop.xml#//@children.3"/>
+          </children>
+          <children xsi:type="org.fordiac.ide.model.ui:FBView">
+            <position x="1032" y="360"/>
+            <backgroundColor red="192" green="192" blue="192"/>
+            <fb href="reactortemperatureloop.xml#//@fbNetwork/@fBs.4"/>
+            <interfaceElements inConnections="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@connections.7" fbNetwork="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork">
+              <iInterfaceElement xsi:type="libraryElement:Event" href="reactortemperatureloop.xml#//@fbNetwork/@fBs.4/@interface/@eventInputs.0"/>
+              <applicationInterfaceElement href="reactortemperatureloop.xml#//@children.4/@interfaceElements.0"/>
+            </interfaceElements>
+            <interfaceElements inConnections="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@connections.8" fbNetwork="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork">
+              <iInterfaceElement xsi:type="libraryElement:Event" href="reactortemperatureloop.xml#//@fbNetwork/@fBs.4/@interface/@eventInputs.1"/>
+              <applicationInterfaceElement href="reactortemperatureloop.xml#//@children.4/@interfaceElements.1"/>
+            </interfaceElements>
+            <interfaceElements fbNetwork="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork">
+              <iInterfaceElement xsi:type="libraryElement:VarDeclaration" href="reactortemperatureloop.xml#//@fbNetwork/@fBs.4/@interface/@inputVars.0"/>
+              <applicationInterfaceElement href="reactortemperatureloop.xml#//@children.4/@interfaceElements.2"/>
+            </interfaceElements>
+            <interfaceElements inConnections="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@connections.9" fbNetwork="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork">
+              <iInterfaceElement xsi:type="libraryElement:VarDeclaration" href="reactortemperatureloop.xml#//@fbNetwork/@fBs.4/@interface/@inputVars.1"/>
+              <applicationInterfaceElement href="reactortemperatureloop.xml#//@children.4/@interfaceElements.3"/>
+            </interfaceElements>
+            <interfaceElements outConnections="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@connections.10" fbNetwork="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork">
+              <iInterfaceElement xsi:type="libraryElement:Event" href="reactortemperatureloop.xml#//@fbNetwork/@fBs.4/@interface/@eventOutputs.0"/>
+              <applicationInterfaceElement href="reactortemperatureloop.xml#//@children.4/@interfaceElements.4"/>
+            </interfaceElements>
+            <interfaceElements outConnections="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@connections.11" fbNetwork="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork">
+              <iInterfaceElement xsi:type="libraryElement:VarDeclaration" href="reactortemperatureloop.xml#//@fbNetwork/@fBs.4/@interface/@outputVars.0"/>
+              <applicationInterfaceElement href="reactortemperatureloop.xml#//@children.4/@interfaceElements.5"/>
+            </interfaceElements>
+            <applicationFB href="reactortemperatureloop.xml#//@children.4"/>
+          </children>
+          <children xsi:type="org.fordiac.ide.model.ui:FBView">
+            <position x="701" y="665"/>
+            <backgroundColor red="192" green="192" blue="192"/>
+            <fb href="reactortemperatureloop.xml#//@fbNetwork/@fBs.5"/>
+            <interfaceElements inConnections="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@connections.15" fbNetwork="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork">
+              <iInterfaceElement xsi:type="libraryElement:Event" href="reactortemperatureloop.xml#//@fbNetwork/@fBs.5/@interface/@eventInputs.0"/>
+              <applicationInterfaceElement href="reactortemperatureloop.xml#//@children.5/@interfaceElements.0"/>
+            </interfaceElements>
+            <interfaceElements inConnections="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@connections.16" fbNetwork="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork">
+              <iInterfaceElement xsi:type="libraryElement:VarDeclaration" href="reactortemperatureloop.xml#//@fbNetwork/@fBs.5/@interface/@inputVars.0"/>
+              <applicationInterfaceElement href="reactortemperatureloop.xml#//@children.5/@interfaceElements.1"/>
+            </interfaceElements>
+            <interfaceElements outConnections="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@connections.17" fbNetwork="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork">
+              <iInterfaceElement xsi:type="libraryElement:Event" href="reactortemperatureloop.xml#//@fbNetwork/@fBs.5/@interface/@eventOutputs.0"/>
+              <applicationInterfaceElement href="reactortemperatureloop.xml#//@children.5/@interfaceElements.2"/>
+            </interfaceElements>
+            <interfaceElements outConnections="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@connections.18" fbNetwork="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork">
+              <iInterfaceElement xsi:type="libraryElement:VarDeclaration" href="reactortemperatureloop.xml#//@fbNetwork/@fBs.5/@interface/@outputVars.0"/>
+              <applicationInterfaceElement href="reactortemperatureloop.xml#//@children.5/@interfaceElements.3"/>
+            </interfaceElements>
+            <applicationFB href="reactortemperatureloop.xml#//@children.5"/>
+          </children>
+          <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork/@eventConnections.0" source="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@children.1/@interfaceElements.2" destination="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@children.2/@interfaceElements.0"/>
+          <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork/@dataConnections.0" source="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@children.1/@interfaceElements.3" destination="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@children.2/@interfaceElements.2"/>
+          <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork/@eventConnections.1" source="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@children.2/@interfaceElements.3" destination="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@children.3/@interfaceElements.1"/>
+          <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork/@eventConnections.2" source="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@children.3/@interfaceElements.6" destination="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@children.4/@interfaceElements.0"/>
+          <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork/@eventConnections.3" source="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@children.3/@interfaceElements.7" destination="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@children.4/@interfaceElements.1"/>
+          <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork/@dataConnections.1" source="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@children.3/@interfaceElements.10" destination="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@children.4/@interfaceElements.3"/>
+          <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork/@eventConnections.4" source="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@children.4/@interfaceElements.13" destination="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@children.3/@interfaceElements.1"/>
+          <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork/@eventConnections.5" source="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@children.4/@interfaceElements.13" destination="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@children.5/@interfaceElements.0"/>
+          <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork/@eventConnections.6" source="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@children.4/@interfaceElements.14" destination="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@children.5/@interfaceElements.1"/>
+          <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork/@dataConnections.2" source="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@children.4/@interfaceElements.15" destination="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@children.5/@interfaceElements.3"/>
+          <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork/@eventConnections.7" source="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@children.5/@interfaceElements.4" destination="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@children.1/@interfaceElements.0"/>
+          <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork/@dataConnections.3" source="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@children.5/@interfaceElements.5" destination="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@children.3/@interfaceElements.4"/>
+          <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork/@eventConnections.8" source="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@children.0/@interfaceElements.0" destination="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@children.3/@interfaceElements.0"/>
+          <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork/@eventConnections.9" source="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@children.0/@interfaceElements.1" destination="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@children.3/@interfaceElements.0"/>
+          <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork/@eventConnections.10" source="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@children.3/@interfaceElements.7" destination="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@children.3/@interfaceElements.1"/>
+          <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork/@eventConnections.11" source="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@children.3/@interfaceElements.7" destination="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@children.6/@interfaceElements.0"/>
+          <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork/@dataConnections.4" source="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@children.3/@interfaceElements.11" destination="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@children.6/@interfaceElements.1"/>
+          <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork/@eventConnections.12" source="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@children.6/@interfaceElements.2" destination="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@children.1/@interfaceElements.0"/>
+          <connections xsi:type="org.fordiac.ide.model.ui:ConnectionView" connectionElement="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork/@dataConnections.5" source="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@children.6/@interfaceElements.3" destination="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@children.3/@interfaceElements.5"/>
+          <fbNetworks>
+            <uiFBNetwork href="looptest.xml#/"/>
+          </fbNetworks>
+          <fbNetworks>
+            <uiFBNetwork href="testfunctionblockbaru.xml#/"/>
+          </fbNetworks>
+          <fbNetworks>
+            <uiFBNetwork href="tes.xml#/"/>
+          </fbNetworks>
+          <fbNetworks>
+            <uiFBNetwork href="testfunctionpid.xml#/"/>
+          </fbNetworks>
+          <fbNetworks>
+            <uiFBNetwork href="pressureloop2.xml#/"/>
+          </fbNetworks>
+          <fbNetworks>
+            <uiFBNetwork href="mode1.xml#/"/>
+          </fbNetworks>
+          <fbNetworks>
+            <size width="-1" height="-1"/>
+            <uiFBNetwork href="pressureloop.xml#/"/>
+          </fbNetworks>
+          <fbNetworks>
+            <size width="-1" height="-1"/>
+            <uiFBNetwork href="reactortemperatureloop.xml#/"/>
+          </fbNetworks>
+          <fbNetworks>
+            <size width="-1" height="-1"/>
+            <uiFBNetwork href="reactortemperatureloopconvertin4diac.xml#/"/>
+          </fbNetworks>
+          <fbNetworks>
+            <size width="-1" height="-1"/>
+            <uiFBNetwork href="plantwide.xml#/"/>
+          </fbNetworks>
+          <fbNetworks>
+            <size width="-1" height="-1"/>
+            <uiFBNetwork href="App1_ReactTempandSeptTemp.xml#/"/>
+          </fbNetworks>
+          <fbNetworks>
+            <size width="-1" height="-1"/>
+            <uiFBNetwork href="App2_SepLiquidLevel_and_FlowRate.xml#/"/>
+          </fbNetworks>
+          <fbNetworks>
+            <size width="-1" height="-1"/>
+            <uiFBNetwork href="App3_StripperLiquidLevel_and_FlowRate.xml#/"/>
+          </fbNetworks>
+          <fbNetworks>
+            <size width="-1" height="-1"/>
+            <uiFBNetwork href="App4_PressureControl.xml#/"/>
+          </fbNetworks>
+          <fbNetworks>
+            <size width="-1" height="-1"/>
+            <uiFBNetwork href="App5_ProductionRateandQualityControl.xml#/"/>
+          </fbNetworks>
+          <mappingEditorSize width="-1" height="250"/>
+        </uIResourceDiagram>
+      </resources>
+    </resourceContainerView>
+  </children>
+  <connections xsi:type="org.fordiac.ide.model.ui:LinkView" source="//@children.0" link="//@systemConfigNetwork/@links.0" destination="//@children.1"/>
+  <systemConfigNetwork>
+    <devices name="FORTE_PC_1" identifier="true" profile="HOLOBLOC" inConnections="//@systemConfigNetwork/@links.0" typePath="Devices\FORTE_PC.dev">
+      <resource name="EMB_RES" identifier="true" type="Resources\EMB_RES.res">
+        <fBNetwork>
+          <fBs xsi:type="libraryElement:ResourceTypeFB" name="START" identifier="true" id="_bXX6AMATEeiWFMbH0BnuOA" resourceTypeFB="true" fbtPath="events\E_RESTART.fbt">
+            <interface>
+              <eventOutputs name="COLD" comment="Cold Restart" outputConnections="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork/@eventConnections.8"/>
+              <eventOutputs name="WARM" comment="Warm Restart" outputConnections="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork/@eventConnections.9"/>
+              <eventOutputs name="STOP" comment="Resource is Stopping"/>
+            </interface>
+            <position x="408" y="216"/>
+          </fBs>
+          <dataConnections>
+            <source href="reactortemperatureloop.xml#//@fbNetwork/@fBs.0/@interface/@outputVars.0"/>
+            <destination href="reactortemperatureloop.xml#//@fbNetwork/@fBs.1/@interface/@inputVars.0"/>
+          </dataConnections>
+          <dataConnections>
+            <source href="reactortemperatureloop.xml#//@fbNetwork/@fBs.2/@interface/@outputVars.2"/>
+            <destination href="reactortemperatureloop.xml#//@fbNetwork/@fBs.3/@interface/@inputVars.0"/>
+          </dataConnections>
+          <dataConnections>
+            <source href="reactortemperatureloop.xml#//@fbNetwork/@fBs.3/@interface/@outputVars.0"/>
+            <destination href="reactortemperatureloop.xml#//@fbNetwork/@fBs.4/@interface/@inputVars.1"/>
+          </dataConnections>
+          <dataConnections dy="96">
+            <source href="reactortemperatureloop.xml#//@fbNetwork/@fBs.4/@interface/@outputVars.0"/>
+            <destination href="reactortemperatureloop.xml#//@fbNetwork/@fBs.2/@interface/@inputVars.2"/>
+          </dataConnections>
+          <dataConnections>
+            <source href="reactortemperatureloop.xml#//@fbNetwork/@fBs.2/@interface/@outputVars.3"/>
+            <destination href="reactortemperatureloop.xml#//@fbNetwork/@fBs.5/@interface/@inputVars.0"/>
+          </dataConnections>
+          <dataConnections>
+            <source href="reactortemperatureloop.xml#//@fbNetwork/@fBs.5/@interface/@outputVars.0"/>
+            <destination href="reactortemperatureloop.xml#//@fbNetwork/@fBs.2/@interface/@inputVars.3"/>
+          </dataConnections>
+          <eventConnections>
+            <source href="reactortemperatureloop.xml#//@fbNetwork/@fBs.0/@interface/@eventOutputs.0"/>
+            <destination href="reactortemperatureloop.xml#//@fbNetwork/@fBs.1/@interface/@eventInputs.0"/>
+          </eventConnections>
+          <eventConnections>
+            <source href="reactortemperatureloop.xml#//@fbNetwork/@fBs.1/@interface/@eventOutputs.0"/>
+            <destination href="reactortemperatureloop.xml#//@fbNetwork/@fBs.2/@interface/@eventInputs.1"/>
+          </eventConnections>
+          <eventConnections>
+            <source href="reactortemperatureloop.xml#//@fbNetwork/@fBs.2/@interface/@eventOutputs.0"/>
+            <destination href="reactortemperatureloop.xml#//@fbNetwork/@fBs.3/@interface/@eventInputs.0"/>
+          </eventConnections>
+          <eventConnections>
+            <source href="reactortemperatureloop.xml#//@fbNetwork/@fBs.2/@interface/@eventOutputs.1"/>
+            <destination href="reactortemperatureloop.xml#//@fbNetwork/@fBs.3/@interface/@eventInputs.1"/>
+          </eventConnections>
+          <eventConnections dx2="-34" dy="-216">
+            <source href="reactortemperatureloop.xml#//@fbNetwork/@fBs.3/@interface/@eventOutputs.0"/>
+            <destination href="reactortemperatureloop.xml#//@fbNetwork/@fBs.2/@interface/@eventInputs.1"/>
+          </eventConnections>
+          <eventConnections>
+            <source href="reactortemperatureloop.xml#//@fbNetwork/@fBs.3/@interface/@eventOutputs.0"/>
+            <destination href="reactortemperatureloop.xml#//@fbNetwork/@fBs.4/@interface/@eventInputs.0"/>
+          </eventConnections>
+          <eventConnections>
+            <source href="reactortemperatureloop.xml#//@fbNetwork/@fBs.3/@interface/@eventOutputs.1"/>
+            <destination href="reactortemperatureloop.xml#//@fbNetwork/@fBs.4/@interface/@eventInputs.1"/>
+          </eventConnections>
+          <eventConnections dy="-568">
+            <source href="reactortemperatureloop.xml#//@fbNetwork/@fBs.4/@interface/@eventOutputs.0"/>
+            <destination href="reactortemperatureloop.xml#//@fbNetwork/@fBs.0/@interface/@eventInputs.0"/>
+          </eventConnections>
+          <eventConnections dx1="90" resourceConnection="true" source="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork/@fBs.0/@interface/@eventOutputs.0">
+            <destination href="reactortemperatureloop.xml#//@fbNetwork/@fBs.2/@interface/@eventInputs.0"/>
+          </eventConnections>
+          <eventConnections dx1="98" resourceConnection="true" source="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork/@fBs.0/@interface/@eventOutputs.1">
+            <destination href="reactortemperatureloop.xml#//@fbNetwork/@fBs.2/@interface/@eventInputs.0"/>
+          </eventConnections>
+          <eventConnections dy="-75">
+            <source href="reactortemperatureloop.xml#//@fbNetwork/@fBs.2/@interface/@eventOutputs.1"/>
+            <destination href="reactortemperatureloop.xml#//@fbNetwork/@fBs.2/@interface/@eventInputs.1"/>
+          </eventConnections>
+          <eventConnections>
+            <source href="reactortemperatureloop.xml#//@fbNetwork/@fBs.2/@interface/@eventOutputs.1"/>
+            <destination href="reactortemperatureloop.xml#//@fbNetwork/@fBs.5/@interface/@eventInputs.0"/>
+          </eventConnections>
+          <eventConnections>
+            <source href="reactortemperatureloop.xml#//@fbNetwork/@fBs.5/@interface/@eventOutputs.0"/>
+            <destination href="reactortemperatureloop.xml#//@fbNetwork/@fBs.0/@interface/@eventInputs.0"/>
+          </eventConnections>
+          <mappedFBs href="reactortemperatureloop.xml#//@fbNetwork/@fBs.0"/>
+          <mappedFBs href="reactortemperatureloop.xml#//@fbNetwork/@fBs.1"/>
+          <mappedFBs href="reactortemperatureloop.xml#//@fbNetwork/@fBs.2"/>
+          <mappedFBs href="reactortemperatureloop.xml#//@fbNetwork/@fBs.3"/>
+          <mappedFBs href="reactortemperatureloop.xml#//@fbNetwork/@fBs.4"/>
+          <mappedFBs href="reactortemperatureloop.xml#//@fbNetwork/@fBs.5"/>
+        </fBNetwork>
+      </resource>
+      <varDeclarations name="MGR_ID" comment="Device manager socket ID" isInput="true" arraySize="-1" typeName="WSTRING">
+        <value value="&quot;localhost:61499&quot;"/>
+        <varInitialization initialValue="&quot;localhost:61499&quot;"/>
+      </varDeclarations>
+    </devices>
+    <segments name="Ethernet" outConnections="//@systemConfigNetwork/@links.0" typePath="Segments\Ethernet.seg">
+      <varDeclarations name="Param" comment="Param" isInput="true" arraySize="-1" typeName="WSTRING"/>
+    </segments>
+    <links segment="//@systemConfigNetwork/@segments.0" device="//@systemConfigNetwork/@devices.0"/>
+  </systemConfigNetwork>
+</org.fordiac.ide.model.ui:UISystemConfiguration>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE FBType SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<FBType Comment="Composite Function Block Type" Name="LevelController">
+  <Identification Standard="61499-2"/>
+  <VersionInfo Author="4DIAC-IDE" Date="2011-12-18" Organization="4DIAC-Consortium" Version="0.0"/>
+  <InterfaceList>
+    <EventInputs>
+      <Event Comment="Normal Execution Request" Name="REQ" Type="Event">
+        <With Var="Measurement"/>
+        <With Var="SetpointExt"/>
+        <With Var="bUsePoti"/>
+        <With Var="SetpointPoti"/>
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Comment="Execution Confirmation" Name="CNF" Type="Event">
+        <With Var="ControlOut"/>
+        <With Var="iErr"/>
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Comment="Input event qualifier" Name="Measurement" Type="LREAL"/>
+      <VarDeclaration Name="SetpointExt" Type="LREAL"/>
+      <VarDeclaration Name="bUsePoti" Type="BOOL"/>
+      <VarDeclaration Name="SetpointPoti" Type="INT"/>
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Comment="Output event qualifier" Name="ControlOut" Type="LREAL"/>
+      <VarDeclaration Name="iErr" Type="UINT"/>
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB Name="BasicPID" Type="BasicPID" x="4030.0" y="65.0">
+      <Parameter Name="bReset" Value="0"/>
+      <Parameter Name="fCtrlCycleTime" Value="0.01"/>
+      <Parameter Name="fTv" Value="0"/>
+      <Parameter Name="fTd" Value="0.01"/>
+      <Parameter Name="fKp" Value="1"/>
+      <Parameter Name="fTn" Value="0"/>
+    </FB>
+    <FB Name="Potentiometer" Type="Potentiometer" x="780.0" y="520.0">
+      <Parameter Name="minVal" Value="0"/>
+      <Parameter Name="maxVal" Value="1000"/>
+    </FB>
+    <FB Name="Selector" Type="Selector" x="2730.0" y="650.0"/>
+    <DataConnections>
+      <Connection Comment="" Destination="BasicPID.fActualValue" Source="Measurement" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="ControlOut" Source="BasicPID.fCtrlOutput" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="iErr" Source="BasicPID.nErrorStatus" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="Potentiometer.wInput" Source="SetpointPoti" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="BasicPID.fSetpointValue" Source="Selector.Out" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="Selector.SEL" Source="bUsePoti" dx1="1640.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="Selector.IN_1" Source="Potentiometer.rValue" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="Selector.IN_0" Source="SetpointExt" dx1="0.0" dx2="0.0" dy="0.0"/>
+    </DataConnections>
+    <EventConnections>
+      <Connection Comment="" Destination="CNF" Source="BasicPID.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="Potentiometer.REQ" Source="REQ" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="BasicPID.REQ" Source="Selector.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="Selector.REQ" Source="Potentiometer.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+    </EventConnections>
+  </FBNetwork>
+</FBType>

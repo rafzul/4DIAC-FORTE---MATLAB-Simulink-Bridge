@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE FBType SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<FBType Comment="Composite Function Block Type" Name="Discrete_PI_REAL2">
+  <Identification Standard="61499-2"/>
+  <VersionInfo Author="4DIAC-IDE" Date="2018-07-31" Organization="4DIAC-Consortium" Version="0.0"/>
+  <InterfaceList>
+    <EventInputs>
+      <Event Comment="Initialization Request" Name="INIT" Type="Event">
+        <With Var="SAMPLETIME"/>
+        <With Var="SETPOINT"/>
+        <With Var="InitialCondition"/>
+        <With Var="InitialConditionVelPI"/>
+      </Event>
+      <Event Comment="Normal Execution Request" Name="REQ" Type="Event">
+        <With Var="SAMPLETIME"/>
+        <With Var="ACTUAL"/>
+        <With Var="SETPOINT"/>
+        <With Var="NOISE"/>
+        <With Var="Kp"/>
+        <With Var="Ti"/>
+        <With Var="LIM_L"/>
+        <With Var="LIM_H"/>
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Comment="Initialization Confirm" Name="INITO" Type="Event"/>
+      <Event Comment="Execution Confirmation" Name="CNF" Type="Event">
+        <With Var="OUT"/>
+        <With Var="INPUTDIFF"/>
+        <With Var="VEL_PID_OUT"/>
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="ACTUAL" Type="REAL"/>
+      <VarDeclaration Name="SETPOINT" Type="REAL"/>
+      <VarDeclaration Name="NOISE" Type="REAL"/>
+      <VarDeclaration Name="Kp" Type="REAL"/>
+      <VarDeclaration Name="Ti" Type="REAL"/>
+      <VarDeclaration Name="LIM_L" Type="REAL"/>
+      <VarDeclaration Name="LIM_H" Type="REAL"/>
+      <VarDeclaration Name="InitialCondition" Type="REAL"/>
+      <VarDeclaration Name="InitialConditionVelPI" Type="REAL"/>
+      <VarDeclaration Name="SAMPLETIME" Type="TIME"/>
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="OUT" Type="REAL"/>
+      <VarDeclaration Name="INPUTDIFF" Type="REAL"/>
+      <VarDeclaration Name="VEL_PID_OUT" Type="REAL"/>
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB Name="F_ADD" Type="F_ADD" x="4200.0" y="600.0"/>
+    <FB Name="F_FT_LIMIT" Type="F_FT_LIMIT" x="5520.0" y="840.0"/>
+    <FB Name="Velocity_PI_REAL2" Type="Velocity_PI_REAL2" x="960.0" y="-480.0"/>
+    <FB Name="Delay_With_InitConditionREALtype" Type="Delay_With_InitConditionREALtype" x="2400.0" y="1200.0"/>
+    <DataConnections>
+      <Connection Destination="Velocity_PI_REAL2.ACTUAL" Source="ACTUAL" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="Velocity_PI_REAL2.SETPOINT" Source="SETPOINT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="Velocity_PI_REAL2.NOISE" Source="NOISE" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="Velocity_PI_REAL2.Kp" Source="Kp" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="Velocity_PI_REAL2.Ti" Source="Ti" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="Velocity_PI_REAL2.InitialCondition" Source="InitialConditionVelPI" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="Velocity_PI_REAL2.SAMPLETIME_ECYCLE" Source="SAMPLETIME" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_FT_LIMIT.LIM_L" Source="LIM_L" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_FT_LIMIT.LIM_H" Source="LIM_H" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_ADD.IN1" Source="Velocity_PI_REAL2.DELTAOUTPUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="VEL_PID_OUT" Source="Velocity_PI_REAL2.DELTAOUTPUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="INPUTDIFF" Source="Velocity_PI_REAL2.INPUTDIFF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="Delay_With_InitConditionREALtype.DelayedInput" Source="F_FT_LIMIT.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_ADD.IN2" Source="Delay_With_InitConditionREALtype.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OUT" Source="Delay_With_InitConditionREALtype.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="Delay_With_InitConditionREALtype.InitialCondition" Source="InitialCondition" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="Delay_With_InitConditionREALtype.DelayTime" Source="SAMPLETIME" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_FT_LIMIT.VAL" Source="F_ADD.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+    </DataConnections>
+    <EventConnections>
+      <Connection Destination="Velocity_PI_REAL2.INIT" Source="INIT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="Velocity_PI_REAL2.REQ" Source="REQ" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_FT_LIMIT.REQ" Source="REQ" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="INITO" Source="Velocity_PI_REAL2.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_ADD.REQ" Source="Velocity_PI_REAL2.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="CNF" Source="Velocity_PI_REAL2.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="Delay_With_InitConditionREALtype.INIT" Source="Velocity_PI_REAL2.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="Delay_With_InitConditionREALtype.Start_and_REQ" Source="REQ" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="Delay_With_InitConditionREALtype.Start_and_REQ" Source="F_FT_LIMIT.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_ADD.REQ" Source="Delay_With_InitConditionREALtype.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="CNF" Source="Delay_With_InitConditionREALtype.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_FT_LIMIT.REQ" Source="F_ADD.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+    </EventConnections>
+  </FBNetwork>
+</FBType>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE FBType SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<FBType Comment="Basic Function Block Type" Name="StatusManagement">
+  <Identification Standard="61499-2"/>
+  <VersionInfo Author="4DIAC-IDE" Date="2015-05-21" Organization="4DIAC-Consortium" Version="0.0"/>
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="Initialization" Type="Event"/>
+      <Event Comment="Initialization Request" Name="CollectFailures" Type="Event"/>
+      <Event Comment="Normal Execution Request" Name="AccnowledgeFailures" Type="Event"/>
+    </EventInputs>
+    <EventOutputs/>
+    <InputVars/>
+    <OutputVars/>
+    <Plugs>
+      <AdapterDeclaration Name="StatusLight" Type="AStatusLight"/>
+    </Plugs>
+  </InterfaceList>
+  <BasicFB>
+    <ECC>
+      <ECState Comment="Initial State" Name="START" x="2850.0" y="1900.0"/>
+      <ECState Comment="Initialization" Name="Failure" x="4180.0" y="1520.0"/>
+      <ECState Comment="Normal execution" Name="AcknowledgeNotify" x="5510.0" y="2185.0">
+        <ECAction Output="StatusLight.EIred"/>
+        <ECAction Algorithm="acknowledge"/>
+      </ECState>
+      <ECState Name="NotifyFailure" x="5510.0" y="1520.0">
+        <ECAction Algorithm="blinkRed" Output="StatusLight.EIred"/>
+      </ECState>
+      <ECState Name="Acknowledge" x="4180.0" y="2185.0"/>
+      <ECState Name="Initialization" x="760.0" y="1900.0">
+        <ECAction Algorithm="blinkOrange" Output="StatusLight.EIorange"/>
+      </ECState>
+      <ECState Name="Running" x="945.0" y="2260.0">
+        <ECAction Output="StatusLight.EIorange"/>
+        <ECAction Algorithm="resetBlinkOrange" Output="StatusLight.EIgreen"/>
+      </ECState>
+      <ECTransition Comment="" Condition="CollectFailures" Destination="Failure" Source="START" x="4015.0" y="1360.0"/>
+      <ECTransition Comment="" Condition="StatusLight.BlinkRed" Destination="START" Source="Failure" x="3865.0" y="1745.0"/>
+      <ECTransition Comment="" Condition="1" Destination="START" Source="AcknowledgeNotify" x="3940.0" y="2835.0"/>
+      <ECTransition Comment="" Condition="NOT StatusLight.BlinkRed" Destination="NotifyFailure" Source="Failure" x="4905.0" y="1535.0"/>
+      <ECTransition Comment="" Condition="AccnowledgeFailures" Destination="Acknowledge" Source="START" x="3780.0" y="2000.0"/>
+      <ECTransition Comment="" Condition="1" Destination="START" Source="NotifyFailure" x="3720.0" y="1080.0"/>
+      <ECTransition Comment="" Condition="StatusLight.BlinkRed" Destination="AcknowledgeNotify" Source="Acknowledge" x="5040.0" y="1930.0"/>
+      <ECTransition Comment="" Condition="NOT StatusLight.BlinkRed" Destination="START" Source="Acknowledge" x="3620.0" y="2275.0"/>
+      <ECTransition Comment="" Condition="Initialization" Destination="Initialization" Source="START" x="1840.0" y="1490.0"/>
+      <ECTransition Comment="" Condition="1" Destination="START" Source="Running" x="1910.0" y="3230.0"/>
+      <ECTransition Comment="" Condition="Initialization" Destination="Running" Source="Initialization" x="955.0" y="2145.0"/>
+    </ECC>
+    <Algorithm Comment="Normally executed algorithm" Name="blinkRed">
+      <ST Text="StatusLight.BlinkRed := true;"/>
+    </Algorithm>
+    <Algorithm Comment="new algorithm" Name="acknowledge">
+      <ST Text="StatusLight.BlinkRed := false;"/>
+    </Algorithm>
+    <Algorithm Comment="new algorithm" Name="blinkOrange">
+      <ST Text="StatusLight.BlinkOrange := true;"/>
+    </Algorithm>
+    <Algorithm Comment="new algorithm" Name="resetBlinkOrange">
+      <ST Text="StatusLight.BlinkRed := false;"/>
+    </Algorithm>
+  </BasicFB>
+</FBType>

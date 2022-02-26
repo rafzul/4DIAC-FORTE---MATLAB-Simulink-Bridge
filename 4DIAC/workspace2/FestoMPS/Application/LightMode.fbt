@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE FBType SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<FBType Comment="Composite Function Block Type" Name="LightMode">
+  <Identification Standard="61499-2"/>
+  <VersionInfo Author="4DIAC-IDE" Date="2015-05-20" Organization="4DIAC-Consortium" Version="0.0"/>
+  <InterfaceList>
+    <EventInputs>
+      <Event Comment="Initialization Request" Name="On" Type="Event">
+        <With Var="BlinkInterval"/>
+        <With Var="Blink"/>
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Comment="Initialization Confirm" Name="CMD" Type="Event">
+        <With Var="OUT"/>
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="Blink" Type="BOOL"/>
+      <VarDeclaration Comment="Input event qualifier" Name="BlinkInterval" Type="TIME"/>
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Comment="Output event qualifier" Name="OUT" Type="BOOL"/>
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB Comment="" Name="blinkOnOff" Type="E_SWITCH" x="1660.0" y="445.0"/>
+    <FB Comment="" Name="blinkFrequency" Type="E_CYCLE" x="2470.0" y="190.0"/>
+    <FB Comment="" Name="E_SR" Type="E_SR" x="2555.0" y="790.0"/>
+    <FB Name="E_SWITCH_1" Type="E_SWITCH" x="3220.0" y="220.0"/>
+    <FB Name="F_NOT" Type="F_NOT" x="3295.0" y="880.0"/>
+    <FB Comment="" Name="toggle4blink" Type="E_SR" x="3885.0" y="220.0"/>
+    <FB Comment="" Name="F_SEL" Type="F_SEL" x="4465.0" y="380.0"/>
+    <FB Comment="" Name="modeSwitch" Type="E_SWITCH" x="855.0" y="0.0"/>
+    <FB Comment="" Name="switchOnOff" Type="E_SWITCH" x="1615.0" y="-380.0"/>
+    <FB Comment="" Name="toggle4switchOnOff" Type="E_SR" x="2280.0" y="-380.0"/>
+    <FB Comment="" Name="BOOL2BOOL" Type="BOOL2BOOL" x="5035.0" y="475.0"/>
+    <FB Comment="" Name="modeSelect" Type="F_SEL" x="5700.0" y="-190.0"/>
+    <DataConnections>
+      <Connection Destination="blinkOnOff.G" Source="E_SR.Q" dx1="0.0" dx2="0.0" dy="325.0"/>
+      <Connection Destination="F_NOT.IN" Source="E_SR.Q" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_SEL.G" Source="F_NOT.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_SEL.IN1" Source="E_SR.Q" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_SEL.IN0" Source="toggle4blink.Q" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_SWITCH_1.G" Source="toggle4blink.Q" dx1="0.0" dx2="0.0" dy="130.0"/>
+      <Connection Destination="blinkFrequency.DT" Source="BlinkInterval" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="modeSwitch.G" Source="Blink" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="switchOnOff.G" Source="toggle4switchOnOff.Q" dx1="0.0" dx2="0.0" dy="115.0"/>
+      <Connection Destination="BOOL2BOOL.IN" Source="F_SEL.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="modeSelect.IN0" Source="toggle4switchOnOff.Q" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="modeSelect.G" Source="Blink" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="modeSelect.IN1" Source="BOOL2BOOL.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OUT" Source="modeSelect.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+    </DataConnections>
+    <EventConnections>
+      <Connection Destination="blinkFrequency.START" Source="blinkOnOff.EO0" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_SR.S" Source="blinkOnOff.EO0" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="blinkFrequency.STOP" Source="blinkOnOff.EO1" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_SR.R" Source="blinkOnOff.EO1" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_NOT.REQ" Source="E_SR.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_SEL.REQ" Source="F_NOT.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_SEL.REQ" Source="toggle4blink.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="toggle4blink.S" Source="E_SWITCH_1.EO0" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="toggle4blink.R" Source="E_SWITCH_1.EO1" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_SWITCH_1.EI" Source="blinkFrequency.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="modeSwitch.EI" Source="On" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="blinkOnOff.EI" Source="modeSwitch.EO1" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="toggle4switchOnOff.S" Source="switchOnOff.EO0" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="toggle4switchOnOff.R" Source="switchOnOff.EO1" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="switchOnOff.EI" Source="modeSwitch.EO0" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="BOOL2BOOL.REQ" Source="F_SEL.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="modeSelect.REQ" Source="toggle4switchOnOff.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="modeSelect.REQ" Source="BOOL2BOOL.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="CMD" Source="modeSelect.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+    </EventConnections>
+  </FBNetwork>
+</FBType>

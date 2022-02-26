@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE FBType SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<FBType Comment="Composite Function Block Type" Name="RateLimiter">
+  <Identification Standard="61499-2"/>
+  <VersionInfo Author="4DIAC-IDE" Date="2018-09-25" Organization="4DIAC-Consortium" Version="0.0"/>
+  <InterfaceList>
+    <EventInputs>
+      <Event Comment="Normal Execution Request" Name="Init" Type="Event"/>
+      <Event Name="Event" Type="Event"/>
+    </EventInputs>
+    <EventOutputs>
+      <Event Comment="Execution Confirmation" Name="CNF" Type="Event"/>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="RisingSlewRate" Type="LREAL"/>
+      <VarDeclaration Name="MeasuredInput" Type="LREAL"/>
+      <VarDeclaration Name="FallingSlewRate" Type="LREAL"/>
+      <VarDeclaration Name="DeltaTimeStep" Type="TIME"/>
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="Output" Type="LREAL"/>
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB Name="F_TIME_TO_LREAL" Type="F_TIME_TO_LREAL" x="840.0" y="1440.0"/>
+    <FB Name="F_FT_LIMIT" Type="F_FT_LIMIT" x="6240.0" y="1440.0"/>
+    <FB Name="F_MUL" Type="F_MUL" x="3960.0" y="1920.0"/>
+    <FB Name="F_MUL_1" Type="F_MUL" x="2880.0" y="-360.0"/>
+    <FB Name="LREAL2LREAL" Type="LREAL2LREAL" x="1560.0" y="-480.0"/>
+    <FB Name="LREAL2LREAL_1" Type="LREAL2LREAL" x="3600.0" y="-360.0"/>
+    <FB Name="Delay_With_InitCondition" Type="Delay_With_InitCondition" x="3480.0" y="720.0">
+      <Parameter Name="InitialCondition" Value="0"/>
+    </FB>
+    <FB Name="Delay_With_InitCondition_1" Type="Delay_With_InitCondition" x="5385.0" y="3635.0"/>
+    <FB Name="F_ADD" Type="F_ADD" x="4445.0" y="3040.0"/>
+    <FB Name="F_ADD_1" Type="F_ADD" x="4680.0" y="-360.0"/>
+    <DataConnections>
+      <Connection Destination="F_TIME_TO_LREAL.IN" Source="DeltaTimeStep" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="LREAL2LREAL.IN" Source="RisingSlewRate" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_MUL_1.IN1" Source="LREAL2LREAL.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="LREAL2LREAL_1.IN" Source="F_MUL_1.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_ADD_1.IN1" Source="LREAL2LREAL_1.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_MUL_1.IN2" Source="F_TIME_TO_LREAL.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_ADD_1.IN2" Source="Delay_With_InitCondition.LREAL1" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="Delay_With_InitCondition.DelayedInput" Source="F_ADD_1.OUT" dx1="0.0" dx2="0.0" dy="965.0"/>
+      <Connection Destination="Delay_With_InitCondition.DelayTime" Source="DeltaTimeStep" dx1="0.0" dx2="0.0" dy="0.0"/>
+    </DataConnections>
+    <EventConnections>
+      <Connection Destination="F_TIME_TO_LREAL.REQ" Source="Init" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_MUL_1.REQ" Source="Init" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="LREAL2LREAL.REQ" Source="Init" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_MUL_1.REQ" Source="LREAL2LREAL.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="LREAL2LREAL_1.REQ" Source="F_MUL_1.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_ADD_1.REQ" Source="LREAL2LREAL_1.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_MUL_1.REQ" Source="F_TIME_TO_LREAL.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="Delay_With_InitCondition.Start_and_REQ" Source="LREAL2LREAL_1.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+    </EventConnections>
+  </FBNetwork>
+</FBType>

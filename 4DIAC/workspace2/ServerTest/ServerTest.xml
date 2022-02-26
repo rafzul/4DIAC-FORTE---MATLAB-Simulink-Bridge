@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<libraryElement:AutomationSystem xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:libraryElement="org.fordiac.ide.model.libraryElement" name="ServerTest" id="_hrMpUGCsEeici4IJsiuslw">
+  <application comment="" name="ServerTestApp">
+    <fBNetwork href="ServerTestApp.xml#//@fbNetwork"/>
+  </application>
+  <application comment="" name="ServerTestApp2">
+    <fBNetwork href="ServerTestApp2.xml#//@fbNetwork"/>
+  </application>
+  <application comment="" name="ServerTestApp3">
+    <fBNetwork href="ServerTestApp3.xml#//@fbNetwork"/>
+  </application>
+  <application comment="" name="ServerTestApp4">
+    <fBNetwork href="ServerTestApp4.xml#//@fbNetwork"/>
+  </application>
+  <application comment="" name="ServerTest5">
+    <fBNetwork href="ServerTest5.xml#//@fbNetwork"/>
+  </application>
+  <systemConfiguration>
+    <systemConfigurationNetwork href="SysConf.xml#//@systemConfigNetwork"/>
+  </systemConfiguration>
+</libraryElement:AutomationSystem>

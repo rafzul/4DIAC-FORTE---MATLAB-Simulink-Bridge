@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move &apos;AI_16.fbt&apos; to &apos;Custom&apos;" description="Move &apos;AI_16.fbt&apos; to &apos;Custom&apos;" destination="OSCAT/Custom" element1="AI_16.fbt" flags="7" id="org.eclipse.ltk.core.refactoring.move.resources" resources="1" stamp="1545351235365" updateReferences="true"/>
+</session>

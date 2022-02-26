@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE System SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<System Name="ServerTest">
+  <Application Name="ServerTestApp">
+    <SubAppNetwork>
+      <FB Comment="" Name="F_ADD" Type="F_ADD" x="3040.0" y="1330.0">
+        <Parameter Name="IN2" Value="LREAL#3"/>
+      </FB>
+      <FB Comment="" Name="SERVER_1_0" Type="SERVER_1" x="1425.0" y="950.0">
+        <Parameter Name="QI" Value="TRUE"/>
+        <Parameter Name="ID" Value="localhost:61500"/>
+      </FB>
+      <FB Comment="" Name="LREAL2LREAL_1" Type="LREAL2LREAL" x="2280.0" y="1080.0"/>
+      <FB Comment="" Name="LREAL2LREAL_2" Type="LREAL2LREAL" x="285.0" y="1900.0"/>
+      <FB Name="E_CTU" Type="E_CTU" x="2500.0" y="8860.0">
+        <Parameter Name="PV" Value="UINT#1"/>
+      </FB>
+      <FB Name="F_SEL_0" Type="F_SEL" x="3460.0" y="9220.0">
+        <Parameter Name="IN1" Value="REAL#0.00251"/>
+      </FB>
+      <EventConnections>
+        <Connection Destination="LREAL2LREAL_1.REQ" Source="SERVER_1_0.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_ADD.REQ" Source="LREAL2LREAL_1.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="LREAL2LREAL_2.REQ" Source="F_ADD.CNF" dx1="185.0" dx2="-160.0" dy="990.0"/>
+        <Connection Destination="SERVER_1_0.RSP" Source="LREAL2LREAL_2.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      </EventConnections>
+      <DataConnections>
+        <Connection Destination="F_ADD.IN1" Source="LREAL2LREAL_1.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="LREAL2LREAL_1.IN" Source="SERVER_1_0.RD_1" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="LREAL2LREAL_2.IN" Source="F_ADD.OUT" dx1="0.0" dx2="0.0" dy="530.0"/>
+        <Connection Destination="SERVER_1_0.SD_1" Source="LREAL2LREAL_2.OUT" dx1="190.0" dx2="0.0" dy="0.0"/>
+      </DataConnections>
+    </SubAppNetwork>
+  </Application>
+  <Application Name="ServerTestApp2">
+    <SubAppNetwork>
+      <FB Comment="" Name="F_ADD_0" Type="F_ADD" x="5225.0" y="1235.0">
+        <Parameter Name="IN2" Value="LREAL#3"/>
+      </FB>
+      <FB Comment="" Name="F_CONCAT" Type="F_CONCAT" x="5225.0" y="1900.0">
+        <Parameter Name="IN2" Value="STRING# world!"/>
+      </FB>
+      <FB Comment="" Name="SERVER_2" Type="SERVER_2" x="2520.0" y="1080.0">
+        <Parameter Name="QI" Value="TRUE"/>
+        <Parameter Name="ID" Value="localhost:61500"/>
+      </FB>
+      <FB Comment="" Name="STRING2STRING" Type="STRING2STRING" x="4085.0" y="1900.0"/>
+      <FB Comment="" Name="LREAL2LREAL" Type="LREAL2LREAL" x="4085.0" y="1235.0"/>
+      <FB Comment="" Name="E_SPLIT" Type="E_SPLIT" x="3515.0" y="1710.0"/>
+      <FB Comment="" Name="E_REND" Type="E_REND" x="1710.0" y="1045.0"/>
+      <FB Comment="" Name="STRING2STRING_0" Type="STRING2STRING" x="475.0" y="1900.0"/>
+      <FB Comment="" Name="LREAL2LREAL_0" Type="LREAL2LREAL" x="475.0" y="950.0"/>
+      <EventConnections>
+        <Connection Destination="E_SPLIT.EI" Source="SERVER_2.IND" dx1="135.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="LREAL2LREAL.REQ" Source="E_SPLIT.EO1" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="STRING2STRING.REQ" Source="E_SPLIT.EO2" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_ADD_0.REQ" Source="LREAL2LREAL.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_CONCAT.REQ" Source="STRING2STRING.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="LREAL2LREAL_0.REQ" Source="F_ADD_0.CNF" dx1="0.0" dx2="0.0" dy="-335.0"/>
+        <Connection Destination="STRING2STRING_0.REQ" Source="F_CONCAT.CNF" dx1="200.0" dx2="-180.0" dy="820.0"/>
+        <Connection Destination="E_REND.EI1" Source="LREAL2LREAL_0.CNF" dx1="360.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="E_REND.EI2" Source="STRING2STRING_0.CNF" dx1="285.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_2.RSP" Source="E_REND.EO" dx1="230.0" dx2="0.0" dy="0.0"/>
+      </EventConnections>
+      <DataConnections>
+        <Connection Destination="STRING2STRING.IN" Source="SERVER_2.RD_2" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_CONCAT.IN1" Source="STRING2STRING.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="LREAL2LREAL.IN" Source="SERVER_2.RD_1" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_ADD_0.IN1" Source="LREAL2LREAL.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="LREAL2LREAL_0.IN" Source="F_ADD_0.OUT" dx1="255.0" dx2="-180.0" dy="-795.0"/>
+        <Connection Destination="STRING2STRING_0.IN" Source="F_CONCAT.OUT" dx1="0.0" dx2="0.0" dy="415.0"/>
+        <Connection Destination="SERVER_2.SD_1" Source="LREAL2LREAL_0.OUT" dx1="170.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_2.SD_2" Source="STRING2STRING_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      </DataConnections>
+    </SubAppNetwork>
+  </Application>
+  <Application Name="ServerTestApp3">
+    <SubAppNetwork>
+      <FB Comment="" Name="SERVER_1" Type="SERVER_1" x="3135.0" y="1425.0">
+        <Parameter Name="QI" Value="TRUE"/>
+        <Parameter Name="ID" Value="localhost:61500"/>
+      </FB>
+      <FB Comment="" Name="F_ADD_DT_TIME" Type="F_ADD_DT_TIME" x="4820.0" y="1695.0">
+        <Parameter Name="IN2" Value="T#86400000ms"/>
+      </FB>
+      <EventConnections>
+        <Connection Destination="F_ADD_DT_TIME.REQ" Source="SERVER_1.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_1.RSP" Source="F_ADD_DT_TIME.CNF" dx1="0.0" dx2="0.0" dy="-530.0"/>
+      </EventConnections>
+      <DataConnections>
+        <Connection Destination="F_ADD_DT_TIME.IN1" Source="SERVER_1.RD_1" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_1.SD_1" Source="F_ADD_DT_TIME.OUT" dx1="785.0" dx2="-740.0" dy="890.0"/>
+      </DataConnections>
+    </SubAppNetwork>
+  </Application>
+  <Application Name="ServerTestApp4">
+    <SubAppNetwork>
+      <FB Comment="" Name="VALUES2ARRAY_2_LREAL" Type="VALUES2ARRAY_2_LREAL" x="760.0" y="1045.0"/>
+      <FB Comment="" Name="SERVER_1_1" Type="SERVER_1" x="4465.0" y="950.0">
+        <Parameter Name="QI" Value="TRUE"/>
+        <Parameter Name="ID" Value="localhost:61500"/>
+      </FB>
+      <FB Comment="" Name="ARRAY2ARRAY_2_LREAL" Type="ARRAY2ARRAY_2_LREAL" x="2755.0" y="1045.0"/>
+      <FB Comment="" Name="LREAL2LREAL_4" Type="LREAL2LREAL" x="5510.0" y="1045.0"/>
+      <EventConnections>
+        <Connection Destination="ARRAY2ARRAY_2_LREAL.REQ" Source="VALUES2ARRAY_2_LREAL.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_1_1.RSP" Source="ARRAY2ARRAY_2_LREAL.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="LREAL2LREAL_4.REQ" Source="SERVER_1_1.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="VALUES2ARRAY_2_LREAL.REQ" Source="LREAL2LREAL_4.CNF" dx1="190.0" dx2="-515.0" dy="595.0"/>
+      </EventConnections>
+      <DataConnections>
+        <Connection Destination="ARRAY2ARRAY_2_LREAL.IN" Source="VALUES2ARRAY_2_LREAL.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="LREAL2LREAL_4.IN" Source="SERVER_1_1.RD_1" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="VALUES2ARRAY_2_LREAL.IN_1" Source="LREAL2LREAL_4.OUT" dx1="0.0" dx2="-295.0" dy="245.0"/>
+        <Connection Destination="VALUES2ARRAY_2_LREAL.IN_2" Source="LREAL2LREAL_4.OUT" dx1="0.0" dx2="-300.0" dy="205.0"/>
+        <Connection Destination="SERVER_1_1.SD_1" Source="ARRAY2ARRAY_2_LREAL.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      </DataConnections>
+    </SubAppNetwork>
+  </Application>
+  <Application Name="ServerTest5">
+    <SubAppNetwork>
+      <FB Name="SERVER_2_0" Type="SERVER_2" x="600.0" y="840.0">
+        <Parameter Name="QI" Value="TRUE"/>
+        <Parameter Name="ID" Value="localhost:61001"/>
+      </FB>
+      <FB Name="FB_CTRL_PI" Type="FB_CTRL_PI" x="2160.0" y="120.0">
+        <Parameter Name="SET_POINT" Value="2"/>
+        <Parameter Name="KP" Value="2"/>
+        <Parameter Name="KI" Value="0"/>
+      </FB>
+      <FB Name="FB_CTRL_PI_0" Type="FB_CTRL_PI" x="1920.0" y="1800.0">
+        <Parameter Name="SET_POINT" Value="4"/>
+        <Parameter Name="KP" Value="1"/>
+        <Parameter Name="KI" Value="0"/>
+      </FB>
+      <FB Name="E_CYCLE" Type="E_CYCLE" x="-120.0" y="600.0">
+        <Parameter Name="DT" Value="T#250ms"/>
+      </FB>
+      <EventConnections>
+        <Connection Destination="SERVER_2_0.RSP" Source="SERVER_2_0.INITO" dx1="0.0" dx2="0.0" dy="-605.0"/>
+        <Connection Destination="FB_CTRL_PI_0.REQ" Source="SERVER_2_0.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="FB_CTRL_PI_0.INIT" Source="SERVER_2_0.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="E_CYCLE.START" Source="FB_CTRL_PI_0.CNF" dx1="0.0" dx2="0.0" dy="2310.0"/>
+        <Connection Destination="SERVER_2_0.RSP" Source="E_CYCLE.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      </EventConnections>
+      <DataConnections>
+        <Connection Destination="FB_CTRL_PI_0.ACTUAL" Source="SERVER_2_0.RD_2" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_2_0.SD_2" Source="FB_CTRL_PI_0.Y" dx1="0.0" dx2="0.0" dy="0.0"/>
+      </DataConnections>
+    </SubAppNetwork>
+  </Application>
+  <Device Name="FORTE_PC" Type="FORTE_PC" x="3465.0" y="1515.0">
+    <Attribute Name="Color" Value="123,170,193"/>
+    <Attribute Name="Profile" Value="HOLOBLOC"/>
+    <Parameter Name="MGR_ID" Value="&quot;localhost:61499&quot;"/>
+    <Resource Name="EMB_RES" Type="EMB_RES">
+      <FBNetwork>
+        <FB Name="SERVER_2_0" Type="SERVER_2" x="720.0" y="720.0">
+          <Parameter Name="QI" Value="TRUE"/>
+          <Parameter Name="ID" Value="localhost:61001"/>
+        </FB>
+        <FB Name="FB_CTRL_PI_0" Type="FB_CTRL_PI" x="1920.0" y="1800.0">
+          <Parameter Name="SET_POINT" Value="4"/>
+          <Parameter Name="KP" Value="1"/>
+          <Parameter Name="KI" Value="0"/>
+        </FB>
+        <FB Name="E_CYCLE" Type="E_CYCLE" x="-120.0" y="600.0">
+          <Parameter Name="DT" Value="T#250ms"/>
+        </FB>
+        <FB Name="REAL2REAL" Type="REAL2REAL" x="1440.0" y="840.0"/>
+        <FB Name="PUBLISH_1" Type="PUBLISH_1" x="2400.0" y="480.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="ID" Value="239.192.0.2:61502"/>
+        </FB>
+        <FB Name="SUBSCRIBE_1" Type="SUBSCRIBE_1" x="-120.0" y="1560.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="ID" Value="239.192.0.2:61503"/>
+        </FB>
+        <FB Name="REAL2REAL_0" Type="REAL2REAL" x="720.0" y="1920.0"/>
+        <EventConnections>
+          <Connection Destination="SERVER_2_0.RSP" Source="SERVER_2_0.INITO" dx1="0.0" dx2="0.0" dy="-605.0"/>
+          <Connection Destination="FB_CTRL_PI_0.INIT" Source="SERVER_2_0.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="FB_CTRL_PI_0.REQ" Source="SERVER_2_0.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="E_CYCLE.START" Source="FB_CTRL_PI_0.CNF" dx1="0.0" dx2="0.0" dy="2310.0"/>
+          <Connection Destination="SERVER_2_0.RSP" Source="E_CYCLE.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SERVER_2_0.INIT" Source="START.COLD" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SERVER_2_0.INIT" Source="START.WARM" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="REAL2REAL.REQ" Source="SERVER_2_0.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBLISH_1.INIT" Source="SERVER_2_0.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBLISH_1.REQ" Source="REAL2REAL.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SUBSCRIBE_1.INIT" Source="START.COLD" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SUBSCRIBE_1.INIT" Source="START.WARM" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="REAL2REAL_0.REQ" Source="SUBSCRIBE_1.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="E_CYCLE.START" Source="REAL2REAL_0.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        </EventConnections>
+        <DataConnections>
+          <Connection Destination="FB_CTRL_PI_0.ACTUAL" Source="SERVER_2_0.RD_2" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SERVER_2_0.SD_2" Source="FB_CTRL_PI_0.Y" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="REAL2REAL.IN" Source="SERVER_2_0.RD_1" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBLISH_1.SD_1" Source="REAL2REAL.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SERVER_2_0.SD_1" Source="REAL2REAL_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="REAL2REAL_0.IN" Source="SUBSCRIBE_1.RD_1" dx1="0.0" dx2="0.0" dy="0.0"/>
+        </DataConnections>
+      </FBNetwork>
+    </Resource>
+  </Device>
+  <Device Name="FORTE_PC_1" Type="FORTE_PC" x="2280.0" y="2040.0">
+    <Attribute Name="Color" Value="216,220,115"/>
+    <Attribute Name="Profile" Value="HOLOBLOC"/>
+    <Parameter Name="MGR_ID" Value="&quot;localhost:61500&quot;"/>
+    <Resource Name="EMB_RES" Type="EMB_RES">
+      <FBNetwork>
+        <FB Name="FB_CTRL_PI" Type="FB_CTRL_PI" x="2160.0" y="120.0">
+          <Parameter Name="SET_POINT" Value="2"/>
+          <Parameter Name="KP" Value="2"/>
+          <Parameter Name="KI" Value="0"/>
+        </FB>
+        <FB Name="SUBSCRIBE_1_0" Type="SUBSCRIBE_1" x="1100.0" y="995.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="ID" Value="239.192.0.2:61502"/>
+        </FB>
+        <FB Name="PUBLISH_1_0" Type="PUBLISH_1" x="3600.0" y="360.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="ID" Value="239.192.0.2:61503"/>
+        </FB>
+        <FB Name="REAL2REAL_1" Type="REAL2REAL" x="1800.0" y="1680.0"/>
+        <FB Name="REAL2REAL_2" Type="REAL2REAL" x="2945.0" y="390.0"/>
+        <EventConnections>
+          <Connection Destination="SUBSCRIBE_1_0.INIT" Source="START.COLD" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SUBSCRIBE_1_0.INIT" Source="START.WARM" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="FB_CTRL_PI.INIT" Source="SUBSCRIBE_1_0.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="REAL2REAL_1.REQ" Source="SUBSCRIBE_1_0.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="FB_CTRL_PI.REQ" Source="REAL2REAL_1.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="REAL2REAL_2.REQ" Source="FB_CTRL_PI.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBLISH_1_0.REQ" Source="REAL2REAL_2.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBLISH_1_0.INIT" Source="FB_CTRL_PI.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        </EventConnections>
+        <DataConnections>
+          <Connection Destination="REAL2REAL_1.IN" Source="SUBSCRIBE_1_0.RD_1" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="FB_CTRL_PI.ACTUAL" Source="REAL2REAL_1.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="REAL2REAL_2.IN" Source="FB_CTRL_PI.Y" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBLISH_1_0.SD_1" Source="REAL2REAL_2.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        </DataConnections>
+      </FBNetwork>
+    </Resource>
+  </Device>
+  <Device Name="FORTE_PC_2" Type="FORTE_PC" x="4135.0" y="2900.0">
+    <Attribute Name="Color" Value="200,138,221"/>
+    <Attribute Name="Profile" Value="HOLOBLOC"/>
+    <Parameter Name="MGR_ID" Value="&quot;localhost:61501&quot;"/>
+    <Resource Name="EMB_RES" Type="EMB_RES">
+      <FBNetwork>
+        <FB Name="REAL2REAL_3" Type="REAL2REAL" x="1200.0" y="600.0"/>
+        <FB Name="SUBSCRIBE_1_1" Type="SUBSCRIBE_1" x="600.0" y="360.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="ID" Value="239.192.0.2:61504"/>
+        </FB>
+        <FB Name="PUBLISH_1_1" Type="PUBLISH_1" x="2520.0" y="240.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="ID" Value="239.192.0.2:61505"/>
+        </FB>
+        <FB Name="REAL2REAL_4" Type="REAL2REAL" x="1920.0" y="600.0"/>
+        <EventConnections>
+          <Connection Destination="SUBSCRIBE_1_1.INIT" Source="START.COLD" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SUBSCRIBE_1_1.INIT" Source="START.WARM" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="REAL2REAL_3.REQ" Source="SUBSCRIBE_1_1.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBLISH_1_1.REQ" Source="REAL2REAL_4.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBLISH_1_1.INIT" Source="SUBSCRIBE_1_1.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        </EventConnections>
+        <DataConnections>
+          <Connection Destination="REAL2REAL_3.IN" Source="SUBSCRIBE_1_1.RD_1" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBLISH_1_1.SD_1" Source="REAL2REAL_4.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        </DataConnections>
+      </FBNetwork>
+    </Resource>
+  </Device>
+  <Mapping From="ServerTest5.SERVER_2_0" To="FORTE_PC.EMB_RES.SERVER_2_0"/>
+  <Mapping From="ServerTest5.FB_CTRL_PI" To="FORTE_PC_1.EMB_RES.FB_CTRL_PI"/>
+  <Mapping From="ServerTest5.FB_CTRL_PI_0" To="FORTE_PC.EMB_RES.FB_CTRL_PI_0"/>
+  <Mapping From="ServerTest5.E_CYCLE" To="FORTE_PC.EMB_RES.E_CYCLE"/>
+  <Segment Comment="" Name="Ethernet" Type="Ethernet" dx1="1500.0" x="3040.0" y="1155.0"/>
+  <Link CommResource="FORTE_PC" Comment="" SegmentName="Ethernet"/>
+  <Link CommResource="FORTE_PC_1" Comment="" SegmentName="Ethernet"/>
+  <Link CommResource="FORTE_PC_2" Comment="" SegmentName="Ethernet"/>
+</System>

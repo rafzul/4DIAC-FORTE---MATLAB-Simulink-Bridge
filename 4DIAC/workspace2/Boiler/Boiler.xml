@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<libraryElement:AutomationSystem xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:libraryElement="org.fordiac.ide.model.libraryElement" name="Boiler" id="_74JrEBq1EeG0i7iuCMyDJA">
+  <versionInfo author="Author" organization="4DIAC-Consortium" version="1.0"/>
+  <application comment="" name="MyBoiler">
+    <fBNetwork href="MyBoiler.xml#//@fbNetwork"/>
+  </application>
+  <application comment="" name="globals">
+    <fBNetwork href="globals.xml#//@fbNetwork"/>
+  </application>
+  <application comment="" name="BoilerModel">
+    <fBNetwork href="BoilerModel.xml#//@fbNetwork"/>
+  </application>
+  <systemConfiguration>
+    <systemConfigurationNetwork href="SysConf.xml#//@systemConfigNetwork"/>
+  </systemConfiguration>
+</libraryElement:AutomationSystem>

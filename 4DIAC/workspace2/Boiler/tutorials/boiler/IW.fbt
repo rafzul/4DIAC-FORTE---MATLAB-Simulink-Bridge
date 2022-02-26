@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE FBType SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<FBType Comment="Composite Function Block Type" Name="IW">
+  <Identification Standard="61499-2"/>
+  <VersionInfo Author="4DIAC-IDE" Date="2016-04-07" Organization="4DIAC-Consortium" Version="0.0"/>
+  <InterfaceList>
+    <EventInputs>
+      <Event Comment="Initialization Request" Name="INIT" Type="Event">
+        <With Var="QI"/>
+        <With Var="PARAMS"/>
+      </Event>
+      <Event Comment="Normal Execution Request" Name="REQ" Type="Event">
+        <With Var="QI"/>
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Comment="Initialization Confirm" Name="INITO" Type="Event">
+        <With Var="QO"/>
+        <With Var="STATUS"/>
+      </Event>
+      <Event Comment="Execution Confirmation" Name="CNF" Type="Event">
+        <With Var="QO"/>
+        <With Var="IN"/>
+        <With Var="STATUS"/>
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Comment="Input event qualifier" Name="QI" Type="BOOL"/>
+      <VarDeclaration Name="PARAMS" Type="WSTRING"/>
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Comment="Output event qualifier" Name="QO" Type="BOOL"/>
+      <VarDeclaration Name="STATUS" Type="WSTRING"/>
+      <VarDeclaration Name="IN" Type="WORD"/>
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB Name="SUBSCRIBE_1" Type="SUBSCRIBE_1" x="2565.0" y="950.0"/>
+    <DataConnections>
+      <Connection Destination="QO" Source="SUBSCRIBE_1.QO" dx1="470.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="STATUS" Source="SUBSCRIBE_1.STATUS" dx1="630.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="IN" Source="SUBSCRIBE_1.RD_1" dx1="730.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="SUBSCRIBE_1.QI" Source="QI" dx1="635.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="SUBSCRIBE_1.ID" Source="PARAMS" dx1="0.0" dx2="0.0" dy="0.0"/>
+    </DataConnections>
+    <EventConnections>
+      <Connection Destination="SUBSCRIBE_1.INIT" Source="INIT" dx1="1160.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="INITO" Source="SUBSCRIBE_1.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="CNF" Source="REQ" dx1="0.0" dx2="0.0" dy="0.0"/>
+    </EventConnections>
+  </FBNetwork>
+</FBType>

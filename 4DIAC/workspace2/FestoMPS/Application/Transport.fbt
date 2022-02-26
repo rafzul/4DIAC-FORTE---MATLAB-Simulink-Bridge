@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE FBType SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<FBType Comment="Basic Function Block Type" Name="Transport">
+  <Identification Standard="61499-2"/>
+  <VersionInfo Author="4DIAC-IDE" Date="2015-03-24" Organization="4DIAC-Consortium" Version="0.0"/>
+  <InterfaceList>
+    <EventInputs>
+      <Event Comment="Start the conveyor belt" Name="MotorStart" Type="Event"/>
+      <Event Comment="Stop the conveyor belt" Name="MotorStop" Type="Event">
+        <With Var="DelayTime"/>
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Comment="Send motor command" Name="MotorCMD" Type="Event">
+        <With Var="On"/>
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="DelayTime" Type="TIME"/>
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Comment="Motor control output" Name="On" Type="BOOL"/>
+    </OutputVars>
+    <Plugs>
+      <AdapterDeclaration Name="DelayStop" Type="ATimeOut"/>
+    </Plugs>
+  </InterfaceList>
+  <BasicFB>
+    <ECC>
+      <ECState Comment="Initial State" Name="START" x="2185.0" y="475.0"/>
+      <ECState Comment="Initialization" Name="StartConveyor" x="2755.0" y="190.0">
+        <ECAction Algorithm="StartMotor" Output="MotorCMD"/>
+      </ECState>
+      <ECState Name="StopConveyor" x="2755.0" y="1045.0">
+        <ECAction Output="DelayStop.STOP"/>
+        <ECAction Algorithm="StopMotor" Output="MotorCMD"/>
+      </ECState>
+      <ECState Name="DelayStop" x="3040.0" y="665.0">
+        <ECAction Algorithm="SetDelayTime" Output="DelayStop.START"/>
+      </ECState>
+      <ECTransition Comment="" Condition="MotorStart" Destination="StartConveyor" Source="START" x="2690.0" y="500.0"/>
+      <ECTransition Comment="" Condition="1" Destination="START" Source="StopConveyor" x="2415.0" y="855.0"/>
+      <ECTransition Comment="" Condition="1" Destination="START" Source="StartConveyor" x="2545.0" y="265.0"/>
+      <ECTransition Comment="" Condition="MotorStop" Destination="DelayStop" Source="START" x="2720.0" y="660.0"/>
+      <ECTransition Comment="" Condition="DelayStop.TimeOut" Destination="StopConveyor" Source="DelayStop" x="3260.0" y="885.0"/>
+    </ECC>
+    <Algorithm Comment="Start motor" Name="StartMotor">
+      <ST Text="On := TRUE;"/>
+    </Algorithm>
+    <Algorithm Comment="Stop motor" Name="StopMotor">
+      <ST Text="On := FALSE;"/>
+    </Algorithm>
+    <Algorithm Comment="new algorithm" Name="SetDelayTime">
+      <ST Text="DelayStop.DT :=DelayTime;"/>
+    </Algorithm>
+  </BasicFB>
+  <Service Comment="Basic Function Block Type" LeftInterface="transport_interface" RightInterface="transport_implementation">
+    <ServiceSequence Name="StartConveyor">
+      <ServiceTransaction>
+        <InputPrimitive Event="MotorStart" Interface="transport_interface"/>
+        <OutputPrimitive Event="MotorCMD" Interface="transport_interface" Parameters="On = true"/>
+      </ServiceTransaction>
+    </ServiceSequence>
+    <ServiceSequence Name="DelayStop">
+      <ServiceTransaction>
+        <InputPrimitive Event="MotorStop" Interface="transport_interface"/>
+        <OutputPrimitive Event="DelayStop.START" Interface="transport_interface" Parameters="DelayStop.DT =DelayTime"/>
+      </ServiceTransaction>
+      <ServiceTransaction>
+        <InputPrimitive Event="DelayStop.TimeOut" Interface="transport_interface"/>
+        <OutputPrimitive Event="DelayStop.STOP" Interface="transport_interface"/>
+        <OutputPrimitive Event="MotorCMD" Interface="transport_interface" Parameters="On = false"/>
+      </ServiceTransaction>
+    </ServiceSequence>
+  </Service>
+</FBType>

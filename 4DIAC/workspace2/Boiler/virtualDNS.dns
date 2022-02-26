@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<virtualDNS:VirtualDNSManagement xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:virtualDNS="org.fordiac.ide.virtualDNS" activeVirtualDNS="//@availableDNSCollections.0">
+  <availableDNSCollections name="localhost">
+    <virtualDNSEntries name="ip" value="127.0.0.1"/>
+    <virtualDNSEntries name="localhost" value="127.0.0.1"/>
+    <virtualDNSEntries name="ip_controller" value="127.0.0.1"/>
+    <virtualDNSEntries name="hmi_feedback" value="239.192.0.1:61501"/>
+    <virtualDNSEntries name="steamvalve" value="239.192.0.10:61510"/>
+    <virtualDNSEntries name="watervalve" value="239.192.0.11:61511"/>
+    <virtualDNSEntries name="hmi_steamdemand" value="239.192.1.1:61601"/>
+    <virtualDNSEntries name="localhost" value="127.0.0.1"/>
+    <virtualDNSEntries name="tanklevel" value="239.192.2.1:61551"/>
+    <virtualDNSEntries name="hmi_leveldemand" value="239.192.1.2:61602"/>
+    <virtualDNSEntries name="steamflow" value="239.192.2.2:61552"/>
+    <virtualDNSEntries name="feedwaterflow" value="239.192.2.3:61553"/>
+  </availableDNSCollections>
+</virtualDNS:VirtualDNSManagement>

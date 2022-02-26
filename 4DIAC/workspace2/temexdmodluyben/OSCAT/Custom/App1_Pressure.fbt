@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE FBType SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<FBType Comment="Composite Function Block Type" Name="App1_Pressure">
+  <Identification Standard="61499-2"/>
+  <VersionInfo Author="4DIAC-IDE" Date="2018-11-06" Organization="4DIAC-Consortium" Version="0.0"/>
+  <InterfaceList>
+    <EventInputs>
+      <Event Comment="Initialization Request" Name="INITO" Type="Event"/>
+      <Event Comment="Normal Execution Request" Name="IND" Type="Event">
+        <With Var="XMEAS7"/>
+        <With Var="XMEAS7SETP"/>
+        <With Var="KP_Pressure"/>
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Comment="Initialization Confirm" Name="INITO1" Type="Event"/>
+      <Event Comment="Execution Confirmation" Name="CNF" Type="Event">
+        <With Var="XMV4"/>
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="XMEAS7" Type="REAL"/>
+      <VarDeclaration Name="XMEAS7SETP" Type="REAL"/>
+      <VarDeclaration Name="KP_Pressure" Type="REAL"/>
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="XMV4" Type="REAL"/>
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB Name="FB_CTRL_PI_1" Type="FB_CTRL_PI" x="2280.0" y="0.0"/>
+    <FB Name="IND1" Type="E_SPLIT" x="1920.0" y="1680.0"/>
+    <DataConnections>
+      <Connection Destination="FB_CTRL_PI_1.ACTUAL" Source="XMEAS7" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="FB_CTRL_PI_1.SET_POINT" Source="XMEAS7SETP" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="XMV4" Source="FB_CTRL_PI_1.Y" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="FB_CTRL_PI_1.KP" Source="KP_Pressure" dx1="0.0" dx2="0.0" dy="0.0"/>
+    </DataConnections>
+    <EventConnections>
+      <Connection Destination="FB_CTRL_PI_1.REQ" Source="IND1.EO2" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="IND1.EI" Source="IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="CNF" Source="FB_CTRL_PI_1.CNF" dx1="135.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="FB_CTRL_PI_1.INIT" Source="INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="INITO1" Source="FB_CTRL_PI_1.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+    </EventConnections>
+  </FBNetwork>
+</FBType>

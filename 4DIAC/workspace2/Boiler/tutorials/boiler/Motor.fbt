@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE FBType SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<FBType Comment="Basic Function Block Type" Name="Motor">
+  <Identification Standard="61499-2"/>
+  <VersionInfo Author="4DIAC-IDE" Date="2011-12-21" Organization="4DIAC-Consortium" Version="0.0"/>
+  <InterfaceList>
+    <EventInputs>
+      <Event Comment="Normal Execution Request" Name="REQ" Type="Event">
+        <With Var="rValveState"/>
+        <With Var="enMode"/>
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Comment="Execution Confirmation" Name="CNF" Type="Event">
+        <With Var="iOutputMotor"/>
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Comment="Input event qualifier" Name="rValveState" Type="LREAL"/>
+      <VarDeclaration Name="enMode" Type="BOOL"/>
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Comment="Output event qualifier" Name="iOutputMotor" Type="INT"/>
+    </OutputVars>
+  </InterfaceList>
+  <BasicFB>
+    <InternalVars>
+      <VarDeclaration Comment="Internal Variable" InitialValue="" Name="iMotor" Type="INT"/>
+      <VarDeclaration Comment="Internal Variable" InitialValue="0" Name="rValveStateBefore" Type="LREAL"/>
+      <VarDeclaration Comment="Internal Variable" InitialValue="0" Name="counter" Type="INT"/>
+    </InternalVars>
+    <ECC>
+      <ECState Comment="Initial State" Name="START" x="500.0" y="250.0"/>
+      <ECState Comment="Normal execution" Name="REQ" x="215.0" y="750.0">
+        <ECAction Algorithm="REQ" Output="CNF"/>
+      </ECState>
+      <ECTransition Comment="" Condition="REQ" Destination="REQ" Source="START" x="550.0" y="600.0"/>
+      <ECTransition Comment="" Condition="1" Destination="START" Source="REQ" x="215.0" y="425.0"/>
+    </ECC>
+    <Algorithm Comment="Normally executed algorithm" Name="REQ">
+      <ST Text="IF (enMode=0) THEN&#10;&#9;&#9;(*iOutputMotor := CIEC_INT ( rValveState,0.0, (rMaxFeedwaterPressure * rMaxValveState),0, 10000);*)&#10;&#9;iOutputMotor := CIEC_INT(rValveState);&#10;&#9;ELSE&#10;&#9;&#9;IF ( (counter MOD 25) = 0) THEN&#10;&#9;&#9;&#9;iMotor:= CIEC_INT((rValveState - rValveStateBefore)*1000);&#10;&#9;&#9;&#9;rValveStateBefore :=rValveState;&#10;&#9;&#9;END_IF&#10;&#9;&#9;counter := counter+1;&#10;&#9;&#9;iOutputMotor := iMotor;&#10;END_IF"/>
+    </Algorithm>
+  </BasicFB>
+</FBType>

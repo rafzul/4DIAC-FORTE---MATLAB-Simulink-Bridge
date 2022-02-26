@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<libraryElement:AutomationSystem xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:libraryElement="org.fordiac.ide.model.libraryElement" name="temexdmodluyben" id="_DpAFUNRNEeiN0M2yFwoj9A">
+  <versionInfo author="Author" organization="4DIAC-Consortium" version="1.0"/>
+  <application comment="" name="App1_ProdRateandPressure">
+    <fBNetwork href="App1_ProdRateandPressure.xml#//@fbNetwork"/>
+  </application>
+  <application comment="" name="App2_StripperTemperatureandReactorTemperature">
+    <fBNetwork href="App2_StripperTemperatureandReactorTemperature.xml#//@fbNetwork"/>
+  </application>
+  <application comment="" name="App3_StripperLevelandSeparatorLevel">
+    <fBNetwork href="App3_StripperLevelandSeparatorLevel.xml#//@fbNetwork"/>
+  </application>
+  <application comment="" name="App4_ReactorLevel">
+    <fBNetwork href="App4_ReactorLevel.xml#//@fbNetwork"/>
+  </application>
+  <application comment="" name="App5_yAandyB">
+    <fBNetwork href="App5_yAandyB.xml#//@fbNetwork"/>
+  </application>
+  <systemConfiguration>
+    <systemConfigurationNetwork href="SysConf.xml#//@systemConfigNetwork"/>
+  </systemConfiguration>
+</libraryElement:AutomationSystem>

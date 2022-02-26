@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE FBType SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<FBType Comment="Composite Function Block Type" Name="AutoMode">
+  <Identification Standard="61499-2"/>
+  <VersionInfo Author="4DIAC-IDE" Date="2011-12-28" Organization="4DIAC-Consortium" Version="0.0"/>
+  <InterfaceList>
+    <EventInputs>
+      <Event Comment="Initialization Request" Name="INIT" Type="Event">
+        <With Var="DT"/>
+        <With Var="SmoothChange"/>
+      </Event>
+      <Event Name="Cycle" Type="Event">
+        <With Var="DT"/>
+        <With Var="SmoothChange"/>
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Comment="Execution Confirmation" Name="CNF" Type="Event">
+        <With Var="AutoFillLevel"/>
+        <With Var="AutoSteamDemand"/>
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="DT" Type="LREAL"/>
+      <VarDeclaration InitialValue="0" Name="SmoothChange" Type="BOOL"/>
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Comment="Output event qualifier" Name="AutoFillLevel" Type="LREAL"/>
+      <VarDeclaration Name="AutoSteamDemand" Type="LREAL"/>
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB Name="DRAND" Type="DRAND" x="1755.0" y="2015.0">
+      <Parameter Name="Seed" Value="1"/>
+    </FB>
+    <FB Name="AutoModeFillLevel" Type="AutoModeFillLevel" x="3360.0" y="265.0"/>
+    <FB Name="AutoModeSteam" Type="AutoModeSteam" x="3360.0" y="980.0"/>
+    <FB Name="E_SWITCH" Type="E_SWITCH" x="1330.0" y="760.0"/>
+    <FB Name="E_SWITCH_0" Type="E_SWITCH" x="1260.0" y="1400.0"/>
+    <FB Name="SelectAutoValue" Type="SelectAutoValue" x="285.0" y="1140.0"/>
+    <FB Name="F_MUL" Type="F_MUL" x="2375.0" y="1900.0">
+      <Parameter Name="IN2" Value="LREAL#2"/>
+    </FB>
+    <DataConnections>
+      <Connection Comment="" Destination="AutoModeFillLevel.DT" Source="DT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="AutoModeSteam.DT" Source="DT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="AutoModeFillLevel.SmoothChange" Source="SmoothChange" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="AutoModeSteam.SmoothChange" Source="SmoothChange" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="E_SWITCH_0.G" Source="SelectAutoValue.FillLevelSteam" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="E_SWITCH.G" Source="SelectAutoValue.FillLevelSteam" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="AutoFillLevel" Source="AutoModeFillLevel.AutoFillLevel" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="AutoSteamDemand" Source="AutoModeSteam.AutoSteamDemand" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_MUL.IN1" Source="DRAND.Num" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="SelectAutoValue.Rnd" Source="F_MUL.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+    </DataConnections>
+    <EventConnections>
+      <Connection Comment="" Destination="DRAND.REQ" Source="AutoModeFillLevel.FIN" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="DRAND.REQ" Source="AutoModeSteam.FIN" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="AutoModeFillLevel.INIT" Source="INIT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="AutoModeSteam.INIT" Source="INIT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="E_SWITCH.EI" Source="Cycle" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="E_SWITCH_0.EI" Source="Cycle" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="AutoModeFillLevel.Cycle" Source="E_SWITCH.EO0" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="AutoModeSteam.Cycle" Source="E_SWITCH_0.EO1" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="DRAND.REQ" Source="INIT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="CNF" Source="AutoModeFillLevel.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="CNF" Source="AutoModeSteam.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_MUL.REQ" Source="DRAND.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="SelectAutoValue.REQ" Source="F_MUL.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+    </EventConnections>
+  </FBNetwork>
+</FBType>

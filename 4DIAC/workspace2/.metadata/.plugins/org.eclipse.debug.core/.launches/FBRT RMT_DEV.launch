@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.ui.externaltools.ProgramLaunchConfigurationType">
+<booleanAttribute key="org.eclipse.debug.core.appendEnvironmentVariables" value="true"/>
+<stringAttribute key="org.eclipse.ui.externaltools.ATTR_LOCATION" value="C:\Program Files\Java\jre1.8.0_144\bin\java.exe"/>
+<stringAttribute key="org.eclipse.ui.externaltools.ATTR_TOOL_ARGUMENTS" value="-noverify -classpath ./lib;./fbrt.jar; fb.rt.RMT_DEV -n RMT_DEV -s 61505 -p convert;crypt;events;hmi;ita;mach;math;mva;net;plc;process;student;template;test;"/>
+<stringAttribute key="org.eclipse.ui.externaltools.ATTR_WORKING_DIRECTORY" value="D:\Apps\4DIAC-IDE_1.8.4_win32.x86_64\runtime\FBRT"/>
+</launchConfiguration>

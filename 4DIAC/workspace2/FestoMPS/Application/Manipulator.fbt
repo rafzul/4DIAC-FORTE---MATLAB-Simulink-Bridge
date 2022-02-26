@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE FBType SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<FBType Comment="Basic Function Block Type" Name="Manipulator">
+  <Identification Standard="61499-2"/>
+  <VersionInfo Author="4DIAC-IDE" Date="2015-03-26" Organization="4DIAC-Consortium" Version="0.0"/>
+  <InterfaceList>
+    <EventInputs>
+      <Event Comment="" Name="SetToDefault" Type="Event"/>
+      <Event Name="DoAssembly" Type="Event"/>
+      <Event Name="SlideEmptyAcc" Type="Event"/>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="AtDefault" Type="Event"/>
+      <Event Comment="" Name="DoneAssembly" Type="Event"/>
+      <Event Name="SlideEmptyFailure" Type="Event"/>
+    </EventOutputs>
+    <InputVars/>
+    <OutputVars/>
+    <Sockets>
+      <AdapterDeclaration Name="AssembleCounter" Type="APartCount"/>
+    </Sockets>
+    <Plugs>
+      <AdapterDeclaration Name="HorizontalAxis" Type="ACylinder"/>
+      <AdapterDeclaration Name="VerticalAxis" Type="ACylinder"/>
+      <AdapterDeclaration Name="Gripper" Type="AGripperPneumatic"/>
+    </Plugs>
+  </InterfaceList>
+  <BasicFB>
+    <ECC>
+      <ECState Comment="Initial State" Name="START" x="2280.0" y="2185.0"/>
+      <ECState Comment="Initialization" Name="Release" x="1330.0" y="2660.0">
+        <ECAction Output="Gripper.Release"/>
+      </ECState>
+      <ECState Name="VerticalRetract" x="475.0" y="2375.0">
+        <ECAction Output="VerticalAxis.Retract"/>
+      </ECState>
+      <ECState Name="HorizontalRetract" x="380.0" y="1995.0">
+        <ECAction Output="HorizontalAxis.Retract"/>
+      </ECState>
+      <ECState Name="GoDown" x="1710.0" y="1425.0">
+        <ECAction Output="VerticalAxis.Extend"/>
+      </ECState>
+      <ECState Name="GripWP" x="1900.0" y="855.0">
+        <ECAction Output="Gripper.Grip"/>
+      </ECState>
+      <ECState Name="GoUp" x="3135.0" y="475.0">
+        <ECAction Output="VerticalAxis.Retract"/>
+      </ECState>
+      <ECState Name="ExtendtoAsmbly" x="3610.0" y="950.0">
+        <ECAction Output="HorizontalAxis.Extend"/>
+      </ECState>
+      <ECState Name="GoDowntoAsmbly" x="4085.0" y="1425.0">
+        <ECAction Output="VerticalAxis.Extend"/>
+      </ECState>
+      <ECState Name="ReleaseWP" x="4085.0" y="1805.0">
+        <ECAction Output="Gripper.Release"/>
+      </ECState>
+      <ECState Name="GobackUp" x="3610.0" y="2185.0">
+        <ECAction Output="VerticalAxis.Retract"/>
+      </ECState>
+      <ECState Name="GobacktoDefaultPos" x="2850.0" y="2565.0">
+        <ECAction Output="HorizontalAxis.Retract"/>
+        <ECAction Output="DoneAssembly"/>
+      </ECState>
+      <ECState Name="Failure" x="2755.0" y="1425.0">
+        <ECAction Output="SlideEmptyFailure"/>
+        <ECAction Output="VerticalAxis.Retract"/>
+      </ECState>
+      <ECState Name="AtDefault" x="855.0" y="1615.0">
+        <ECAction Output="AtDefault"/>
+      </ECState>
+      <ECTransition Comment="" Condition="SetToDefault" Destination="Release" Source="START" x="1950.0" y="2500.0"/>
+      <ECTransition Comment="" Condition="Gripper.Released" Destination="VerticalRetract" Source="Release" x="930.0" y="2640.0"/>
+      <ECTransition Comment="" Condition="VerticalAxis.Retracted" Destination="HorizontalRetract" Source="VerticalRetract" x="560.0" y="2220.0"/>
+      <ECTransition Comment="" Condition="DoAssembly" Destination="GoDown" Source="START" x="1820.0" y="1800.0"/>
+      <ECTransition Comment="" Condition="VerticalAxis.Extended" Destination="GripWP" Source="GoDown" x="1860.0" y="1100.0"/>
+      <ECTransition Comment="" Condition="Gripper.Gripped" Destination="GoUp" Source="GripWP" x="2395.0" y="615.0"/>
+      <ECTransition Comment="" Condition="VerticalAxis.Retracted" Destination="ExtendtoAsmbly" Source="GoUp" x="3700.0" y="775.0"/>
+      <ECTransition Comment="" Condition="VerticalAxis.Extended" Destination="ReleaseWP" Source="GoDowntoAsmbly" x="4395.0" y="1655.0"/>
+      <ECTransition Comment="" Condition="Gripper.Released" Destination="GobackUp" Source="ReleaseWP" x="4135.0" y="1985.0"/>
+      <ECTransition Comment="" Condition="VerticalAxis.Retracted" Destination="GobacktoDefaultPos" Source="GobackUp" x="3650.0" y="2430.0"/>
+      <ECTransition Comment="" Condition="HorizontalAxis.Extended" Destination="GoDowntoAsmbly" Source="ExtendtoAsmbly" x="4075.0" y="1225.0"/>
+      <ECTransition Comment="" Condition="Gripper.GripFail" Destination="Failure" Source="GripWP" x="2655.0" y="1165.0"/>
+      <ECTransition Comment="" Condition="HorizontalAxis.Retracted" Destination="START" Source="GobacktoDefaultPos" x="2740.0" y="2470.0"/>
+      <ECTransition Comment="" Condition="HorizontalAxis.Retracted" Destination="AtDefault" Source="HorizontalRetract" x="645.0" y="1835.0"/>
+      <ECTransition Comment="" Condition="1" Destination="START" Source="AtDefault" x="1690.0" y="1955.0"/>
+      <ECTransition Comment="" Condition="AssembleCounter.PartNumber &gt; 0" Destination="GoDown" Source="START" x="2825.0" y="1785.0"/>
+      <ECTransition Comment="" Condition="SlideEmptyAcc" Destination="GobacktoDefaultPos" Source="Failure" x="3370.0" y="1995.0"/>
+    </ECC>
+  </BasicFB>
+</FBType>

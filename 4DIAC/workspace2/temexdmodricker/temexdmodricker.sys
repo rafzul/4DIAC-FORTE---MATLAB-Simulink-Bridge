@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE System SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<System Name="temexdmodricker">
+  <VersionInfo Author="Author" Organization="4DIAC-Consortium" Version="1.0"/>
+  <Application Name="Loop5">
+    <SubAppNetwork>
+      <FB Name="TIME2TIME_1" Type="TIME2TIME" x="1080.0" y="2760.0">
+        <Parameter Name="IN" Value="T#50ms"/>
+      </FB>
+      <FB Name="ReactorTemperature" Type="FB_CTRL_PI" x="4180.0" y="340.0">
+        <Parameter Name="SET_POINT" Value="122.8988"/>
+        <Parameter Name="KP" Value="-8"/>
+        <Parameter Name="KI" Value="-1"/>
+        <Parameter Name="LIM_L" Value="0"/>
+        <Parameter Name="LIM_H" Value="100"/>
+      </FB>
+      <FB Name="ReactorTempInit" Type="Init_ConditionREALtype" x="5260.0" y="1900.0">
+        <Parameter Name="InitialCondition" Value="35.8653"/>
+      </FB>
+      <FB Name="E_CYCLE_1" Type="E_CYCLE" x="1920.0" y="1920.0"/>
+      <FB Name="SERVER_1" Type="SERVER_1" x="3120.0" y="1800.0">
+        <Parameter Name="QI" Value="TRUE"/>
+        <Parameter Name="ID" Value="localhost:61500"/>
+      </FB>
+      <EventConnections>
+        <Connection Destination="ReactorTempInit.SubsequentEvent" Source="ReactorTemperature.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="ReactorTempInit.InitEvent" Source="ReactorTemperature.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="TIME2TIME_1.REQ" Source="ReactorTempInit.CNF" dx1="0.0" dx2="0.0" dy="-2840.0"/>
+        <Connection Destination="E_CYCLE_1.START" Source="TIME2TIME_1.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="ReactorTemperature.INIT" Source="SERVER_1.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_1.RSP" Source="SERVER_1.INITO" dx1="0.0" dx2="0.0" dy="-775.0"/>
+        <Connection Destination="ReactorTemperature.REQ" Source="SERVER_1.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_1.RSP" Source="E_CYCLE_1.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      </EventConnections>
+      <DataConnections>
+        <Connection Destination="ReactorTempInit.SubsequentInput" Source="ReactorTemperature.Y" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="E_CYCLE_1.DT" Source="TIME2TIME_1.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="ReactorTemperature.ACTUAL" Source="SERVER_1.RD_1" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_1.SD_1" Source="ReactorTempInit.OUT" dx1="0.0" dx2="0.0" dy="1770.0"/>
+      </DataConnections>
+    </SubAppNetwork>
+  </Application>
+  <Device Name="FORTE_PC" Type="FORTE_PC" x="3840.0" y="720.0">
+    <Attribute Name="Color" Value="128,97,199"/>
+    <Attribute Name="Profile" Value="HOLOBLOC"/>
+    <Parameter Name="MGR_ID" Value="&quot;localhost:61499&quot;"/>
+    <Resource Name="EMB_RES" Type="EMB_RES">
+      <FBNetwork>
+        <FB Name="SERVER_1" Type="SERVER_1" x="3120.0" y="1800.0">
+          <Parameter Name="QI" Value="TRUE"/>
+          <Parameter Name="ID" Value="localhost:61500"/>
+        </FB>
+        <FB Name="TIME2TIME_1" Type="TIME2TIME" x="1080.0" y="2760.0">
+          <Parameter Name="IN" Value="T#50ms"/>
+        </FB>
+        <FB Name="ReactorTemperature" Type="FB_CTRL_PI" x="4180.0" y="340.0">
+          <Parameter Name="SET_POINT" Value="122.8988"/>
+          <Parameter Name="KP" Value="-8"/>
+          <Parameter Name="KI" Value="-1"/>
+          <Parameter Name="LIM_L" Value="0"/>
+          <Parameter Name="LIM_H" Value="100"/>
+        </FB>
+        <FB Name="ReactorTempInit" Type="Init_ConditionREALtype" x="5260.0" y="1900.0">
+          <Parameter Name="InitialCondition" Value="35.8653"/>
+        </FB>
+        <FB Name="E_CYCLE_1" Type="E_CYCLE" x="1920.0" y="1920.0"/>
+        <EventConnections>
+          <Connection Destination="SERVER_1.RSP" Source="SERVER_1.INITO" dx1="0.0" dx2="0.0" dy="-775.0"/>
+          <Connection Destination="ReactorTemperature.INIT" Source="SERVER_1.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="ReactorTemperature.REQ" Source="SERVER_1.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="ReactorTempInit.InitEvent" Source="ReactorTemperature.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="ReactorTempInit.SubsequentEvent" Source="ReactorTemperature.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="TIME2TIME_1.REQ" Source="ReactorTempInit.CNF" dx1="0.0" dx2="0.0" dy="-2840.0"/>
+          <Connection Destination="E_CYCLE_1.START" Source="TIME2TIME_1.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SERVER_1.RSP" Source="E_CYCLE_1.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SERVER_1.INIT" Source="START.COLD" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SERVER_1.INIT" Source="START.WARM" dx1="0.0" dx2="0.0" dy="0.0"/>
+        </EventConnections>
+        <DataConnections>
+          <Connection Destination="ReactorTemperature.ACTUAL" Source="SERVER_1.RD_1" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="ReactorTempInit.SubsequentInput" Source="ReactorTemperature.Y" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SERVER_1.SD_1" Source="ReactorTempInit.OUT" dx1="0.0" dx2="0.0" dy="1770.0"/>
+          <Connection Destination="E_CYCLE_1.DT" Source="TIME2TIME_1.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        </DataConnections>
+      </FBNetwork>
+    </Resource>
+  </Device>
+  <Mapping From="Loop5.TIME2TIME_1" To="FORTE_PC.EMB_RES.TIME2TIME_1"/>
+  <Mapping From="Loop5.ReactorTemperature" To="FORTE_PC.EMB_RES.ReactorTemperature"/>
+  <Mapping From="Loop5.ReactorTempInit" To="FORTE_PC.EMB_RES.ReactorTempInit"/>
+  <Mapping From="Loop5.E_CYCLE_1" To="FORTE_PC.EMB_RES.E_CYCLE_1"/>
+  <Mapping From="Loop5.SERVER_1" To="FORTE_PC.EMB_RES.SERVER_1"/>
+  <Segment Name="Ethernet" Type="Ethernet" dx1="1500.0" x="3455.0" y="1560.0"/>
+  <Link CommResource="FORTE_PC" Comment="" SegmentName="Ethernet"/>
+</System>

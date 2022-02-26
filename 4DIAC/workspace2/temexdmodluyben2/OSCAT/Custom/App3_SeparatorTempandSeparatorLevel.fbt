@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE FBType SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<FBType Comment="Composite Function Block Type" Name="App3_SeparatorTempandSeparatorLevel">
+  <Identification Standard="61499-2"/>
+  <VersionInfo Author="4DIAC-IDE" Date="2018-11-06" Organization="4DIAC-Consortium" Version="0.0"/>
+  <InterfaceList>
+    <EventInputs>
+      <Event Comment="Initialization Request" Name="INITO" Type="Event"/>
+      <Event Comment="Normal Execution Request" Name="IND" Type="Event">
+        <With Var="XMEAS11"/>
+        <With Var="XMEAS12"/>
+        <With Var="XMEAS11SETP"/>
+        <With Var="XMEAS12SETP"/>
+        <With Var="KP_SepTemp"/>
+        <With Var="Kp_SepLevel"/>
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Comment="Initialization Confirm" Name="INITO3" Type="Event"/>
+      <Event Comment="Execution Confirmation" Name="CNF" Type="Event">
+        <With Var="setpointXMEAS9"/>
+        <With Var="XMV11"/>
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="XMEAS11" Type="REAL"/>
+      <VarDeclaration Name="XMEAS11SETP" Type="REAL"/>
+      <VarDeclaration Name="KP_SepTemp" Type="REAL"/>
+      <VarDeclaration Name="XMEAS12" Type="REAL"/>
+      <VarDeclaration Name="XMEAS12SETP" Type="REAL"/>
+      <VarDeclaration Name="Kp_SepLevel" Type="REAL"/>
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="setpointXMEAS9" Type="REAL"/>
+      <VarDeclaration Name="XMV11" Type="REAL"/>
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB Name="IND3" Type="E_SPLIT" x="1320.0" y="1080.0"/>
+    <FB Name="CNF3" Type="E_MERGE" x="3720.0" y="960.0"/>
+    <FB Name="SeparatorTemp" Type="FB_CTRL_PI" x="2400.0" y="120.0">
+      <Parameter Name="KI" Value="0"/>
+    </FB>
+    <FB Name="SeparatorLevel" Type="FB_CTRL_PI" x="2400.0" y="1920.0">
+      <Parameter Name="KI" Value="0"/>
+    </FB>
+    <FB Name="INIT3" Type="E_SPLIT" x="1320.0" y="120.0"/>
+    <FB Name="INITO3" Type="E_MERGE" x="3600.0" y="360.0"/>
+    <DataConnections>
+      <Connection Destination="setpointXMEAS9" Source="SeparatorTemp.Y" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="XMV11" Source="SeparatorLevel.Y" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="SeparatorTemp.ACTUAL" Source="XMEAS11" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="SeparatorTemp.SET_POINT" Source="XMEAS11SETP" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="SeparatorLevel.ACTUAL" Source="XMEAS12" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="SeparatorLevel.SET_POINT" Source="XMEAS12SETP" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="SeparatorLevel.KP" Source="Kp_SepLevel" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="SeparatorTemp.KP" Source="KP_SepTemp" dx1="0.0" dx2="0.0" dy="0.0"/>
+    </DataConnections>
+    <EventConnections>
+      <Connection Destination="SeparatorTemp.REQ" Source="IND3.EO1" dx1="435.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="SeparatorLevel.REQ" Source="IND3.EO2" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="CNF3.EI1" Source="SeparatorTemp.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="CNF3.EI2" Source="SeparatorLevel.CNF" dx1="250.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="CNF" Source="CNF3.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="IND3.EI" Source="IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="INIT3.EI" Source="INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="SeparatorTemp.INIT" Source="INIT3.EO1" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="SeparatorLevel.INIT" Source="INIT3.EO2" dx1="245.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="INITO3.EI1" Source="SeparatorTemp.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="INITO3.EI2" Source="SeparatorLevel.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="INITO3" Source="INITO3.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+    </EventConnections>
+  </FBNetwork>
+</FBType>

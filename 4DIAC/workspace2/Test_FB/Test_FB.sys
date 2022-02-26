@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE System SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<System Name="Test_FB">
+  <VersionInfo Author="Author" Organization="4DIAC-Consortium" Version="1.0"/>
+  <Application Name="Fb_Test">
+    <SubAppNetwork>
+      <FB Name="AO_16" Type="AO_16" x="1920.0" y="1560.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="ADDRESS" Value="localhost"/>
+      </FB>
+      <FB Name="REAL2REAL" Type="REAL2REAL" x="480.0" y="2280.0">
+        <Parameter Name="IN" Value="3"/>
+      </FB>
+      <FB Name="AI_16" Type="AI_16" x="3360.0" y="1560.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="ADDRESS" Value="localhost"/>
+      </FB>
+      <EventConnections>
+        <Connection Destination="AO_16.REQ" Source="REAL2REAL.CNF" dx1="395.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="AI_16.REQ" Source="AO_16.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      </EventConnections>
+      <DataConnections>
+        <Connection Destination="AO_16.REAL1" Source="REAL2REAL.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="AO_16.REAL2" Source="REAL2REAL.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="AO_16.REAL3" Source="REAL2REAL.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="AO_16.REAL4" Source="REAL2REAL.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="AO_16.REAL5" Source="REAL2REAL.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="AO_16.REAL6" Source="REAL2REAL.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="AO_16.REAL7" Source="REAL2REAL.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="AO_16.REAL8" Source="REAL2REAL.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="AO_16.REAL9" Source="REAL2REAL.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="AO_16.REAL10" Source="REAL2REAL.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="AO_16.REAL11" Source="REAL2REAL.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="AO_16.REAL12" Source="REAL2REAL.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="AO_16.REAL13" Source="REAL2REAL.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="AO_16.REAL14" Source="REAL2REAL.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="AO_16.REAL15" Source="REAL2REAL.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="AO_16.REAL16" Source="REAL2REAL.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      </DataConnections>
+    </SubAppNetwork>
+  </Application>
+  <Application Name="UDP">
+    <SubAppNetwork>
+      <FB Name="SUBSCRIBE_1" Type="SUBSCRIBE_1" x="5760.0" y="840.0">
+        <Parameter Name="QI" Value="TRUE"/>
+      </FB>
+      <FB Name="PUBLISH_1" Type="PUBLISH_1" x="2880.0" y="960.0">
+        <Parameter Name="QI" Value="TRUE"/>
+      </FB>
+      <FB Name="WSTRING2WSTRING" Type="WSTRING2WSTRING" x="720.0" y="1320.0">
+        <Parameter Name="IN" Value=":61000"/>
+      </FB>
+      <FB Name="F_CONCAT" Type="F_CONCAT" x="1920.0" y="1080.0"/>
+      <FB Name="WSTRING2WSTRING_2" Type="WSTRING2WSTRING" x="720.0" y="480.0">
+        <Parameter Name="IN" Value="localhost"/>
+      </FB>
+      <FB Name="F_CONCAT_1" Type="F_CONCAT" x="5040.0" y="960.0"/>
+      <FB Name="WSTRING2WSTRING_5" Type="WSTRING2WSTRING" x="3960.0" y="1320.0">
+        <Parameter Name="IN" Value=":61000"/>
+      </FB>
+      <FB Name="WSTRING2WSTRING_2_0" Type="WSTRING2WSTRING" x="3840.0" y="720.0">
+        <Parameter Name="IN" Value="localhost"/>
+      </FB>
+      <FB Name="REAL2REAL_0" Type="REAL2REAL" x="1920.0" y="2040.0">
+        <Parameter Name="IN" Value="3"/>
+      </FB>
+      <EventConnections>
+        <Connection Destination="F_CONCAT.REQ" Source="WSTRING2WSTRING.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PUBLISH_1.REQ" Source="F_CONCAT.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_CONCAT.REQ" Source="WSTRING2WSTRING_2.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_CONCAT_1.REQ" Source="WSTRING2WSTRING_2_0.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_CONCAT_1.REQ" Source="WSTRING2WSTRING_5.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SUBSCRIBE_1.RSP" Source="F_CONCAT_1.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PUBLISH_1.REQ" Source="REAL2REAL_0.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      </EventConnections>
+      <DataConnections>
+        <Connection Destination="PUBLISH_1.ID" Source="F_CONCAT.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_CONCAT.IN2" Source="WSTRING2WSTRING.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_CONCAT.IN1" Source="WSTRING2WSTRING_2.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_CONCAT_1.IN2" Source="WSTRING2WSTRING_5.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_CONCAT_1.IN1" Source="WSTRING2WSTRING_2_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SUBSCRIBE_1.ID" Source="F_CONCAT_1.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PUBLISH_1.SD_1" Source="REAL2REAL_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      </DataConnections>
+    </SubAppNetwork>
+  </Application>
+  <Application Name="UDPPUBLISH">
+    <SubAppNetwork>
+      <FB Name="PUBLISH_1_0" Type="PUBLISH_1" x="1800.0" y="1080.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="ID" Value="localhost:61000"/>
+      </FB>
+      <FB Name="REAL2REAL_2" Type="REAL2REAL" x="480.0" y="1920.0">
+        <Parameter Name="IN" Value="3"/>
+      </FB>
+      <FB Name="E_CYCLE_0" Type="E_CYCLE" x="240.0" y="600.0">
+        <Parameter Name="DT" Value="T#50ms"/>
+      </FB>
+      <FB Name="SUBSCRIBE_6_0" Type="SUBSCRIBE_6" x="3960.0" y="600.0"/>
+      <EventConnections>
+        <Connection Destination="PUBLISH_1_0.REQ" Source="REAL2REAL_2.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="REAL2REAL_2.REQ" Source="E_CYCLE_0.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      </EventConnections>
+      <DataConnections>
+        <Connection Destination="PUBLISH_1_0.SD_1" Source="REAL2REAL_2.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      </DataConnections>
+    </SubAppNetwork>
+  </Application>
+  <Application Name="UDPSUBSCRIBE">
+    <SubAppNetwork>
+      <FB Name="SUBSCRIBE_6" Type="SUBSCRIBE_6" x="2760.0" y="1440.0"/>
+    </SubAppNetwork>
+  </Application>
+  <Device Name="FORTE_PC" Type="FORTE_PC" x="2880.0" y="1535.0">
+    <Attribute Name="Color" Value="91,201,157"/>
+    <Attribute Name="Profile" Value="HOLOBLOC"/>
+    <Parameter Name="MGR_ID" Value="&quot;localhost:61499&quot;"/>
+    <Resource Name="EMB_RES" Type="EMB_RES">
+      <FBNetwork>
+        <FB Name="PUBLISH_1_0" Type="PUBLISH_1" x="2040.0" y="1080.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="ID" Value="localhost:61000"/>
+        </FB>
+        <FB Name="REAL2REAL_2" Type="REAL2REAL" x="480.0" y="1680.0">
+          <Parameter Name="IN" Value="3"/>
+        </FB>
+        <FB Name="E_CYCLE_0" Type="E_CYCLE" x="960.0" y="240.0">
+          <Parameter Name="DT" Value="T#50ms"/>
+        </FB>
+        <FB Name="SUBSCRIBE_3" Type="SUBSCRIBE_3" x="5160.0" y="480.0"/>
+        <FB Name="SUBSCRIBE_6" Type="SUBSCRIBE_6" x="2760.0" y="1440.0"/>
+        <EventConnections>
+          <Connection Destination="PUBLISH_1_0.INIT" Source="START.COLD" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBLISH_1_0.INIT" Source="START.WARM" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PUBLISH_1_0.REQ" Source="REAL2REAL_2.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="REAL2REAL_2.REQ" Source="E_CYCLE_0.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="E_CYCLE_0.START" Source="START.COLD" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="E_CYCLE_0.START" Source="START.WARM" dx1="0.0" dx2="0.0" dy="0.0"/>
+        </EventConnections>
+        <DataConnections>
+          <Connection Destination="PUBLISH_1_0.SD_1" Source="REAL2REAL_2.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        </DataConnections>
+      </FBNetwork>
+    </Resource>
+  </Device>
+  <Mapping From="UDPPUBLISH.PUBLISH_1_0" To="FORTE_PC.EMB_RES.PUBLISH_1_0"/>
+  <Mapping From="UDPPUBLISH.REAL2REAL_2" To="FORTE_PC.EMB_RES.REAL2REAL_2"/>
+  <Mapping From="UDPPUBLISH.E_CYCLE_0" To="FORTE_PC.EMB_RES.E_CYCLE_0"/>
+  <Mapping From="UDPSUBSCRIBE.SUBSCRIBE_6" To="FORTE_PC.EMB_RES.SUBSCRIBE_6"/>
+  <Segment Name="Ethernet" Type="Ethernet" dx1="1500.0" x="2665.0" y="715.0"/>
+  <Link CommResource="FORTE_PC" Comment="" SegmentName="Ethernet"/>
+</System>

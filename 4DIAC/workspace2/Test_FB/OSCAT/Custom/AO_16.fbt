@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE FBType SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<FBType Comment="Composite Function Block Type" Name="AO_16">
+  <Identification Standard="61499-2"/>
+  <VersionInfo Author="4DIAC-IDE" Date="2018-12-21" Organization="4DIAC-Consortium" Version="0.0"/>
+  <InterfaceList>
+    <EventInputs>
+      <Event Comment="Initialization Request" Name="INIT" Type="Event">
+        <With Var="QI"/>
+        <With Var="ADDRESS"/>
+      </Event>
+      <Event Comment="Normal Execution Request" Name="REQ" Type="Event">
+        <With Var="QI"/>
+        <With Var="REAL1"/>
+        <With Var="REAL2"/>
+        <With Var="REAL3"/>
+        <With Var="REAL4"/>
+        <With Var="REAL5"/>
+        <With Var="REAL6"/>
+        <With Var="REAL7"/>
+        <With Var="REAL8"/>
+        <With Var="REAL9"/>
+        <With Var="REAL10"/>
+        <With Var="REAL11"/>
+        <With Var="REAL12"/>
+        <With Var="REAL13"/>
+        <With Var="REAL14"/>
+        <With Var="REAL15"/>
+        <With Var="REAL16"/>
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Comment="Initialization Confirm" Name="INITO" Type="Event"/>
+      <Event Comment="Execution Confirmation" Name="CNF" Type="Event"/>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="QI" Type="BOOL"/>
+      <VarDeclaration Name="ADDRESS" Type="WSTRING"/>
+      <VarDeclaration Name="REAL1" Type="REAL"/>
+      <VarDeclaration Name="REAL2" Type="REAL"/>
+      <VarDeclaration Name="REAL3" Type="REAL"/>
+      <VarDeclaration Name="REAL4" Type="REAL"/>
+      <VarDeclaration Name="REAL5" Type="REAL"/>
+      <VarDeclaration Name="REAL6" Type="REAL"/>
+      <VarDeclaration Name="REAL7" Type="REAL"/>
+      <VarDeclaration Name="REAL8" Type="REAL"/>
+      <VarDeclaration Name="REAL9" Type="REAL"/>
+      <VarDeclaration Name="REAL10" Type="REAL"/>
+      <VarDeclaration Name="REAL11" Type="REAL"/>
+      <VarDeclaration Name="REAL12" Type="REAL"/>
+      <VarDeclaration Name="REAL13" Type="REAL"/>
+      <VarDeclaration Name="REAL14" Type="REAL"/>
+      <VarDeclaration Name="REAL15" Type="REAL"/>
+      <VarDeclaration Name="REAL16" Type="REAL"/>
+    </InputVars>
+    <OutputVars/>
+  </InterfaceList>
+  <FBNetwork>
+    <FB Name="AdressOutputAnalog1" Type="F_CONCAT" x="2520.0" y="-1440.0"/>
+    <FB Name="AdressOutputAnalog2" Type="F_CONCAT" x="6720.0" y="-1440.0"/>
+    <FB Name="AdressOutputAnalog3" Type="F_CONCAT" x="2640.0" y="-480.0"/>
+    <FB Name="AdressOutputAnalog4" Type="F_CONCAT" x="6840.0" y="-480.0"/>
+    <FB Name="AdressOutputAnalog6" Type="F_CONCAT" x="6840.0" y="480.0"/>
+    <FB Name="AdressOutputAnalog7" Type="F_CONCAT" x="2640.0" y="1680.0"/>
+    <FB Name="AdressOutputAnalog8" Type="F_CONCAT" x="6720.0" y="1560.0"/>
+    <FB Name="AdressOutputAnalog9" Type="F_CONCAT" x="2640.0" y="2760.0"/>
+    <FB Name="AdressOutputAnalog10" Type="F_CONCAT" x="6720.0" y="2760.0"/>
+    <FB Name="AdressOutputAnalog11" Type="F_CONCAT" x="2640.0" y="3960.0"/>
+    <FB Name="AdressOutputAnalog12" Type="F_CONCAT" x="6720.0" y="3960.0"/>
+    <FB Name="AdressOutputAnalog13" Type="F_CONCAT" x="2640.0" y="5040.0"/>
+    <FB Name="AdressOutputAnalog14" Type="F_CONCAT" x="6600.0" y="5040.0"/>
+    <FB Name="AdressOutputAnalog15" Type="F_CONCAT" x="2640.0" y="6360.0"/>
+    <FB Name="AdressOutputAnalog16" Type="F_CONCAT" x="6600.0" y="6240.0"/>
+    <FB Name="AdressOutputAnalog5" Type="F_CONCAT" x="2640.0" y="480.0"/>
+    <FB Name="PortOutputAnalog1" Type="WSTRING2WSTRING" x="1440.0" y="-1320.0">
+      <Parameter Name="IN" Value=":61000"/>
+    </FB>
+    <FB Name="PortOutputAnalog2" Type="WSTRING2WSTRING" x="5520.0" y="-1320.0">
+      <Parameter Name="IN" Value=":61001"/>
+    </FB>
+    <FB Name="PortOutputAnalog4" Type="WSTRING2WSTRING" x="5640.0" y="-360.0">
+      <Parameter Name="IN" Value=":61003"/>
+    </FB>
+    <FB Name="PortOutputAnalog3" Type="WSTRING2WSTRING" x="1440.0" y="-360.0">
+      <Parameter Name="IN" Value=":61002"/>
+    </FB>
+    <FB Name="PortOutputAnalog5" Type="WSTRING2WSTRING" x="1440.0" y="600.0">
+      <Parameter Name="IN" Value=":61004"/>
+    </FB>
+    <FB Name="PortOutputAnalog6" Type="WSTRING2WSTRING" x="5640.0" y="600.0">
+      <Parameter Name="IN" Value=":61005"/>
+    </FB>
+    <FB Name="PortOutputAnalog7" Type="WSTRING2WSTRING" x="1440.0" y="1680.0">
+      <Parameter Name="IN" Value=":61006"/>
+    </FB>
+    <FB Name="PortOutputAnalog8" Type="WSTRING2WSTRING" x="5640.0" y="1680.0">
+      <Parameter Name="IN" Value=":61007"/>
+    </FB>
+    <FB Name="PortOutputAnalog9" Type="WSTRING2WSTRING" x="1440.0" y="2880.0">
+      <Parameter Name="IN" Value=":61008"/>
+    </FB>
+    <FB Name="PortOutputAnalog10" Type="WSTRING2WSTRING" x="5640.0" y="2880.0">
+      <Parameter Name="IN" Value=":61009"/>
+    </FB>
+    <FB Name="PortOutputAnalog11" Type="WSTRING2WSTRING" x="1440.0" y="4080.0">
+      <Parameter Name="IN" Value=":61010"/>
+    </FB>
+    <FB Name="PortOutputAnalog12" Type="WSTRING2WSTRING" x="5640.0" y="4080.0">
+      <Parameter Name="IN" Value=":61011"/>
+    </FB>
+    <FB Name="PortOutputAnalog13" Type="WSTRING2WSTRING" x="1440.0" y="5160.0">
+      <Parameter Name="IN" Value=":61012"/>
+    </FB>
+    <FB Name="PortOutputAnalog14" Type="WSTRING2WSTRING" x="5520.0" y="5160.0">
+      <Parameter Name="IN" Value=":61013"/>
+    </FB>
+    <FB Name="PortOutputAnalog15" Type="WSTRING2WSTRING" x="1320.0" y="6360.0">
+      <Parameter Name="IN" Value=":61014"/>
+    </FB>
+    <FB Name="PortOutputAnalog16" Type="WSTRING2WSTRING" x="5520.0" y="6360.0">
+      <Parameter Name="IN" Value=":61015"/>
+    </FB>
+    <FB Name="CNFOutput16" Type="E_Merge16" x="8990.0" y="2070.0"/>
+    <FB Name="InitoOutput16" Type="E_Merge16" x="9000.0" y="-1560.0"/>
+    <FB Name="OutputAnalog1" Type="PUBLISH_1" x="3600.0" y="-1680.0"/>
+    <FB Name="OutputAnalog2" Type="PUBLISH_1" x="7800.0" y="-1800.0"/>
+    <FB Name="OutputAnalog3" Type="PUBLISH_1" x="3600.0" y="-720.0"/>
+    <FB Name="OutputAnalog4" Type="PUBLISH_1" x="7800.0" y="-480.0"/>
+    <FB Name="OutputAnalog5" Type="PUBLISH_1" x="3600.0" y="480.0"/>
+    <FB Name="OutputAnalog6" Type="PUBLISH_1" x="7800.0" y="480.0"/>
+    <FB Name="OutputAnalog7" Type="PUBLISH_1" x="3600.0" y="1440.0"/>
+    <FB Name="OutputAnalog8" Type="PUBLISH_1" x="7800.0" y="1560.0"/>
+    <FB Name="OutputAnalog9" Type="PUBLISH_1" x="3480.0" y="2520.0"/>
+    <FB Name="OutputAnalog10" Type="PUBLISH_1" x="7790.0" y="2690.0"/>
+    <FB Name="OutputAnalog11" Type="PUBLISH_1" x="3480.0" y="3960.0"/>
+    <FB Name="OutputAnalog12" Type="PUBLISH_1" x="7800.0" y="3960.0"/>
+    <FB Name="OutputAnalog13" Type="PUBLISH_1" x="3480.0" y="5040.0"/>
+    <FB Name="OutputAnalog14" Type="PUBLISH_1" x="7800.0" y="5160.0"/>
+    <FB Name="OutputAnalog15" Type="PUBLISH_1" x="3600.0" y="6000.0"/>
+    <FB Name="OutputAnalog16" Type="PUBLISH_1" x="7800.0" y="6240.0"/>
+    <DataConnections>
+      <Connection Destination="AdressOutputAnalog1.IN1" Source="ADDRESS" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="AdressOutputAnalog2.IN1" Source="ADDRESS" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="AdressOutputAnalog3.IN1" Source="ADDRESS" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="AdressOutputAnalog4.IN1" Source="ADDRESS" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="AdressOutputAnalog5.IN1" Source="ADDRESS" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="AdressOutputAnalog6.IN1" Source="ADDRESS" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="AdressOutputAnalog7.IN1" Source="ADDRESS" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="AdressOutputAnalog8.IN1" Source="ADDRESS" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="AdressOutputAnalog9.IN1" Source="ADDRESS" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="AdressOutputAnalog10.IN1" Source="ADDRESS" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="AdressOutputAnalog11.IN1" Source="ADDRESS" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="AdressOutputAnalog12.IN1" Source="ADDRESS" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="AdressOutputAnalog15.IN1" Source="ADDRESS" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="AdressOutputAnalog16.IN1" Source="ADDRESS" dx1="40.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="AdressOutputAnalog1.IN2" Source="PortOutputAnalog1.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="AdressOutputAnalog2.IN2" Source="PortOutputAnalog2.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="AdressOutputAnalog3.IN2" Source="PortOutputAnalog3.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="AdressOutputAnalog4.IN2" Source="PortOutputAnalog4.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="AdressOutputAnalog5.IN2" Source="PortOutputAnalog5.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="AdressOutputAnalog6.IN2" Source="PortOutputAnalog6.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="AdressOutputAnalog8.IN2" Source="PortOutputAnalog8.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="AdressOutputAnalog7.IN2" Source="PortOutputAnalog7.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="AdressOutputAnalog10.IN2" Source="PortOutputAnalog10.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="AdressOutputAnalog9.IN2" Source="PortOutputAnalog9.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="AdressOutputAnalog11.IN2" Source="PortOutputAnalog11.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="AdressOutputAnalog12.IN2" Source="PortOutputAnalog12.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="AdressOutputAnalog13.IN2" Source="PortOutputAnalog13.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="AdressOutputAnalog14.IN2" Source="PortOutputAnalog14.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="AdressOutputAnalog15.IN2" Source="PortOutputAnalog15.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="AdressOutputAnalog16.IN2" Source="PortOutputAnalog16.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="AdressOutputAnalog13.IN1" Source="ADDRESS" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="AdressOutputAnalog14.IN1" Source="ADDRESS" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog1.ID" Source="AdressOutputAnalog1.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog2.ID" Source="AdressOutputAnalog2.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog4.ID" Source="AdressOutputAnalog4.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog3.ID" Source="AdressOutputAnalog3.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog7.ID" Source="AdressOutputAnalog7.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog5.ID" Source="AdressOutputAnalog5.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog6.ID" Source="AdressOutputAnalog6.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog8.ID" Source="AdressOutputAnalog8.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog10.ID" Source="AdressOutputAnalog10.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog9.ID" Source="AdressOutputAnalog9.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog12.ID" Source="AdressOutputAnalog12.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog11.ID" Source="AdressOutputAnalog11.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog14.ID" Source="AdressOutputAnalog14.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog13.ID" Source="AdressOutputAnalog13.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog16.ID" Source="AdressOutputAnalog16.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog15.ID" Source="AdressOutputAnalog15.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog1.QI" Source="QI" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog2.QI" Source="QI" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog3.QI" Source="QI" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog4.QI" Source="QI" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog5.QI" Source="QI" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog6.QI" Source="QI" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog7.QI" Source="QI" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog8.QI" Source="QI" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog9.QI" Source="QI" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog10.QI" Source="QI" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog11.QI" Source="QI" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog12.QI" Source="QI" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog13.QI" Source="QI" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog14.QI" Source="QI" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog15.QI" Source="QI" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog16.QI" Source="QI" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog1.SD_1" Source="REAL1" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog2.SD_1" Source="REAL2" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog3.SD_1" Source="REAL3" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog4.SD_1" Source="REAL4" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog5.SD_1" Source="REAL5" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog6.SD_1" Source="REAL6" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog7.SD_1" Source="REAL7" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog8.SD_1" Source="REAL8" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog9.SD_1" Source="REAL9" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog10.SD_1" Source="REAL10" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog11.SD_1" Source="REAL11" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog12.SD_1" Source="REAL12" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog13.SD_1" Source="REAL13" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog14.SD_1" Source="REAL14" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog15.SD_1" Source="REAL15" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog16.SD_1" Source="REAL16" dx1="0.0" dx2="0.0" dy="0.0"/>
+    </DataConnections>
+    <EventConnections>
+      <Connection Destination="AdressOutputAnalog1.REQ" Source="PortOutputAnalog1.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="PortOutputAnalog1.REQ" Source="INIT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="AdressOutputAnalog2.REQ" Source="PortOutputAnalog2.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="PortOutputAnalog2.REQ" Source="INIT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="PortOutputAnalog3.REQ" Source="INIT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="AdressOutputAnalog3.REQ" Source="PortOutputAnalog3.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="PortOutputAnalog4.REQ" Source="INIT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="AdressOutputAnalog4.REQ" Source="INIT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="PortOutputAnalog5.REQ" Source="INIT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="AdressOutputAnalog5.REQ" Source="PortOutputAnalog5.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="PortOutputAnalog6.REQ" Source="INIT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="AdressOutputAnalog6.REQ" Source="PortOutputAnalog6.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="PortOutputAnalog7.REQ" Source="INIT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="AdressOutputAnalog7.REQ" Source="PortOutputAnalog7.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="PortOutputAnalog8.REQ" Source="INIT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="PortOutputAnalog9.REQ" Source="INIT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="AdressOutputAnalog9.REQ" Source="PortOutputAnalog9.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="PortOutputAnalog10.REQ" Source="INIT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="AdressOutputAnalog10.REQ" Source="PortOutputAnalog10.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="PortOutputAnalog11.REQ" Source="INIT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="AdressOutputAnalog11.REQ" Source="PortOutputAnalog11.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="PortOutputAnalog12.REQ" Source="INIT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="AdressOutputAnalog12.REQ" Source="PortOutputAnalog12.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="PortOutputAnalog13.REQ" Source="INIT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="AdressOutputAnalog13.REQ" Source="PortOutputAnalog13.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="PortOutputAnalog14.REQ" Source="INIT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="AdressOutputAnalog14.REQ" Source="PortOutputAnalog14.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="PortOutputAnalog16.REQ" Source="INIT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="PortOutputAnalog15.REQ" Source="INIT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="AdressOutputAnalog15.REQ" Source="PortOutputAnalog15.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="AdressOutputAnalog16.REQ" Source="PortOutputAnalog16.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="AdressOutputAnalog8.REQ" Source="PortOutputAnalog8.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="CNF" Source="CNFOutput16.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="INITO" Source="InitoOutput16.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="InitoOutput16.EI1" Source="OutputAnalog1.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="InitoOutput16.EI3" Source="OutputAnalog3.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="InitoOutput16.EI5" Source="OutputAnalog5.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="InitoOutput16.EI7" Source="OutputAnalog7.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="InitoOutput16.EI8" Source="OutputAnalog8.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="InitoOutput16.EI9" Source="OutputAnalog9.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="InitoOutput16.EI10" Source="OutputAnalog10.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="InitoOutput16.EI11" Source="OutputAnalog11.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="InitoOutput16.EI12" Source="OutputAnalog12.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="InitoOutput16.EI13" Source="OutputAnalog13.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="InitoOutput16.EI14" Source="OutputAnalog14.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="InitoOutput16.EI15" Source="OutputAnalog15.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="InitoOutput16.EI16" Source="OutputAnalog16.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="CNFOutput16.EI1" Source="OutputAnalog1.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="CNFOutput16.EI2" Source="OutputAnalog2.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="CNFOutput16.EI3" Source="OutputAnalog3.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="CNFOutput16.EI5" Source="OutputAnalog5.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="CNFOutput16.EI7" Source="OutputAnalog7.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="CNFOutput16.EI8" Source="OutputAnalog8.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="CNFOutput16.EI9" Source="OutputAnalog9.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="CNFOutput16.EI10" Source="OutputAnalog10.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="CNFOutput16.EI11" Source="OutputAnalog11.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="CNFOutput16.EI12" Source="OutputAnalog12.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="CNFOutput16.EI13" Source="OutputAnalog13.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="CNFOutput16.EI14" Source="OutputAnalog14.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="CNFOutput16.EI15" Source="OutputAnalog15.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="CNFOutput16.EI16" Source="OutputAnalog16.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog1.REQ" Source="AdressOutputAnalog1.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog2.REQ" Source="AdressOutputAnalog2.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog4.REQ" Source="AdressOutputAnalog4.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog3.REQ" Source="AdressOutputAnalog3.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog6.REQ" Source="AdressOutputAnalog6.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog5.REQ" Source="AdressOutputAnalog5.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog8.REQ" Source="AdressOutputAnalog8.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog7.REQ" Source="AdressOutputAnalog7.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog9.REQ" Source="AdressOutputAnalog9.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog10.REQ" Source="AdressOutputAnalog10.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog11.REQ" Source="AdressOutputAnalog11.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog12.REQ" Source="AdressOutputAnalog12.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog13.REQ" Source="AdressOutputAnalog13.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog14.REQ" Source="AdressOutputAnalog14.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog16.REQ" Source="AdressOutputAnalog16.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog15.REQ" Source="AdressOutputAnalog15.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog1.INIT" Source="INIT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog4.INIT" Source="INIT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog3.INIT" Source="INIT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog5.INIT" Source="INIT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog6.INIT" Source="INIT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog8.INIT" Source="INIT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog7.INIT" Source="INIT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog9.INIT" Source="INIT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog10.INIT" Source="INIT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog11.INIT" Source="INIT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog12.INIT" Source="INIT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog13.INIT" Source="INIT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog14.INIT" Source="INIT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog15.INIT" Source="INIT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog16.INIT" Source="INIT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog1.REQ" Source="REQ" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog2.REQ" Source="REQ" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog3.REQ" Source="REQ" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog4.REQ" Source="REQ" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog5.REQ" Source="REQ" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog6.REQ" Source="REQ" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog8.REQ" Source="REQ" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog7.REQ" Source="REQ" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog9.REQ" Source="REQ" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog10.REQ" Source="REQ" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog11.REQ" Source="REQ" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog12.REQ" Source="REQ" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog14.REQ" Source="REQ" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog13.REQ" Source="REQ" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog16.REQ" Source="REQ" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog15.REQ" Source="REQ" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="InitoOutput16.EI2" Source="OutputAnalog2.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OutputAnalog2.INIT" Source="INIT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="CNFOutput16.EI4" Source="OutputAnalog4.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="InitoOutput16.EI4" Source="OutputAnalog4.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="InitoOutput16.EI6" Source="OutputAnalog6.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="CNFOutput16.EI6" Source="OutputAnalog6.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+    </EventConnections>
+  </FBNetwork>
+</FBType>

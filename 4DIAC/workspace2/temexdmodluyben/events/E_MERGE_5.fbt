@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE FBType SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<FBType Comment="Composite Function Block Type" Name="E_MERGE_5">
+  <Identification Standard="61499-2"/>
+  <VersionInfo Author="4DIAC-IDE" Date="2018-11-02" Organization="4DIAC-Consortium" Version="0.0"/>
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="EI1" Type="Event"/>
+      <Event Name="EI2" Type="Event"/>
+      <Event Name="EI3" Type="Event"/>
+      <Event Name="EI4" Type="Event"/>
+      <Event Name="EI5" Type="Event"/>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="EO" Type="Event"/>
+    </EventOutputs>
+    <InputVars/>
+    <OutputVars/>
+  </InterfaceList>
+  <FBNetwork>
+    <FB Name="E_MERGE" Type="E_MERGE" x="1800.0" y="0.0"/>
+    <FB Name="E_MERGE_3" Type="E_MERGE_3" x="1800.0" y="720.0"/>
+    <FB Name="E_MERGE_1" Type="E_MERGE" x="3360.0" y="120.0"/>
+    <EventConnections>
+      <Connection Destination="E_MERGE.EI1" Source="EI1" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_MERGE.EI2" Source="EI2" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_MERGE_3.EI1" Source="EI3" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_MERGE_3.EI2" Source="EI4" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_MERGE_3.EI3" Source="EI5" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_MERGE_1.EI1" Source="E_MERGE.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_MERGE_1.EI2" Source="E_MERGE_3.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="EO" Source="E_MERGE_1.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+    </EventConnections>
+  </FBNetwork>
+</FBType>

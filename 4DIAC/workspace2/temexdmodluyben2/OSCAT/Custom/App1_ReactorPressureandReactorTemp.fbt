@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE FBType SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<FBType Comment="Composite Function Block Type" Name="App1_ReactorPressureandReactorTemp">
+  <Identification Standard="61499-2"/>
+  <VersionInfo Author="4DIAC-IDE" Date="2018-11-06" Organization="4DIAC-Consortium" Version="0.0"/>
+  <InterfaceList>
+    <EventInputs>
+      <Event Comment="Initialization Request" Name="INITO" Type="Event"/>
+      <Event Comment="Normal Execution Request" Name="IND" Type="Event">
+        <With Var="XMEAS7"/>
+        <With Var="XMEAS7SETP"/>
+        <With Var="KP_Pressure"/>
+        <With Var="XMEAS9"/>
+        <With Var="SMEAS9SETP"/>
+        <With Var="KP_ReactorTemp"/>
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Comment="Initialization Confirm" Name="INITO1" Type="Event"/>
+      <Event Comment="Execution Confirmation" Name="CNF" Type="Event">
+        <With Var="XMV4"/>
+        <With Var="XMV10"/>
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="XMEAS7" Type="REAL"/>
+      <VarDeclaration Name="XMEAS7SETP" Type="REAL"/>
+      <VarDeclaration Name="KP_Pressure" Type="REAL"/>
+      <VarDeclaration Name="XMEAS9" Type="REAL"/>
+      <VarDeclaration Name="SMEAS9SETP" Type="REAL"/>
+      <VarDeclaration Name="KP_ReactorTemp" Type="REAL"/>
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="XMV4" Type="REAL"/>
+      <VarDeclaration Name="XMV10" Type="REAL"/>
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB Name="ReactPress" Type="FB_CTRL_PI" x="1800.0" y="-360.0"/>
+    <FB Name="CNF1" Type="E_MERGE" x="2880.0" y="600.0"/>
+    <FB Name="IND1" Type="E_SPLIT" x="1080.0" y="1080.0"/>
+    <FB Name="E_SPLIT" Type="E_SPLIT" x="1080.0" y="-240.0"/>
+    <FB Name="ReactTemp" Type="FB_CTRL_PI" x="1800.0" y="1440.0"/>
+    <FB Name="INITO1" Type="E_MERGE" x="2760.0" y="-240.0"/>
+    <DataConnections>
+      <Connection Destination="ReactPress.ACTUAL" Source="XMEAS7" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="ReactPress.SET_POINT" Source="XMEAS7SETP" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="ReactPress.KP" Source="KP_Pressure" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="XMV4" Source="ReactPress.Y" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="XMV10" Source="ReactTemp.Y" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="ReactTemp.ACTUAL" Source="XMEAS9" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="ReactTemp.SET_POINT" Source="SMEAS9SETP" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="ReactTemp.KP" Source="KP_ReactorTemp" dx1="0.0" dx2="0.0" dy="0.0"/>
+    </DataConnections>
+    <EventConnections>
+      <Connection Destination="CNF" Source="CNF1.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="IND1.EI" Source="IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_SPLIT.EI" Source="INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="ReactPress.INIT" Source="E_SPLIT.EO1" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="ReactTemp.INIT" Source="E_SPLIT.EO2" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="CNF1.EI1" Source="ReactPress.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="CNF1.EI2" Source="ReactTemp.CNF" dx1="335.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="ReactPress.REQ" Source="IND1.EO1" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="ReactTemp.REQ" Source="IND1.EO2" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="INITO1.EI2" Source="ReactTemp.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="INITO1.EI1" Source="ReactPress.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="INITO1" Source="INITO1.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+    </EventConnections>
+  </FBNetwork>
+</FBType>

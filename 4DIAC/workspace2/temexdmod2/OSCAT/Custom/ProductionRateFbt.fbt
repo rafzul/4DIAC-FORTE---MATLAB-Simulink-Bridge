@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE FBType SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<FBType Comment="Composite Function Block Type" Name="ProductionRateFbt">
+  <Identification Standard="61499-2"/>
+  <VersionInfo Author="4DIAC-IDE" Date="2018-10-14" Organization="4DIAC-Consortium" Version="0.0"/>
+  <InterfaceList>
+    <EventInputs>
+      <Event Comment="Initialization Request" Name="INIT" Type="Event">
+        <With Var="INITCOND"/>
+        <With Var="SET_POINT_Xmeas17"/>
+      </Event>
+      <Event Comment="Normal Execution Request" Name="REQ" Type="Event">
+        <With Var="ACT_Xmeas17"/>
+        <With Var="SET_POINT_Xmeas17"/>
+        <With Var="NOISE"/>
+        <With Var="OFFSET"/>
+        <With Var="MAN_IN"/>
+        <With Var="MANUAL"/>
+        <With Var="KP"/>
+        <With Var="KI"/>
+        <With Var="LIM_L"/>
+        <With Var="LIM_H"/>
+      </Event>
+      <Event Name="RST" Type="Event"/>
+    </EventInputs>
+    <EventOutputs>
+      <Event Comment="Initialization Confirm" Name="INITO" Type="Event"/>
+      <Event Comment="Execution Confirmation" Name="CNF" Type="Event">
+        <With Var="Fp"/>
+        <With Var="PRODSP"/>
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="INITCOND" Type="REAL"/>
+      <VarDeclaration Name="ACT_Xmeas17" Type="REAL"/>
+      <VarDeclaration Name="SET_POINT_Xmeas17" Type="REAL"/>
+      <VarDeclaration Name="NOISE" Type="REAL"/>
+      <VarDeclaration Name="OFFSET" Type="REAL"/>
+      <VarDeclaration Name="MAN_IN" Type="REAL"/>
+      <VarDeclaration Name="MANUAL" Type="BOOL"/>
+      <VarDeclaration Name="KP" Type="REAL"/>
+      <VarDeclaration Name="KI" Type="REAL"/>
+      <VarDeclaration Name="LIM_L" Type="REAL"/>
+      <VarDeclaration Name="LIM_H" Type="REAL"/>
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="Fp" Type="REAL"/>
+      <VarDeclaration Name="PRODSP" Type="REAL"/>
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB Name="ProdRate" Type="FB_CTRL_PI" x="1800.0" y="960.0"/>
+    <FB Name="F_MUL" Type="F_MUL" x="3000.0" y="240.0">
+      <Parameter Name="IN2" Value="4.36871996"/>
+    </FB>
+    <FB Name="KxProdSetpoint" Type="REAL2REAL" x="3720.0" y="240.0"/>
+    <FB Name="ProdRateInit" Type="Init_ConditionREALtype" x="2880.0" y="1320.0"/>
+    <FB Name="Fp_" Type="F_ADD" x="4440.0" y="1320.0"/>
+    <FB Name="REAL2REAL" Type="REAL2REAL" x="1680.0" y="360.0">
+      <Parameter Name="IN" Value="4.36871996"/>
+    </FB>
+    <DataConnections>
+      <Connection Destination="ProdRateInit.SubsequentInput" Source="ProdRate.Y" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="ProdRate.ACTUAL" Source="ACT_Xmeas17" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="ProdRate.SET_POINT" Source="SET_POINT_Xmeas17" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_MUL.IN1" Source="SET_POINT_Xmeas17" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="KxProdSetpoint.IN" Source="F_MUL.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="Fp_.IN1" Source="KxProdSetpoint.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="Fp_.IN2" Source="ProdRateInit.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="Fp" Source="Fp_.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="ProdRate.NOISE" Source="NOISE" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="ProdRate.OFFSET" Source="OFFSET" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="ProdRate.MAN_IN" Source="MAN_IN" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="ProdRate.MANUAL" Source="MANUAL" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="ProdRate.KP" Source="KP" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="ProdRate.KI" Source="KI" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="ProdRate.LIM_L" Source="LIM_L" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="ProdRate.LIM_H" Source="LIM_H" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="PRODSP" Source="SET_POINT_Xmeas17" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="ProdRateInit.InitialCondition" Source="INITCOND" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_MUL.IN2" Source="REAL2REAL.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+    </DataConnections>
+    <EventConnections>
+      <Connection Destination="ProdRate.INIT" Source="INIT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="ProdRateInit.InitEvent" Source="ProdRate.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="ProdRateInit.SubsequentEvent" Source="ProdRate.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="ProdRate.REQ" Source="REQ" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="KxProdSetpoint.REQ" Source="F_MUL.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="Fp_.REQ" Source="KxProdSetpoint.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="Fp_.REQ" Source="ProdRateInit.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="CNF" Source="Fp_.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="INITO" Source="ProdRate.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_MUL.REQ" Source="REAL2REAL.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="REAL2REAL.REQ" Source="REQ" dx1="0.0" dx2="0.0" dy="0.0"/>
+    </EventConnections>
+  </FBNetwork>
+</FBType>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE FBType SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<FBType Comment="Composite Function Block Type" Name="Potentiometer">
+  <Identification Standard="61499-2"/>
+  <VersionInfo Author="4DIAC-IDE" Date="2011-12-18" Organization="4DIAC-Consortium" Version="0.0"/>
+  <InterfaceList>
+    <EventInputs>
+      <Event Comment="Normal Execution Request" Name="REQ" Type="Event">
+        <With Var="minVal"/>
+        <With Var="wInput"/>
+        <With Var="maxVal"/>
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Comment="Execution Confirmation" Name="CNF" Type="Event">
+        <With Var="rValue"/>
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Comment="Input event qualifier" Name="minVal" Type="LREAL"/>
+      <VarDeclaration Name="maxVal" Type="LREAL"/>
+      <VarDeclaration Name="wInput" Type="INT"/>
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Comment="Output event qualifier" Name="rValue" Type="LREAL"/>
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB Name="Int_To_LReal" Type="Int_To_LReal" x="3875.0" y="250.0">
+      <Parameter Name="minInt" Value="0"/>
+      <Parameter Name="maxInt" Value="32767"/>
+    </FB>
+    <DataConnections>
+      <Connection Comment="" Destination="Int_To_LReal.minReal" Source="minVal" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="rValue" Source="Int_To_LReal.Out" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="Int_To_LReal.maxReal" Source="maxVal" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="Int_To_LReal.x" Source="wInput" dx1="0.0" dx2="0.0" dy="0.0"/>
+    </DataConnections>
+    <EventConnections>
+      <Connection Comment="" Destination="Int_To_LReal.REQ" Source="REQ" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="CNF" Source="Int_To_LReal.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+    </EventConnections>
+  </FBNetwork>
+</FBType>

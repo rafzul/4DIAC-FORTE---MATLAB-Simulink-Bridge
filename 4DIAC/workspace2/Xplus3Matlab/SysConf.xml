@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.fordiac.ide.model.ui:UISystemConfiguration xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:libraryElement="org.fordiac.ide.model.libraryElement" xmlns:org.fordiac.ide.model.ui="org.fordiac.ide.model.ui">
+  <children xsi:type="org.fordiac.ide.model.ui:DeviceView" deviceElement="//@systemConfigNetwork/@devices.0">
+    <position x="96" y="360"/>
+    <backgroundColor red="219" green="73" blue="103"/>
+    <interfaceElements iInterfaceElement="//@systemConfigNetwork/@devices.0/@varDeclarations.0"/>
+    <interfaceElements iInterfaceElement="//@systemConfigNetwork/@devices.0/@varDeclarations.1"/>
+    <interfaceElements iInterfaceElement="//@systemConfigNetwork/@devices.0/@varDeclarations.2"/>
+    <resourceContainerView showContent="true">
+      <resources resourceElement="//@systemConfigNetwork/@devices.0/@resource.0">
+        <uIResourceDiagram resourceElement="//@systemConfigNetwork/@devices.0/@resource.0" activeNetwork="//@children.0/@resourceContainerView/@resources.0/@uIResourceDiagram/@fbNetworks.0">
+          <children xsi:type="org.fordiac.ide.model.ui:FBView" fb="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork/@fBs.0">
+            <position x="2" y="2"/>
+            <backgroundColor red="192" green="192" blue="192"/>
+            <interfaceElements iInterfaceElement="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork/@fBs.0/@interface/@eventOutputs.0" fbNetwork="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork"/>
+            <interfaceElements iInterfaceElement="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork/@fBs.0/@interface/@eventOutputs.1" fbNetwork="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork"/>
+            <interfaceElements iInterfaceElement="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork/@fBs.0/@interface/@eventOutputs.2" fbNetwork="//@systemConfigNetwork/@devices.0/@resource.0/@fBNetwork"/>
+          </children>
+          <fbNetworks>
+            <uiFBNetwork href="Xplus3MatlabApp.xml#/"/>
+          </fbNetworks>
+          <mappingEditorSize width="-1" height="250"/>
+        </uIResourceDiagram>
+      </resources>
+    </resourceContainerView>
+  </children>
+  <children xsi:type="org.fordiac.ide.model.ui:DeviceView" deviceElement="//@systemConfigNetwork/@devices.1">
+    <position x="576" y="384"/>
+    <backgroundColor red="75" green="154" blue="235"/>
+    <interfaceElements iInterfaceElement="//@systemConfigNetwork/@devices.1/@varDeclarations.0"/>
+    <resourceContainerView showContent="true">
+      <resources resourceElement="//@systemConfigNetwork/@devices.1/@resource.0">
+        <uIResourceDiagram resourceElement="//@systemConfigNetwork/@devices.1/@resource.0" activeNetwork="//@children.1/@resourceContainerView/@resources.0/@uIResourceDiagram/@fbNetworks.0">
+          <children xsi:type="org.fordiac.ide.model.ui:FBView" fb="//@systemConfigNetwork/@devices.1/@resource.0/@fBNetwork/@fBs.0">
+            <position x="2" y="2"/>
+            <backgroundColor red="192" green="192" blue="192"/>
+            <interfaceElements iInterfaceElement="//@systemConfigNetwork/@devices.1/@resource.0/@fBNetwork/@fBs.0/@interface/@eventOutputs.0" fbNetwork="//@systemConfigNetwork/@devices.1/@resource.0/@fBNetwork"/>
+            <interfaceElements iInterfaceElement="//@systemConfigNetwork/@devices.1/@resource.0/@fBNetwork/@fBs.0/@interface/@eventOutputs.1" fbNetwork="//@systemConfigNetwork/@devices.1/@resource.0/@fBNetwork"/>
+            <interfaceElements iInterfaceElement="//@systemConfigNetwork/@devices.1/@resource.0/@fBNetwork/@fBs.0/@interface/@eventOutputs.2" fbNetwork="//@systemConfigNetwork/@devices.1/@resource.0/@fBNetwork"/>
+          </children>
+          <fbNetworks>
+            <uiFBNetwork href="Xplus3MatlabApp.xml#/"/>
+          </fbNetworks>
+          <mappingEditorSize width="-1" height="250"/>
+        </uIResourceDiagram>
+      </resources>
+    </resourceContainerView>
+  </children>
+  <children xsi:type="org.fordiac.ide.model.ui:SegmentView" segment="//@systemConfigNetwork/@segments.0">
+    <position x="336" y="216"/>
+    <backgroundColor red="162" green="191" blue="54"/>
+    <size width="300" height="-1"/>
+  </children>
+  <systemConfigNetwork>
+    <devices name="FBRT_WINDOW" identifier="true" profile="HOLOBLOC" typePath="Devices\FBRT_WINDOW.dev">
+      <resource name="PANEL_RESOURCE" identifier="true" type="Resources\PANEL_RESOURCE.res">
+        <fBNetwork>
+          <fBs xsi:type="libraryElement:ResourceTypeFB" name="START" identifier="true" id="_Q-YyMF2VEeiz54JwMOt4Mw" resourceTypeFB="true" fbtPath="events\E_RESTART.fbt">
+            <interface>
+              <eventOutputs name="COLD" comment="Cold Restart"/>
+              <eventOutputs name="WARM" comment="Warm Restart"/>
+              <eventOutputs name="STOP" comment="Resource is Stopping"/>
+            </interface>
+            <position x="2" y="2"/>
+          </fBs>
+        </fBNetwork>
+        <varDeclarations name="ROWS" comment="Rows(if any)in grid layout" isInput="true" arraySize="-1" typeName="DINT">
+          <value/>
+        </varDeclarations>
+        <varDeclarations name="COLS" comment="Columns(if any)in grid layout" isInput="true" arraySize="-1" typeName="DINT">
+          <value/>
+        </varDeclarations>
+      </resource>
+      <varDeclarations name="BOUNDS" comment="Initial[x,y,width,height]" isInput="true" arraySize="4" typeName="DINT" array="true">
+        <value/>
+      </varDeclarations>
+      <varDeclarations name="GRID" comment="Grid layout[rows,cols]" isInput="true" arraySize="2" typeName="DINT" array="true">
+        <value/>
+      </varDeclarations>
+      <varDeclarations name="MGR_ID" comment="Device manager socket ID" isInput="true" arraySize="-1" typeName="WSTRING">
+        <value value="&quot;localhost:61499&quot;"/>
+        <varInitialization initialValue="&quot;localhost:61499&quot;"/>
+      </varDeclarations>
+    </devices>
+    <devices name="FORTE_PC" identifier="true" profile="HOLOBLOC" typePath="Devices\FORTE_PC.dev">
+      <resource name="EMB_RES" identifier="true" type="Resources\EMB_RES.res">
+        <fBNetwork>
+          <fBs xsi:type="libraryElement:ResourceTypeFB" name="START" identifier="true" id="_R9Cy0F2VEeiz54JwMOt4Mw" resourceTypeFB="true" fbtPath="events\E_RESTART.fbt">
+            <interface>
+              <eventOutputs name="COLD" comment="Cold Restart"/>
+              <eventOutputs name="WARM" comment="Warm Restart"/>
+              <eventOutputs name="STOP" comment="Resource is Stopping"/>
+            </interface>
+            <position x="2" y="2"/>
+          </fBs>
+        </fBNetwork>
+      </resource>
+      <varDeclarations name="MGR_ID" comment="Device manager socket ID" isInput="true" arraySize="-1" typeName="WSTRING">
+        <value value="&quot;localhost:61499&quot;"/>
+        <varInitialization initialValue="&quot;localhost:61499&quot;"/>
+      </varDeclarations>
+    </devices>
+    <segments name="Ethernet" typePath="Segments\Ethernet.seg">
+      <varDeclarations name="Param" comment="Param" isInput="true" arraySize="-1" typeName="WSTRING"/>
+    </segments>
+  </systemConfigNetwork>
+</org.fordiac.ide.model.ui:UISystemConfiguration>

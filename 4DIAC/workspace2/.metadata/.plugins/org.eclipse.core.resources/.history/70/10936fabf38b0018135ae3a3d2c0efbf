@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE System SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<System Name="temexdmod">
+  <VersionInfo Author="Author" Organization="4DIAC-Consortium" Version="1.0"/>
+  <Application Name="looptest">
+    <SubAppNetwork>
+      <FB Name="FB_CTRL_PI" Type="FB_CTRL_PI" x="5760.0" y="2040.0"/>
+      <FB Name="SERVER_1_4" Type="SERVER_1_4" x="240.0" y="-120.0"/>
+      <FB Name="INT2INT_0" Type="INT2INT" x="1440.0" y="1920.0"/>
+      <FB Name="E_DELAY" Type="E_DELAY" x="1320.0" y="1320.0"/>
+      <FB Name="F_ADD_0" Type="F_ADD" x="2760.0" y="1440.0">
+        <Parameter Name="IN2" Value="INT#3"/>
+      </FB>
+      <FB Name="F_MUL" Type="F_MUL" x="2280.0" y="480.0">
+        <Parameter Name="IN2" Value="2"/>
+      </FB>
+      <FB Name="INT2INT_1" Type="INT2INT" x="1440.0" y="480.0"/>
+      <FB Name="INT2INT_1_0" Type="INT2INT" x="2880.0" y="600.0"/>
+      <FB Name="INT2INT_1_0_0" Type="INT2INT" x="3360.0" y="1560.0"/>
+      <FB Name="F_FT_LIMIT" Type="F_FT_LIMIT" x="4200.0" y="1440.0"/>
+      <FB Name="F_ADD" Type="F_ADD" x="2400.0" y="3000.0">
+        <Parameter Name="IN2" Value="INT#3"/>
+      </FB>
+      <FB Name="INT2INT_1_1" Type="INT2INT" x="480.0" y="3360.0"/>
+      <FB Name="F_MUL_0" Type="F_MUL" x="1200.0" y="3120.0">
+        <Parameter Name="IN2" Value="2"/>
+      </FB>
+      <FB Name="INT2INT_1_0_1" Type="INT2INT" x="2040.0" y="3840.0"/>
+      <EventConnections>
+        <Connection Destination="INT2INT_0.REQ" Source="E_DELAY.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      </EventConnections>
+      <DataConnections>
+        <Connection Destination="F_ADD_0.IN1" Source="INT2INT_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="INT2INT_1.IN" Source="SERVER_1_4.RD_2" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_MUL.IN1" Source="INT2INT_1.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="INT2INT_1_0.IN" Source="F_MUL.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="INT2INT_1_0_0.IN" Source="F_ADD_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="FB_CTRL_PI.ACTUAL" Source="SERVER_1_4.RD_1" dx1="220.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_ADD_0.IN2" Source="INT2INT_1_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_ADD.IN1" Source="INT2INT_0.OUT" dx1="160.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="INT2INT_1_1.IN" Source="SERVER_1_4.RD_2" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_MUL_0.IN1" Source="INT2INT_1_1.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="INT2INT_1_0_1.IN" Source="F_MUL_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="INT2INT_0.IN" Source="SERVER_1_4.RD_1" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_ADD.IN2" Source="INT2INT_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_FT_LIMIT.LIM_H" Source="F_ADD.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_FT_LIMIT.VAL" Source="SERVER_1_4.RD_1" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="FB_CTRL_PI.SET_POINT" Source="F_FT_LIMIT.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      </DataConnections>
+    </SubAppNetwork>
+  </Application>
+</System>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<libraryElement:AutomationSystem xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:libraryElement="org.fordiac.ide.model.libraryElement" name="MechPress" id="_Ny4KgHoLEeOnv9nSAIt3Bg">
+  <versionInfo author="Author" organization="4DIAC-Consortium" version="1.0"/>
+  <application comment="" name="Manual">
+    <fBNetwork href="Manual.xml#//@fbNetwork"/>
+  </application>
+  <application comment="" name="Simulation">
+    <fBNetwork href="Simulation.xml#//@fbNetwork"/>
+  </application>
+  <application comment="" name="Automated">
+    <fBNetwork href="Automated.xml#//@fbNetwork"/>
+  </application>
+  <application comment="" name="Start">
+    <fBNetwork href="Start.xml#//@fbNetwork"/>
+  </application>
+  <systemConfiguration>
+    <systemConfigurationNetwork href="SysConf.xml#//@systemConfigNetwork"/>
+  </systemConfiguration>
+</libraryElement:AutomationSystem>

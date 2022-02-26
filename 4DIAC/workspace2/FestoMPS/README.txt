@@ -1,0 +1,4 @@
+------------------------------------------------------------------------
+Festo MPS Example - Station Pick&Place
+------------------------------------------------------------------------
+The FestoMPS system currently implements a hierarchically structured IEC 61499 application which controls the Station Pick&Place of Festo. This application requires two controllers dependent on the amount of the provided IOs. Since there is currently no IX, QX simulation this application requires the use of a real controller and can not be executed on a PC. It is supposed to be improved by additional adapters and subapplications. Also additional Festo MPS are supposed to be integrated in the future.

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<libraryElement:AutomationSystem xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:libraryElement="org.fordiac.ide.model.libraryElement" name="temexdmod" id="_IhO08IvSEeiQ4IU4DKuLmg">
+  <versionInfo author="Author" organization="4DIAC-Consortium" version="1.0"/>
+  <application comment="" name="looptest">
+    <fBNetwork href="looptest.xml#//@fbNetwork"/>
+  </application>
+  <application comment="" name="testfunctionblockbaru">
+    <fBNetwork href="testfunctionblockbaru.xml#//@fbNetwork"/>
+  </application>
+  <application comment="" name="tes">
+    <fBNetwork href="tes.xml#//@fbNetwork"/>
+  </application>
+  <application comment="" name="testfunctionpid">
+    <fBNetwork href="testfunctionpid.xml#//@fbNetwork"/>
+  </application>
+  <application comment="" name="pressureloop2">
+    <fBNetwork href="pressureloop2.xml#//@fbNetwork"/>
+  </application>
+  <application comment="" name="mode1">
+    <fBNetwork href="mode1.xml#//@fbNetwork"/>
+  </application>
+  <application comment="" name="pressureloop">
+    <fBNetwork href="pressureloop.xml#//@fbNetwork"/>
+  </application>
+  <application comment="" name="reactortemperatureloop">
+    <fBNetwork href="reactortemperatureloop.xml#//@fbNetwork"/>
+  </application>
+  <application comment="" name="reactortemperatureloopconvertin4diac">
+    <fBNetwork href="reactortemperatureloopconvertin4diac.xml#//@fbNetwork"/>
+  </application>
+  <application comment="" name="plantwide">
+    <fBNetwork href="plantwide.xml#//@fbNetwork"/>
+  </application>
+  <application comment="" name="App1_ReactTempandSeptTemp">
+    <fBNetwork href="App1_ReactTempandSeptTemp.xml#//@fbNetwork"/>
+  </application>
+  <application comment="" name="App2_SepLiquidLevel_and_FlowRate">
+    <fBNetwork href="App2_SepLiquidLevel_and_FlowRate.xml#//@fbNetwork"/>
+  </application>
+  <application comment="" name="App3_StripperLiquidLevel_and_FlowRate">
+    <fBNetwork href="App3_StripperLiquidLevel_and_FlowRate.xml#//@fbNetwork"/>
+  </application>
+  <application comment="" name="App4_PressureControl">
+    <fBNetwork href="App4_PressureControl.xml#//@fbNetwork"/>
+  </application>
+  <application comment="" name="App5_ProductionRateandQualityControl">
+    <fBNetwork href="App5_ProductionRateandQualityControl.xml#//@fbNetwork"/>
+  </application>
+  <systemConfiguration>
+    <systemConfigurationNetwork href="SysConf.xml#//@systemConfigNetwork"/>
+  </systemConfiguration>
+</libraryElement:AutomationSystem>

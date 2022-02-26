@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE FBType SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<FBType Comment="Composite Function Block Type" Name="AutoModeSteam">
+  <Identification Standard="61499-2"/>
+  <VersionInfo Author="4DIAC-IDE" Date="2011-12-29" Organization="4DIAC-Consortium" Version="0.0"/>
+  <InterfaceList>
+    <EventInputs>
+      <Event Comment="Initialization Request" Name="INIT" Type="Event">
+        <With Var="DT"/>
+        <With Var="SmoothChange"/>
+      </Event>
+      <Event Comment="Normal Execution Request" Name="Cycle" Type="Event">
+        <With Var="DT"/>
+        <With Var="SmoothChange"/>
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Comment="Execution Confirmation" Name="CNF" Type="Event">
+        <With Var="AutoSteamDemand"/>
+      </Event>
+      <Event Name="FIN" Type="Event"/>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Comment="Input event qualifier" Name="DT" Type="LREAL"/>
+      <VarDeclaration InitialValue="1" Name="SmoothChange" Type="BOOL"/>
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Comment="Output event qualifier" Name="AutoSteamDemand" Type="LREAL"/>
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB Name="E_CTU" Type="E_CTU" x="4270.0" y="140.0"/>
+    <FB Name="E_R_TRIG" Type="E_R_TRIG" x="280.0" y="1330.0"/>
+    <FB Name="DRAND" Type="DRAND" x="750.0" y="1420.0">
+      <Parameter Name="Seed" Value="1"/>
+    </FB>
+    <FB Name="F_LREAL_TO_UINT" Type="F_LREAL_TO_UINT" x="3990.0" y="1470.0"/>
+    <FB Name="DRAND_0" Type="DRAND" x="2015.0" y="2275.0">
+      <Parameter Name="Seed" Value="3"/>
+    </FB>
+    <FB Name="AlignValues" Type="AlignValues" x="5395.0" y="2080.0">
+      <Parameter Name="StepSize" Value="1"/>
+    </FB>
+    <FB Name="Selector" Type="Selector" x="6110.0" y="715.0"/>
+    <FB Name="F_MUL" Type="F_MUL" x="1235.0" y="1425.0">
+      <Parameter Name="IN2" Value="LREAL#2000"/>
+    </FB>
+    <FB Name="F_ADD" Type="F_ADD" x="2375.0" y="1425.0">
+      <Parameter Name="IN2" Value="LREAL#5000"/>
+    </FB>
+    <FB Name="F_DIV" Type="F_DIV" x="3515.0" y="1425.0"/>
+    <FB Name="LREAL2LREAL" Type="LREAL2LREAL" x="1710.0" y="1425.0"/>
+    <FB Name="LREAL2LREAL_1" Type="LREAL2LREAL" x="2850.0" y="1425.0"/>
+    <FB Name="F_MUL_1" Type="F_MUL" x="2660.0" y="2280.0">
+      <Parameter Name="IN2" Value="LREAL#9"/>
+    </FB>
+    <FB Name="F_ADD_1" Type="F_ADD" x="4180.0" y="2280.0">
+      <Parameter Name="IN1" Value="LREAL#1"/>
+    </FB>
+    <FB Name="LREAL2LREAL_2" Type="LREAL2LREAL" x="3325.0" y="2280.0"/>
+    <DataConnections>
+      <Connection Comment="" Destination="E_CTU.PV" Source="F_LREAL_TO_UINT.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="E_R_TRIG.QI" Source="E_CTU.Q" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="Selector.SEL" Source="SmoothChange" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="Selector.IN_1" Source="AlignValues.Value" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="AutoSteamDemand" Source="Selector.Out" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_MUL.IN1" Source="DRAND.Num" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_DIV.IN2" Source="DT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="LREAL2LREAL.IN" Source="F_MUL.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_ADD.IN1" Source="LREAL2LREAL.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="LREAL2LREAL_1.IN" Source="F_ADD.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_DIV.IN1" Source="LREAL2LREAL_1.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_LREAL_TO_UINT.IN" Source="F_DIV.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="Selector.IN_0" Source="F_ADD_1.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="AlignValues.reference" Source="F_ADD_1.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_ADD_1.IN2" Source="LREAL2LREAL_2.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="LREAL2LREAL_2.IN" Source="F_MUL_1.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_MUL_1.IN1" Source="DRAND_0.Num" dx1="0.0" dx2="0.0" dy="0.0"/>
+    </DataConnections>
+    <EventConnections>
+      <Connection Comment="" Destination="E_CTU.R" Source="F_LREAL_TO_UINT.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="E_CTU.CU" Source="Cycle" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="DRAND.REQ" Source="E_R_TRIG.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="E_R_TRIG.EI" Source="INIT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="E_CTU.R" Source="INIT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="DRAND_0.REQ" Source="E_R_TRIG.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="E_R_TRIG.EI" Source="Cycle" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="AlignValues.REQ" Source="Cycle" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="Selector.REQ" Source="Cycle" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="CNF" Source="Selector.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="FIN" Source="E_R_TRIG.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_MUL.REQ" Source="DRAND.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="LREAL2LREAL.REQ" Source="F_MUL.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_ADD.REQ" Source="LREAL2LREAL.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="LREAL2LREAL_1.REQ" Source="F_ADD.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_DIV.REQ" Source="LREAL2LREAL_1.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_LREAL_TO_UINT.REQ" Source="F_DIV.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_ADD_1.REQ" Source="LREAL2LREAL_2.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="LREAL2LREAL_2.REQ" Source="F_MUL_1.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_MUL_1.REQ" Source="DRAND_0.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+    </EventConnections>
+  </FBNetwork>
+</FBType>

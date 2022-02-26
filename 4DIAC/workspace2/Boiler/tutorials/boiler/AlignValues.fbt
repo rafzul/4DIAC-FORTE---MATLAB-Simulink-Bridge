@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE FBType SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<FBType Comment="Basic Function Block Type" Name="AlignValues">
+  <Identification Standard="61499-2"/>
+  <VersionInfo Author="4DIAC-IDE" Date="2011-12-18" Organization="4DIAC-Consortium" Version="0.0"/>
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="REQ" Type="Event">
+        <With Var="reference"/>
+        <With Var="StepSize"/>
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Comment="Execution Confirmation" Name="CNF" Type="Event">
+        <With Var="Value"/>
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration InitialValue="" Name="reference" Type="LREAL"/>
+      <VarDeclaration InitialValue="" Name="StepSize" Type="LREAL"/>
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Comment="Output event qualifier" InitialValue="" Name="Value" Type="LREAL"/>
+    </OutputVars>
+  </InterfaceList>
+  <BasicFB>
+    <ECC>
+      <ECState Comment="Initial State" Name="START" x="260.0" y="130.0"/>
+      <ECState Comment="Normal execution" Name="REQ" x="520.0" y="1040.0">
+        <ECAction Algorithm="REQ" Output="CNF"/>
+      </ECState>
+      <ECTransition Comment="" Condition="REQ" Destination="REQ" Source="START" x="550.0" y="600.0"/>
+      <ECTransition Comment="" Condition="1" Destination="START" Source="REQ" x="215.0" y="425.0"/>
+    </ECC>
+    <Algorithm Comment="Normally executed algorithm" Name="REQ">
+      <ST Text="&#9;IF Value &gt; reference + StepSize THEN&#10;&#10;&#9;&#9;Value := Value - StepSize;&#10;&#10;&#9;ELSIF Value &lt; reference - StepSize THEN&#10;&#10;&#9;&#9;Value := Value + StepSize;&#10;&#10;&#9;ELSE&#10;&#10;&#9;&#9;Value := reference;&#10;&#10;&#10;&#9;END_IF"/>
+    </Algorithm>
+  </BasicFB>
+</FBType>

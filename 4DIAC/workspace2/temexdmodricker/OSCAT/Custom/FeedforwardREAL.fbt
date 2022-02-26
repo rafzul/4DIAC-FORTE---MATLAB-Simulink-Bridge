@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE FBType SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<FBType Comment="Composite Function Block Type" Name="FeedforwardREAL">
+  <Identification Standard="61499-2"/>
+  <VersionInfo Author="4DIAC-IDE" Date="2018-09-24" Organization="4DIAC-Consortium" Version="0.0"/>
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="REQPctGsp" Type="Event">
+        <With Var="PctGsp"/>
+      </Event>
+      <Event Name="RECEadj" Type="Event">
+        <With Var="Eadj"/>
+      </Event>
+      <Event Name="RECFp" Type="Event">
+        <With Var="Fp"/>
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="CNFr2" Type="Event">
+        <With Var="r2"/>
+      </Event>
+      <Event Name="CNFr3" Type="Event">
+        <With Var="r3"/>
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="PctGsp" Type="REAL"/>
+      <VarDeclaration Name="Eadj" Type="REAL"/>
+      <VarDeclaration Name="Fp" Type="REAL"/>
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="r2" Type="REAL"/>
+      <VarDeclaration Name="r3" Type="REAL"/>
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB Name="F_MUL" Type="F_MUL" x="1080.0" y="0.0"/>
+    <FB Name="FirstOrder" Type="F_MUL" x="2040.0" y="1080.0"/>
+    <FB Name="PolymAtas" Type="ADD_3" x="6000.0" y="960.0"/>
+    <FB Name="SecondOrder" Type="F_MUL" x="3720.0" y="120.0"/>
+    <FB Name="PolymBawah" Type="ADD_3" x="6720.0" y="3960.0"/>
+    <FB Name="F_MUL_1" Type="F_MUL" x="4320.0" y="3960.0"/>
+    <FB Name="F_MUL_2" Type="F_MUL" x="4200.0" y="4800.0"/>
+    <FB Name="F_MUL_3" Type="F_MUL" x="3720.0" y="2280.0"/>
+    <FB Name="F_MUL_4" Type="F_MUL" x="3600.0" y="3240.0"/>
+    <FB Name="Product1" Type="F_DIV" x="5760.0" y="2040.0"/>
+    <FB Name="Product" Type="F_DIV" x="5760.0" y="3120.0"/>
+    <FB Name="r2" Type="F_SUB" x="7680.0" y="960.0"/>
+    <FB Name="r3" Type="F_ADD" x="8160.0" y="3120.0"/>
+    <FB Name="PctGspKuadrat_" Type="REAL2REAL" x="1680.0" y="120.0"/>
+    <FB Name="KoefisienOrde2P2" Type="REAL2REAL" x="2640.0" y="120.0">
+      <Parameter Name="IN" Value="1.5192E-003"/>
+    </FB>
+    <FB Name="HasilSecondOrder_" Type="REAL2REAL" x="4440.0" y="240.0"/>
+    <FB Name="KoefisienOrde1P2" Type="REAL2REAL" x="960.0" y="1320.0">
+      <Parameter Name="IN" Value="5.9446E-001"/>
+    </FB>
+    <FB Name="REAL2REAL_1" Type="REAL2REAL" x="4320.0" y="960.0">
+      <Parameter Name="IN" Value="2.7690E-001"/>
+    </FB>
+    <FB Name="HasilFirstOrder_" Type="REAL2REAL" x="2760.0" y="960.0"/>
+    <FB Name="REAL2REAL" Type="REAL2REAL" x="6600.0" y="960.0"/>
+    <FB Name="Product1_" Type="REAL2REAL" x="6600.0" y="1800.0"/>
+    <FB Name="REAL2REAL_2" Type="REAL2REAL" x="1200.0" y="2280.0">
+      <Parameter Name="IN" Value="32"/>
+    </FB>
+    <FB Name="REAL2REAL_3" Type="REAL2REAL" x="1200.0" y="3240.0">
+      <Parameter Name="IN" Value="46"/>
+    </FB>
+    <FB Name="REAL2REAL_4" Type="REAL2REAL" x="4560.0" y="2280.0"/>
+    <FB Name="REAL2REAL_5" Type="REAL2REAL" x="4440.0" y="3000.0"/>
+    <FB Name="REAL2REAL_6" Type="REAL2REAL" x="6720.0" y="3120.0"/>
+    <FB Name="REAL2REAL_7" Type="REAL2REAL" x="1560.0" y="5040.0">
+      <Parameter Name="IN" Value="-8.0893E-001"/>
+    </FB>
+    <FB Name="HasilFirstOrder" Type="REAL2REAL" x="4920.0" y="3960.0"/>
+    <FB Name="REAL2REAL_8" Type="REAL2REAL" x="3120.0" y="5760.0">
+      <Parameter Name="IN" Value="-1.1377E-003"/>
+    </FB>
+    <FB Name="HasilSecondOrderr" Type="REAL2REAL" x="4920.0" y="4800.0"/>
+    <FB Name="REAL2REAL_9" Type="REAL2REAL" x="5520.0" y="5520.0">
+      <Parameter Name="IN" Value="9.1060E+001"/>
+    </FB>
+    <FB Name="REAL2REAL_10" Type="REAL2REAL" x="7320.0" y="3960.0"/>
+    <DataConnections>
+      <Connection Destination="PctGspKuadrat_.IN" Source="F_MUL.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_MUL_2.IN1" Source="PctGspKuadrat_.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="SecondOrder.IN1" Source="PctGspKuadrat_.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="SecondOrder.IN2" Source="KoefisienOrde2P2.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="HasilSecondOrder_.IN" Source="SecondOrder.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="PolymAtas.IN1" Source="HasilSecondOrder_.OUT" dx1="0.0" dx2="0.0" dy="-140.0"/>
+      <Connection Destination="FirstOrder.IN2" Source="KoefisienOrde1P2.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="HasilFirstOrder_.IN" Source="FirstOrder.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="PolymAtas.IN2" Source="HasilFirstOrder_.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="PolymAtas.IN3" Source="REAL2REAL_1.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="REAL2REAL.IN" Source="PolymAtas.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="r2.IN1" Source="REAL2REAL.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="r2.IN2" Source="Product1_.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="Product1_.IN" Source="Product1.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_MUL.IN1" Source="PctGsp" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_MUL.IN2" Source="PctGsp" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="FirstOrder.IN1" Source="PctGsp" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_MUL_1.IN1" Source="PctGsp" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="r2" Source="r2.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_MUL_4.IN1" Source="Eadj" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_MUL_3.IN1" Source="Eadj" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_MUL_3.IN2" Source="REAL2REAL_2.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="Product.IN2" Source="Fp" dx1="2705.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="Product1.IN2" Source="Fp" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_MUL_4.IN2" Source="REAL2REAL_3.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="REAL2REAL_4.IN" Source="F_MUL_3.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="Product1.IN1" Source="REAL2REAL_4.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="REAL2REAL_5.IN" Source="F_MUL_4.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="Product.IN1" Source="REAL2REAL_5.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="REAL2REAL_6.IN" Source="Product.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="r3.IN1" Source="REAL2REAL_6.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_MUL_1.IN2" Source="REAL2REAL_7.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="HasilFirstOrder.IN" Source="F_MUL_1.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="PolymBawah.IN2" Source="HasilFirstOrder.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_MUL_2.IN2" Source="REAL2REAL_8.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="HasilSecondOrderr.IN" Source="F_MUL_2.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="PolymBawah.IN1" Source="HasilSecondOrderr.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="PolymBawah.IN3" Source="REAL2REAL_9.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="REAL2REAL_10.IN" Source="PolymBawah.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="r3.IN2" Source="REAL2REAL_10.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="r3" Source="r3.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+    </DataConnections>
+    <EventConnections>
+      <Connection Destination="PctGspKuadrat_.REQ" Source="F_MUL.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_MUL_2.REQ" Source="PctGspKuadrat_.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="KoefisienOrde2P2.REQ" Source="PctGspKuadrat_.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="SecondOrder.REQ" Source="KoefisienOrde2P2.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="HasilSecondOrder_.REQ" Source="SecondOrder.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="PolymAtas.REQ" Source="HasilSecondOrder_.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="FirstOrder.REQ" Source="KoefisienOrde1P2.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="HasilFirstOrder_.REQ" Source="FirstOrder.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="PolymAtas.REQ" Source="REAL2REAL_1.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="REAL2REAL_1.REQ" Source="HasilFirstOrder_.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="REAL2REAL.REQ" Source="PolymAtas.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="r2.REQ" Source="REAL2REAL.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="r2.REQ" Source="Product1_.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="Product1_.REQ" Source="Product1.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="KoefisienOrde1P2.REQ" Source="REQPctGsp" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_MUL.REQ" Source="REQPctGsp" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="CNFr2" Source="r2.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="REAL2REAL_2.REQ" Source="RECEadj" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_MUL_3.REQ" Source="REAL2REAL_2.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="REAL2REAL_3.REQ" Source="RECFp" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_MUL_4.REQ" Source="REAL2REAL_3.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="Product1.REQ" Source="REAL2REAL_4.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="REAL2REAL_4.REQ" Source="F_MUL_3.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="REAL2REAL_5.REQ" Source="F_MUL_4.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="Product.REQ" Source="REAL2REAL_5.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="REAL2REAL_6.REQ" Source="Product.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="r3.REQ" Source="REAL2REAL_6.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="REAL2REAL_7.REQ" Source="REQPctGsp" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_MUL_1.REQ" Source="REAL2REAL_7.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="HasilFirstOrder.REQ" Source="F_MUL_1.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="PolymBawah.REQ" Source="HasilFirstOrder.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="REAL2REAL_8.REQ" Source="PctGspKuadrat_.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_MUL_2.REQ" Source="REAL2REAL_8.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="HasilSecondOrderr.REQ" Source="F_MUL_2.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="PolymBawah.REQ" Source="HasilSecondOrderr.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="REAL2REAL_9.REQ" Source="REQPctGsp" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="PolymBawah.REQ" Source="REAL2REAL_9.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="r3.REQ" Source="REAL2REAL_10.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="REAL2REAL_10.REQ" Source="PolymBawah.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="CNFr3" Source="r3.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+    </EventConnections>
+  </FBNetwork>
+</FBType>

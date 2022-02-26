@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE FBType SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<FBType Comment="Composite Function Block Type" Name="AandCReactants">
+  <Identification Standard="61499-2"/>
+  <VersionInfo Author="4DIAC-IDE" Date="2018-10-14" Organization="4DIAC-Consortium" Version="0.0"/>
+  <InterfaceList>
+    <EventInputs>
+      <Event Comment="Initialization Request" Name="INIT_yACandYAcontrol" Type="Event">
+        <With Var="INITCOND_yAcontrol"/>
+        <With Var="INITCOND_yACcontrol"/>
+        <With Var="DelaySampleTime_yACandYAcontrol"/>
+        <With Var="InitialCondition_r1"/>
+        <With Var="InitialCondition_r4"/>
+        <With Var="Fp"/>
+      </Event>
+      <Event Comment="Normal Execution Request" Name="REQ_yACandYAcontrol" Type="Event">
+        <With Var="XMEAS23"/>
+        <With Var="XMEAS25"/>
+        <With Var="SETPOINT_yAcontrol"/>
+        <With Var="OFFSET_yAcontrol"/>
+        <With Var="MAN_IN_yAcontrol"/>
+        <With Var="MANUAL_yAcontrol"/>
+        <With Var="LIM_L_yAcontrol"/>
+        <With Var="KP_yAcontrol"/>
+        <With Var="KI_yAcontrol"/>
+        <With Var="LIM_H_yAcontrol"/>
+        <With Var="SET_POINT_yACcontrol"/>
+        <With Var="OFFSET_yACcontrol"/>
+        <With Var="MAN_IN_yACcontrol"/>
+        <With Var="MANUAL_yACcontrol"/>
+        <With Var="DelaySampleTime_yACandYAcontrol"/>
+        <With Var="LIM_H_yACcontrol"/>
+        <With Var="LIM_L_yACcontrol"/>
+        <With Var="KI_yACcontrol"/>
+        <With Var="KP_yACcontrol"/>
+        <With Var="Fp"/>
+      </Event>
+      <Event Name="RST_yACandYAcontrol" Type="Event"/>
+      <Event Name="INIT_ACFeedRate" Type="Event">
+        <With Var="Fp"/>
+        <With Var="INITCOND_AFeedRate"/>
+        <With Var="INITCOND_CFeedRate"/>
+      </Event>
+      <Event Name="REQ_ACFeedRate" Type="Event">
+        <With Var="Fp"/>
+        <With Var="ACTUAL_AFeedRate_Xmeas1"/>
+        <With Var="OFFSET_AFeedRate"/>
+        <With Var="MAN_IN_AFeedRate"/>
+        <With Var="MANUAL_AFeedRate"/>
+        <With Var="KP_AFeedRate"/>
+        <With Var="KI_AFeedRate"/>
+        <With Var="LIM_L_AFeedRate"/>
+        <With Var="LIM_H_AFeedRate"/>
+        <With Var="ACTUAL_CFeedRate_Xmeas4"/>
+        <With Var="OFFSET_CFeedRate"/>
+        <With Var="MAN_IN_CFeedRate"/>
+        <With Var="MANUAL_CFeedRate"/>
+        <With Var="KP_CFeedRate"/>
+        <With Var="KI_CFeedRate"/>
+        <With Var="LIM_L_CFeedRate"/>
+        <With Var="LIM_H_CFeedRate"/>
+      </Event>
+      <Event Name="RST_ACFeedRate" Type="Event"/>
+    </EventInputs>
+    <EventOutputs>
+      <Event Comment="Initialization Confirm" Name="INITO" Type="Event"/>
+      <Event Comment="Execution Confirmation" Name="CNF" Type="Event">
+        <With Var="XMV3"/>
+        <With Var="XMV4"/>
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="XMEAS23" Type="REAL"/>
+      <VarDeclaration Name="XMEAS25" Type="REAL"/>
+      <VarDeclaration Name="INITCOND_yAcontrol" Type="REAL"/>
+      <VarDeclaration Name="SETPOINT_yAcontrol" Type="REAL"/>
+      <VarDeclaration Name="OFFSET_yAcontrol" Type="REAL"/>
+      <VarDeclaration Name="MAN_IN_yAcontrol" Type="REAL"/>
+      <VarDeclaration Name="MANUAL_yAcontrol" Type="BOOL"/>
+      <VarDeclaration Name="KP_yAcontrol" Type="REAL"/>
+      <VarDeclaration Name="KI_yAcontrol" Type="REAL"/>
+      <VarDeclaration Name="LIM_L_yAcontrol" Type="REAL"/>
+      <VarDeclaration Name="LIM_H_yAcontrol" Type="REAL"/>
+      <VarDeclaration Name="INITCOND_yACcontrol" Type="REAL"/>
+      <VarDeclaration Name="SET_POINT_yACcontrol" Type="REAL"/>
+      <VarDeclaration Name="OFFSET_yACcontrol" Type="REAL"/>
+      <VarDeclaration Name="MAN_IN_yACcontrol" Type="REAL"/>
+      <VarDeclaration Name="MANUAL_yACcontrol" Type="BOOL"/>
+      <VarDeclaration Name="KP_yACcontrol" Type="REAL"/>
+      <VarDeclaration Name="KI_yACcontrol" Type="REAL"/>
+      <VarDeclaration Name="LIM_L_yACcontrol" Type="REAL"/>
+      <VarDeclaration Name="LIM_H_yACcontrol" Type="REAL"/>
+      <VarDeclaration Name="DelaySampleTime_yACandYAcontrol" Type="TIME"/>
+      <VarDeclaration Name="InitialCondition_r1" Type="REAL"/>
+      <VarDeclaration Name="InitialCondition_r4" Type="REAL"/>
+      <VarDeclaration Name="Fp" Type="REAL"/>
+      <VarDeclaration Name="INITCOND_AFeedRate" Type="REAL"/>
+      <VarDeclaration Name="ACTUAL_AFeedRate_Xmeas1" Type="REAL"/>
+      <VarDeclaration Name="OFFSET_AFeedRate" Type="REAL"/>
+      <VarDeclaration Name="MAN_IN_AFeedRate" Type="REAL"/>
+      <VarDeclaration Name="MANUAL_AFeedRate" Type="BOOL"/>
+      <VarDeclaration Name="KP_AFeedRate" Type="REAL"/>
+      <VarDeclaration Name="KI_AFeedRate" Type="REAL"/>
+      <VarDeclaration Name="LIM_L_AFeedRate" Type="REAL"/>
+      <VarDeclaration Name="LIM_H_AFeedRate" Type="REAL"/>
+      <VarDeclaration Name="INITCOND_CFeedRate" Type="REAL"/>
+      <VarDeclaration Name="ACTUAL_CFeedRate_Xmeas4" Type="REAL"/>
+      <VarDeclaration Name="OFFSET_CFeedRate" Type="REAL"/>
+      <VarDeclaration Name="MAN_IN_CFeedRate" Type="REAL"/>
+      <VarDeclaration Name="MANUAL_CFeedRate" Type="BOOL"/>
+      <VarDeclaration Name="KP_CFeedRate" Type="REAL"/>
+      <VarDeclaration Name="KI_CFeedRate" Type="REAL"/>
+      <VarDeclaration Name="LIM_L_CFeedRate" Type="REAL"/>
+      <VarDeclaration Name="LIM_H_CFeedRate" Type="REAL"/>
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="XMV3" Type="REAL"/>
+      <VarDeclaration Name="XMV4" Type="REAL"/>
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB Name="REAL2REAL" Type="REAL2REAL" x="1440.0" y="360.0">
+      <Parameter Name="IN" Value="100"/>
+    </FB>
+    <FB Name="F_MUL" Type="F_MUL" x="2280.0" y="240.0"/>
+    <FB Name="xmeas23x100" Type="REAL2REAL" x="2880.0" y="240.0"/>
+    <FB Name="yA" Type="F_DIV" x="3600.0" y="240.0"/>
+    <FB Name="F_ADD" Type="F_ADD" x="2160.0" y="1560.0"/>
+    <FB Name="yAC" Type="REAL2REAL" x="2760.0" y="1680.0"/>
+    <FB Name="yAcontrol" Type="FB_CTRL_PI" x="4200.0" y="0.0"/>
+    <FB Name="yACcontrol" Type="FB_CTRL_PI" x="4200.0" y="2280.0"/>
+    <FB Name="loo14" Type="F_ADD" x="6240.0" y="0.0"/>
+    <FB Name="Delayr1" Type="Delay_With_InitConditionREALtype" x="7200.0" y="240.0"/>
+    <FB Name="r1" Type="REAL2REAL" x="6960.0" y="1440.0"/>
+    <FB Name="Fpxr1" Type="F_MUL" x="8160.0" y="1560.0"/>
+    <FB Name="AFeedRate" Type="FB_CTRL_PI" x="9600.0" y="480.0"/>
+    <FB Name="InitXMV3" Type="Init_ConditionREALtype" x="10920.0" y="480.0"/>
+    <FB Name="F_SUB" Type="F_SUB" x="6480.0" y="2520.0"/>
+    <FB Name="loop15minloop14" Type="REAL2REAL" x="6960.0" y="2520.0"/>
+    <FB Name="r4_" Type="F_ADD" x="7800.0" y="2400.0"/>
+    <FB Name="delayr4" Type="Delay_With_InitConditionREALtype" x="8280.0" y="3960.0"/>
+    <FB Name="F_MUL_1" Type="F_MUL" x="9240.0" y="2880.0"/>
+    <FB Name="REAL2REAL_1" Type="REAL2REAL" x="8520.0" y="2400.0"/>
+    <FB Name="CFeedRate" Type="FB_CTRL_PI" x="9720.0" y="2280.0"/>
+    <FB Name="InitXMV4" Type="Init_ConditionREALtype" x="10560.0" y="2280.0"/>
+    <FB Name="Init_ConditionREALtype" Type="Init_ConditionREALtype" x="5040.0" y="0.0"/>
+    <FB Name="Init_ConditionREALtype_1" Type="Init_ConditionREALtype" x="5040.0" y="2160.0"/>
+    <DataConnections>
+      <Connection Destination="F_MUL.IN2" Source="REAL2REAL.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_MUL.IN1" Source="XMEAS23" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="xmeas23x100.IN" Source="F_MUL.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="yA.IN1" Source="xmeas23x100.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_ADD.IN1" Source="XMEAS23" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_ADD.IN2" Source="XMEAS25" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="yAC.IN" Source="F_ADD.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="yA.IN2" Source="yAC.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="yAcontrol.ACTUAL" Source="yA.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="yAcontrol.SET_POINT" Source="SETPOINT_yAcontrol" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="yAcontrol.OFFSET" Source="OFFSET_yAcontrol" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="yAcontrol.MAN_IN" Source="MAN_IN_yAcontrol" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="yAcontrol.MANUAL" Source="MANUAL_yAcontrol" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="yAcontrol.KP" Source="KP_yAcontrol" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="yAcontrol.KI" Source="KI_yAcontrol" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="yAcontrol.LIM_L" Source="LIM_L_yAcontrol" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="yAcontrol.LIM_H" Source="LIM_H_yAcontrol" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="yACcontrol.ACTUAL" Source="yAC.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="yACcontrol.SET_POINT" Source="SET_POINT_yACcontrol" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="yACcontrol.OFFSET" Source="OFFSET_yACcontrol" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="yACcontrol.MAN_IN" Source="MAN_IN_yACcontrol" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="yACcontrol.MANUAL" Source="MANUAL_yACcontrol" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="yACcontrol.KP" Source="KP_yACcontrol" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="yACcontrol.KI" Source="KI_yACcontrol" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="yACcontrol.LIM_L" Source="LIM_L_yACcontrol" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="yACcontrol.LIM_H" Source="LIM_H_yACcontrol" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="Delayr1.DelayTime" Source="DelaySampleTime_yACandYAcontrol" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="Delayr1.InitialCondition" Source="InitialCondition_r1" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="Delayr1.DelayedInput" Source="loo14.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="loo14.IN2" Source="Delayr1.OUT" dx1="0.0" dx2="0.0" dy="-810.0"/>
+      <Connection Destination="r1.IN" Source="loo14.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="Fpxr1.IN1" Source="r1.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="Fpxr1.IN2" Source="Fp" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="AFeedRate.SET_POINT" Source="Fpxr1.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="InitXMV3.SubsequentInput" Source="AFeedRate.Y" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="InitXMV3.InitialCondition" Source="INITCOND_AFeedRate" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="AFeedRate.ACTUAL" Source="ACTUAL_AFeedRate_Xmeas1" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="AFeedRate.OFFSET" Source="OFFSET_AFeedRate" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="AFeedRate.MAN_IN" Source="MAN_IN_AFeedRate" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="AFeedRate.MANUAL" Source="MANUAL_AFeedRate" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="AFeedRate.KP" Source="KP_AFeedRate" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="AFeedRate.KI" Source="KI_AFeedRate" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="AFeedRate.LIM_L" Source="LIM_L_AFeedRate" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="AFeedRate.LIM_H" Source="LIM_H_AFeedRate" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="loop15minloop14.IN" Source="F_SUB.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="r4_.IN1" Source="loop15minloop14.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="delayr4.DelayedInput" Source="r4_.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="delayr4.DelayTime" Source="DelaySampleTime_yACandYAcontrol" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="delayr4.InitialCondition" Source="InitialCondition_r4" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="r4_.IN2" Source="delayr4.OUT" dx1="0.0" dx2="0.0" dy="1120.0"/>
+      <Connection Destination="REAL2REAL_1.IN" Source="r4_.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_MUL_1.IN1" Source="REAL2REAL_1.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_MUL_1.IN2" Source="Fp" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="CFeedRate.SET_POINT" Source="F_MUL_1.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="InitXMV4.SubsequentInput" Source="CFeedRate.Y" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="InitXMV4.InitialCondition" Source="INITCOND_CFeedRate" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="CFeedRate.ACTUAL" Source="ACTUAL_CFeedRate_Xmeas4" dx1="1810.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="CFeedRate.OFFSET" Source="OFFSET_CFeedRate" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="CFeedRate.MAN_IN" Source="MAN_IN_CFeedRate" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="CFeedRate.MANUAL" Source="MANUAL_CFeedRate" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="CFeedRate.KP" Source="KP_CFeedRate" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="CFeedRate.KI" Source="KI_CFeedRate" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="CFeedRate.LIM_L" Source="LIM_L_CFeedRate" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="CFeedRate.LIM_H" Source="LIM_H_CFeedRate" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="Init_ConditionREALtype.SubsequentInput" Source="yAcontrol.Y" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="loo14.IN1" Source="Init_ConditionREALtype.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_SUB.IN2" Source="Init_ConditionREALtype.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_SUB.IN1" Source="Init_ConditionREALtype_1.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="Init_ConditionREALtype_1.SubsequentInput" Source="yACcontrol.Y" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="Init_ConditionREALtype.InitialCondition" Source="INITCOND_yAcontrol" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="Init_ConditionREALtype_1.InitialCondition" Source="INITCOND_yACcontrol" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="XMV3" Source="InitXMV3.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="XMV4" Source="InitXMV4.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+    </DataConnections>
+    <EventConnections>
+      <Connection Destination="REAL2REAL.REQ" Source="REQ_yACandYAcontrol" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_MUL.REQ" Source="REAL2REAL.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="xmeas23x100.REQ" Source="F_MUL.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="yA.REQ" Source="xmeas23x100.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_ADD.REQ" Source="REQ_yACandYAcontrol" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="INITO" Source="INIT_yACandYAcontrol" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="yAC.REQ" Source="F_ADD.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="yA.REQ" Source="yAC.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="yAcontrol.REQ" Source="yA.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="yAcontrol.INIT" Source="INIT_yACandYAcontrol" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="yACcontrol.INIT" Source="yAcontrol.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="yACcontrol.REQ" Source="yAC.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="yACcontrol.REQ" Source="REQ_yACandYAcontrol" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="yAcontrol.REQ" Source="REQ_yACandYAcontrol" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="Delayr1.Start_and_REQ" Source="loo14.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="Delayr1.INIT" Source="yAcontrol.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="loo14.REQ" Source="Delayr1.CNF" dx1="0.0" dx2="0.0" dy="-220.0"/>
+      <Connection Destination="r1.REQ" Source="loo14.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="Fpxr1.REQ" Source="r1.CNF" dx1="450.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="InitXMV3.InitEvent" Source="AFeedRate.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="InitXMV3.SubsequentEvent" Source="AFeedRate.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="loop15minloop14.REQ" Source="F_SUB.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="r4_.REQ" Source="loop15minloop14.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="delayr4.INIT" Source="yACcontrol.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="delayr4.Start_and_REQ" Source="r4_.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="r4_.REQ" Source="delayr4.CNF" dx1="0.0" dx2="0.0" dy="1780.0"/>
+      <Connection Destination="REAL2REAL_1.REQ" Source="r4_.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_MUL_1.REQ" Source="REAL2REAL_1.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="InitXMV4.InitEvent" Source="CFeedRate.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="InitXMV4.SubsequentEvent" Source="CFeedRate.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="yAcontrol.RST" Source="RST_yACandYAcontrol" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="yACcontrol.RST" Source="RST_yACandYAcontrol" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="Init_ConditionREALtype.InitEvent" Source="yAcontrol.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="Init_ConditionREALtype.SubsequentEvent" Source="yAcontrol.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="loo14.REQ" Source="Init_ConditionREALtype.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="Init_ConditionREALtype_1.InitEvent" Source="yACcontrol.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_SUB.REQ" Source="Init_ConditionREALtype.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="Init_ConditionREALtype_1.SubsequentEvent" Source="yACcontrol.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_SUB.REQ" Source="Init_ConditionREALtype_1.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="CNF" Source="InitXMV4.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="CNF" Source="InitXMV3.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="AFeedRate.REQ" Source="Fpxr1.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="AFeedRate.INIT" Source="INIT_ACFeedRate" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="AFeedRate.REQ" Source="REQ_ACFeedRate" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="AFeedRate.RST" Source="RST_ACFeedRate" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="CFeedRate.INIT" Source="INIT_ACFeedRate" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="CFeedRate.REQ" Source="REQ_ACFeedRate" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="CFeedRate.RST" Source="RST_ACFeedRate" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="CFeedRate.REQ" Source="F_MUL_1.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_MUL_1.REQ" Source="REQ_ACFeedRate" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="Fpxr1.REQ" Source="REQ_ACFeedRate" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="INITO" Source="AFeedRate.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="INITO" Source="CFeedRate.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+    </EventConnections>
+  </FBNetwork>
+</FBType>

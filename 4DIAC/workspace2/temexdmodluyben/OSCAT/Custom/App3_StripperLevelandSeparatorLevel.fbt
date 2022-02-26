@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE FBType SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<FBType Comment="Composite Function Block Type" Name="App3_StripperLevelandSeparatorLevel">
+  <Identification Standard="61499-2"/>
+  <VersionInfo Author="4DIAC-IDE" Date="2018-11-06" Organization="4DIAC-Consortium" Version="0.0"/>
+  <InterfaceList>
+    <EventInputs>
+      <Event Comment="Initialization Request" Name="INITO" Type="Event"/>
+      <Event Comment="Normal Execution Request" Name="IND" Type="Event">
+        <With Var="XMEAS15"/>
+        <With Var="XMEAS12"/>
+        <With Var="XMEAS15SETP"/>
+        <With Var="XMEAS12SETP"/>
+        <With Var="KP_StripLevel"/>
+        <With Var="Kp_SepLevel"/>
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Comment="Initialization Confirm" Name="INITO3" Type="Event"/>
+      <Event Comment="Execution Confirmation" Name="CNF" Type="Event">
+        <With Var="XMV7"/>
+        <With Var="XMV11"/>
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="XMEAS15" Type="REAL"/>
+      <VarDeclaration Name="XMEAS15SETP" Type="REAL"/>
+      <VarDeclaration Name="KP_StripLevel" Type="REAL"/>
+      <VarDeclaration Name="XMEAS12" Type="REAL"/>
+      <VarDeclaration Name="XMEAS12SETP" Type="REAL"/>
+      <VarDeclaration Name="Kp_SepLevel" Type="REAL"/>
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="XMV7" Type="REAL"/>
+      <VarDeclaration Name="XMV11" Type="REAL"/>
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB Name="INITO3" Type="E_SPLIT_3" x="1200.0" y="0.0"/>
+    <FB Name="IND3" Type="E_SPLIT" x="1320.0" y="1080.0"/>
+    <FB Name="E_MERGE" Type="E_MERGE" x="3600.0" y="480.0"/>
+    <FB Name="FB_CTRL_PI" Type="FB_CTRL_PI" x="2400.0" y="120.0"/>
+    <FB Name="FB_CTRL_PI_1" Type="FB_CTRL_PI" x="2400.0" y="1920.0"/>
+    <DataConnections>
+      <Connection Destination="XMV7" Source="FB_CTRL_PI.Y" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="XMV11" Source="FB_CTRL_PI_1.Y" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="FB_CTRL_PI.ACTUAL" Source="XMEAS15" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="FB_CTRL_PI.SET_POINT" Source="XMEAS15SETP" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="FB_CTRL_PI_1.ACTUAL" Source="XMEAS12" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="FB_CTRL_PI_1.SET_POINT" Source="XMEAS12SETP" dx1="0.0" dx2="0.0" dy="0.0"/>
+    </DataConnections>
+    <EventConnections>
+      <Connection Destination="INITO3.EI" Source="INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="INITO3" Source="INITO3.EO1" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="FB_CTRL_PI.INIT" Source="INITO3.EO2" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="FB_CTRL_PI_1.INIT" Source="INITO3.EO3" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="FB_CTRL_PI.REQ" Source="IND3.EO1" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="FB_CTRL_PI_1.REQ" Source="IND3.EO2" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_MERGE.EI1" Source="FB_CTRL_PI.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_MERGE.EI2" Source="FB_CTRL_PI_1.CNF" dx1="250.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="CNF" Source="E_MERGE.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="IND3.EI" Source="IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+    </EventConnections>
+  </FBNetwork>
+</FBType>

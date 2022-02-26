@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;temexdmod/OSCAT/Custom/Discrete_PI.fbt&apos;" deleteContents="false" description="Delete resource &apos;temexdmod/OSCAT/Custom/Discrete_PI.fbt&apos;" element1="/temexdmod/OSCAT/Custom/Discrete_PI.fbt" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1538321441751"/>
+</session>

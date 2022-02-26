@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE FBType SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<FBType Comment="Composite Function Block Type" Name="E_Split16">
+  <Identification Standard="61499-2"/>
+  <VersionInfo Author="4DIAC-IDE" Date="2018-12-21" Organization="4DIAC-Consortium" Version="0.0"/>
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="EI" Type="Event"/>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="EO1" Type="Event"/>
+      <Event Name="EO2" Type="Event"/>
+      <Event Name="EO3" Type="Event"/>
+      <Event Name="EO4" Type="Event"/>
+      <Event Name="EO5" Type="Event"/>
+      <Event Name="EO6" Type="Event"/>
+      <Event Name="EO7" Type="Event"/>
+      <Event Name="EO8" Type="Event"/>
+      <Event Name="EO9" Type="Event"/>
+      <Event Name="EO10" Type="Event"/>
+      <Event Name="EO11" Type="Event"/>
+      <Event Name="EO12" Type="Event"/>
+      <Event Name="EO13" Type="Event"/>
+      <Event Name="EO14" Type="Event"/>
+      <Event Name="EO15" Type="Event"/>
+      <Event Name="EO16" Type="Event"/>
+      <Event Name="EO17" Type="Event"/>
+    </EventOutputs>
+    <InputVars/>
+    <OutputVars/>
+  </InterfaceList>
+  <FBNetwork>
+    <FB Name="E_SPLIT" Type="E_SPLIT" x="4800.0" y="1320.0"/>
+    <FB Name="E_SPLIT_1" Type="E_SPLIT" x="4440.0" y="960.0"/>
+    <FB Name="E_SPLIT_2" Type="E_SPLIT" x="4080.0" y="600.0"/>
+    <FB Name="E_SPLIT_3" Type="E_SPLIT" x="3600.0" y="360.0"/>
+    <FB Name="E_SPLIT_4" Type="E_SPLIT" x="3120.0" y="240.0"/>
+    <FB Name="E_SPLIT_5" Type="E_SPLIT" x="2760.0" y="-120.0"/>
+    <FB Name="E_SPLIT_6" Type="E_SPLIT" x="2400.0" y="-480.0"/>
+    <FB Name="E_SPLIT_7" Type="E_SPLIT" x="3360.0" y="1320.0"/>
+    <FB Name="E_SPLIT_8" Type="E_SPLIT" x="2880.0" y="1200.0"/>
+    <FB Name="E_SPLIT_9" Type="E_SPLIT" x="2375.0" y="1020.0"/>
+    <FB Name="E_SPLIT_10" Type="E_SPLIT" x="1920.0" y="840.0"/>
+    <FB Name="E_SPLIT_11" Type="E_SPLIT" x="1560.0" y="480.0"/>
+    <FB Name="E_SPLIT_12" Type="E_SPLIT" x="1200.0" y="0.0"/>
+    <FB Name="E_SPLIT_13" Type="E_SPLIT" x="840.0" y="-360.0"/>
+    <FB Name="E_SPLIT_14" Type="E_SPLIT" x="480.0" y="-600.0"/>
+    <FB Name="E_SPLIT_15" Type="E_SPLIT" x="360.0" y="240.0"/>
+    <EventConnections>
+      <Connection Destination="EO17" Source="E_SPLIT.EO2" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="EO16" Source="E_SPLIT.EO1" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_SPLIT.EI" Source="E_SPLIT_1.EO2" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="EO15" Source="E_SPLIT_1.EO1" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_SPLIT_1.EI" Source="E_SPLIT_2.EO2" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="EO14" Source="E_SPLIT_2.EO1" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_SPLIT_2.EI" Source="E_SPLIT_3.EO2" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="EO13" Source="E_SPLIT_3.EO1" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_SPLIT_3.EI" Source="E_SPLIT_4.EO2" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="EO12" Source="E_SPLIT_4.EO1" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_SPLIT_4.EI" Source="E_SPLIT_5.EO2" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="EO11" Source="E_SPLIT_5.EO1" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_SPLIT_5.EI" Source="E_SPLIT_6.EO2" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="EO10" Source="E_SPLIT_6.EO1" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_SPLIT_6.EI" Source="E_SPLIT_7.EO1" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="EO9" Source="E_SPLIT_7.EO2" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_SPLIT_7.EI" Source="E_SPLIT_8.EO2" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="EO8" Source="E_SPLIT_8.EO1" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_SPLIT_8.EI" Source="E_SPLIT_9.EO2" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="EO7" Source="E_SPLIT_9.EO1" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_SPLIT_9.EI" Source="E_SPLIT_10.EO2" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="EO6" Source="E_SPLIT_10.EO1" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_SPLIT_10.EI" Source="E_SPLIT_11.EO2" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="EO5" Source="E_SPLIT_11.EO1" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_SPLIT_11.EI" Source="E_SPLIT_12.EO2" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="EO4" Source="E_SPLIT_12.EO1" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_SPLIT_12.EI" Source="E_SPLIT_13.EO2" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="EO3" Source="E_SPLIT_13.EO1" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_SPLIT_13.EI" Source="E_SPLIT_14.EO2" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="EO2" Source="E_SPLIT_14.EO1" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_SPLIT_14.EI" Source="E_SPLIT_15.EO1" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="EO1" Source="E_SPLIT_15.EO2" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_SPLIT_15.EI" Source="EI" dx1="0.0" dx2="0.0" dy="0.0"/>
+    </EventConnections>
+  </FBNetwork>
+</FBType>

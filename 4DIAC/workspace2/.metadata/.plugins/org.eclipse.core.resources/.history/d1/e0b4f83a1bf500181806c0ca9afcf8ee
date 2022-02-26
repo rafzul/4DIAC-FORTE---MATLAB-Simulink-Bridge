@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE System SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<System Name="SFP-Server">
+  <VersionInfo Author="Author" Organization="4DIAC-Consortium" Version="1.0"/>
+  <Application Name="singleTag">
+    <SubAppNetwork>
+      <FB Name="BOOL2BOOL" Type="BOOL2BOOL" x="2160.0" y="1440.0">
+        <Parameter Name="IN" Value="TRUE"/>
+      </FB>
+      <FB Name="PUBLISH_1" Type="PUBLISH_1" x="3600.0" y="1440.0">
+        <Parameter Name="QI" Value="TRUE"/>
+        <Parameter Name="ID" Value="sfp[feed_valve_control.mode]"/>
+      </FB>
+      <FB Name="E_CYCLE" Type="E_CYCLE" x="1440.0" y="1440.0"/>
+      <FB Name="TIME2TIME" Type="TIME2TIME" x="720.0" y="1440.0">
+        <Parameter Name="IN" Value="T#1s"/>
+      </FB>
+      <EventConnections>
+        <Connection Destination="PUBLISH_1.REQ" Source="BOOL2BOOL.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="BOOL2BOOL.REQ" Source="E_CYCLE.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="TIME2TIME.REQ" Source="PUBLISH_1.CNF" dx1="0.0" dx2="0.0" dy="1150.0"/>
+        <Connection Destination="PUBLISH_1.REQ" Source="PUBLISH_1.INITO" dx1="0.0" dx2="0.0" dy="-625.0"/>
+        <Connection Destination="E_CYCLE.START" Source="TIME2TIME.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      </EventConnections>
+      <DataConnections>
+        <Connection Destination="PUBLISH_1.SD_1" Source="BOOL2BOOL.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="E_CYCLE.DT" Source="TIME2TIME.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      </DataConnections>
+    </SubAppNetwork>
+  </Application>
+  <Application Name="tesreconf">
+    <SubAppNetwork>
+      <FB Name="E_CYCLE_0" Type="E_CYCLE" x="1440.0" y="840.0">
+        <Parameter Name="DT" Value="T#1s"/>
+      </FB>
+      <FB Name="REAL2REAL" Type="REAL2REAL" x="2880.0" y="960.0">
+        <Parameter Name="IN" Value="8"/>
+      </FB>
+      <EventConnections>
+        <Connection Destination="REAL2REAL.REQ" Source="E_CYCLE_0.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="E_CYCLE_0.START" Source="REAL2REAL.CNF" dx1="0.0" dx2="0.0" dy="1185.0"/>
+      </EventConnections>
+    </SubAppNetwork>
+  </Application>
+  <Device Name="FORTE_PC" Type="FORTE_PC" x="1860.0" y="1685.0">
+    <Attribute Name="Color" Value="134,241,169"/>
+    <Attribute Name="Profile" Value="HOLOBLOC"/>
+    <Parameter Name="MGR_ID" Value="&quot;localhost:61499&quot;"/>
+    <Resource Name="EMB_RES" Type="EMB_RES">
+      <FBNetwork>
+        <FB Name="E_CYCLE_0" Type="E_CYCLE" x="1440.0" y="840.0">
+          <Parameter Name="DT" Value="T#1s"/>
+        </FB>
+        <FB Name="REAL2REAL" Type="REAL2REAL" x="2280.0" y="840.0">
+          <Parameter Name="IN" Value="8"/>
+        </FB>
+        <EventConnections>
+          <Connection Destination="REAL2REAL.REQ" Source="E_CYCLE_0.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="E_CYCLE_0.START" Source="START.COLD" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="E_CYCLE_0.START" Source="START.WARM" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="E_CYCLE_0.START" Source="REAL2REAL.CNF" dx1="0.0" dx2="0.0" dy="1185.0"/>
+        </EventConnections>
+      </FBNetwork>
+    </Resource>
+  </Device>
+  <Mapping From="tesreconf.E_CYCLE_0" To="FORTE_PC.EMB_RES.E_CYCLE_0"/>
+  <Mapping From="tesreconf.REAL2REAL" To="FORTE_PC.EMB_RES.REAL2REAL"/>
+  <Segment Name="Ethernet" Type="Ethernet" dx1="1500.0" x="1045.0" y="955.0"/>
+  <Link CommResource="FORTE_PC" Comment="" SegmentName="Ethernet"/>
+</System>

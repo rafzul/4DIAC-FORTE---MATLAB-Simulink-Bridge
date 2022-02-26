@@ -1,0 +1,918 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE System SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<System Name="temexdmod">
+  <VersionInfo Author="Author" Organization="4DIAC-Consortium" Version="1.0"/>
+  <Application Name="looptest">
+    <SubAppNetwork>
+      <FB Name="AFeedRate" Type="FB_CTRL_PI" x="10440.0" y="960.0">
+        <Parameter Name="KP" Value="REAL#0.01"/>
+        <Parameter Name="KI" Value="REAL#600"/>
+        <Parameter Name="LIM_L" Value="0"/>
+        <Parameter Name="LIM_H" Value="REAL#100"/>
+      </FB>
+      <FB Name="ProductionSetpoint" Type="FB_CTRL_PI" x="3960.0" y="1200.0">
+        <Parameter Name="KP" Value="REAL#3.2"/>
+        <Parameter Name="KI" Value="REAL#1.6"/>
+        <Parameter Name="LIM_L" Value="REAL#-30"/>
+        <Parameter Name="LIM_H" Value="REAL#30"/>
+      </FB>
+      <FB Name="Product" Type="F_MUL" x="8160.0" y="2040.0"/>
+      <FB Name="xmeas1" Type="REAL2REAL" x="8880.0" y="1320.0"/>
+      <FB Name="Fpxr1" Type="REAL2REAL" x="9000.0" y="2040.0"/>
+      <FB Name="xmv3" Type="REAL2REAL" x="8400.0" y="3120.0"/>
+      <FB Name="SummingPointProdRate" Type="F_ADD" x="6000.0" y="840.0"/>
+      <FB Name="ProdRatePIoutput" Type="REAL2REAL" x="5160.0" y="1440.0"/>
+      <FB Name="Fp" Type="REAL2REAL" x="7080.0" y="1440.0"/>
+      <FB Name="SetpointxGainBlock" Type="F_MUL" x="4080.0" y="240.0">
+        <Parameter Name="IN2" Value="REAL#4.36871996"/>
+      </FB>
+      <FB Name="SetpointxGainValue" Type="REAL2REAL" x="5160.0" y="600.0"/>
+      <FB Name="yAcontrol" Type="FB_CTRL_PI" x="3240.0" y="3000.0">
+        <Parameter Name="SET_POINT" Value="REAL#63.137"/>
+        <Parameter Name="KP" Value="REAL#2E-04"/>
+        <Parameter Name="KI" Value="REAL#0.0002"/>
+      </FB>
+      <FB Name="yACcontrol" Type="FB_CTRL_PI" x="3120.0" y="4920.0">
+        <Parameter Name="SET_POINT" Value="REAL#51"/>
+        <Parameter Name="KP" Value="REAL#3E-04"/>
+        <Parameter Name="KI" Value="REAL#0.00015"/>
+      </FB>
+      <FB Name="Loop14yAcontrol" Type="REAL2REAL" x="4080.0" y="3960.0"/>
+      <FB Name="Loop15yACcontrol" Type="REAL2REAL" x="4080.0" y="5520.0"/>
+      <FB Name="RatioTrimBawahSub" Type="F_SUB" x="7800.0" y="5040.0"/>
+      <FB Name="RatioTrimmingBawahAdd" Type="F_ADD" x="5760.0" y="5280.0"/>
+      <FB Name="HasilPertambahanRT" Type="REAL2REAL" x="6840.0" y="5640.0"/>
+      <FB Name="DelayRatioTrimBawah" Type="E_DELAY" x="8880.0" y="5280.0">
+        <Parameter Name="DT" Value="T#1s"/>
+      </FB>
+      <FB Name="DelayedOutputRatTrimBawah" Type="REAL2REAL" x="4320.0" y="6360.0"/>
+      <FB Name="r4" Type="REAL2REAL" x="8400.0" y="4080.0"/>
+      <FB Name="RatioTrimmingSumAtas" Type="F_ADD" x="6600.0" y="3360.0"/>
+      <FB Name="DelayedOutputRatioTrimmingAtas" Type="REAL2REAL" x="5040.0" y="2880.0"/>
+      <FB Name="DelayRatioTrimAtas" Type="E_DELAY" x="6000.0" y="2400.0">
+        <Parameter Name="DT" Value="T#1s"/>
+      </FB>
+      <FB Name="xmeas17" Type="REAL2REAL" x="2880.0" y="1920.0"/>
+      <FB Name="xmeas25" Type="REAL2REAL" x="720.0" y="6120.0"/>
+      <FB Name="F_ADD" Type="F_ADD" x="1440.0" y="5400.0"/>
+      <FB Name="sumxmeas2325" Type="REAL2REAL" x="2040.0" y="5520.0"/>
+      <FB Name="F_MUL" Type="F_MUL" x="840.0" y="3480.0">
+        <Parameter Name="IN2" Value="REAL#100"/>
+      </FB>
+      <FB Name="F_DIV" Type="F_DIV" x="2160.0" y="3480.0"/>
+      <FB Name="BOOL2BOOL_0" Type="BOOL2BOOL" x="5160.0" y="8040.0"/>
+      <FB Name="E_CTU_r1" Type="E_CTU" x="2520.0" y="8760.0">
+        <Parameter Name="PV" Value="UINT#1"/>
+      </FB>
+      <FB Name="E_CYCLE_0" Type="E_CYCLE" x="600.0" y="2640.0">
+        <Parameter Name="DT" Value="T#1s"/>
+      </FB>
+      <FB Name="r1real2real" Type="REAL2REAL" x="6960.0" y="6360.0"/>
+      <FB Name="BOOL2BOOL_1" Type="BOOL2BOOL" x="3240.0" y="7920.0">
+        <Parameter Name="IN" Value="true"/>
+      </FB>
+      <FB Name="INITandMEASr1" Type="F_SEL" x="3480.0" y="9120.0">
+        <Parameter Name="IN1" Value="REAL#0.00251"/>
+      </FB>
+      <FB Name="E_R_TRIG" Type="E_R_TRIG" x="4320.0" y="8040.0"/>
+      <FB Name="r1" Type="REAL2REAL" x="7440.0" y="8880.0"/>
+      <FB Name="SERVER_4_5" Type="SERVER_4_5" x="10080.0" y="3840.0">
+        <Parameter Name="QI" Value="TRUE"/>
+        <Parameter Name="ID" Value="localhost:61500"/>
+      </FB>
+      <FB Name="E_CTU_r4" Type="E_CTU" x="8400.0" y="8280.0">
+        <Parameter Name="PV" Value="UINT#1"/>
+      </FB>
+      <FB Name="INITandMEASr4" Type="F_SEL" x="9480.0" y="8160.0">
+        <Parameter Name="IN1" Value="REAL#0.00935"/>
+      </FB>
+      <FB Name="r4real2real_0" Type="REAL2REAL" x="8760.0" y="7440.0"/>
+      <FB Name="ProdSetpointValue" Type="REAL2REAL" x="1440.0" y="840.0">
+        <Parameter Name="IN" Value="REAL#22.89"/>
+      </FB>
+      <FB Name="F_REAL_TO_LREAL" Type="F_REAL_TO_LREAL" x="9120.0" y="3120.0"/>
+      <FB Name="F_REAL_TO_LREAL_0" Type="F_REAL_TO_LREAL" x="2400.0" y="960.0"/>
+      <FB Name="F_REAL_TO_LREAL_1" Type="F_REAL_TO_LREAL" x="9000.0" y="4080.0"/>
+      <FB Name="F_REAL_TO_LREAL_1_0" Type="F_REAL_TO_LREAL" x="7440.0" y="-120.0"/>
+      <FB Name="xmeas17_1" Type="F_LREAL_TO_REAL" x="11040.0" y="1920.0"/>
+      <FB Name="xmeas1_1" Type="F_LREAL_TO_REAL" x="11040.0" y="2640.0"/>
+      <FB Name="xmeas23_1" Type="F_LREAL_TO_REAL" x="11160.0" y="3480.0"/>
+      <FB Name="xmeas25_1" Type="F_LREAL_TO_REAL" x="11040.0" y="4200.0"/>
+      <FB Name="xmeas23" Type="REAL2REAL" x="-360.0" y="4440.0"/>
+      <FB Name="xmeas23_0" Type="REAL2REAL" x="1440.0" y="3480.0"/>
+      <FB Name="zero" Type="LREAL2LREAL" x="11160.0" y="4920.0"/>
+      <EventConnections>
+        <Connection Destination="RatioTrimmingBawahAdd.REQ" Source="Loop15yACcontrol.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="DelayRatioTrimBawah.START" Source="RatioTrimBawahSub.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="DelayedOutputRatTrimBawah.REQ" Source="DelayRatioTrimBawah.EO" dx1="0.0" dx2="0.0" dy="1320.0"/>
+        <Connection Destination="RatioTrimmingBawahAdd.REQ" Source="DelayedOutputRatTrimBawah.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="RatioTrimmingSumAtas.REQ" Source="Loop14yAcontrol.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="Product.REQ" Source="Fp.CNF" dx1="435.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="DelayRatioTrimAtas.START" Source="RatioTrimmingSumAtas.CNF" dx1="230.0" dx2="0.0" dy="-825.0"/>
+        <Connection Destination="DelayedOutputRatioTrimmingAtas.REQ" Source="DelayRatioTrimAtas.EO" dx1="0.0" dx2="-220.0" dy="-750.0"/>
+        <Connection Destination="RatioTrimmingSumAtas.REQ" Source="DelayedOutputRatioTrimmingAtas.CNF" dx1="335.0" dx2="130.0" dy="0.0"/>
+        <Connection Destination="Fp.REQ" Source="SummingPointProdRate.CNF" dx1="185.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="ProductionSetpoint.REQ" Source="xmeas17.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SetpointxGainValue.REQ" Source="SetpointxGainBlock.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SummingPointProdRate.REQ" Source="SetpointxGainValue.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="ProdRatePIoutput.REQ" Source="ProductionSetpoint.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SummingPointProdRate.REQ" Source="ProdRatePIoutput.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="sumxmeas2325.REQ" Source="F_ADD.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_ADD.REQ" Source="xmeas25.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="yACcontrol.REQ" Source="sumxmeas2325.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="Loop15yACcontrol.REQ" Source="yACcontrol.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="yAcontrol.REQ" Source="F_DIV.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="Loop14yAcontrol.REQ" Source="yAcontrol.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="HasilPertambahanRT.REQ" Source="RatioTrimmingBawahAdd.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="RatioTrimBawahSub.REQ" Source="HasilPertambahanRT.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="RatioTrimBawahSub.REQ" Source="Loop14yAcontrol.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="Fpxr1.REQ" Source="Product.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="AFeedRate.REQ" Source="Fpxr1.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="AFeedRate.REQ" Source="xmeas1.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="xmv3.REQ" Source="AFeedRate.CNF" dx1="0.0" dx2="-280.0" dy="-1565.0"/>
+        <Connection Destination="E_R_TRIG.EI" Source="BOOL2BOOL_1.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="BOOL2BOOL_0.REQ" Source="E_R_TRIG.EO" dx1="0.0" dx2="0.0" dy="195.0"/>
+        <Connection Destination="INITandMEASr1.REQ" Source="E_CTU_r1.CUO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="INITandMEASr1.REQ" Source="E_CTU_r1.RO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="E_CTU_r1.CU" Source="BOOL2BOOL_0.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="Product.REQ" Source="r1.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="r1real2real.REQ" Source="RatioTrimmingSumAtas.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="E_CTU_r1.R" Source="r1real2real.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="r1.REQ" Source="INITandMEASr1.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="ProductionSetpoint.INIT" Source="AFeedRate.INITO" dx1="0.0" dx2="-620.0" dy="-1400.0"/>
+        <Connection Destination="yAcontrol.INIT" Source="ProductionSetpoint.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="yACcontrol.INIT" Source="yAcontrol.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="ProductionSetpoint.REQ" Source="E_CYCLE_0.EO" dx1="330.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="yAcontrol.REQ" Source="E_CYCLE_0.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="yACcontrol.REQ" Source="E_CYCLE_0.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="AFeedRate.REQ" Source="E_CYCLE_0.EO" dx1="820.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="AFeedRate.INIT" Source="SERVER_4_5.INITO" dx1="100.0" dx2="-410.0" dy="355.0"/>
+        <Connection Destination="SERVER_4_5.RSP" Source="E_CYCLE_0.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="r4.REQ" Source="INITandMEASr4.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="E_CTU_r4.R" Source="r4real2real_0.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="r4real2real_0.REQ" Source="RatioTrimBawahSub.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="E_CTU_r4.CU" Source="BOOL2BOOL_0.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="INITandMEASr4.REQ" Source="E_CTU_r4.CUO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="INITandMEASr4.REQ" Source="E_CTU_r4.RO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="ProdSetpointValue.REQ" Source="E_CYCLE_0.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SetpointxGainBlock.REQ" Source="ProdSetpointValue.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="ProductionSetpoint.REQ" Source="ProdSetpointValue.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_REAL_TO_LREAL.REQ" Source="xmv3.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_4_5.RSP" Source="F_REAL_TO_LREAL.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_REAL_TO_LREAL_0.REQ" Source="ProdSetpointValue.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_4_5.RSP" Source="F_REAL_TO_LREAL_0.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_REAL_TO_LREAL_1.REQ" Source="r4.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_4_5.RSP" Source="F_REAL_TO_LREAL_1.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_4_5.RSP" Source="F_REAL_TO_LREAL_1_0.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_REAL_TO_LREAL_1_0.REQ" Source="Fp.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="xmeas17.REQ" Source="xmeas17_1.CNF" dx1="0.0" dx2="0.0" dy="-1790.0"/>
+        <Connection Destination="xmeas17_1.REQ" Source="SERVER_4_5.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="xmeas1_1.REQ" Source="SERVER_4_5.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="xmeas1.REQ" Source="xmeas1_1.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="xmeas23_1.REQ" Source="SERVER_4_5.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_MUL.REQ" Source="xmeas23.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_ADD.REQ" Source="xmeas23.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="xmeas23.REQ" Source="xmeas23_1.CNF" dx1="0.0" dx2="0.0" dy="275.0"/>
+        <Connection Destination="xmeas25.REQ" Source="xmeas25_1.CNF" dx1="0.0" dx2="0.0" dy="2240.0"/>
+        <Connection Destination="xmeas25_1.REQ" Source="SERVER_4_5.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_DIV.REQ" Source="xmeas23_0.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="xmeas23_0.REQ" Source="F_MUL.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_DIV.REQ" Source="sumxmeas2325.CNF" dx1="160.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="zero.REQ" Source="SERVER_4_5.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+      </EventConnections>
+      <DataConnections>
+        <Connection Destination="AFeedRate.ACTUAL" Source="xmeas1.OUT" dx1="455.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="Fpxr1.IN" Source="Product.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="AFeedRate.SET_POINT" Source="Fpxr1.OUT" dx1="260.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="xmv3.IN" Source="AFeedRate.Y" dx1="0.0" dx2="-480.0" dy="-2270.0"/>
+        <Connection Destination="ProdRatePIoutput.IN" Source="ProductionSetpoint.Y" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SummingPointProdRate.IN2" Source="ProdRatePIoutput.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="Fp.IN" Source="SummingPointProdRate.OUT" dx1="55.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="Product.IN1" Source="Fp.OUT" dx1="-100.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SetpointxGainValue.IN" Source="SetpointxGainBlock.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SummingPointProdRate.IN1" Source="SetpointxGainValue.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="Loop14yAcontrol.IN" Source="yAcontrol.Y" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="Loop15yACcontrol.IN" Source="yACcontrol.Y" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="RatioTrimBawahSub.IN2" Source="Loop14yAcontrol.OUT" dx1="710.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="RatioTrimmingBawahAdd.IN1" Source="Loop15yACcontrol.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="HasilPertambahanRT.IN" Source="RatioTrimmingBawahAdd.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="RatioTrimBawahSub.IN1" Source="HasilPertambahanRT.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="DelayedOutputRatTrimBawah.IN" Source="RatioTrimBawahSub.OUT" dx1="0.0" dx2="0.0" dy="760.0"/>
+        <Connection Destination="RatioTrimmingBawahAdd.IN2" Source="DelayedOutputRatTrimBawah.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="RatioTrimmingSumAtas.IN2" Source="Loop14yAcontrol.OUT" dx1="1160.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="DelayedOutputRatioTrimmingAtas.IN" Source="RatioTrimmingSumAtas.OUT" dx1="0.0" dx2="0.0" dy="-1040.0"/>
+        <Connection Destination="RatioTrimmingSumAtas.IN1" Source="DelayedOutputRatioTrimmingAtas.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="ProductionSetpoint.ACTUAL" Source="xmeas17.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_ADD.IN2" Source="xmeas25.OUT" dx1="-700.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="sumxmeas2325.IN" Source="F_ADD.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="yACcontrol.ACTUAL" Source="sumxmeas2325.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_DIV.IN2" Source="sumxmeas2325.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="yAcontrol.ACTUAL" Source="F_DIV.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="INITandMEASr1.G" Source="E_CTU_r1.Q" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="E_R_TRIG.QI" Source="BOOL2BOOL_1.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="r1real2real.IN" Source="RatioTrimmingSumAtas.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="INITandMEASr1.IN0" Source="r1real2real.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="r1.IN" Source="INITandMEASr1.OUT" dx1="3770.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="Product.IN2" Source="r1.OUT" dx1="15.0" dx2="-110.0" dy="0.0"/>
+        <Connection Destination="r4.IN" Source="INITandMEASr4.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="r4real2real_0.IN" Source="RatioTrimBawahSub.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="INITandMEASr4.IN0" Source="r4real2real_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="INITandMEASr4.G" Source="E_CTU_r4.Q" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="ProductionSetpoint.SET_POINT" Source="ProdSetpointValue.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SetpointxGainBlock.IN1" Source="ProdSetpointValue.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_REAL_TO_LREAL.IN" Source="xmv3.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_4_5.SD_1" Source="F_REAL_TO_LREAL.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_REAL_TO_LREAL_0.IN" Source="ProdSetpointValue.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_4_5.SD_2" Source="F_REAL_TO_LREAL_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_REAL_TO_LREAL_1.IN" Source="r4.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_4_5.SD_3" Source="F_REAL_TO_LREAL_1.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_REAL_TO_LREAL_1_0.IN" Source="Fp.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_4_5.SD_4" Source="F_REAL_TO_LREAL_1_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="xmeas17.IN" Source="xmeas17_1.OUT" dx1="0.0" dx2="0.0" dy="2120.0"/>
+        <Connection Destination="xmeas17_1.IN" Source="SERVER_4_5.RD_1" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="xmeas1.IN" Source="xmeas1_1.OUT" dx1="0.0" dx2="0.0" dy="-1400.0"/>
+        <Connection Destination="xmeas1_1.IN" Source="SERVER_4_5.RD_2" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="xmeas23_1.IN" Source="SERVER_4_5.RD_3" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_ADD.IN1" Source="xmeas23.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_MUL.IN1" Source="xmeas23.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="xmeas23.IN" Source="xmeas23_1.OUT" dx1="0.0" dx2="0.0" dy="2150.0"/>
+        <Connection Destination="xmeas25.IN" Source="xmeas25_1.OUT" dx1="0.0" dx2="0.0" dy="1100.0"/>
+        <Connection Destination="xmeas25_1.IN" Source="SERVER_4_5.RD_4" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_DIV.IN1" Source="xmeas23_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="xmeas23_0.IN" Source="F_MUL.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="zero.IN" Source="SERVER_4_5.RD_5" dx1="0.0" dx2="0.0" dy="0.0"/>
+      </DataConnections>
+    </SubAppNetwork>
+  </Application>
+  <Application Name="testfunctionblockbaru">
+    <SubAppNetwork>
+      <FB Name="E_CYCLE" Type="E_CYCLE" x="1080.0" y="1200.0">
+        <Parameter Name="DT" Value="T#1s"/>
+      </FB>
+      <FB Name="LREAL2LREAL" Type="LREAL2LREAL" x="5880.0" y="2520.0"/>
+      <FB Name="SERVER_2" Type="SERVER_2" x="4560.0" y="1200.0">
+        <Parameter Name="QI" Value="TRUE"/>
+        <Parameter Name="ID" Value="localhost:61500"/>
+      </FB>
+      <FB Name="LREAL2LREAL_1" Type="LREAL2LREAL" x="120.0" y="1920.0"/>
+      <FB Name="LREAL2LREAL_2" Type="LREAL2LREAL" x="3360.0" y="1440.0"/>
+      <FB Name="ProductionRate_0" Type="Discrete_PI_LREAL2" x="1920.0" y="1080.0">
+        <Parameter Name="SETPOINT" Value="30"/>
+        <Parameter Name="Kp" Value="3.2"/>
+        <Parameter Name="Ti" Value="2"/>
+        <Parameter Name="LIM_L" Value="30"/>
+        <Parameter Name="LIM_H" Value="30"/>
+        <Parameter Name="InitialCondition" Value="-0.4489"/>
+        <Parameter Name="InitialConditionVelPI" Value="-0.1407"/>
+        <Parameter Name="SAMPLETIME" Value="T#50ms"/>
+      </FB>
+      <EventConnections>
+        <Connection Destination="LREAL2LREAL.REQ" Source="SERVER_2.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="E_CYCLE.START" Source="LREAL2LREAL_1.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_2.RSP" Source="LREAL2LREAL_2.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="LREAL2LREAL_1.REQ" Source="SERVER_2.IND" dx1="0.0" dx2="0.0" dy="1280.0"/>
+        <Connection Destination="SERVER_2.INIT" Source="ProductionRate_0.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="LREAL2LREAL_2.REQ" Source="ProductionRate_0.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="ProductionRate_0.REQ" Source="E_CYCLE.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      </EventConnections>
+      <DataConnections>
+        <Connection Destination="LREAL2LREAL.IN" Source="SERVER_2.RD_2" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="LREAL2LREAL_1.IN" Source="SERVER_2.RD_1" dx1="0.0" dx2="0.0" dy="1050.0"/>
+        <Connection Destination="SERVER_2.SD_1" Source="LREAL2LREAL_2.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_2.SD_2" Source="LREAL2LREAL_2.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="LREAL2LREAL_2.IN" Source="ProductionRate_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="ProductionRate_0.ACTUAL" Source="LREAL2LREAL_1.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      </DataConnections>
+    </SubAppNetwork>
+  </Application>
+  <Application Name="tes"/>
+  <Application Name="testfunctionpid">
+    <SubAppNetwork>
+      <FB Name="Velocity_PI_LREAL" Type="Velocity_PI_LREAL" x="2520.0" y="960.0">
+        <Parameter Name="SETPOINT" Value="5"/>
+        <Parameter Name="KP" Value="0.01"/>
+        <Parameter Name="Ti" Value="1.67E-05"/>
+      </FB>
+      <FB Name="E_CYCLE_2" Type="E_CYCLE" x="1320.0" y="1080.0">
+        <Parameter Name="DT" Value="T#5E-02"/>
+      </FB>
+      <FB Name="F_ADD_1" Type="F_ADD" x="4680.0" y="1440.0"/>
+      <FB Name="LREAL2LREAL_0" Type="LREAL2LREAL" x="3960.0" y="2160.0">
+        <Parameter Name="IN" Value="1"/>
+      </FB>
+      <FB Name="TIME2TIME" Type="TIME2TIME" x="480.0" y="1080.0">
+        <Parameter Name="IN" Value="T#5E-02s"/>
+      </FB>
+      <EventConnections>
+        <Connection Destination="Velocity_PI_LREAL.REQ" Source="E_CYCLE_2.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_ADD_1.REQ" Source="Velocity_PI_LREAL.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="LREAL2LREAL_0.REQ" Source="Velocity_PI_LREAL.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_ADD_1.REQ" Source="LREAL2LREAL_0.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="E_CYCLE_2.START" Source="TIME2TIME.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      </EventConnections>
+      <DataConnections>
+        <Connection Destination="F_ADD_1.IN1" Source="Velocity_PI_LREAL.DELTAOUTPUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="Velocity_PI_LREAL.ACTUAL" Source="F_ADD_1.OUT" dx1="0.0" dx2="-420.0" dy="1155.0"/>
+        <Connection Destination="F_ADD_1.IN2" Source="LREAL2LREAL_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="E_CYCLE_2.DT" Source="TIME2TIME.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="Velocity_PI_LREAL.SAMPLETIME_ECYCLE" Source="TIME2TIME.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      </DataConnections>
+    </SubAppNetwork>
+  </Application>
+  <Application Name="pressureloop2">
+    <SubAppNetwork>
+      <FB Name="xmeas17" Type="LREAL2LREAL" x="360.0" y="1680.0"/>
+      <FB Name="ProdRatePIDoutputLREAL_0" Type="LREAL2LREAL" x="2880.0" y="1440.0"/>
+      <FB Name="K_0" Type="F_MUL" x="3960.0" y="120.0"/>
+      <FB Name="prodsetpointLREAL_0" Type="LREAL2LREAL" x="360.0" y="960.0">
+        <Parameter Name="IN" Value="22.89"/>
+      </FB>
+      <FB Name="F_ADD_0_0" Type="F_ADD" x="4920.0" y="840.0"/>
+      <FB Name="F_MUL_0_0" Type="F_MUL" x="4080.0" y="2760.0"/>
+      <FB Name="E_CYCLE_1_0" Type="E_CYCLE" x="-720.0" y="960.0">
+        <Parameter Name="DT" Value="T#0.5s"/>
+      </FB>
+      <FB Name="xmeas7" Type="LREAL2LREAL" x="360.0" y="2760.0"/>
+      <FB Name="xmeas10" Type="LREAL2LREAL" x="360.0" y="3600.0"/>
+      <FB Name="SetpoxGain" Type="LREAL2LREAL" x="4800.0" y="0.0"/>
+      <FB Name="Fp" Type="LREAL2LREAL" x="5520.0" y="840.0"/>
+      <FB Name="r5" Type="LREAL2LREAL" x="3000.0" y="2880.0"/>
+      <FB Name="NilaiK" Type="LREAL2LREAL" x="3000.0" y="360.0">
+        <Parameter Name="IN" Value="4.3687"/>
+      </FB>
+      <FB Name="SERVER_3_5" Type="SERVER_3_5" x="-960.0" y="2520.0">
+        <Parameter Name="QI" Value="TRUE"/>
+        <Parameter Name="ID" Value="localhost:61500"/>
+      </FB>
+      <FB Name="moleGsetpoint" Type="LREAL2LREAL" x="120.0" y="4440.0">
+        <Parameter Name="IN" Value="53.8"/>
+      </FB>
+      <FB Name="xmv6" Type="LREAL2LREAL" x="3360.0" y="4920.0"/>
+      <FB Name="PolymAtas" Type="ADD_3" x="4440.0" y="6360.0">
+        <Parameter Name="IN3" Value="2.7690E-001"/>
+      </FB>
+      <FB Name="F_MUL_3" Type="F_MUL" x="1680.0" y="6360.0"/>
+      <FB Name="FirstOrder" Type="F_MUL" x="1560.0" y="7200.0">
+        <Parameter Name="IN2" Value="5.9446E-001"/>
+      </FB>
+      <FB Name="SecondOrder" Type="F_MUL" x="3000.0" y="6360.0">
+        <Parameter Name="IN2" Value="1.5192E-003"/>
+      </FB>
+      <FB Name="Pangkat2" Type="LREAL2LREAL" x="2160.0" y="6480.0"/>
+      <FB Name="HasilSecondOrder" Type="LREAL2LREAL" x="3600.0" y="6360.0"/>
+      <FB Name="HasilFirstOrder" Type="LREAL2LREAL" x="2160.0" y="7200.0"/>
+      <FB Name="SecondOrder_0" Type="F_MUL" x="3120.0" y="9600.0">
+        <Parameter Name="IN2" Value="-1.1377E-003"/>
+      </FB>
+      <FB Name="HasilSecondOrder_0" Type="LREAL2LREAL" x="3720.0" y="9720.0"/>
+      <FB Name="FirstOrder_0" Type="F_MUL" x="1320.0" y="10200.0">
+        <Parameter Name="IN2" Value="-8.0893E-001"/>
+      </FB>
+      <FB Name="HasilFirstOrder_0" Type="LREAL2LREAL" x="2040.0" y="10320.0"/>
+      <FB Name="PolymBawah" Type="ADD_3" x="4680.0" y="9720.0">
+        <Parameter Name="IN3" Value="9.1060E+001"/>
+      </FB>
+      <FB Name="F_MUL_7" Type="F_MUL" x="3120.0" y="7920.0">
+        <Parameter Name="IN2" Value="32"/>
+      </FB>
+      <FB Name="F_MUL_8" Type="F_MUL" x="3120.0" y="8640.0">
+        <Parameter Name="IN2" Value="46"/>
+      </FB>
+      <FB Name="LREAL2LREAL_10" Type="LREAL2LREAL" x="3840.0" y="8760.0"/>
+      <FB Name="LREAL2LREAL_11" Type="LREAL2LREAL" x="3840.0" y="8040.0"/>
+      <FB Name="F_DIV_0" Type="F_DIV" x="4680.0" y="8760.0"/>
+      <FB Name="LREAL2LREAL_12" Type="LREAL2LREAL" x="5280.0" y="9840.0"/>
+      <FB Name="LREAL2LREAL_13" Type="LREAL2LREAL" x="5040.0" y="6360.0"/>
+      <FB Name="r3" Type="F_ADD" x="6000.0" y="9840.0"/>
+      <FB Name="r2" Type="F_SUB" x="5880.0" y="6360.0"/>
+      <FB Name="LREAL2LREAL_14" Type="LREAL2LREAL" x="5280.0" y="8760.0"/>
+      <FB Name="F_DIV_1" Type="F_DIV" x="4680.0" y="8040.0"/>
+      <FB Name="LREAL2LREAL_15" Type="LREAL2LREAL" x="5160.0" y="7080.0"/>
+      <FB Name="r3_1" Type="LREAL2LREAL" x="6600.0" y="9840.0"/>
+      <FB Name="F_MUL_9" Type="F_MUL" x="7440.0" y="9840.0"/>
+      <FB Name="xmeas40" Type="LREAL2LREAL" x="360.0" y="5400.0"/>
+      <FB Name="xmeas3" Type="LREAL2LREAL" x="360.0" y="6360.0"/>
+      <FB Name="xmv2" Type="LREAL2LREAL" x="9600.0" y="9840.0"/>
+      <FB Name="ProductionRate" Type="Discrete_PI_LREAL2" x="1320.0" y="240.0">
+        <Parameter Name="Kp" Value="3.2"/>
+        <Parameter Name="Ti" Value="2"/>
+        <Parameter Name="LIM_L" Value="30"/>
+        <Parameter Name="LIM_H" Value="30"/>
+        <Parameter Name="InitialCondition" Value="-0.4489"/>
+        <Parameter Name="InitialConditionVelPI" Value="-0.1407"/>
+        <Parameter Name="SAMPLETIME" Value="T#50ms"/>
+      </FB>
+      <FB Name="ReactorPressure" Type="Discrete_PI_LREAL2" x="1680.0" y="2160.0">
+        <Parameter Name="SETPOINT" Value="2800"/>
+        <Parameter Name="Kp" Value="-1E-04"/>
+        <Parameter Name="Ti" Value="0.333"/>
+        <Parameter Name="LIM_L" Value="0"/>
+        <Parameter Name="LIM_H" Value="100"/>
+        <Parameter Name="InitialCondition" Value="0.0019"/>
+        <Parameter Name="InitialConditionVelPI" Value="1.0409"/>
+        <Parameter Name="SAMPLETIME" Value="T#50ms"/>
+      </FB>
+      <FB Name="PurgeRate" Type="Discrete_PI_LREAL2" x="1680.0" y="4200.0">
+        <Parameter Name="Kp" Value="0.01"/>
+        <Parameter Name="Ti" Value="167E-05"/>
+        <Parameter Name="LIM_L" Value="0"/>
+        <Parameter Name="LIM_H" Value="100"/>
+        <Parameter Name="InitialCondition" Value="24.2293"/>
+        <Parameter Name="InitialConditionVelPI" Value="-0.0064"/>
+        <Parameter Name="SAMPLETIME" Value="T#50ms"/>
+      </FB>
+      <FB Name="GinProduct" Type="Discrete_PI_LREAL2" x="1320.0" y="8040.0">
+        <Parameter Name="Kp" Value="-0.4"/>
+        <Parameter Name="Ti" Value="1.6667"/>
+        <Parameter Name="LIM_L" Value="-inf"/>
+        <Parameter Name="LIM_H" Value="inf"/>
+        <Parameter Name="InitialCondition" Value="0.6323"/>
+        <Parameter Name="InitialConditionVelPI" Value="-0.5067"/>
+        <Parameter Name="SAMPLETIME" Value="T#50ms"/>
+      </FB>
+      <FB Name="EFeedRate" Type="Discrete_PI_LREAL2" x="8040.0" y="9600.0">
+        <Parameter Name="Kp" Value="1.8E-6"/>
+        <Parameter Name="Ti" Value="1.667E-05"/>
+        <Parameter Name="LIM_L" Value="0"/>
+        <Parameter Name="LIM_H" Value="100"/>
+        <Parameter Name="InitialCondition" Value="53.3867"/>
+        <Parameter Name="InitialConditionVelPI" Value="9.7234"/>
+        <Parameter Name="SAMPLETIME" Value="T#50ms"/>
+      </FB>
+      <FB Name="TIME2TIME_0" Type="TIME2TIME" x="-1440.0" y="480.0">
+        <Parameter Name="IN" Value="T#0.01s"/>
+      </FB>
+      <EventConnections>
+        <Connection Destination="F_ADD_0_0.REQ" Source="ProdRatePIDoutputLREAL_0.CNF" dx1="375.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_ADD_0_0.REQ" Source="SetpoxGain.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SetpoxGain.REQ" Source="K_0.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="Fp.REQ" Source="F_ADD_0_0.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="K_0.REQ" Source="NilaiK.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_MUL_0_0.REQ" Source="r5.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_MUL_0_0.REQ" Source="Fp.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_MUL_3.REQ" Source="moleGsetpoint.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="Pangkat2.REQ" Source="F_MUL_3.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SecondOrder.REQ" Source="Pangkat2.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="FirstOrder.REQ" Source="moleGsetpoint.CNF" dx1="450.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="HasilSecondOrder.REQ" Source="SecondOrder.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PolymAtas.REQ" Source="HasilSecondOrder.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="HasilFirstOrder.REQ" Source="FirstOrder.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PolymAtas.REQ" Source="HasilFirstOrder.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SecondOrder_0.REQ" Source="Pangkat2.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="FirstOrder_0.REQ" Source="moleGsetpoint.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="HasilFirstOrder_0.REQ" Source="FirstOrder_0.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="HasilSecondOrder_0.REQ" Source="SecondOrder_0.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PolymBawah.REQ" Source="HasilSecondOrder_0.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PolymBawah.REQ" Source="HasilFirstOrder_0.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="LREAL2LREAL_10.REQ" Source="F_MUL_8.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="LREAL2LREAL_11.REQ" Source="F_MUL_7.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="LREAL2LREAL_12.REQ" Source="PolymBawah.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_DIV_0.REQ" Source="LREAL2LREAL_10.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="LREAL2LREAL_14.REQ" Source="F_DIV_0.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="r3.REQ" Source="LREAL2LREAL_14.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="r3.REQ" Source="LREAL2LREAL_12.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="LREAL2LREAL_13.REQ" Source="PolymAtas.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="r2.REQ" Source="LREAL2LREAL_13.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_DIV_1.REQ" Source="LREAL2LREAL_11.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="LREAL2LREAL_15.REQ" Source="F_DIV_1.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="r2.REQ" Source="LREAL2LREAL_15.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="r3_1.REQ" Source="r3.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_MUL_9.REQ" Source="r3_1.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_3_5.RSP" Source="xmv6.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="xmeas3.REQ" Source="E_CYCLE_1_0.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="xmeas40.REQ" Source="E_CYCLE_1_0.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="moleGsetpoint.REQ" Source="E_CYCLE_1_0.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="xmeas7.REQ" Source="E_CYCLE_1_0.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="xmeas17.REQ" Source="E_CYCLE_1_0.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="xmeas10.REQ" Source="E_CYCLE_1_0.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="prodsetpointLREAL_0.REQ" Source="E_CYCLE_1_0.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_3_5.RSP" Source="xmv2.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="ProductionRate.INIT" Source="SERVER_3_5.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="ProductionRate.REQ" Source="xmeas17.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="ProductionRate.REQ" Source="prodsetpointLREAL_0.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="K_0.REQ" Source="ProductionRate.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="ProdRatePIDoutputLREAL_0.REQ" Source="ProductionRate.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="ReactorPressure.INIT" Source="ProductionRate.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="ReactorPressure.REQ" Source="xmeas7.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="r5.REQ" Source="ReactorPressure.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PurgeRate.INIT" Source="ReactorPressure.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PurgeRate.REQ" Source="xmeas10.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PurgeRate.REQ" Source="F_MUL_0_0.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="xmv6.REQ" Source="PurgeRate.CNF" dx1="0.0" dx2="0.0" dy="-550.0"/>
+        <Connection Destination="GinProduct.INIT" Source="PurgeRate.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="GinProduct.REQ" Source="xmeas40.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="GinProduct.REQ" Source="moleGsetpoint.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_MUL_7.REQ" Source="GinProduct.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_MUL_8.REQ" Source="GinProduct.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="EFeedRate.INIT" Source="GinProduct.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="EFeedRate.REQ" Source="GinProduct.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="EFeedRate.REQ" Source="xmeas3.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="EFeedRate.REQ" Source="F_MUL_9.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="xmv2.REQ" Source="EFeedRate.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="NilaiK.REQ" Source="ProductionRate.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="TIME2TIME_0.REQ" Source="SERVER_3_5.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="E_CYCLE_1_0.START" Source="TIME2TIME_0.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      </EventConnections>
+      <DataConnections>
+        <Connection Destination="F_ADD_0_0.IN2" Source="ProdRatePIDoutputLREAL_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_ADD_0_0.IN1" Source="SetpoxGain.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SetpoxGain.IN" Source="K_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="Fp.IN" Source="F_ADD_0_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="K_0.IN1" Source="ProdRatePIDoutputLREAL_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="K_0.IN2" Source="NilaiK.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_MUL_0_0.IN2" Source="r5.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_MUL_0_0.IN1" Source="Fp.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="xmeas17.IN" Source="SERVER_3_5.RD_1" dx1="420.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="xmeas7.IN" Source="SERVER_3_5.RD_2" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="xmeas10.IN" Source="SERVER_3_5.RD_3" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_3_5.SD_1" Source="xmv6.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_MUL_3.IN1" Source="moleGsetpoint.OUT" dx1="800.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_MUL_3.IN2" Source="moleGsetpoint.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="Pangkat2.IN" Source="F_MUL_3.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SecondOrder.IN1" Source="Pangkat2.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="FirstOrder.IN1" Source="moleGsetpoint.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="HasilSecondOrder.IN" Source="SecondOrder.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PolymAtas.IN1" Source="HasilSecondOrder.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="HasilFirstOrder.IN" Source="FirstOrder.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PolymAtas.IN2" Source="HasilFirstOrder.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SecondOrder_0.IN1" Source="Pangkat2.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="FirstOrder_0.IN1" Source="moleGsetpoint.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="HasilFirstOrder_0.IN" Source="FirstOrder_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="HasilSecondOrder_0.IN" Source="SecondOrder_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PolymBawah.IN1" Source="HasilSecondOrder_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PolymBawah.IN2" Source="HasilFirstOrder_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="LREAL2LREAL_10.IN" Source="F_MUL_8.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="LREAL2LREAL_11.IN" Source="F_MUL_7.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_DIV_0.IN1" Source="LREAL2LREAL_10.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="LREAL2LREAL_12.IN" Source="PolymBawah.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="LREAL2LREAL_14.IN" Source="F_DIV_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="r3.IN1" Source="LREAL2LREAL_14.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="r3.IN2" Source="LREAL2LREAL_12.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="LREAL2LREAL_13.IN" Source="PolymAtas.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="r2.IN1" Source="LREAL2LREAL_13.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_DIV_1.IN1" Source="LREAL2LREAL_11.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="LREAL2LREAL_15.IN" Source="F_DIV_1.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="r2.IN2" Source="LREAL2LREAL_15.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="r3_1.IN" Source="r3.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_MUL_9.IN1" Source="r3_1.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="xmeas40.IN" Source="SERVER_3_5.RD_4" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="xmeas3.IN" Source="SERVER_3_5.RD_5" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_3_5.SD_2" Source="xmv6.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_3_5.SD_3" Source="xmv2.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="ProductionRate.ACTUAL" Source="xmeas17.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="ProductionRate.SETPOINT" Source="prodsetpointLREAL_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_DIV_1.IN2" Source="ProductionRate.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_DIV_0.IN2" Source="ProductionRate.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_MUL_9.IN2" Source="ProductionRate.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="ProdRatePIDoutputLREAL_0.IN" Source="ProductionRate.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="ReactorPressure.ACTUAL" Source="xmeas7.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="r5.IN" Source="ReactorPressure.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="xmv6.IN" Source="PurgeRate.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PurgeRate.ACTUAL" Source="xmeas10.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PurgeRate.SETPOINT" Source="F_MUL_0_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="GinProduct.ACTUAL" Source="xmeas40.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="GinProduct.SETPOINT" Source="moleGsetpoint.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_MUL_8.IN1" Source="GinProduct.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="F_MUL_7.IN1" Source="GinProduct.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="xmv2.IN" Source="EFeedRate.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="EFeedRate.SETPOINT" Source="F_MUL_9.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="EFeedRate.ACTUAL" Source="xmeas3.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="E_CYCLE_1_0.DT" Source="TIME2TIME_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="ProductionRate.SAMPLETIME" Source="TIME2TIME_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="ReactorPressure.SAMPLETIME" Source="TIME2TIME_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="PurgeRate.SAMPLETIME" Source="TIME2TIME_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="GinProduct.SAMPLETIME" Source="TIME2TIME_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="EFeedRate.SAMPLETIME" Source="TIME2TIME_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      </DataConnections>
+    </SubAppNetwork>
+  </Application>
+  <Device Name="FORTE_PC" Type="FORTE_PC" x="3655.0" y="1185.0">
+    <Attribute Name="Color" Value="150,106,220"/>
+    <Attribute Name="Profile" Value="HOLOBLOC"/>
+    <Parameter Name="MGR_ID" Value="&quot;localhost:61499&quot;"/>
+    <Resource Name="EMB_RES" Type="EMB_RES">
+      <FBNetwork>
+        <FB Name="xmeas17" Type="LREAL2LREAL" x="360.0" y="1680.0"/>
+        <FB Name="ProdRatePIDoutputLREAL_0" Type="LREAL2LREAL" x="2880.0" y="1440.0"/>
+        <FB Name="K_0" Type="F_MUL" x="3960.0" y="120.0"/>
+        <FB Name="prodsetpointLREAL_0" Type="LREAL2LREAL" x="360.0" y="960.0">
+          <Parameter Name="IN" Value="22.89"/>
+        </FB>
+        <FB Name="F_ADD_0_0" Type="F_ADD" x="4920.0" y="840.0"/>
+        <FB Name="F_MUL_0_0" Type="F_MUL" x="4080.0" y="2760.0"/>
+        <FB Name="E_CYCLE_1_0" Type="E_CYCLE" x="-480.0" y="600.0">
+          <Parameter Name="DT" Value="T#0.5s"/>
+        </FB>
+        <FB Name="xmeas7" Type="LREAL2LREAL" x="360.0" y="2760.0"/>
+        <FB Name="xmeas10" Type="LREAL2LREAL" x="360.0" y="3600.0"/>
+        <FB Name="SetpoxGain" Type="LREAL2LREAL" x="4800.0" y="0.0"/>
+        <FB Name="Fp" Type="LREAL2LREAL" x="5520.0" y="840.0"/>
+        <FB Name="r5" Type="LREAL2LREAL" x="3000.0" y="2880.0"/>
+        <FB Name="NilaiK" Type="LREAL2LREAL" x="3000.0" y="360.0">
+          <Parameter Name="IN" Value="4.3687"/>
+        </FB>
+        <FB Name="SERVER_3_5" Type="SERVER_3_5" x="-960.0" y="2520.0">
+          <Parameter Name="QI" Value="TRUE"/>
+          <Parameter Name="ID" Value="localhost:61500"/>
+        </FB>
+        <FB Name="moleGsetpoint" Type="LREAL2LREAL" x="120.0" y="4440.0">
+          <Parameter Name="IN" Value="53.8"/>
+        </FB>
+        <FB Name="xmv6" Type="LREAL2LREAL" x="3360.0" y="4920.0"/>
+        <FB Name="PolymAtas" Type="ADD_3" x="4440.0" y="6360.0">
+          <Parameter Name="IN3" Value="2.7690E-001"/>
+        </FB>
+        <FB Name="F_MUL_3" Type="F_MUL" x="1680.0" y="6360.0"/>
+        <FB Name="FirstOrder" Type="F_MUL" x="1560.0" y="7200.0">
+          <Parameter Name="IN2" Value="5.9446E-001"/>
+        </FB>
+        <FB Name="SecondOrder" Type="F_MUL" x="3000.0" y="6360.0">
+          <Parameter Name="IN2" Value="1.5192E-003"/>
+        </FB>
+        <FB Name="Pangkat2" Type="LREAL2LREAL" x="2160.0" y="6480.0"/>
+        <FB Name="HasilSecondOrder" Type="LREAL2LREAL" x="3600.0" y="6360.0"/>
+        <FB Name="HasilFirstOrder" Type="LREAL2LREAL" x="2160.0" y="7200.0"/>
+        <FB Name="SecondOrder_0" Type="F_MUL" x="3120.0" y="9600.0">
+          <Parameter Name="IN2" Value="-1.1377E-003"/>
+        </FB>
+        <FB Name="HasilSecondOrder_0" Type="LREAL2LREAL" x="3720.0" y="9720.0"/>
+        <FB Name="FirstOrder_0" Type="F_MUL" x="1320.0" y="10200.0">
+          <Parameter Name="IN2" Value="-8.0893E-001"/>
+        </FB>
+        <FB Name="HasilFirstOrder_0" Type="LREAL2LREAL" x="2040.0" y="10320.0"/>
+        <FB Name="PolymBawah" Type="ADD_3" x="4680.0" y="9720.0">
+          <Parameter Name="IN3" Value="9.1060E+001"/>
+        </FB>
+        <FB Name="F_MUL_7" Type="F_MUL" x="3120.0" y="7920.0">
+          <Parameter Name="IN2" Value="32"/>
+        </FB>
+        <FB Name="F_MUL_8" Type="F_MUL" x="3120.0" y="8640.0">
+          <Parameter Name="IN2" Value="46"/>
+        </FB>
+        <FB Name="LREAL2LREAL_10" Type="LREAL2LREAL" x="3840.0" y="8760.0"/>
+        <FB Name="LREAL2LREAL_11" Type="LREAL2LREAL" x="3840.0" y="8040.0"/>
+        <FB Name="F_DIV_0" Type="F_DIV" x="4680.0" y="8760.0"/>
+        <FB Name="LREAL2LREAL_12" Type="LREAL2LREAL" x="5280.0" y="9840.0"/>
+        <FB Name="LREAL2LREAL_13" Type="LREAL2LREAL" x="5040.0" y="6360.0"/>
+        <FB Name="r3" Type="F_ADD" x="6000.0" y="9840.0"/>
+        <FB Name="r2" Type="F_SUB" x="5880.0" y="6360.0"/>
+        <FB Name="LREAL2LREAL_14" Type="LREAL2LREAL" x="5280.0" y="8760.0"/>
+        <FB Name="F_DIV_1" Type="F_DIV" x="4680.0" y="8040.0"/>
+        <FB Name="LREAL2LREAL_15" Type="LREAL2LREAL" x="5160.0" y="7080.0"/>
+        <FB Name="r3_1" Type="LREAL2LREAL" x="6600.0" y="9840.0"/>
+        <FB Name="F_MUL_9" Type="F_MUL" x="7440.0" y="9840.0"/>
+        <FB Name="xmeas40" Type="LREAL2LREAL" x="360.0" y="5400.0"/>
+        <FB Name="xmeas3" Type="LREAL2LREAL" x="360.0" y="6360.0"/>
+        <FB Name="xmv2" Type="LREAL2LREAL" x="9600.0" y="9840.0"/>
+        <FB Name="ProductionRate" Type="Discrete_PI_LREAL2" x="1320.0" y="240.0">
+          <Parameter Name="Kp" Value="3.2"/>
+          <Parameter Name="Ti" Value="2"/>
+          <Parameter Name="LIM_L" Value="30"/>
+          <Parameter Name="LIM_H" Value="30"/>
+          <Parameter Name="InitialCondition" Value="-0.4489"/>
+          <Parameter Name="InitialConditionVelPI" Value="-0.1407"/>
+          <Parameter Name="SAMPLETIME" Value="T#50ms"/>
+        </FB>
+        <FB Name="ReactorPressure" Type="Discrete_PI_LREAL2" x="1680.0" y="2160.0">
+          <Parameter Name="SETPOINT" Value="2800"/>
+          <Parameter Name="Kp" Value="-1E-04"/>
+          <Parameter Name="Ti" Value="0.333"/>
+          <Parameter Name="LIM_L" Value="0"/>
+          <Parameter Name="LIM_H" Value="100"/>
+          <Parameter Name="InitialCondition" Value="0.0019"/>
+          <Parameter Name="InitialConditionVelPI" Value="1.0409"/>
+          <Parameter Name="SAMPLETIME" Value="T#50ms"/>
+        </FB>
+        <FB Name="PurgeRate" Type="Discrete_PI_LREAL2" x="1680.0" y="4200.0">
+          <Parameter Name="Kp" Value="0.01"/>
+          <Parameter Name="Ti" Value="167E-05"/>
+          <Parameter Name="LIM_L" Value="0"/>
+          <Parameter Name="LIM_H" Value="100"/>
+          <Parameter Name="InitialCondition" Value="24.2293"/>
+          <Parameter Name="InitialConditionVelPI" Value="-0.0064"/>
+          <Parameter Name="SAMPLETIME" Value="T#50ms"/>
+        </FB>
+        <FB Name="GinProduct" Type="Discrete_PI_LREAL2" x="1320.0" y="8040.0">
+          <Parameter Name="Kp" Value="-0.4"/>
+          <Parameter Name="Ti" Value="1.6667"/>
+          <Parameter Name="LIM_L" Value="-inf"/>
+          <Parameter Name="LIM_H" Value="inf"/>
+          <Parameter Name="InitialCondition" Value="0.6323"/>
+          <Parameter Name="InitialConditionVelPI" Value="-0.5067"/>
+          <Parameter Name="SAMPLETIME" Value="T#50ms"/>
+        </FB>
+        <FB Name="EFeedRate" Type="Discrete_PI_LREAL2" x="8040.0" y="9600.0">
+          <Parameter Name="Kp" Value="1.8E-6"/>
+          <Parameter Name="Ti" Value="1.667E-05"/>
+          <Parameter Name="LIM_L" Value="0"/>
+          <Parameter Name="LIM_H" Value="100"/>
+          <Parameter Name="InitialCondition" Value="53.3867"/>
+          <Parameter Name="InitialConditionVelPI" Value="9.7234"/>
+          <Parameter Name="SAMPLETIME" Value="T#50ms"/>
+        </FB>
+        <FB Name="TIME2TIME_0" Type="TIME2TIME" x="-1200.0" y="600.0">
+          <Parameter Name="IN" Value="T#0.01s"/>
+        </FB>
+        <EventConnections>
+          <Connection Destination="F_ADD_0_0.REQ" Source="ProdRatePIDoutputLREAL_0.CNF" dx1="375.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="xmeas17.REQ" Source="E_CYCLE_1_0.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="prodsetpointLREAL_0.REQ" Source="E_CYCLE_1_0.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="xmeas7.REQ" Source="E_CYCLE_1_0.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="xmeas10.REQ" Source="E_CYCLE_1_0.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SetpoxGain.REQ" Source="K_0.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="F_ADD_0_0.REQ" Source="SetpoxGain.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="Fp.REQ" Source="F_ADD_0_0.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="F_MUL_0_0.REQ" Source="Fp.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="F_MUL_0_0.REQ" Source="r5.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="K_0.REQ" Source="NilaiK.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="moleGsetpoint.REQ" Source="E_CYCLE_1_0.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SERVER_3_5.RSP" Source="xmv6.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="F_MUL_3.REQ" Source="moleGsetpoint.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="FirstOrder.REQ" Source="moleGsetpoint.CNF" dx1="450.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="Pangkat2.REQ" Source="F_MUL_3.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SecondOrder.REQ" Source="Pangkat2.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="HasilSecondOrder.REQ" Source="SecondOrder.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PolymAtas.REQ" Source="HasilSecondOrder.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="HasilFirstOrder.REQ" Source="FirstOrder.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PolymAtas.REQ" Source="HasilFirstOrder.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SecondOrder_0.REQ" Source="Pangkat2.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="HasilSecondOrder_0.REQ" Source="SecondOrder_0.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="FirstOrder_0.REQ" Source="moleGsetpoint.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="HasilFirstOrder_0.REQ" Source="FirstOrder_0.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PolymBawah.REQ" Source="HasilSecondOrder_0.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PolymBawah.REQ" Source="HasilFirstOrder_0.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="LREAL2LREAL_10.REQ" Source="F_MUL_8.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="LREAL2LREAL_11.REQ" Source="F_MUL_7.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="F_DIV_0.REQ" Source="LREAL2LREAL_10.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="LREAL2LREAL_12.REQ" Source="PolymBawah.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="LREAL2LREAL_13.REQ" Source="PolymAtas.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="r3.REQ" Source="LREAL2LREAL_12.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="r2.REQ" Source="LREAL2LREAL_13.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="LREAL2LREAL_14.REQ" Source="F_DIV_0.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="r3.REQ" Source="LREAL2LREAL_14.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="F_DIV_1.REQ" Source="LREAL2LREAL_11.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="LREAL2LREAL_15.REQ" Source="F_DIV_1.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="r2.REQ" Source="LREAL2LREAL_15.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="r3_1.REQ" Source="r3.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="F_MUL_9.REQ" Source="r3_1.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="xmeas40.REQ" Source="E_CYCLE_1_0.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="xmeas3.REQ" Source="E_CYCLE_1_0.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SERVER_3_5.RSP" Source="xmv2.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="ProductionRate.INIT" Source="SERVER_3_5.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="ProductionRate.REQ" Source="xmeas17.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="ProductionRate.REQ" Source="prodsetpointLREAL_0.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="K_0.REQ" Source="ProductionRate.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="ProdRatePIDoutputLREAL_0.REQ" Source="ProductionRate.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="NilaiK.REQ" Source="ProductionRate.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="ReactorPressure.INIT" Source="ProductionRate.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="ReactorPressure.REQ" Source="xmeas7.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="r5.REQ" Source="ReactorPressure.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PurgeRate.INIT" Source="ReactorPressure.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PurgeRate.REQ" Source="xmeas10.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PurgeRate.REQ" Source="F_MUL_0_0.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="xmv6.REQ" Source="PurgeRate.CNF" dx1="0.0" dx2="0.0" dy="-550.0"/>
+          <Connection Destination="GinProduct.INIT" Source="PurgeRate.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="GinProduct.REQ" Source="xmeas40.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="GinProduct.REQ" Source="moleGsetpoint.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="F_MUL_7.REQ" Source="GinProduct.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="F_MUL_8.REQ" Source="GinProduct.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="EFeedRate.INIT" Source="GinProduct.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="EFeedRate.REQ" Source="GinProduct.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="EFeedRate.REQ" Source="xmeas3.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="EFeedRate.REQ" Source="F_MUL_9.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="xmv2.REQ" Source="EFeedRate.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SERVER_3_5.INIT" Source="START.COLD" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="TIME2TIME_0.REQ" Source="SERVER_3_5.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="E_CYCLE_1_0.START" Source="TIME2TIME_0.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="TIME2TIME_0.REQ" Source="START.COLD" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="TIME2TIME_0.REQ" Source="START.WARM" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SERVER_3_5.INIT" Source="START.WARM" dx1="0.0" dx2="0.0" dy="0.0"/>
+        </EventConnections>
+        <DataConnections>
+          <Connection Destination="K_0.IN1" Source="ProdRatePIDoutputLREAL_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="F_ADD_0_0.IN2" Source="ProdRatePIDoutputLREAL_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SetpoxGain.IN" Source="K_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="F_ADD_0_0.IN1" Source="SetpoxGain.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="Fp.IN" Source="F_ADD_0_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="F_MUL_0_0.IN1" Source="Fp.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="F_MUL_0_0.IN2" Source="r5.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="K_0.IN2" Source="NilaiK.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="xmeas17.IN" Source="SERVER_3_5.RD_1" dx1="420.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="xmeas7.IN" Source="SERVER_3_5.RD_2" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="xmeas10.IN" Source="SERVER_3_5.RD_3" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SERVER_3_5.SD_1" Source="xmv6.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SERVER_3_5.SD_2" Source="xmv6.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="F_MUL_3.IN1" Source="moleGsetpoint.OUT" dx1="800.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="F_MUL_3.IN2" Source="moleGsetpoint.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="FirstOrder.IN1" Source="moleGsetpoint.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="Pangkat2.IN" Source="F_MUL_3.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SecondOrder.IN1" Source="Pangkat2.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="HasilSecondOrder.IN" Source="SecondOrder.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PolymAtas.IN1" Source="HasilSecondOrder.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="HasilFirstOrder.IN" Source="FirstOrder.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PolymAtas.IN2" Source="HasilFirstOrder.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SecondOrder_0.IN1" Source="Pangkat2.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="HasilSecondOrder_0.IN" Source="SecondOrder_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="FirstOrder_0.IN1" Source="moleGsetpoint.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="HasilFirstOrder_0.IN" Source="FirstOrder_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PolymBawah.IN1" Source="HasilSecondOrder_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PolymBawah.IN2" Source="HasilFirstOrder_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="LREAL2LREAL_10.IN" Source="F_MUL_8.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="LREAL2LREAL_11.IN" Source="F_MUL_7.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="F_DIV_0.IN1" Source="LREAL2LREAL_10.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="LREAL2LREAL_12.IN" Source="PolymBawah.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="LREAL2LREAL_13.IN" Source="PolymAtas.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="r3.IN2" Source="LREAL2LREAL_12.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="r2.IN1" Source="LREAL2LREAL_13.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="LREAL2LREAL_14.IN" Source="F_DIV_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="r3.IN1" Source="LREAL2LREAL_14.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="F_DIV_1.IN1" Source="LREAL2LREAL_11.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="LREAL2LREAL_15.IN" Source="F_DIV_1.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="r2.IN2" Source="LREAL2LREAL_15.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="r3_1.IN" Source="r3.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="F_MUL_9.IN1" Source="r3_1.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="xmeas40.IN" Source="SERVER_3_5.RD_4" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="xmeas3.IN" Source="SERVER_3_5.RD_5" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="SERVER_3_5.SD_3" Source="xmv2.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="ProductionRate.ACTUAL" Source="xmeas17.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="ProductionRate.SETPOINT" Source="prodsetpointLREAL_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="F_DIV_1.IN2" Source="ProductionRate.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="F_DIV_0.IN2" Source="ProductionRate.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="F_MUL_9.IN2" Source="ProductionRate.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="ProdRatePIDoutputLREAL_0.IN" Source="ProductionRate.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="ReactorPressure.ACTUAL" Source="xmeas7.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="r5.IN" Source="ReactorPressure.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PurgeRate.ACTUAL" Source="xmeas10.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PurgeRate.SETPOINT" Source="F_MUL_0_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="xmv6.IN" Source="PurgeRate.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="GinProduct.ACTUAL" Source="xmeas40.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="GinProduct.SETPOINT" Source="moleGsetpoint.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="F_MUL_8.IN1" Source="GinProduct.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="F_MUL_7.IN1" Source="GinProduct.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="EFeedRate.ACTUAL" Source="xmeas3.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="EFeedRate.SETPOINT" Source="F_MUL_9.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="xmv2.IN" Source="EFeedRate.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="E_CYCLE_1_0.DT" Source="TIME2TIME_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="ProductionRate.SAMPLETIME" Source="TIME2TIME_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="ReactorPressure.SAMPLETIME" Source="TIME2TIME_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="PurgeRate.SAMPLETIME" Source="TIME2TIME_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="GinProduct.SAMPLETIME" Source="TIME2TIME_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="EFeedRate.SAMPLETIME" Source="TIME2TIME_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        </DataConnections>
+      </FBNetwork>
+    </Resource>
+  </Device>
+  <Mapping From="pressureloop2.xmeas17" To="FORTE_PC.EMB_RES.xmeas17"/>
+  <Mapping From="pressureloop2.ProdRatePIDoutputLREAL_0" To="FORTE_PC.EMB_RES.ProdRatePIDoutputLREAL_0"/>
+  <Mapping From="pressureloop2.K_0" To="FORTE_PC.EMB_RES.K_0"/>
+  <Mapping From="pressureloop2.prodsetpointLREAL_0" To="FORTE_PC.EMB_RES.prodsetpointLREAL_0"/>
+  <Mapping From="pressureloop2.F_ADD_0_0" To="FORTE_PC.EMB_RES.F_ADD_0_0"/>
+  <Mapping From="pressureloop2.F_MUL_0_0" To="FORTE_PC.EMB_RES.F_MUL_0_0"/>
+  <Mapping From="pressureloop2.E_CYCLE_1_0" To="FORTE_PC.EMB_RES.E_CYCLE_1_0"/>
+  <Mapping From="pressureloop2.xmeas7" To="FORTE_PC.EMB_RES.xmeas7"/>
+  <Mapping From="pressureloop2.xmeas10" To="FORTE_PC.EMB_RES.xmeas10"/>
+  <Mapping From="pressureloop2.SetpoxGain" To="FORTE_PC.EMB_RES.SetpoxGain"/>
+  <Mapping From="pressureloop2.Fp" To="FORTE_PC.EMB_RES.Fp"/>
+  <Mapping From="pressureloop2.r5" To="FORTE_PC.EMB_RES.r5"/>
+  <Mapping From="pressureloop2.NilaiK" To="FORTE_PC.EMB_RES.NilaiK"/>
+  <Mapping From="pressureloop2.SERVER_3_5" To="FORTE_PC.EMB_RES.SERVER_3_5"/>
+  <Mapping From="pressureloop2.moleGsetpoint" To="FORTE_PC.EMB_RES.moleGsetpoint"/>
+  <Mapping From="pressureloop2.xmv6" To="FORTE_PC.EMB_RES.xmv6"/>
+  <Mapping From="pressureloop2.PolymAtas" To="FORTE_PC.EMB_RES.PolymAtas"/>
+  <Mapping From="pressureloop2.F_MUL_3" To="FORTE_PC.EMB_RES.F_MUL_3"/>
+  <Mapping From="pressureloop2.FirstOrder" To="FORTE_PC.EMB_RES.FirstOrder"/>
+  <Mapping From="pressureloop2.SecondOrder" To="FORTE_PC.EMB_RES.SecondOrder"/>
+  <Mapping From="pressureloop2.Pangkat2" To="FORTE_PC.EMB_RES.Pangkat2"/>
+  <Mapping From="pressureloop2.HasilSecondOrder" To="FORTE_PC.EMB_RES.HasilSecondOrder"/>
+  <Mapping From="pressureloop2.HasilFirstOrder" To="FORTE_PC.EMB_RES.HasilFirstOrder"/>
+  <Mapping From="pressureloop2.SecondOrder_0" To="FORTE_PC.EMB_RES.SecondOrder_0"/>
+  <Mapping From="pressureloop2.HasilSecondOrder_0" To="FORTE_PC.EMB_RES.HasilSecondOrder_0"/>
+  <Mapping From="pressureloop2.FirstOrder_0" To="FORTE_PC.EMB_RES.FirstOrder_0"/>
+  <Mapping From="pressureloop2.HasilFirstOrder_0" To="FORTE_PC.EMB_RES.HasilFirstOrder_0"/>
+  <Mapping From="pressureloop2.PolymBawah" To="FORTE_PC.EMB_RES.PolymBawah"/>
+  <Mapping From="pressureloop2.F_MUL_7" To="FORTE_PC.EMB_RES.F_MUL_7"/>
+  <Mapping From="pressureloop2.F_MUL_8" To="FORTE_PC.EMB_RES.F_MUL_8"/>
+  <Mapping From="pressureloop2.LREAL2LREAL_10" To="FORTE_PC.EMB_RES.LREAL2LREAL_10"/>
+  <Mapping From="pressureloop2.LREAL2LREAL_11" To="FORTE_PC.EMB_RES.LREAL2LREAL_11"/>
+  <Mapping From="pressureloop2.F_DIV_0" To="FORTE_PC.EMB_RES.F_DIV_0"/>
+  <Mapping From="pressureloop2.LREAL2LREAL_12" To="FORTE_PC.EMB_RES.LREAL2LREAL_12"/>
+  <Mapping From="pressureloop2.LREAL2LREAL_13" To="FORTE_PC.EMB_RES.LREAL2LREAL_13"/>
+  <Mapping From="pressureloop2.r3" To="FORTE_PC.EMB_RES.r3"/>
+  <Mapping From="pressureloop2.r2" To="FORTE_PC.EMB_RES.r2"/>
+  <Mapping From="pressureloop2.LREAL2LREAL_14" To="FORTE_PC.EMB_RES.LREAL2LREAL_14"/>
+  <Mapping From="pressureloop2.F_DIV_1" To="FORTE_PC.EMB_RES.F_DIV_1"/>
+  <Mapping From="pressureloop2.LREAL2LREAL_15" To="FORTE_PC.EMB_RES.LREAL2LREAL_15"/>
+  <Mapping From="pressureloop2.r3_1" To="FORTE_PC.EMB_RES.r3_1"/>
+  <Mapping From="pressureloop2.F_MUL_9" To="FORTE_PC.EMB_RES.F_MUL_9"/>
+  <Mapping From="pressureloop2.xmeas40" To="FORTE_PC.EMB_RES.xmeas40"/>
+  <Mapping From="pressureloop2.xmeas3" To="FORTE_PC.EMB_RES.xmeas3"/>
+  <Mapping From="pressureloop2.xmv2" To="FORTE_PC.EMB_RES.xmv2"/>
+  <Mapping From="pressureloop2.ProductionRate" To="FORTE_PC.EMB_RES.ProductionRate"/>
+  <Mapping From="pressureloop2.ReactorPressure" To="FORTE_PC.EMB_RES.ReactorPressure"/>
+  <Mapping From="pressureloop2.PurgeRate" To="FORTE_PC.EMB_RES.PurgeRate"/>
+  <Mapping From="pressureloop2.GinProduct" To="FORTE_PC.EMB_RES.GinProduct"/>
+  <Mapping From="pressureloop2.EFeedRate" To="FORTE_PC.EMB_RES.EFeedRate"/>
+  <Mapping From="pressureloop2.TIME2TIME_0" To="FORTE_PC.EMB_RES.TIME2TIME_0"/>
+  <Segment Name="Ethernet" Type="Ethernet" dx1="1500.0" x="2070.0" y="680.0"/>
+  <Link CommResource="FORTE_PC" Comment="" SegmentName="Ethernet"/>
+</System>

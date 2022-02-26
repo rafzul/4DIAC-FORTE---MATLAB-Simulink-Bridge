@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;temexdmod/OSCAT/Custom/Velocity_PI_acc.fbt&apos; to &apos;Velocity_PI_ACC.fbt&apos;" description="Rename resource &apos;Velocity_PI_acc.fbt&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="OSCAT/Custom/Velocity_PI_acc.fbt" name="Velocity_PI_ACC.fbt" stamp="1533017831564" updateReferences="true"/>
+</session>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE FBType SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<FBType Comment="Composite Function Block Type" Name="OutputPipe">
+  <Identification Standard="61499-2"/>
+  <VersionInfo Author="4DIAC-IDE" Date="2011-12-23" Organization="4DIAC-Consortium" Version="0.0"/>
+  <InterfaceList>
+    <EventInputs>
+      <Event Comment="Normal Execution Request" Name="REQ" Type="Event">
+        <With Var="SteamAuto"/>
+        <With Var="SteamPoti"/>
+        <With Var="ManAut"/>
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Comment="Execution Confirmation" Name="CNF" Type="Event">
+        <With Var="SteamFlow"/>
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Comment="Input event qualifier" Name="SteamAuto" Type="LREAL"/>
+      <VarDeclaration Name="SteamPoti" Type="INT"/>
+      <VarDeclaration Comment="0:Man, 1:Auto" Name="ManAut" Type="BOOL"/>
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Comment="Output event qualifier" Name="SteamFlow" Type="LREAL"/>
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB Name="SteamFlow" Type="SteamFlow" x="4000.0" y="750.0"/>
+    <FB Name="DRAND" Type="DRAND" x="1625.0" y="1000.0">
+      <Parameter Name="Seed" Value="2"/>
+    </FB>
+    <FB Name="Disturbance" Type="Disturbance" x="2250.0" y="1000.0"/>
+    <FB Name="SteamLimit" Type="SteamLimit" x="3125.0" y="750.0"/>
+    <FB Name="Selector" Type="Selector" x="1300.0" y="260.0"/>
+    <FB Name="Potentiometer" Type="Potentiometer" x="490.0" y="980.0">
+      <Parameter Name="minVal" Value="0"/>
+      <Parameter Name="maxVal" Value="10"/>
+    </FB>
+    <DataConnections>
+      <Connection Comment="" Destination="SteamFlow" Source="SteamFlow.Measurement" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="Disturbance.rRnd" Source="DRAND.Num" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="SteamFlow.DataItem" Source="SteamLimit.Steam" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="SteamLimit.rRndOffset" Source="Disturbance.rRndOffset" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="Selector.SEL" Source="ManAut" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="Selector.IN_1" Source="SteamAuto" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="SteamLimit.SteamDemand" Source="Selector.Out" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="Selector.IN_0" Source="Potentiometer.rValue" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="Potentiometer.wInput" Source="SteamPoti" dx1="0.0" dx2="0.0" dy="0.0"/>
+    </DataConnections>
+    <EventConnections>
+      <Connection Comment="" Destination="CNF" Source="SteamFlow.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="Disturbance.REQ" Source="DRAND.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="SteamLimit.REQ" Source="Disturbance.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="SteamFlow.REQ" Source="SteamLimit.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="DRAND.REQ" Source="Selector.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="Potentiometer.REQ" Source="REQ" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="Selector.REQ" Source="Potentiometer.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+    </EventConnections>
+  </FBNetwork>
+</FBType>

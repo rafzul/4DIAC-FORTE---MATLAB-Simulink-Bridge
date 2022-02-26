@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<virtualDNS:VirtualDNSManagement xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:virtualDNS="org.fordiac.ide.virtualDNS" activeVirtualDNS="//@availableDNSCollections.0">
+  <availableDNSCollections name="SimulationConfiguration">
+    <virtualDNSEntries name="ConvOutputs" value="225.0.0.1:61500"/>
+    <virtualDNSEntries name="ConvInputs" value="225.0.0.2:61501"/>
+    <virtualDNSEntries name="PressOutputs" value="225.0.0.3:61502"/>
+    <virtualDNSEntries name="PressInputs" value="225.0.0.4:61503"/>
+    <virtualDNSEntries name="START" value="225.0.0.5:61504"/>
+    <virtualDNSEntries name="STOP" value="225.0.0.6:61505"/>
+  </availableDNSCollections>
+</virtualDNS:VirtualDNSManagement>

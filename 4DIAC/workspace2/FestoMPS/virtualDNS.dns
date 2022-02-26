@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<virtualDNS:VirtualDNSManagement xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:virtualDNS="org.fordiac.ide.virtualDNS" activeVirtualDNS="//@availableDNSCollections.0">
+  <availableDNSCollections name="FESTO">
+    <virtualDNSEntries name="PicknPlaceController" value="10.200.4.102"/>
+    <virtualDNSEntries name="PicknPlaceStatusController" value="10.200.4.101"/>
+    <virtualDNSEntries name="QX_Light_Red" value="4"/>
+    <virtualDNSEntries name="QX_Light_Orange" value="5"/>
+    <virtualDNSEntries name="QX_Light_Green" value="6"/>
+    <virtualDNSEntries name="QX_Separator" value="5"/>
+    <virtualDNSEntries name="QX_Motor" value="0"/>
+    <virtualDNSEntries name="QX_ActuatorExtend" value="2"/>
+    <virtualDNSEntries name="QX_ActuatorRetract" value="1"/>
+    <virtualDNSEntries name="QX_ActuatorVacuum" value="4"/>
+    <virtualDNSEntries name="QX_ActuatorDown" value="3"/>
+    <virtualDNSEntries name="multicast" value="239.192.0.0"/>
+    <virtualDNSEntries name="IX_SensorSeparator" value="5"/>
+    <virtualDNSEntries name="IX_SensorPartIn" value="0"/>
+    <virtualDNSEntries name="IX_SensorPartOut" value="6"/>
+    <virtualDNSEntries name="IX_SensorRetract" value="1"/>
+    <virtualDNSEntries name="IX_SensorExtend" value="2"/>
+    <virtualDNSEntries name="IX_SensorVacuum" value="4"/>
+    <virtualDNSEntries name="IX_SensorUp" value="3"/>
+  </availableDNSCollections>
+</virtualDNS:VirtualDNSManagement>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE FBType SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<FBType Comment="Composite Function Block Type" Name="App4_ReactorLevel">
+  <Identification Standard="61499-2"/>
+  <VersionInfo Author="4DIAC-IDE" Date="2018-11-06" Organization="4DIAC-Consortium" Version="0.0"/>
+  <InterfaceList>
+    <EventInputs>
+      <Event Comment="Initialization Request" Name="INITO" Type="Event"/>
+      <Event Comment="Normal Execution Request" Name="IND" Type="Event">
+        <With Var="XMEAS8"/>
+        <With Var="XMEAS8SETP"/>
+        <With Var="KP_ReactorLevel"/>
+        <With Var="REAL4"/>
+        <With Var="RATIOGH"/>
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Comment="Initialization Confirm" Name="INITO4" Type="Event"/>
+      <Event Comment="Execution Confirmation" Name="CNF" Type="Event">
+        <With Var="XMV1"/>
+        <With Var="XMV2"/>
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="XMEAS8" Type="REAL"/>
+      <VarDeclaration Name="XMEAS8SETP" Type="REAL"/>
+      <VarDeclaration Name="KP_ReactorLevel" Type="REAL"/>
+      <VarDeclaration Name="REAL4" Type="REAL"/>
+      <VarDeclaration Name="RATIOGH" Type="REAL"/>
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="XMV1" Type="REAL"/>
+      <VarDeclaration Name="XMV2" Type="REAL"/>
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB Name="E_SPLIT" Type="E_SPLIT" x="1560.0" y="1200.0"/>
+    <FB Name="E_MERGE" Type="E_MERGE" x="4800.0" y="120.0"/>
+    <FB Name="RATIO" Type="REAL2REAL" x="3960.0" y="960.0"/>
+    <FB Name="F_MUL" Type="F_MUL" x="5400.0" y="240.0"/>
+    <FB Name="FB_CTRL_PI" Type="FB_CTRL_PI" x="2400.0" y="120.0">
+      <Parameter Name="KI" Value="0"/>
+    </FB>
+    <FB Name="REAL2REAL_1" Type="REAL2REAL" x="2400.0" y="2040.0"/>
+    <FB Name="E_SPLIT_3" Type="E_SPLIT_3" x="3480.0" y="120.0"/>
+    <FB Name="E_MERGE_1" Type="E_MERGE" x="6000.0" y="600.0"/>
+    <DataConnections>
+      <Connection Destination="F_MUL.IN2" Source="RATIO.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_MUL.IN1" Source="FB_CTRL_PI.Y" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="XMV1" Source="FB_CTRL_PI.Y" dx1="1315.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="XMV2" Source="F_MUL.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="FB_CTRL_PI.ACTUAL" Source="XMEAS8" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="FB_CTRL_PI.SET_POINT" Source="XMEAS8SETP" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="FB_CTRL_PI.KP" Source="KP_ReactorLevel" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="REAL2REAL_1.IN" Source="REAL4" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="RATIO.IN" Source="RATIOGH" dx1="0.0" dx2="0.0" dy="0.0"/>
+    </DataConnections>
+    <EventConnections>
+      <Connection Destination="FB_CTRL_PI.REQ" Source="E_SPLIT.EO1" dx1="330.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="REAL2REAL_1.REQ" Source="E_SPLIT.EO2" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_SPLIT.EI" Source="IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_MERGE.EI2" Source="RATIO.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_MUL.REQ" Source="E_MERGE.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_SPLIT_3.EI" Source="FB_CTRL_PI.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_MERGE_1.EI2" Source="F_MUL.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_MERGE_1.EI1" Source="E_SPLIT_3.EO1" dx1="2095.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_MERGE.EI1" Source="E_SPLIT_3.EO2" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="RATIO.REQ" Source="E_SPLIT_3.EO3" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="CNF" Source="E_MERGE_1.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="FB_CTRL_PI.INIT" Source="INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="INITO4" Source="FB_CTRL_PI.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+    </EventConnections>
+  </FBNetwork>
+</FBType>

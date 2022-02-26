@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE FBType SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<FBType Comment="Composite Function Block Type" Name="Server_ALL">
+  <Identification Standard="61499-2"/>
+  <VersionInfo Author="4DIAC-IDE" Date="2018-11-07" Organization="4DIAC-Consortium" Version="0.0"/>
+  <InterfaceList>
+    <EventInputs>
+      <Event Comment="Initialization Request" Name="INIT" Type="Event">
+        <With Var="QI"/>
+        <With Var="ID1"/>
+        <With Var="ID2"/>
+        <With Var="ID4"/>
+        <With Var="ID5"/>
+        <With Var="ID3"/>
+      </Event>
+      <Event Comment="Normal Execution Request" Name="RSP" Type="Event">
+        <With Var="QI"/>
+        <With Var="ID1"/>
+        <With Var="ID2"/>
+        <With Var="ID3"/>
+        <With Var="ID4"/>
+        <With Var="ID5"/>
+        <With Var="XMV4_App1"/>
+        <With Var="XMV10_App1"/>
+        <With Var="XMV9_App2"/>
+        <With Var="XMV7_App2"/>
+        <With Var="XMV11_App3"/>
+        <With Var="XMV1_App4"/>
+        <With Var="XMV2_App4"/>
+        <With Var="XMV3_App5"/>
+        <With Var="XMV6_App5"/>
+        <With Var="XMV8_App2"/>
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Comment="Initialization Confirm" Name="INITO" Type="Event">
+        <With Var="QO1"/>
+        <With Var="QO3"/>
+        <With Var="QO2"/>
+        <With Var="QO4"/>
+        <With Var="QO5"/>
+        <With Var="STATUS1"/>
+        <With Var="STATUS2"/>
+        <With Var="STATUS3"/>
+        <With Var="STATUS4"/>
+        <With Var="STATUS5"/>
+      </Event>
+      <Event Comment="Execution Confirmation" Name="IND" Type="Event">
+        <With Var="QO1"/>
+        <With Var="QO2"/>
+        <With Var="QO3"/>
+        <With Var="QO4"/>
+        <With Var="QO5"/>
+        <With Var="STATUS2"/>
+        <With Var="STATUS1"/>
+        <With Var="STATUS3"/>
+        <With Var="STATUS4"/>
+        <With Var="STATUS5"/>
+        <With Var="XMEAS7_App1"/>
+        <With Var="XMEAS9_App1"/>
+        <With Var="XMEAS18_App2"/>
+        <With Var="XMEAS15_App2"/>
+        <With Var="XMEAS11_App3"/>
+        <With Var="XMEAS12_App3"/>
+        <With Var="XMEAS8_App4"/>
+        <With Var="REAL4_App4"/>
+        <With Var="XMEAS29_App5"/>
+        <With Var="XMEAS30_App5"/>
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Comment="Input event qualifier" Name="QI" Type="BOOL"/>
+      <VarDeclaration Name="ID1" Type="WSTRING"/>
+      <VarDeclaration Name="ID2" Type="WSTRING"/>
+      <VarDeclaration Name="ID3" Type="WSTRING"/>
+      <VarDeclaration Name="ID4" Type="WSTRING"/>
+      <VarDeclaration Name="ID5" Type="WSTRING"/>
+      <VarDeclaration Name="XMV4_App1" Type="REAL"/>
+      <VarDeclaration Name="XMV10_App1" Type="REAL"/>
+      <VarDeclaration Name="XMV9_App2" Type="REAL"/>
+      <VarDeclaration Name="XMV7_App2" Type="REAL"/>
+      <VarDeclaration Name="XMV8_App2" Type="REAL"/>
+      <VarDeclaration Name="XMV11_App3" Type="REAL"/>
+      <VarDeclaration Name="XMV1_App4" Type="REAL"/>
+      <VarDeclaration Name="XMV2_App4" Type="REAL"/>
+      <VarDeclaration Name="XMV3_App5" Type="REAL"/>
+      <VarDeclaration Name="XMV6_App5" Type="REAL"/>
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Comment="Output event qualifier" Name="QO1" Type="BOOL"/>
+      <VarDeclaration Name="QO2" Type="BOOL"/>
+      <VarDeclaration Name="QO3" Type="BOOL"/>
+      <VarDeclaration Name="QO4" Type="BOOL"/>
+      <VarDeclaration Name="QO5" Type="BOOL"/>
+      <VarDeclaration Name="STATUS1" Type="WSTRING"/>
+      <VarDeclaration Name="STATUS2" Type="WSTRING"/>
+      <VarDeclaration Name="STATUS3" Type="WSTRING"/>
+      <VarDeclaration Name="STATUS4" Type="WSTRING"/>
+      <VarDeclaration Name="STATUS5" Type="WSTRING"/>
+      <VarDeclaration Name="XMEAS7_App1" Type="REAL"/>
+      <VarDeclaration Name="XMEAS9_App1" Type="REAL"/>
+      <VarDeclaration Name="XMEAS18_App2" Type="REAL"/>
+      <VarDeclaration Name="XMEAS15_App2" Type="REAL"/>
+      <VarDeclaration Name="XMEAS11_App3" Type="REAL"/>
+      <VarDeclaration Name="XMEAS12_App3" Type="REAL"/>
+      <VarDeclaration Name="XMEAS8_App4" Type="REAL"/>
+      <VarDeclaration Name="REAL4_App4" Type="REAL"/>
+      <VarDeclaration Name="XMEAS29_App5" Type="REAL"/>
+      <VarDeclaration Name="XMEAS30_App5" Type="REAL"/>
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB Name="SERVER1" Type="SERVER_2" x="2160.0" y="-240.0"/>
+    <FB Name="SERVER3" Type="SERVER_2" x="2160.0" y="1080.0"/>
+    <FB Name="SERVER5" Type="SERVER_2" x="2160.0" y="2760.0"/>
+    <FB Name="SERVER4" Type="SERVER_2" x="3360.0" y="1800.0"/>
+    <FB Name="INIT" Type="E_SPLIT_5" x="720.0" y="-240.0"/>
+    <FB Name="RSP" Type="E_SPLIT_5" x="600.0" y="1200.0"/>
+    <FB Name="IND" Type="E_MERGE_5" x="4680.0" y="2280.0"/>
+    <FB Name="E_MERGE_5" Type="E_MERGE_5" x="4200.0" y="-240.0"/>
+    <FB Name="E_SPLIT" Type="E_SPLIT" x="4920.0" y="-240.0"/>
+    <FB Name="E_SPLIT_5" Type="E_SPLIT_5" x="1320.0" y="-480.0"/>
+    <FB Name="SERVER2" Type="SERVER_3" x="3000.0" y="480.0"/>
+    <FB Name="DUMMY" Type="REAL2REAL" x="4440.0" y="960.0"/>
+    <FB Name="E_SPLIT_1" Type="E_SPLIT" x="3840.0" y="840.0"/>
+    <DataConnections>
+      <Connection Destination="SERVER1.QI" Source="QI" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="SERVER3.QI" Source="QI" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="SERVER4.QI" Source="QI" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="SERVER5.QI" Source="QI" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="SERVER1.ID" Source="ID1" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="SERVER3.ID" Source="ID3" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="SERVER4.ID" Source="ID4" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="SERVER5.ID" Source="ID5" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="SERVER1.SD_1" Source="XMV4_App1" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="SERVER1.SD_2" Source="XMV10_App1" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="SERVER3.SD_2" Source="XMV11_App3" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="SERVER4.SD_1" Source="XMV1_App4" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="SERVER4.SD_2" Source="XMV2_App4" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="SERVER5.SD_1" Source="XMV3_App5" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="SERVER5.SD_2" Source="XMV6_App5" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="QO1" Source="SERVER1.QO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="QO3" Source="SERVER3.QO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="QO4" Source="SERVER4.QO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="QO5" Source="SERVER5.QO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="STATUS1" Source="SERVER1.STATUS" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="STATUS3" Source="SERVER3.STATUS" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="STATUS4" Source="SERVER4.STATUS" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="STATUS5" Source="SERVER5.STATUS" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="XMEAS7_App1" Source="SERVER1.RD_1" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="XMEAS9_App1" Source="SERVER1.RD_2" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="XMEAS11_App3" Source="SERVER3.RD_1" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="XMEAS12_App3" Source="SERVER3.RD_2" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="XMEAS8_App4" Source="SERVER4.RD_1" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="REAL4_App4" Source="SERVER4.RD_2" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="XMEAS29_App5" Source="SERVER5.RD_1" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="XMEAS30_App5" Source="SERVER5.RD_2" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="SERVER3.SD_1" Source="XMV11_App3" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="SERVER2.SD_2" Source="XMV7_App2" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="SERVER2.SD_1" Source="XMV9_App2" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="XMEAS15_App2" Source="SERVER2.RD_2" dx1="300.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="XMEAS18_App2" Source="SERVER2.RD_1" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="SERVER2.QI" Source="QI" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="SERVER2.ID" Source="ID2" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="QO2" Source="SERVER2.QO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="STATUS2" Source="SERVER2.STATUS" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="DUMMY.IN" Source="SERVER2.RD_3" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="SERVER2.SD_3" Source="XMV8_App2" dx1="0.0" dx2="0.0" dy="0.0"/>
+    </DataConnections>
+    <EventConnections>
+      <Connection Destination="SERVER1.INIT" Source="INIT.EO1" dx1="715.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="SERVER3.INIT" Source="INIT.EO3" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="SERVER4.INIT" Source="INIT.EO4" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="SERVER5.INIT" Source="INIT.EO5" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="INIT.EI" Source="INIT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="RSP.EI" Source="RSP" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="SERVER1.RSP" Source="RSP.EO1" dx1="185.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="SERVER3.RSP" Source="RSP.EO3" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="SERVER4.RSP" Source="RSP.EO4" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="SERVER5.RSP" Source="RSP.EO5" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="IND.EI1" Source="SERVER1.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="IND.EI3" Source="SERVER3.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="IND.EI4" Source="SERVER4.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="IND.EI5" Source="SERVER5.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="IND" Source="IND.EO" dx1="575.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_MERGE_5.EI1" Source="SERVER1.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_MERGE_5.EI3" Source="SERVER3.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_MERGE_5.EI4" Source="SERVER4.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_MERGE_5.EI5" Source="SERVER5.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_SPLIT.EI" Source="E_MERGE_5.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="INITO" Source="E_SPLIT.EO2" dx1="280.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_SPLIT_5.EI" Source="E_SPLIT.EO1" dx1="0.0" dx2="0.0" dy="-455.0"/>
+      <Connection Destination="SERVER1.RSP" Source="E_SPLIT_5.EO1" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="SERVER3.RSP" Source="E_SPLIT_5.EO3" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="SERVER4.RSP" Source="E_SPLIT_5.EO4" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="SERVER5.RSP" Source="E_SPLIT_5.EO5" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="SERVER2.INIT" Source="INIT.EO2" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="SERVER2.RSP" Source="E_SPLIT_5.EO2" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="SERVER2.RSP" Source="RSP.EO2" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_MERGE_5.EI2" Source="SERVER2.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_SPLIT_1.EI" Source="SERVER2.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="DUMMY.REQ" Source="E_SPLIT_1.EO1" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="IND.EI2" Source="E_SPLIT_1.EO2" dx1="0.0" dx2="0.0" dy="0.0"/>
+    </EventConnections>
+  </FBNetwork>
+</FBType>

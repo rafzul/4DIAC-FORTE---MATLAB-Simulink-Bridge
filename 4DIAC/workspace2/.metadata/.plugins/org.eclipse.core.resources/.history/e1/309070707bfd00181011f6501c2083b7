@@ -1,0 +1,542 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE System SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<System Name="temexdmodluyben2">
+  <VersionInfo Author="Author" Organization="4DIAC-Consortium" Version="1.0"/>
+  <Application Name="temexdmod">
+    <SubAppNetwork>
+      <FB Name="E_MERGE1" Type="E_MERGE" x="4440.0" y="2280.0"/>
+      <FB Name="SERVER_2" Type="SERVER_2" x="1920.0" y="840.0">
+        <Parameter Name="QI" Value="TRUE"/>
+        <Parameter Name="ID" Value="localhost:61000"/>
+      </FB>
+      <FB Name="TIME2TIME" Type="TIME2TIME" x="240.0" y="1200.0">
+        <Parameter Name="IN" Value="T#75ms"/>
+      </FB>
+      <FB Name="E_CYCLE" Type="E_CYCLE" x="940.0" y="1180.0"/>
+      <FB Name="App1_ProdRateandPressure" Type="App1_ReactorPressureandReactorTemp" x="2880.0" y="960.0">
+        <Parameter Name="XMEAS17SETP" Value="22.89"/>
+        <Parameter Name="KP_ProdRate" Value="13.813"/>
+        <Parameter Name="XMEAS7SETP" Value="2800"/>
+        <Parameter Name="KP_Pressure" Value="100"/>
+      </FB>
+      <FB Name="TIME2TIME_0" Type="TIME2TIME" x="6960.0" y="840.0">
+        <Parameter Name="IN" Value="T#75ms"/>
+      </FB>
+      <FB Name="E_CYCLE_0" Type="E_CYCLE" x="7800.0" y="840.0"/>
+      <FB Name="SERVER_2_0" Type="SERVER_2" x="8640.0" y="840.0">
+        <Parameter Name="QI" Value="TRUE"/>
+        <Parameter Name="ID" Value="localhost:61001"/>
+      </FB>
+      <FB Name="E_MERGE1_0" Type="E_MERGE" x="7920.0" y="1920.0"/>
+      <FB Name="App2_StripperTempandReactorTemp" Type="App2_StripperTempandStripperLevel" x="9480.0" y="600.0">
+        <Parameter Name="XMEAS18SETP" Value="66.5"/>
+        <Parameter Name="KP_StripTemp" Value="2"/>
+        <Parameter Name="XMEAS9SETP" Value="122.9"/>
+        <Parameter Name="KP_ReactorTemp" Value="16"/>
+      </FB>
+      <FB Name="App3_StripperLevelandSeparatorLevel" Type="App3_SeparatorTempandSeparatorLevel" x="2640.0" y="3600.0">
+        <Parameter Name="XMEAS15SETP" Value="50"/>
+        <Parameter Name="KP_StripLevel" Value="2"/>
+        <Parameter Name="XMEAS12SETP" Value="50"/>
+        <Parameter Name="Kp_SepLevel" Value="2.5"/>
+      </FB>
+      <FB Name="SERVER_2_1" Type="SERVER_2" x="1680.0" y="3480.0">
+        <Parameter Name="QI" Value="TRUE"/>
+        <Parameter Name="ID" Value="localhost:61002"/>
+      </FB>
+      <FB Name="E_CYCLE_1" Type="E_CYCLE" x="600.0" y="3480.0"/>
+      <FB Name="TIME2TIME_1" Type="TIME2TIME" x="-480.0" y="3480.0">
+        <Parameter Name="IN" Value="T#75ms"/>
+      </FB>
+      <FB Name="E_MERGE1_1" Type="E_MERGE" x="4680.0" y="4560.0"/>
+      <FB Name="App4_ReactorLevel" Type="App4_ReactorLevel" x="10200.0" y="3120.0">
+        <Parameter Name="XMEAS8SETP" Value="65"/>
+        <Parameter Name="KP_ReactorLevel" Value="2"/>
+        <Parameter Name="RATIOGH" Value="1"/>
+      </FB>
+      <FB Name="TIME2TIME_0_0" Type="TIME2TIME" x="7320.0" y="3240.0">
+        <Parameter Name="IN" Value="T#75ms"/>
+      </FB>
+      <FB Name="E_CYCLE_0_0" Type="E_CYCLE" x="8160.0" y="3240.0"/>
+      <FB Name="SERVER_2_0_0" Type="SERVER_2" x="9240.0" y="3240.0">
+        <Parameter Name="QI" Value="TRUE"/>
+        <Parameter Name="ID" Value="localhost:61003"/>
+      </FB>
+      <FB Name="E_MERGE1_0_0" Type="E_MERGE" x="8160.0" y="4320.0"/>
+      <FB Name="App5_yAandyB" Type="App5_yAandyB" x="3120.0" y="6000.0">
+        <Parameter Name="XMEAS29SETP" Value="32.73"/>
+        <Parameter Name="KP_yAControl" Value="10"/>
+        <Parameter Name="XMEAS30SETP" Value="21.83"/>
+        <Parameter Name="KP_yBControl" Value="16"/>
+      </FB>
+      <FB Name="E_CYCLE_1_0" Type="E_CYCLE" x="840.0" y="5640.0"/>
+      <FB Name="SERVER_2_1_0" Type="SERVER_2" x="2160.0" y="5640.0">
+        <Parameter Name="QI" Value="TRUE"/>
+        <Parameter Name="ID" Value="localhost:61004"/>
+      </FB>
+      <FB Name="TIME2TIME_1_0" Type="TIME2TIME" x="-360.0" y="5520.0">
+        <Parameter Name="IN" Value="T#75ms"/>
+      </FB>
+      <FB Name="E_MERGE1_1_0" Type="E_MERGE" x="4440.0" y="5880.0"/>
+      <EventConnections>
+        <Connection Destination="SERVER_2.RSP" Source="App1_ProdRateandPressure.INITO1" dx1="0.0" dx2="0.0" dy="-810.0"/>
+        <Connection Destination="App1_ProdRateandPressure.IND" Source="SERVER_2.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="App1_ProdRateandPressure.INITO" Source="SERVER_2.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="E_CYCLE.START" Source="TIME2TIME.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_2.RSP" Source="E_CYCLE.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="TIME2TIME.REQ" Source="App1_ProdRateandPressure.CNF" dx1="0.0" dx2="0.0" dy="-1210.0"/>
+        <Connection Destination="SERVER_2.INIT" Source="E_MERGE1.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="E_CYCLE_0.START" Source="TIME2TIME_0.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_2_0.RSP" Source="E_CYCLE_0.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_2_0.INIT" Source="E_MERGE1_0.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="App2_StripperTempandReactorTemp.IND" Source="SERVER_2_0.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="App2_StripperTempandReactorTemp.INITO" Source="SERVER_2_0.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_2_0.RSP" Source="App2_StripperTempandReactorTemp.INITO2" dx1="0.0" dx2="0.0" dy="-585.0"/>
+        <Connection Destination="TIME2TIME_0.REQ" Source="App2_StripperTempandReactorTemp.CNF" dx1="0.0" dx2="0.0" dy="-740.0"/>
+        <Connection Destination="E_CYCLE_1.START" Source="TIME2TIME_1.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_2_1.RSP" Source="E_CYCLE_1.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="App3_StripperLevelandSeparatorLevel.INITO" Source="SERVER_2_1.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="App3_StripperLevelandSeparatorLevel.IND" Source="SERVER_2_1.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_2_1.RSP" Source="App3_StripperLevelandSeparatorLevel.INITO3" dx1="0.0" dx2="0.0" dy="-800.0"/>
+        <Connection Destination="TIME2TIME_1.REQ" Source="App3_StripperLevelandSeparatorLevel.CNF" dx1="0.0" dx2="0.0" dy="-710.0"/>
+        <Connection Destination="SERVER_2_1.INIT" Source="E_MERGE1_1.EO" dx1="375.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="E_CYCLE_0_0.START" Source="TIME2TIME_0_0.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_2_0_0.RSP" Source="E_CYCLE_0_0.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="App4_ReactorLevel.INITO" Source="SERVER_2_0_0.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_2_0_0.RSP" Source="App4_ReactorLevel.INITO4" dx1="0.0" dx2="0.0" dy="-650.0"/>
+        <Connection Destination="TIME2TIME_0_0.REQ" Source="App4_ReactorLevel.CNF" dx1="0.0" dx2="0.0" dy="-720.0"/>
+        <Connection Destination="SERVER_2_0_0.INIT" Source="E_MERGE1_0_0.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="App5_yAandyB.INIT" Source="SERVER_2_1_0.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_2_1_0.RSP" Source="App5_yAandyB.INITO5" dx1="0.0" dx2="0.0" dy="-635.0"/>
+        <Connection Destination="TIME2TIME_1_0.REQ" Source="App5_yAandyB.CNF" dx1="0.0" dx2="0.0" dy="-665.0"/>
+        <Connection Destination="E_CYCLE_1_0.START" Source="TIME2TIME_1_0.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_2_1_0.RSP" Source="E_CYCLE_1_0.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_2_1_0.INIT" Source="E_MERGE1_1_0.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      </EventConnections>
+      <DataConnections>
+        <Connection Destination="App1_ProdRateandPressure.XMEAS17" Source="SERVER_2.RD_1" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="App1_ProdRateandPressure.XMEAS7" Source="SERVER_2.RD_2" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_2.SD_1" Source="App1_ProdRateandPressure.XMV8" dx1="260.0" dx2="-280.0" dy="595.0"/>
+        <Connection Destination="SERVER_2.SD_2" Source="App1_ProdRateandPressure.XMV4" dx1="140.0" dx2="-160.0" dy="405.0"/>
+        <Connection Destination="E_CYCLE.DT" Source="TIME2TIME.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="App2_StripperTempandReactorTemp.XMEAS18" Source="SERVER_2_0.RD_1" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="App2_StripperTempandReactorTemp.XMEAS9" Source="SERVER_2_0.RD_2" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_2_0.SD_1" Source="App2_StripperTempandReactorTemp.XMV9" dx1="0.0" dx2="0.0" dy="615.0"/>
+        <Connection Destination="SERVER_2_0.SD_2" Source="App2_StripperTempandReactorTemp.XMV10" dx1="0.0" dx2="0.0" dy="760.0"/>
+        <Connection Destination="E_CYCLE_0.DT" Source="TIME2TIME_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="E_CYCLE_1.DT" Source="TIME2TIME_1.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="App3_StripperLevelandSeparatorLevel.XMEAS15" Source="SERVER_2_1.RD_1" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="App3_StripperLevelandSeparatorLevel.XMEAS12" Source="SERVER_2_1.RD_2" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_2_1.SD_1" Source="App3_StripperLevelandSeparatorLevel.XMV7" dx1="280.0" dx2="-375.0" dy="880.0"/>
+        <Connection Destination="SERVER_2_1.SD_2" Source="App3_StripperLevelandSeparatorLevel.XMV11" dx1="185.0" dx2="-255.0" dy="620.0"/>
+        <Connection Destination="E_CYCLE_0_0.DT" Source="TIME2TIME_0_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="App4_ReactorLevel.XMEAS8" Source="SERVER_2_0_0.RD_1" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="App4_ReactorLevel.REAL4" Source="SERVER_2_0_0.RD_2" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_2_0_0.SD_1" Source="App4_ReactorLevel.XMV1" dx1="0.0" dx2="0.0" dy="580.0"/>
+        <Connection Destination="SERVER_2_0_0.SD_2" Source="App4_ReactorLevel.XMV2" dx1="0.0" dx2="0.0" dy="820.0"/>
+        <Connection Destination="E_CYCLE_1_0.DT" Source="TIME2TIME_1_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="App5_yAandyB.XMEAS29" Source="SERVER_2_1_0.RD_1" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="App5_yAandyB.XMEAS30" Source="SERVER_2_1_0.RD_2" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="SERVER_2_1_0.SD_1" Source="App5_yAandyB.XMV3" dx1="0.0" dx2="0.0" dy="830.0"/>
+        <Connection Destination="SERVER_2_1_0.SD_2" Source="App5_yAandyB.XMV6" dx1="0.0" dx2="0.0" dy="1000.0"/>
+      </DataConnections>
+    </SubAppNetwork>
+  </Application>
+  <Application Name="temexdmod2">
+    <SubAppNetwork>
+      <FB Name="IND" Type="E_SPLIT_5" x="2040.0" y="1920.0"/>
+      <FB Name="TIME2TIME_2" Type="TIME2TIME" x="-1080.0" y="1200.0">
+        <Parameter Name="IN" Value="T#75ms"/>
+      </FB>
+      <FB Name="E_CYCLE_2" Type="E_CYCLE" x="-360.0" y="840.0"/>
+      <FB Name="E_MERGE_5" Type="E_MERGE_5" x="-1800.0" y="1200.0"/>
+      <FB Name="INITO" Type="E_SPLIT_5" x="2040.0" y="120.0"/>
+      <FB Name="Server_ALL" Type="Server_ALL" x="600.0" y="600.0">
+        <Parameter Name="QI" Value="TRUE"/>
+        <Parameter Name="ID1" Value="localhost:61000"/>
+        <Parameter Name="ID2" Value="localhost:61001"/>
+        <Parameter Name="ID3" Value="localhost:61002"/>
+        <Parameter Name="ID4" Value="localhost:61003"/>
+        <Parameter Name="ID5" Value="localhost:61004"/>
+      </FB>
+      <FB Name="App2_StripperTempandStripperLevel_0" Type="App2_StripperTempandStripperLevel" x="5400.0" y="240.0">
+        <Parameter Name="XMEAS18SETP" Value="66.5"/>
+        <Parameter Name="KP_StripTemp" Value="2"/>
+        <Parameter Name="XMEAS15SETP" Value="50"/>
+        <Parameter Name="KP_StripLevel" Value="2"/>
+      </FB>
+      <FB Name="App3_SeparatorTempandSeparatorLevel_0" Type="App3_SeparatorTempandSeparatorLevel" x="3120.0" y="840.0">
+        <Parameter Name="XMEAS11SETP" Value="91.7"/>
+        <Parameter Name="KP_SepTemp" Value="-40"/>
+        <Parameter Name="XMEAS12SETP" Value="50"/>
+        <Parameter Name="Kp_SepLevel" Value="4"/>
+      </FB>
+      <FB Name="App4_ReactorLevel_1" Type="App4_ReactorLevel" x="5280.0" y="1800.0">
+        <Parameter Name="XMEAS8SETP" Value="65"/>
+        <Parameter Name="KP_ReactorLevel" Value="2"/>
+        <Parameter Name="RATIOGH" Value="1"/>
+      </FB>
+      <FB Name="App5_yAandyB_1" Type="App5_yAandyB" x="3480.0" y="2760.0">
+        <Parameter Name="XMEAS29SETP" Value="32.73"/>
+        <Parameter Name="KP_yAControl" Value="10"/>
+        <Parameter Name="XMEAS30SETP" Value="21.83"/>
+        <Parameter Name="KP_yBControl" Value="16"/>
+      </FB>
+      <FB Name="App1_ReactorPressureandReactorTemp_Cascaded" Type="App1_ReactorPressureandReactorTemp_Cascaded" x="3480.0" y="-960.0">
+        <Parameter Name="XMEAS7SETP" Value="2800"/>
+        <Parameter Name="KP_Pressure" Value="30"/>
+        <Parameter Name="KP_ReactorTemp" Value="40"/>
+      </FB>
+      <FB Name="E_SPLIT" Type="E_SPLIT" x="4800.0" y="1320.0"/>
+      <EventConnections>
+        <Connection Destination="E_CYCLE_2.START" Source="TIME2TIME_2.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="TIME2TIME_2.REQ" Source="E_MERGE_5.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="INITO.EI" Source="Server_ALL.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="IND.EI" Source="Server_ALL.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="Server_ALL.RSP" Source="E_CYCLE_2.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="App2_StripperTempandStripperLevel_0.INITO" Source="INITO.EO2" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="App3_SeparatorTempandSeparatorLevel_0.INITO" Source="INITO.EO3" dx1="275.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="App4_ReactorLevel_1.INITO" Source="INITO.EO4" dx1="295.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="App5_yAandyB_1.INIT" Source="INITO.EO5" dx1="285.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="App2_StripperTempandStripperLevel_0.IND" Source="IND.EO2" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="App3_SeparatorTempandSeparatorLevel_0.IND" Source="IND.EO3" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="App4_ReactorLevel_1.IND" Source="IND.EO4" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="App5_yAandyB_1.IND" Source="IND.EO5" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="E_MERGE_5.EI2" Source="App2_StripperTempandStripperLevel_0.CNF" dx1="0.0" dx2="0.0" dy="-2395.0"/>
+        <Connection Destination="E_MERGE_5.EI4" Source="App4_ReactorLevel_1.CNF" dx1="0.0" dx2="0.0" dy="3000.0"/>
+        <Connection Destination="E_MERGE_5.EI5" Source="App5_yAandyB_1.CNF" dx1="0.0" dx2="0.0" dy="2630.0"/>
+        <Connection Destination="App1_ReactorPressureandReactorTemp_Cascaded.INITO" Source="INITO.EO1" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="App1_ReactorPressureandReactorTemp_Cascaded.IND" Source="IND.EO1" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="E_SPLIT.EI" Source="App3_SeparatorTempandSeparatorLevel_0.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="E_MERGE_5.EI3" Source="E_SPLIT.EO2" dx1="1720.0" dx2="0.0" dy="4730.0"/>
+        <Connection Destination="App1_ReactorPressureandReactorTemp_Cascaded.IND_Cascade" Source="E_SPLIT.EO1" dx1="0.0" dx2="-620.0" dy="0.0"/>
+        <Connection Destination="E_MERGE_5.EI1" Source="App1_ReactorPressureandReactorTemp_Cascaded.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      </EventConnections>
+      <DataConnections>
+        <Connection Destination="E_CYCLE_2.DT" Source="TIME2TIME_2.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="App2_StripperTempandStripperLevel_0.XMEAS18" Source="Server_ALL.XMEAS18_App2" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="App2_StripperTempandStripperLevel_0.XMEAS15" Source="Server_ALL.XMEAS15_App2" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="App3_SeparatorTempandSeparatorLevel_0.XMEAS11" Source="Server_ALL.XMEAS11_App3" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="App3_SeparatorTempandSeparatorLevel_0.XMEAS12" Source="Server_ALL.XMEAS12_App3" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="App4_ReactorLevel_1.XMEAS8" Source="Server_ALL.XMEAS8_App4" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="App4_ReactorLevel_1.REAL4" Source="Server_ALL.REAL4_App4" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="App5_yAandyB_1.XMEAS29" Source="Server_ALL.XMEAS29_App5" dx1="405.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="App5_yAandyB_1.XMEAS30" Source="Server_ALL.XMEAS30_App5" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="Server_ALL.XMV9_App2" Source="App2_StripperTempandStripperLevel_0.XMV9" dx1="150.0" dx2="-195.0" dy="-2395.0"/>
+        <Connection Destination="Server_ALL.XMV7_App2" Source="App2_StripperTempandStripperLevel_0.XMV7" dx1="220.0" dx2="-340.0" dy="-2580.0"/>
+        <Connection Destination="Server_ALL.XMV11_App3" Source="App3_SeparatorTempandSeparatorLevel_0.XMV11" dx1="1845.0" dx2="-510.0" dy="2505.0"/>
+        <Connection Destination="Server_ALL.XMV1_App4" Source="App4_ReactorLevel_1.XMV1" dx1="310.0" dx2="-430.0" dy="1970.0"/>
+        <Connection Destination="Server_ALL.XMV2_App4" Source="App4_ReactorLevel_1.XMV2" dx1="220.0" dx2="-300.0" dy="1790.0"/>
+        <Connection Destination="Server_ALL.XMV3_App5" Source="App5_yAandyB_1.XMV3" dx1="175.0" dx2="-185.0" dy="1205.0"/>
+        <Connection Destination="Server_ALL.XMV6_App5" Source="App5_yAandyB_1.XMV6" dx1="0.0" dx2="-55.0" dy="1010.0"/>
+        <Connection Destination="App1_ReactorPressureandReactorTemp_Cascaded.XMEAS7" Source="Server_ALL.XMEAS7_App1" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="App1_ReactorPressureandReactorTemp_Cascaded.SMEAS9SETP" Source="App3_SeparatorTempandSeparatorLevel_0.setpointXMEAS9" dx1="0.0" dx2="-380.0" dy="0.0"/>
+        <Connection Destination="App1_ReactorPressureandReactorTemp_Cascaded.XMEAS9" Source="Server_ALL.XMEAS9_App1" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="Server_ALL.XMV4_App1" Source="App1_ReactorPressureandReactorTemp_Cascaded.XMV4" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="Server_ALL.XMV10_App1" Source="App1_ReactorPressureandReactorTemp_Cascaded.XMV10" dx1="0.0" dx2="0.0" dy="0.0"/>
+      </DataConnections>
+    </SubAppNetwork>
+  </Application>
+  <Application Name="temexdmod3">
+    <SubAppNetwork>
+      <FB Name="IND_0" Type="E_SPLIT_5" x="2140.0" y="2020.0"/>
+      <FB Name="TIME2TIME_2_0" Type="TIME2TIME" x="-980.0" y="1300.0">
+        <Parameter Name="IN" Value="T#75ms"/>
+      </FB>
+      <FB Name="E_CYCLE_2_0" Type="E_CYCLE" x="-260.0" y="940.0"/>
+      <FB Name="E_MERGE_5_0" Type="E_MERGE_5" x="-1700.0" y="1300.0"/>
+      <FB Name="INITO_0" Type="E_SPLIT_5" x="2140.0" y="220.0"/>
+      <FB Name="Server_ALL_0" Type="Server_ALL" x="700.0" y="700.0">
+        <Parameter Name="QI" Value="TRUE"/>
+        <Parameter Name="ID1" Value="localhost:61000"/>
+        <Parameter Name="ID2" Value="localhost:61001"/>
+        <Parameter Name="ID3" Value="localhost:61002"/>
+        <Parameter Name="ID4" Value="localhost:61003"/>
+        <Parameter Name="ID5" Value="localhost:61004"/>
+      </FB>
+      <FB Name="App2_StripperTempandStripperLevel_0_0" Type="App2_StripperTempandStripperLevel" x="5500.0" y="340.0">
+        <Parameter Name="XMEAS18SETP" Value="66.5"/>
+        <Parameter Name="KP_StripTemp" Value="2"/>
+        <Parameter Name="XMEAS15SETP" Value="50"/>
+        <Parameter Name="KP_StripLevel" Value="21.017"/>
+      </FB>
+      <FB Name="App3_SeparatorTempandSeparatorLevel_0_0" Type="App3_SeparatorTempandSeparatorLevel" x="3220.0" y="940.0">
+        <Parameter Name="XMEAS11SETP" Value="91.7"/>
+        <Parameter Name="KP_SepTemp" Value="-40"/>
+        <Parameter Name="XMEAS12SETP" Value="50"/>
+        <Parameter Name="Kp_SepLevel" Value="13"/>
+      </FB>
+      <FB Name="App4_ReactorLevel_1_0" Type="App4_ReactorLevel" x="5380.0" y="1900.0">
+        <Parameter Name="XMEAS8SETP" Value="65"/>
+        <Parameter Name="KP_ReactorLevel" Value="14"/>
+        <Parameter Name="RATIOGH" Value="1"/>
+      </FB>
+      <FB Name="App5_yAandyB_1_0" Type="App5_yAandyB" x="3580.0" y="2860.0">
+        <Parameter Name="XMEAS29SETP" Value="32.73"/>
+        <Parameter Name="KP_yAControl" Value="10"/>
+        <Parameter Name="XMEAS30SETP" Value="21.83"/>
+        <Parameter Name="KP_yBControl" Value="16"/>
+      </FB>
+      <FB Name="E_SPLIT_0" Type="E_SPLIT" x="4900.0" y="1420.0"/>
+      <FB Name="App1_ReactorPressureandReactorTemp" Type="App1_ReactorPressureandReactorTemp" x="3360.0" y="-720.0">
+        <Parameter Name="XMEAS7SETP" Value="2800"/>
+        <Parameter Name="KP_Pressure" Value="30"/>
+        <Parameter Name="SMEAS9SETP" Value="122.9"/>
+        <Parameter Name="KP_ReactorTemp" Value="-12"/>
+      </FB>
+      <EventConnections>
+        <Connection Destination="App2_StripperTempandStripperLevel_0_0.IND" Source="IND_0.EO2" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="E_MERGE_5_0.EI2" Source="App2_StripperTempandStripperLevel_0_0.CNF" dx1="0.0" dx2="0.0" dy="-2395.0"/>
+        <Connection Destination="App5_yAandyB_1_0.IND" Source="IND_0.EO5" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="E_MERGE_5_0.EI5" Source="App5_yAandyB_1_0.CNF" dx1="0.0" dx2="0.0" dy="2630.0"/>
+        <Connection Destination="E_CYCLE_2_0.START" Source="TIME2TIME_2_0.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="App4_ReactorLevel_1_0.INITO" Source="INITO_0.EO4" dx1="295.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="App5_yAandyB_1_0.INIT" Source="INITO_0.EO5" dx1="285.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="TIME2TIME_2_0.REQ" Source="E_MERGE_5_0.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="E_MERGE_5_0.EI3" Source="E_SPLIT_0.EO2" dx1="1720.0" dx2="0.0" dy="4730.0"/>
+        <Connection Destination="App3_SeparatorTempandSeparatorLevel_0_0.IND" Source="IND_0.EO3" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="App4_ReactorLevel_1_0.IND" Source="IND_0.EO4" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="E_MERGE_5_0.EI4" Source="App4_ReactorLevel_1_0.CNF" dx1="0.0" dx2="0.0" dy="3000.0"/>
+        <Connection Destination="App2_StripperTempandStripperLevel_0_0.INITO" Source="INITO_0.EO2" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="INITO_0.EI" Source="Server_ALL_0.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="Server_ALL_0.RSP" Source="E_CYCLE_2_0.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="E_SPLIT_0.EI" Source="App3_SeparatorTempandSeparatorLevel_0_0.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="App3_SeparatorTempandSeparatorLevel_0_0.INITO" Source="INITO_0.EO3" dx1="275.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="IND_0.EI" Source="Server_ALL_0.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="App1_ReactorPressureandReactorTemp.INITO" Source="INITO_0.EO1" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="App1_ReactorPressureandReactorTemp.IND" Source="IND_0.EO1" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="E_MERGE_5_0.EI1" Source="App1_ReactorPressureandReactorTemp.CNF" dx1="0.0" dx2="0.0" dy="-1680.0"/>
+      </EventConnections>
+      <DataConnections>
+        <Connection Destination="Server_ALL_0.XMV1_App4" Source="App4_ReactorLevel_1_0.XMV1" dx1="310.0" dx2="-430.0" dy="1970.0"/>
+        <Connection Destination="App4_ReactorLevel_1_0.XMEAS8" Source="Server_ALL_0.XMEAS8_App4" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="Server_ALL_0.XMV2_App4" Source="App4_ReactorLevel_1_0.XMV2" dx1="220.0" dx2="-300.0" dy="1790.0"/>
+        <Connection Destination="App5_yAandyB_1_0.XMEAS29" Source="Server_ALL_0.XMEAS29_App5" dx1="405.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="Server_ALL_0.XMV11_App3" Source="App3_SeparatorTempandSeparatorLevel_0_0.XMV11" dx1="1845.0" dx2="-510.0" dy="2505.0"/>
+        <Connection Destination="E_CYCLE_2_0.DT" Source="TIME2TIME_2_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="App4_ReactorLevel_1_0.REAL4" Source="Server_ALL_0.REAL4_App4" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="Server_ALL_0.XMV3_App5" Source="App5_yAandyB_1_0.XMV3" dx1="175.0" dx2="-185.0" dy="1205.0"/>
+        <Connection Destination="Server_ALL_0.XMV7_App2" Source="App2_StripperTempandStripperLevel_0_0.XMV7" dx1="220.0" dx2="-340.0" dy="-2580.0"/>
+        <Connection Destination="App2_StripperTempandStripperLevel_0_0.XMEAS18" Source="Server_ALL_0.XMEAS18_App2" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="App3_SeparatorTempandSeparatorLevel_0_0.XMEAS11" Source="Server_ALL_0.XMEAS11_App3" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="App5_yAandyB_1_0.XMEAS30" Source="Server_ALL_0.XMEAS30_App5" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="Server_ALL_0.XMV9_App2" Source="App2_StripperTempandStripperLevel_0_0.XMV9" dx1="150.0" dx2="-195.0" dy="-2395.0"/>
+        <Connection Destination="App3_SeparatorTempandSeparatorLevel_0_0.XMEAS12" Source="Server_ALL_0.XMEAS12_App3" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="Server_ALL_0.XMV6_App5" Source="App5_yAandyB_1_0.XMV6" dx1="0.0" dx2="-55.0" dy="1010.0"/>
+        <Connection Destination="App2_StripperTempandStripperLevel_0_0.XMEAS15" Source="Server_ALL_0.XMEAS15_App2" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="App1_ReactorPressureandReactorTemp.XMEAS7" Source="Server_ALL_0.XMEAS7_App1" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="App1_ReactorPressureandReactorTemp.XMEAS9" Source="Server_ALL_0.XMEAS9_App1" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="Server_ALL_0.XMV4_App1" Source="App1_ReactorPressureandReactorTemp.XMV4" dx1="0.0" dx2="0.0" dy="-1980.0"/>
+        <Connection Destination="Server_ALL_0.XMV10_App1" Source="App1_ReactorPressureandReactorTemp.XMV10" dx1="0.0" dx2="0.0" dy="-2260.0"/>
+      </DataConnections>
+    </SubAppNetwork>
+  </Application>
+  <Application Name="temexdmod4">
+    <SubAppNetwork>
+      <FB Name="IND_0_0" Type="E_SPLIT_5" x="3120.0" y="2040.0"/>
+      <FB Name="TIME2TIME_2_0_0" Type="TIME2TIME" x="-1320.0" y="1320.0">
+        <Parameter Name="IN" Value="T#75ms"/>
+      </FB>
+      <FB Name="E_CYCLE_2_0_0" Type="E_CYCLE" x="-480.0" y="1440.0"/>
+      <FB Name="E_MERGE_5_0_0" Type="E_MERGE_5" x="-2160.0" y="1320.0"/>
+      <FB Name="INITO_0_0" Type="E_SPLIT_5" x="3120.0" y="480.0"/>
+      <FB Name="App3_SeparatorTempandSeparatorLevel_0_0_0" Type="App3_SeparatorTempandSeparatorLevel" x="4800.0" y="720.0">
+        <Parameter Name="XMEAS11SETP" Value="91.7"/>
+        <Parameter Name="KP_SepTemp" Value="-40"/>
+        <Parameter Name="XMEAS12SETP" Value="50"/>
+        <Parameter Name="Kp_SepLevel" Value="7"/>
+      </FB>
+      <FB Name="App4_ReactorLevel_1_0_0" Type="App4_ReactorLevel" x="6000.0" y="2040.0">
+        <Parameter Name="XMEAS8SETP" Value="65"/>
+        <Parameter Name="KP_ReactorLevel" Value="20"/>
+        <Parameter Name="RATIOGH" Value="1"/>
+      </FB>
+      <FB Name="App5_yAandyB_1_0_0" Type="App5_yAandyB" x="4560.0" y="3240.0">
+        <Parameter Name="XMEAS29SETP" Value="32.73"/>
+        <Parameter Name="KP_yAControl" Value="20"/>
+        <Parameter Name="XMEAS30SETP" Value="21.83"/>
+        <Parameter Name="KP_yBControl" Value="-50"/>
+      </FB>
+      <FB Name="App1_ReactorPressureandReactorTemp_0" Type="App1_ReactorPressureandReactorTemp" x="3840.0" y="-1440.0">
+        <Parameter Name="XMEAS7SETP" Value="2800"/>
+        <Parameter Name="KP_Pressure" Value="100"/>
+        <Parameter Name="SMEAS9SETP" Value="122.9"/>
+        <Parameter Name="KP_ReactorTemp" Value="-20"/>
+      </FB>
+      <FB Name="App2_StripperTempandStripperLevelandProdRate" Type="App2_StripperTempandStripperLevelandProdRate" x="6120.0" y="-720.0">
+        <Parameter Name="XMEAS18SETP" Value="66.5"/>
+        <Parameter Name="KP_StripTemp" Value="7"/>
+        <Parameter Name="XMEAS15SETP" Value="50"/>
+        <Parameter Name="KP_StripLevel" Value="7"/>
+        <Parameter Name="ProductionRate" Value="46.444"/>
+      </FB>
+      <FB Name="Server_ALL_NEW" Type="Server_ALL_NEW" x="840.0" y="1560.0">
+        <Parameter Name="QI" Value="TRUE"/>
+        <Parameter Name="ID1" Value="localhost:61000"/>
+        <Parameter Name="ID2" Value="localhost:61001"/>
+        <Parameter Name="ID3" Value="localhost:61002"/>
+        <Parameter Name="ID4" Value="localhost:61003"/>
+        <Parameter Name="ID5" Value="localhost:61004"/>
+      </FB>
+      <EventConnections>
+        <Connection Destination="App3_SeparatorTempandSeparatorLevel_0_0_0.IND" Source="IND_0_0.EO3" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="E_CYCLE_2_0_0.START" Source="TIME2TIME_2_0_0.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="E_MERGE_5_0_0.EI1" Source="App1_ReactorPressureandReactorTemp_0.CNF" dx1="0.0" dx2="0.0" dy="-1680.0"/>
+        <Connection Destination="App4_ReactorLevel_1_0_0.INITO" Source="INITO_0_0.EO4" dx1="295.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="App1_ReactorPressureandReactorTemp_0.IND" Source="IND_0_0.EO1" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="E_MERGE_5_0_0.EI4" Source="App4_ReactorLevel_1_0_0.CNF" dx1="0.0" dx2="0.0" dy="3000.0"/>
+        <Connection Destination="E_MERGE_5_0_0.EI5" Source="App5_yAandyB_1_0_0.CNF" dx1="0.0" dx2="0.0" dy="2630.0"/>
+        <Connection Destination="App1_ReactorPressureandReactorTemp_0.INITO" Source="INITO_0_0.EO1" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="App4_ReactorLevel_1_0_0.IND" Source="IND_0_0.EO4" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="TIME2TIME_2_0_0.REQ" Source="E_MERGE_5_0_0.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="App5_yAandyB_1_0_0.IND" Source="IND_0_0.EO5" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="App5_yAandyB_1_0_0.INIT" Source="INITO_0_0.EO5" dx1="285.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="App3_SeparatorTempandSeparatorLevel_0_0_0.INITO" Source="INITO_0_0.EO3" dx1="275.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="App2_StripperTempandStripperLevelandProdRate.INITO" Source="INITO_0_0.EO2" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="App2_StripperTempandStripperLevelandProdRate.IND" Source="IND_0_0.EO2" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="E_MERGE_5_0_0.EI2" Source="App2_StripperTempandStripperLevelandProdRate.CNF" dx1="0.0" dx2="0.0" dy="-2020.0"/>
+        <Connection Destination="E_MERGE_5_0_0.EI3" Source="App3_SeparatorTempandSeparatorLevel_0_0_0.CNF" dx1="4100.0" dx2="0.0" dy="4790.0"/>
+        <Connection Destination="Server_ALL_NEW.REQ" Source="E_CYCLE_2_0_0.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="INITO_0_0.EI" Source="Server_ALL_NEW.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="IND_0_0.EI" Source="Server_ALL_NEW.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      </EventConnections>
+      <DataConnections>
+        <Connection Destination="E_CYCLE_2_0_0.DT" Source="TIME2TIME_2_0_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="App1_ReactorPressureandReactorTemp_0.XMEAS7" Source="Server_ALL_NEW.XMEAS7_App1" dx1="80.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="App1_ReactorPressureandReactorTemp_0.XMEAS9" Source="Server_ALL_NEW.XMEAS9_App1" dx1="230.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="App2_StripperTempandStripperLevelandProdRate.XMEAS18" Source="Server_ALL_NEW.XMEAS18_App2" dx1="370.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="App2_StripperTempandStripperLevelandProdRate.XMEAS15" Source="Server_ALL_NEW.XMEAS15_App2" dx1="470.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="App3_SeparatorTempandSeparatorLevel_0_0_0.XMEAS11" Source="Server_ALL_NEW.XMEAS11_App3" dx1="600.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="App3_SeparatorTempandSeparatorLevel_0_0_0.XMEAS12" Source="Server_ALL_NEW.XMEAS12_App3" dx1="690.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="App4_ReactorLevel_1_0_0.XMEAS8" Source="Server_ALL_NEW.XMEAS8_App4" dx1="740.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="App4_ReactorLevel_1_0_0.REAL4" Source="Server_ALL_NEW.REAL4_App4" dx1="810.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="App5_yAandyB_1_0_0.XMEAS29" Source="Server_ALL_NEW.XMEAS29_App5" dx1="920.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="App5_yAandyB_1_0_0.XMEAS30" Source="Server_ALL_NEW.XMEAS30_App5" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="Server_ALL_NEW.XMV4_App1" Source="App1_ReactorPressureandReactorTemp_0.XMV4" dx1="0.0" dx2="0.0" dy="-2560.0"/>
+        <Connection Destination="Server_ALL_NEW.XMV10_App1" Source="App1_ReactorPressureandReactorTemp_0.XMV10" dx1="0.0" dx2="-150.0" dy="-3070.0"/>
+        <Connection Destination="Server_ALL_NEW.XMV9_App2" Source="App2_StripperTempandStripperLevelandProdRate.XMV9" dx1="0.0" dx2="-240.0" dy="-4230.0"/>
+        <Connection Destination="Server_ALL_NEW.XMV7_App2" Source="App2_StripperTempandStripperLevelandProdRate.XMV7" dx1="0.0" dx2="-330.0" dy="-4250.0"/>
+        <Connection Destination="Server_ALL_NEW.XMV8_App2" Source="App2_StripperTempandStripperLevelandProdRate.XMV8" dx1="0.0" dx2="-380.0" dy="-4470.0"/>
+        <Connection Destination="Server_ALL_NEW.XMV11_App3" Source="App3_SeparatorTempandSeparatorLevel_0_0_0.XMV11" dx1="0.0" dx2="-420.0" dy="-5190.0"/>
+        <Connection Destination="Server_ALL_NEW.XMV1_App4" Source="App4_ReactorLevel_1_0_0.XMV1" dx1="1280.0" dx2="-520.0" dy="-5850.0"/>
+        <Connection Destination="Server_ALL_NEW.XMV2_App4" Source="App4_ReactorLevel_1_0_0.XMV2" dx1="1460.0" dx2="-600.0" dy="-5950.0"/>
+        <Connection Destination="Server_ALL_NEW.XMV3_App5" Source="App5_yAandyB_1_0_0.XMV3" dx1="3210.0" dx2="-670.0" dy="-6550.0"/>
+        <Connection Destination="Server_ALL_NEW.XMV6_App5" Source="App5_yAandyB_1_0_0.XMV6" dx1="3360.0" dx2="-760.0" dy="-6320.0"/>
+      </DataConnections>
+    </SubAppNetwork>
+  </Application>
+  <Device Name="FORTE_PC" Type="FORTE_PC" x="3265.0" y="1555.0">
+    <Attribute Name="Color" Value="86,50,240"/>
+    <Attribute Name="Profile" Value="HOLOBLOC"/>
+    <Parameter Name="MGR_ID" Value="&quot;localhost:61499&quot;"/>
+    <Resource Name="EMB_RES" Type="EMB_RES">
+      <FBNetwork>
+        <FB Name="IND_0_0" Type="E_SPLIT_5" x="3120.0" y="2040.0"/>
+        <FB Name="TIME2TIME_2_0_0" Type="TIME2TIME" x="-1320.0" y="1320.0">
+          <Parameter Name="IN" Value="T#75ms"/>
+        </FB>
+        <FB Name="E_CYCLE_2_0_0" Type="E_CYCLE" x="-480.0" y="1440.0"/>
+        <FB Name="E_MERGE_5_0_0" Type="E_MERGE_5" x="-2160.0" y="1320.0"/>
+        <FB Name="INITO_0_0" Type="E_SPLIT_5" x="3120.0" y="480.0"/>
+        <FB Name="App3_SeparatorTempandSeparatorLevel_0_0_0" Type="App3_SeparatorTempandSeparatorLevel" x="4800.0" y="720.0">
+          <Parameter Name="XMEAS11SETP" Value="91.7"/>
+          <Parameter Name="KP_SepTemp" Value="-40"/>
+          <Parameter Name="XMEAS12SETP" Value="50"/>
+          <Parameter Name="Kp_SepLevel" Value="7"/>
+        </FB>
+        <FB Name="App4_ReactorLevel_1_0_0" Type="App4_ReactorLevel" x="6000.0" y="2040.0">
+          <Parameter Name="XMEAS8SETP" Value="65"/>
+          <Parameter Name="KP_ReactorLevel" Value="20"/>
+          <Parameter Name="RATIOGH" Value="1"/>
+        </FB>
+        <FB Name="App5_yAandyB_1_0_0" Type="App5_yAandyB" x="4560.0" y="3240.0">
+          <Parameter Name="XMEAS29SETP" Value="32.73"/>
+          <Parameter Name="KP_yAControl" Value="20"/>
+          <Parameter Name="XMEAS30SETP" Value="21.83"/>
+          <Parameter Name="KP_yBControl" Value="-50"/>
+        </FB>
+        <FB Name="App1_ReactorPressureandReactorTemp_0" Type="App1_ReactorPressureandReactorTemp" x="3840.0" y="-1440.0">
+          <Parameter Name="XMEAS7SETP" Value="2800"/>
+          <Parameter Name="KP_Pressure" Value="100"/>
+          <Parameter Name="SMEAS9SETP" Value="122.9"/>
+          <Parameter Name="KP_ReactorTemp" Value="-20"/>
+        </FB>
+        <FB Name="App2_StripperTempandStripperLevelandProdRate" Type="App2_StripperTempandStripperLevelandProdRate" x="6120.0" y="-720.0">
+          <Parameter Name="XMEAS18SETP" Value="66.5"/>
+          <Parameter Name="KP_StripTemp" Value="7"/>
+          <Parameter Name="XMEAS15SETP" Value="50"/>
+          <Parameter Name="KP_StripLevel" Value="7"/>
+          <Parameter Name="ProductionRate" Value="46.444"/>
+        </FB>
+        <FB Name="Server_ALL_NEW" Type="Server_ALL_NEW" x="840.0" y="1560.0">
+          <Parameter Name="QI" Value="TRUE"/>
+          <Parameter Name="ID1" Value="localhost:61000"/>
+          <Parameter Name="ID2" Value="localhost:61001"/>
+          <Parameter Name="ID3" Value="localhost:61002"/>
+          <Parameter Name="ID4" Value="localhost:61003"/>
+          <Parameter Name="ID5" Value="localhost:61004"/>
+        </FB>
+        <EventConnections>
+          <Connection Destination="E_CYCLE_2_0_0.START" Source="TIME2TIME_2_0_0.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="TIME2TIME_2_0_0.REQ" Source="E_MERGE_5_0_0.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="App3_SeparatorTempandSeparatorLevel_0_0_0.INITO" Source="INITO_0_0.EO3" dx1="275.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="App3_SeparatorTempandSeparatorLevel_0_0_0.IND" Source="IND_0_0.EO3" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="E_MERGE_5_0_0.EI3" Source="App3_SeparatorTempandSeparatorLevel_0_0_0.CNF" dx1="4100.0" dx2="0.0" dy="4790.0"/>
+          <Connection Destination="App4_ReactorLevel_1_0_0.INITO" Source="INITO_0_0.EO4" dx1="295.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="App4_ReactorLevel_1_0_0.IND" Source="IND_0_0.EO4" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="E_MERGE_5_0_0.EI4" Source="App4_ReactorLevel_1_0_0.CNF" dx1="0.0" dx2="0.0" dy="3000.0"/>
+          <Connection Destination="App5_yAandyB_1_0_0.INIT" Source="INITO_0_0.EO5" dx1="285.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="App5_yAandyB_1_0_0.IND" Source="IND_0_0.EO5" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="E_MERGE_5_0_0.EI5" Source="App5_yAandyB_1_0_0.CNF" dx1="0.0" dx2="0.0" dy="2630.0"/>
+          <Connection Destination="App1_ReactorPressureandReactorTemp_0.INITO" Source="INITO_0_0.EO1" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="App1_ReactorPressureandReactorTemp_0.IND" Source="IND_0_0.EO1" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="E_MERGE_5_0_0.EI1" Source="App1_ReactorPressureandReactorTemp_0.CNF" dx1="0.0" dx2="0.0" dy="-1680.0"/>
+          <Connection Destination="App2_StripperTempandStripperLevelandProdRate.INITO" Source="INITO_0_0.EO2" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="App2_StripperTempandStripperLevelandProdRate.IND" Source="IND_0_0.EO2" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="E_MERGE_5_0_0.EI2" Source="App2_StripperTempandStripperLevelandProdRate.CNF" dx1="0.0" dx2="0.0" dy="-2020.0"/>
+          <Connection Destination="Server_ALL_NEW.REQ" Source="E_CYCLE_2_0_0.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="INITO_0_0.EI" Source="Server_ALL_NEW.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="IND_0_0.EI" Source="Server_ALL_NEW.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="Server_ALL_NEW.INIT" Source="START.COLD" dx1="1085.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="Server_ALL_NEW.INIT" Source="START.WARM" dx1="965.0" dx2="0.0" dy="0.0"/>
+        </EventConnections>
+        <DataConnections>
+          <Connection Destination="E_CYCLE_2_0_0.DT" Source="TIME2TIME_2_0_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="Server_ALL_NEW.XMV4_App1" Source="App1_ReactorPressureandReactorTemp_0.XMV4" dx1="0.0" dx2="0.0" dy="-2560.0"/>
+          <Connection Destination="Server_ALL_NEW.XMV10_App1" Source="App1_ReactorPressureandReactorTemp_0.XMV10" dx1="0.0" dx2="-150.0" dy="-3070.0"/>
+          <Connection Destination="Server_ALL_NEW.XMV9_App2" Source="App2_StripperTempandStripperLevelandProdRate.XMV9" dx1="0.0" dx2="-240.0" dy="-4230.0"/>
+          <Connection Destination="Server_ALL_NEW.XMV7_App2" Source="App2_StripperTempandStripperLevelandProdRate.XMV7" dx1="0.0" dx2="-330.0" dy="-4250.0"/>
+          <Connection Destination="Server_ALL_NEW.XMV8_App2" Source="App2_StripperTempandStripperLevelandProdRate.XMV8" dx1="0.0" dx2="-380.0" dy="-4470.0"/>
+          <Connection Destination="Server_ALL_NEW.XMV11_App3" Source="App3_SeparatorTempandSeparatorLevel_0_0_0.XMV11" dx1="0.0" dx2="-420.0" dy="-5190.0"/>
+          <Connection Destination="Server_ALL_NEW.XMV1_App4" Source="App4_ReactorLevel_1_0_0.XMV1" dx1="1280.0" dx2="-520.0" dy="-5850.0"/>
+          <Connection Destination="Server_ALL_NEW.XMV2_App4" Source="App4_ReactorLevel_1_0_0.XMV2" dx1="1460.0" dx2="-600.0" dy="-5950.0"/>
+          <Connection Destination="Server_ALL_NEW.XMV3_App5" Source="App5_yAandyB_1_0_0.XMV3" dx1="3210.0" dx2="-670.0" dy="-6550.0"/>
+          <Connection Destination="Server_ALL_NEW.XMV6_App5" Source="App5_yAandyB_1_0_0.XMV6" dx1="3360.0" dx2="-760.0" dy="-6320.0"/>
+          <Connection Destination="App1_ReactorPressureandReactorTemp_0.XMEAS7" Source="Server_ALL_NEW.XMEAS7_App1" dx1="80.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="App1_ReactorPressureandReactorTemp_0.XMEAS9" Source="Server_ALL_NEW.XMEAS9_App1" dx1="230.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="App2_StripperTempandStripperLevelandProdRate.XMEAS18" Source="Server_ALL_NEW.XMEAS18_App2" dx1="370.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="App2_StripperTempandStripperLevelandProdRate.XMEAS15" Source="Server_ALL_NEW.XMEAS15_App2" dx1="470.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="App3_SeparatorTempandSeparatorLevel_0_0_0.XMEAS11" Source="Server_ALL_NEW.XMEAS11_App3" dx1="600.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="App3_SeparatorTempandSeparatorLevel_0_0_0.XMEAS12" Source="Server_ALL_NEW.XMEAS12_App3" dx1="690.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="App4_ReactorLevel_1_0_0.XMEAS8" Source="Server_ALL_NEW.XMEAS8_App4" dx1="740.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="App4_ReactorLevel_1_0_0.REAL4" Source="Server_ALL_NEW.REAL4_App4" dx1="810.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="App5_yAandyB_1_0_0.XMEAS29" Source="Server_ALL_NEW.XMEAS29_App5" dx1="920.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="App5_yAandyB_1_0_0.XMEAS30" Source="Server_ALL_NEW.XMEAS30_App5" dx1="0.0" dx2="0.0" dy="0.0"/>
+        </DataConnections>
+      </FBNetwork>
+    </Resource>
+  </Device>
+  <Mapping From="temexdmod4.IND_0_0" To="FORTE_PC.EMB_RES.IND_0_0"/>
+  <Mapping From="temexdmod4.TIME2TIME_2_0_0" To="FORTE_PC.EMB_RES.TIME2TIME_2_0_0"/>
+  <Mapping From="temexdmod4.E_CYCLE_2_0_0" To="FORTE_PC.EMB_RES.E_CYCLE_2_0_0"/>
+  <Mapping From="temexdmod4.E_MERGE_5_0_0" To="FORTE_PC.EMB_RES.E_MERGE_5_0_0"/>
+  <Mapping From="temexdmod4.INITO_0_0" To="FORTE_PC.EMB_RES.INITO_0_0"/>
+  <Mapping From="temexdmod4.App3_SeparatorTempandSeparatorLevel_0_0_0" To="FORTE_PC.EMB_RES.App3_SeparatorTempandSeparatorLevel_0_0_0"/>
+  <Mapping From="temexdmod4.App4_ReactorLevel_1_0_0" To="FORTE_PC.EMB_RES.App4_ReactorLevel_1_0_0"/>
+  <Mapping From="temexdmod4.App5_yAandyB_1_0_0" To="FORTE_PC.EMB_RES.App5_yAandyB_1_0_0"/>
+  <Mapping From="temexdmod4.App1_ReactorPressureandReactorTemp_0" To="FORTE_PC.EMB_RES.App1_ReactorPressureandReactorTemp_0"/>
+  <Mapping From="temexdmod4.App2_StripperTempandStripperLevelandProdRate" To="FORTE_PC.EMB_RES.App2_StripperTempandStripperLevelandProdRate"/>
+  <Mapping From="temexdmod4.Server_ALL_NEW" To="FORTE_PC.EMB_RES.Server_ALL_NEW"/>
+  <Segment Name="Ethernet" Type="Ethernet" dx1="1500.0" x="1580.0" y="970.0"/>
+  <Link CommResource="FORTE_PC" Comment="" SegmentName="Ethernet"/>
+</System>

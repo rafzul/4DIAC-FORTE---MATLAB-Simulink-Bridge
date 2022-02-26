@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE FBType SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<FBType Comment="Composite Function Block Type" Name="Init_Condition">
+  <Identification Description="InitEvent nya disambungin ke cold/warm aja ya&#13;&#10;SubsequentEvent nya disambungin ke event yg seharusnya " Standard="61499-2"/>
+  <VersionInfo Author="4DIAC-IDE" Date="2018-07-28" Organization="4DIAC-Consortium" Version="0.0"/>
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="InitEvent" Type="Event">
+        <With Var="InitialCondition"/>
+      </Event>
+      <Event Name="SubsequentEvent" Type="Event">
+        <With Var="SubsequentInput"/>
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Comment="Execution Confirmation" Name="CNF" Type="Event">
+        <With Var="OUT"/>
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="InitialCondition" Type="LREAL"/>
+      <VarDeclaration Name="SubsequentInput" Type="LREAL"/>
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="OUT" Type="LREAL"/>
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB Name="E_CTU" Type="E_CTU" x="4080.0" y="480.0">
+      <Parameter Name="PV" Value="UINT#1"/>
+    </FB>
+    <FB Name="BOOL2BOOL" Type="BOOL2BOOL" x="1920.0" y="-120.0">
+      <Parameter Name="IN" Value="true"/>
+    </FB>
+    <FB Name="BOOL2BOOL_1" Type="BOOL2BOOL" x="3240.0" y="-120.0"/>
+    <FB Name="E_R_TRIG" Type="E_R_TRIG" x="2640.0" y="-120.0"/>
+    <FB Name="F_SEL" Type="F_SEL" x="5160.0" y="840.0"/>
+    <DataConnections>
+      <Connection Destination="F_SEL.G" Source="E_CTU.Q" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_SEL.IN1" Source="InitialCondition" dx1="415.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_SEL.IN0" Source="SubsequentInput" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="OUT" Source="F_SEL.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_R_TRIG.QI" Source="BOOL2BOOL.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+    </DataConnections>
+    <EventConnections>
+      <Connection Destination="BOOL2BOOL.REQ" Source="InitEvent" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_R_TRIG.EI" Source="BOOL2BOOL.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="BOOL2BOOL_1.REQ" Source="E_R_TRIG.EO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_CTU.CU" Source="BOOL2BOOL_1.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_SEL.REQ" Source="E_CTU.CUO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="F_SEL.REQ" Source="E_CTU.RO" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="E_CTU.R" Source="SubsequentEvent" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Destination="CNF" Source="F_SEL.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+    </EventConnections>
+  </FBNetwork>
+</FBType>

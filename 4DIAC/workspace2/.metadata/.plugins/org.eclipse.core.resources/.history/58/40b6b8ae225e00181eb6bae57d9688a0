@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE System SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<System Name="ClientTest_2">
+  <Application Name="ClientTestApp">
+    <SubAppNetwork>
+      <FB Comment="" Name="CLIENTtoMATLAB" Type="CLIENT_1" x="3280.0" y="1480.0">
+        <Parameter Name="QI" Value="true"/>
+        <Parameter Name="ID" Value="127.0.0.1:61499"/>
+      </FB>
+      <FB Name="INT2INT" Type="INT2INT" x="1920.0" y="1680.0"/>
+      <FB Name="OUT_ANY" Type="OUT_ANY" x="5280.0" y="1440.0">
+        <Parameter Name="QI" Value="1"/>
+        <Parameter Name="W" Value="20"/>
+        <Parameter Name="TYPE" Value="INT"/>
+        <Parameter Name="IVAL" Value="0"/>
+      </FB>
+      <FB Name="INT2INT_1" Type="INT2INT" x="4440.0" y="1680.0"/>
+      <FB Name="IN_ANY" Type="IN_ANY" x="1080.0" y="1440.0"/>
+      <EventConnections>
+        <Connection dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="INT2INT.REQ" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="OUT_ANY.REQ" Source="INT2INT_1.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="INT2INT.REQ" Source="IN_ANY.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="INT2INT_1.REQ" Source="CLIENTtoMATLAB.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="CLIENTtoMATLAB.INIT" Source="IN_ANY.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="OUT_ANY.INIT" Source="CLIENTtoMATLAB.INITO" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="CLIENTtoMATLAB.REQ" Source="INT2INT.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="CLIENTtoMATLAB.REQ" Source="CLIENTtoMATLAB.INITO" dx1="0.0" dx2="-510.0" dy="-595.0"/>
+      </EventConnections>
+      <DataConnections>
+        <Connection Destination="INT2INT.IN" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="OUT_ANY.IN" Source="INT2INT_1.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="INT2INT.IN" Source="IN_ANY.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="INT2INT_1.IN" Source="CLIENTtoMATLAB.RD_1" dx1="0.0" dx2="0.0" dy="0.0"/>
+        <Connection Destination="CLIENTtoMATLAB.SD_1" Source="INT2INT.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      </DataConnections>
+    </SubAppNetwork>
+  </Application>
+  <Device Name="CLIENT OBJECT" Type="FORTE_PC" x="2855.0" y="1170.0">
+    <Attribute Name="Color" Value="138,178,242"/>
+    <Attribute Name="Profile" Value="HOLOBLOC"/>
+    <Parameter Name="MGR_ID" Value="&quot;127.0.0.1:61499&quot;"/>
+    <Resource Name="EMB_RES_1" Type="EMB_RES">
+      <FBNetwork>
+        <FB Comment="" Name="CLIENTtoMATLAB" Type="CLIENT_1" x="3120.0" y="2520.0">
+          <Parameter Name="QI" Value="true"/>
+          <Parameter Name="ID" Value="127.0.0.1:61499"/>
+        </FB>
+        <EventConnections>
+          <Connection Destination="CLIENTtoMATLAB.INIT" Source="START.COLD" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="CLIENTtoMATLAB.INIT" Source="START.WARM" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="CLIENTtoMATLAB.REQ" Source="CLIENTtoMATLAB.INITO" dx1="0.0" dx2="-510.0" dy="-595.0"/>
+        </EventConnections>
+      </FBNetwork>
+    </Resource>
+  </Device>
+  <Device Name="HMI" Type="FBRT_WINDOW" x="720.0" y="1200.0">
+    <Attribute Name="Color" Value="121,240,58"/>
+    <Attribute Name="Profile" Value="HOLOBLOC"/>
+    <Parameter Name="MGR_ID" Value="&quot;127.0.0.1:61505&quot;"/>
+    <Resource Name="PANEL_RESOURCE" Type="PANEL_RESOURCE">
+      <FBNetwork>
+        <FB Name="IN_ANY" Type="IN_ANY" x="1080.0" y="1440.0"/>
+        <FB Name="INT2INT" Type="INT2INT" x="1920.0" y="1680.0"/>
+        <FB Name="INT2INT_1" Type="INT2INT" x="4440.0" y="1680.0"/>
+        <FB Name="OUT_ANY" Type="OUT_ANY" x="5280.0" y="1440.0">
+          <Parameter Name="QI" Value="1"/>
+          <Parameter Name="W" Value="20"/>
+          <Parameter Name="TYPE" Value="INT"/>
+          <Parameter Name="IVAL" Value="0"/>
+        </FB>
+        <EventConnections>
+          <Connection Destination="INT2INT.REQ" Source="IN_ANY.IND" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="OUT_ANY.REQ" Source="INT2INT_1.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="IN_ANY.INIT" Source="START.COLD" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="IN_ANY.INIT" Source="START.WARM" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="OUT_ANY.INIT" Source="START.COLD" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="OUT_ANY.INIT" Source="START.WARM" dx1="0.0" dx2="0.0" dy="0.0"/>
+        </EventConnections>
+        <DataConnections>
+          <Connection Destination="INT2INT.IN" Source="IN_ANY.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+          <Connection Destination="OUT_ANY.IN" Source="INT2INT_1.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+        </DataConnections>
+      </FBNetwork>
+    </Resource>
+  </Device>
+  <Mapping From="ClientTestApp.CLIENTtoMATLAB" To="CLIENT OBJECT.EMB_RES_1.CLIENTtoMATLAB"/>
+  <Mapping From="ClientTestApp.INT2INT" To="HMI.PANEL_RESOURCE.INT2INT"/>
+  <Mapping From="ClientTestApp.OUT_ANY" To="HMI.PANEL_RESOURCE.OUT_ANY"/>
+  <Mapping From="ClientTestApp.INT2INT_1" To="HMI.PANEL_RESOURCE.INT2INT_1"/>
+  <Mapping From="ClientTestApp.IN_ANY" To="HMI.PANEL_RESOURCE.IN_ANY"/>
+  <Segment Comment="" Name="Ethernet" Type="Ethernet" dx1="1500.0" x="3070.0" y="800.0"/>
+  <Link CommResource="CLIENT OBJECT" Comment="" SegmentName="Ethernet"/>
+  <Link CommResource="HMI" Comment="" SegmentName="Ethernet"/>
+</System>

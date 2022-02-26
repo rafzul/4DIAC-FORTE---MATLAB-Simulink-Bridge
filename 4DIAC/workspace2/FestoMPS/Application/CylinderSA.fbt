@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE FBType SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<FBType Comment="Basic Function Block Type" Name="CylinderSA">
+  <Identification Standard="61499-2"/>
+  <VersionInfo Author="4DIAC-IDE" Date="2014-08-21" Organization="4DIAC-Consortium" Version="0.0"/>
+  <CompilerInfo/>
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="INDsensor" Type="Event">
+        <With Var="Sensor_Ret"/>
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="CylinderCMD" Type="Event">
+        <With Var="Extend"/>
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Comment="Input event qualifier" Name="Sensor_Ret" Type="BOOL"/>
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Comment="Output event qualifier" Name="Extend" Type="BOOL"/>
+    </OutputVars>
+    <Sockets>
+      <AdapterDeclaration Name="Cylinder" Type="ACylinder"/>
+    </Sockets>
+    <Plugs>
+      <AdapterDeclaration Comment="" Name="Timer" Type="ATimeOut"/>
+    </Plugs>
+  </InterfaceList>
+  <BasicFB>
+    <ECC>
+      <ECState Comment="Initial State" Name="START" x="2280.0" y="2185.0"/>
+      <ECState Comment="" Name="Retract" x="2090.0" y="1045.0">
+        <ECAction Algorithm="RetractAlg" Output="CylinderCMD"/>
+        <ECAction Algorithm="WaitAlg" Output="Timer.START"/>
+      </ECState>
+      <ECState Comment="" Name="Retracted" x="1140.0" y="1615.0">
+        <ECAction Output="Timer.STOP"/>
+        <ECAction Output="Cylinder.Retracted"/>
+      </ECState>
+      <ECState Comment="" Name="Extend" x="2375.0" y="3515.0">
+        <ECAction Algorithm="ExtendAlg" Output="CylinderCMD"/>
+        <ECAction Algorithm="WaitAlg" Output="Timer.START"/>
+      </ECState>
+      <ECState Comment="" Name="Timer" x="1710.0" y="2945.0">
+        <ECAction Output="Timer.STOP"/>
+        <ECAction Algorithm="TrackAlg" Output="Timer.START"/>
+      </ECState>
+      <ECState Name="ExtendFail" x="3040.0" y="2565.0">
+        <ECAction Output="Timer.STOP"/>
+        <ECAction Output="Cylinder.ExtendFail"/>
+      </ECState>
+      <ECState Name="RetractFail" x="2565.0" y="1615.0">
+        <ECAction Output="Timer.STOP"/>
+        <ECAction Output="Cylinder.RetractFail"/>
+      </ECState>
+      <ECState Name="Extended" x="1520.0" y="2565.0">
+        <ECAction Output="Timer.STOP"/>
+        <ECAction Output="Cylinder.Extended"/>
+      </ECState>
+      <ECTransition Comment="" Condition="Cylinder.Retract" Destination="Retract" Source="START" x="-255.0" y="1640.0"/>
+      <ECTransition Comment="" Condition="Cylinder.Extend" Destination="Extend" Source="START" x="30.0" y="2695.0"/>
+      <ECTransition Comment="" Condition="Timer.TimeOut" Destination="Extended" Source="Timer" x="1685.0" y="2860.0"/>
+      <ECTransition Comment="" Condition="Timer.TimeOut" Destination="ExtendFail" Source="Extend" x="3250.0" y="3115.0"/>
+      <ECTransition Comment="" Condition="(NOT Sensor_Ret)" Destination="Timer" Source="Extend" x="2000.0" y="3310.0"/>
+      <ECTransition Comment="" Condition="1" Destination="START" Source="RetractFail" x="2770.0" y="1960.0"/>
+      <ECTransition Comment="" Condition="1" Destination="START" Source="Retracted" x="1375.0" y="1895.0"/>
+      <ECTransition Comment="" Condition="1" Destination="START" Source="Extended" x="1930.0" y="2500.0"/>
+      <ECTransition Comment="" Condition="1" Destination="START" Source="ExtendFail" x="3040.0" y="2355.0"/>
+      <ECTransition Comment="" Condition="Timer.TimeOut" Destination="RetractFail" Source="Retract" x="2415.0" y="1410.0"/>
+      <ECTransition Comment="" Condition="Sensor_Ret" Destination="Retracted" Source="Retract" x="1720.0" y="1425.0"/>
+    </ECC>
+    <Algorithm Comment="" Name="RetractAlg">
+      <ST Text="Extend:= FALSE;"/>
+    </Algorithm>
+    <Algorithm Comment="" Name="ExtendAlg">
+      <ST Text="Extend := TRUE;"/>
+    </Algorithm>
+    <Algorithm Comment="" Name="TrackAlg">
+      <ST Text="Timer.DT := T#350ms;"/>
+    </Algorithm>
+    <Algorithm Comment="Time delay for sensor read" Name="WaitAlg">
+      <ST Text="Timer.DT := T#5s;"/>
+    </Algorithm>
+  </BasicFB>
+</FBType>

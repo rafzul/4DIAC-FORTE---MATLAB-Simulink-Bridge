@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;temexdmod/OSCAT/Custom/FB_CTRL_PI.fbt&apos; to &apos;FB_CTRL_PI2.fbt&apos;" description="Rename resource &apos;FB_CTRL_PI.fbt&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="OSCAT/Custom/FB_CTRL_PI.fbt" name="FB_CTRL_PI2.fbt" stamp="1538761198815" updateReferences="true"/>
+</session>

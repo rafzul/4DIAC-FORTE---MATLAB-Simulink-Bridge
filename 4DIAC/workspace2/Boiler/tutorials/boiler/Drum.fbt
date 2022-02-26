@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE FBType SYSTEM "http://www.holobloc.com/xml/LibraryElement.dtd">
+<FBType Comment="Composite Function Block Type" Name="Drum">
+  <Identification Standard="61499-2"/>
+  <VersionInfo Author="4DIAC-IDE" Date="2011-12-09" Organization="4DIAC-Consortium" Version="0.0"/>
+  <InterfaceList>
+    <EventInputs>
+      <Event Comment="Normal Execution Request" Name="REQ" Type="Event">
+        <With Var="rFlowIn"/>
+        <With Var="rFlowOut"/>
+        <With Var="rMaxFillLevel"/>
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Comment="Execution Confirmation" Name="CNF" Type="Event">
+        <With Var="Measurement"/>
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Comment="Input flow" Name="rFlowIn" Type="LREAL"/>
+      <VarDeclaration Comment="Output flow" Name="rFlowOut" Type="LREAL"/>
+      <VarDeclaration Comment="Maximum fill level" Name="rMaxFillLevel" Type="LREAL"/>
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Comment="Actual fill level" Name="Measurement" Type="LREAL"/>
+    </OutputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB Name="FeedwaterEstimator" Type="FeedwaterEstimator" x="1235.0" y="190.0"/>
+    <FB Name="FillLevel" Type="FillLevel" x="7125.0" y="190.0"/>
+    <FB Name="F_LIMIT" Type="F_LIMIT" x="5225.0" y="285.0">
+      <Parameter Name="MN" Value="LREAL#0"/>
+    </FB>
+    <FB Name="F_SUB" Type="F_SUB" x="2470.0" y="95.0"/>
+    <FB Name="LREAL2LREAL" Type="LREAL2LREAL" x="3040.0" y="95.0"/>
+    <FB Name="F_MUL" Type="F_MUL" x="2185.0" y="665.0">
+      <Parameter Name="IN2" Value="LREAL#1.2"/>
+    </FB>
+    <FB Name="LREAL2LREAL_0" Type="LREAL2LREAL" x="3040.0" y="665.0"/>
+    <FB Name="F_ADD" Type="F_ADD" x="3895.0" y="-95.0"/>
+    <FB Name="LREAL2LREAL_1" Type="LREAL2LREAL" x="4465.0" y="-95.0"/>
+    <FB Name="LREAL2LREAL_2" Type="LREAL2LREAL" x="6270.0" y="190.0"/>
+    <DataConnections>
+      <Connection Comment="" Destination="FeedwaterEstimator.rSteamFlow" Source="rFlowOut" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="Measurement" Source="FillLevel.Measurement" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="LREAL2LREAL.IN" Source="F_SUB.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="F_LIMIT.MX" Source="LREAL2LREAL_0.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="LREAL2LREAL_0.IN" Source="F_MUL.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="F_MUL.IN1" Source="rMaxFillLevel" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="F_SUB.IN1" Source="rFlowIn" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="F_SUB.IN2" Source="FeedwaterEstimator.FeedwaterEst" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="F_ADD.IN2" Source="LREAL2LREAL.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="FillLevel.FillLevel" Source="F_LIMIT.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="LREAL2LREAL_1.IN" Source="F_ADD.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="F_LIMIT.IN" Source="LREAL2LREAL_1.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="LREAL2LREAL_2.IN" Source="F_LIMIT.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="F_ADD.IN1" Source="LREAL2LREAL_2.OUT" dx1="0.0" dx2="0.0" dy="0.0"/>
+    </DataConnections>
+    <EventConnections>
+      <Connection Comment="" Destination="FeedwaterEstimator.REQ" Source="REQ" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="CNF" Source="FillLevel.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="LREAL2LREAL.REQ" Source="F_SUB.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="LREAL2LREAL_0.REQ" Source="F_MUL.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="F_SUB.REQ" Source="FeedwaterEstimator.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="F_ADD.REQ" Source="LREAL2LREAL.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="F_LIMIT.REQ" Source="LREAL2LREAL_0.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="LREAL2LREAL_1.REQ" Source="F_ADD.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="F_MUL.REQ" Source="LREAL2LREAL_1.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="LREAL2LREAL_2.REQ" Source="F_LIMIT.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+      <Connection Comment="" Destination="FillLevel.REQ" Source="LREAL2LREAL_2.CNF" dx1="0.0" dx2="0.0" dy="0.0"/>
+    </EventConnections>
+  </FBNetwork>
+</FBType>
