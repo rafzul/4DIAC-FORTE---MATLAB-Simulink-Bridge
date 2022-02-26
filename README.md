@@ -1,2 +1,2 @@
 # 4DIAC-FORTE---MATLAB-Simulink-Bridge
-This project was part of my undergraduate thesis research. It enables the connection between a TCP/IP Client Blocks in Simulink to TCP/IP Server Blocks in Eclipse 4DIAC Forte. 
+This project was part of my undergraduate thesis research. It enables the connection between a TCP/IP Client Blocks in Simulink to TCP/IP Server Blocks in Eclipse 4DIAC Forte to enable connection between Tenesse Eastman Process model in MATLAB Simulink and the process control system in Eclipse 4DIAC. Projects was also used in further works regarding a process simulation of cement factory for Asosiasi Semen Indonesia
